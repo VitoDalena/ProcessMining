@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\ProcessMining\CNMining;
 
-class ExampleController extends Controller
+class CNMiningController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -15,4 +16,9 @@ class ExampleController extends Controller
     }
 
     //
+    public function process(){
+       //$algorithm = new CNMining();
+
+
+    }
 }

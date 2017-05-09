@@ -12,5 +12,12 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    // Show the view of application
+    // located in resources/views
+    return view('home');
 });
+
+// Manage the upload of the file
+$app->post('/upload', "UploadController@upload");
+
+//$app->get('/cnmining', 'CNMiningController@process');
