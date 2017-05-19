@@ -1,136 +1,114 @@
-<project name="GettingStarted" default="Compile Sources" basedir=".">
-		<!-- set global properties for this build -->
-		<property environment="env" />
-		<property name="src" location="src" />
-		<property name="build" location="bindist" />
-		<property name="doc" location="doc" />
-		<property name="lib" location="lib" />
-		<property name="dist" location="dist" />
-		<property name="release" location="latestrelease" />
-		<property name="version" value="6.1.${env.BUILD_NUMBER}" />
-		<property name="project" value="GettingStarted" />
-
-		<!-- Set the os to win32, win64, lin32, lin64, mac, or all -->
-		<property name="os" value="all" />
-
-		<!-- Compilation macro
-		 This Macro compiles the sources is one ${src}-... folder.
-	 The sources are compiled into the ${build} folder.
-		 -->
-
-     <path id="classpath">
- 			<pathelement path="${build}" />
- 			<pathelement path="${java.class.path}" />
- 			<fileset dir=".">
- 				<include name="lib/**/*.jar" />
- 				<include name="stdlib/**/*.jar" />
- 				<include name="packagelib/**/*.jar" />
- 			</fileset>
-     </path>
-
-		<macrodef name="compile">
-			<sequential>
-				<!-- Compile the java code from ${src}-@{module} into ${build} -->
-				<javac srcdir="${src}" classpathref="classpath" destdir="${build}" nowarn="false" verbose="no" debug="true" debuglevel="lines,vars,source" deprecation="yes" source="1.6" target="1.6">
-					<!-- Check for unsafe operations -->
-					<compilerarg value="-Xlint:unchecked" />
-				</javac>
-			</sequential>
-		</macrodef>
-
-		<!-- Jar macro
-
-		This Macro builds a jar file from compiled sources in the ${dist} folder.
-		-->
-		<macrodef name="makejar">
-			<sequential>
-				<!-- Create the distribution directory -->
-				<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
-				<jar jarfile="${dist}/${project}-${DSTAMP}.jar">
-					<fileset dir="${build}">
-						<include name="**" />
-						<exclude name="test**" />
-					</fileset>
-					<fileset dir="${src}">
-						<include name="**" />
-						<exclude name="test**" />
-					</fileset>
-					<fileset dir="${doc}">
-						<include name="**" />
-						<exclude name="test**" />
-					</fileset>
-					<manifest>
-						<attribute name="Built-By" value="${user.name}" />
-						<attribute name="Specification-Title" value="${project}-@{module}" />
-						<attribute name="Specification-Version" value="${version}" />
-						<attribute name="Specification-Vendor" value="www.processmining.org" />
-						<attribute name="Implementation-Title" value="${project}" />
-						<attribute name="Implementation-Version" value="${version} ${TODAY}" />
-						<attribute name="Implementation-Vendor" value="www.processmining.org" />
-						<attribute name="Sealed" value="false" />
-					</manifest>
-				</jar>
-				<copy file="${dist}/${project}-${DSTAMP}.jar" tofile="${dist}/${project}.jar" overwrite="true" />
-			</sequential>
-		</macrodef>
-
-
-		<!-- clean all binaries and distributions -->
-		<target name="Clean build and dist folders" description="clean up" id="1">
-			<!-- Delete the ${build} and ${dist} directory trees -->
-			<delete dir="${build}" />
-			<delete dir="${dist}" />
-		</target>
-
-
-		<!-- create the project's javadoc from all existing sources. Note that only org.processmining.** is included -->
-		<target name="Create Javadoc" description="Generated javadoc">
-			<javadoc packagenames="**" classpathref="classpath" useexternalfile="true" defaultexcludes="yes" destdir="${doc}" author="true" version="true" verbose="false" use="true" windowtitle="${project}">
-				<fileset dir=".">
-					<include name="src/**" />
-					<exclude name="src/test/**" />
-					<exclude name="**/*.jj" />
-					<exclude name="**/*.jjt" />
-				</fileset>
-			</javadoc>
-		</target>
-
-		<!-- export distribution archive -->
-		<target name="Create downloadable archive" depends="Compile Sources">
-			<echo message="Building zip file packaging this project" />
-			<sequential>
-				<zip destfile="${release}/${project}-${version}-${os}.zip">
-					<zipfileset dir="${lib}" prefix="lib">
-						<include name="**" />
-					</zipfileset>
-					<zipfileset dir="${dist}" prefix="">
-						<include name="${project}.jar" />
-					</zipfileset>
-				</zip>
-				<copy file="${dist}/${project}.jar" tofile="${release}/${project}.jar" overwrite="true" />
-				<delete includeEmptyDirs="true" quiet="true">
-			    	<fileset dir="${release}/lib" includes="**/*"/>
-			  	</delete>
-				<mkdir dir="${release}/lib"/>
-				<copy todir="${release}/lib" overwrite="true">
-					<fileset dir="${lib}"/>
-				</copy>
-			</sequential>
-		</target>
-
-		<target name="Compile Sources">
-			<!-- Create the build directory structure used by compile -->
-			<!-- Create the time stamp -->
-			<tstamp />
-			<mkdir dir="${build}" />
-			<mkdir dir="${dist}" />
-			<echo message="Compiling the sources" />
-			<compile />
-			<echo message="Making jar" />
-			<makejar />
-		</target>
-
-
-	</project>
-
-		
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="GettingStarted">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="GettingStarted.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="tests/bin-test"/>
+        <pathelement location="stdlib/axis.jar"/>
+        <pathelement location="stdlib/bsh-2.0b4.jar"/>
+        <pathelement location="stdlib/collections-generic-4.01.jar"/>
+        <pathelement location="stdlib/colt.jar"/>
+        <pathelement location="stdlib/commons-compress-1.0.jar"/>
+        <pathelement location="stdlib/FilterableSortableTablePanel.jar"/>
+        <pathelement location="stdlib/flanagan.jar"/>
+        <pathelement location="stdlib/jargs.jar"/>
+        <pathelement location="stdlib/jcommon-1.0.16.jar"/>
+        <pathelement location="stdlib/jlfgr-1_0.jar"/>
+        <pathelement location="stdlib/jung-algorithms-2.0.jar"/>
+        <pathelement location="stdlib/jung-api-2.0.jar"/>
+        <pathelement location="stdlib/jung-graph-impl-2.0.jar"/>
+        <pathelement location="stdlib/jung-io-2.0.jar"/>
+        <pathelement location="stdlib/jung-visualization-2.0.jar"/>
+        <pathelement location="stdlib/simmetrics.jar"/>
+        <pathelement location="stdlib/slickerbox1.0rc1.jar"/>
+        <pathelement location="stdlib/Spex.jar"/>
+        <pathelement location="stdlib/TableLayout-20050920.jar"/>
+        <pathelement location="stdlib/Uitopia.jar"/>
+        <pathelement location="stdlib/UITopiaResources.jar"/>
+        <pathelement location="stdlib/weka.jar"/>
+        <pathelement location="stdlib/xpp3-1.1.4c.jar"/>
+        <pathelement location="stdlib/ProM-Contexts.jar"/>
+        <pathelement location="stdlib/ProM-Framework.jar"/>
+        <pathelement location="stdlib/ProM-Models.jar"/>
+        <pathelement location="stdlib/xstream-1.3.1.jar"/>
+        <pathelement location="stdlib/jgraph.jar"/>
+        <pathelement location="stdlib/ProM-Plugins.jar"/>
+        <pathelement location="tests/libs-external/lib-cobertura/asm-3.0.jar"/>
+        <pathelement location="tests/libs-external/lib-cobertura/asm-tree-3.0.jar"/>
+        <pathelement location="tests/libs-external/lib-cobertura/jakarta-oro-2.0.8.jar"/>
+        <pathelement location="tests/libs-external/lib-cobertura/log4j-1.2.9.jar"/>
+        <pathelement location="tests/libs-external/cobertura.jar"/>
+        <pathelement location="tests/libs-external/junit-4.8.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <mkdir dir="tests/bin-test"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src-test">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="tests/bin-test">
+            <fileset dir="tests/src-test">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+        <delete dir="tests/bin-test"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <src path="src-test"/>
+            <classpath refid="GettingStarted.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="tests/bin-test" includeantruntime="false" source="${source}" target="${target}">
+            <src path="tests/src-test"/>
+            <classpath refid="GettingStarted.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="ProM Package Manager (GettingStarted)">
+        <java classname="org.processmining.contexts.uitopia.packagemanager.PMFrame" failonerror="true" fork="yes">
+            <jvmarg line="-ea -Xmx1G -Djava.library.path=.//lib;.//stdlib"/>
+            <classpath refid="GettingStarted.classpath"/>
+        </java>
+    </target>
+    <target name="ProM with UITopia (GettingStarted)">
+        <java classname="org.processmining.contexts.uitopia.UI" failonerror="true" fork="yes">
+            <jvmarg line="-ea -Xmx1G -Djava.library.path=.//lib;.//stdlib"/>
+            <classpath refid="GettingStarted.classpath"/>
+        </java>
+    </target>
+</project>
