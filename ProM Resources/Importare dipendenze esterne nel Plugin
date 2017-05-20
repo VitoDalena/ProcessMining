@@ -1,0 +1,4 @@
+
+1. Copiare il jar nella cartella lib/
+2. eclipse -> expora risorse -> tasto destro su Referenced libraries
+3. Build Path -> Configure Path -> Add Jars...
