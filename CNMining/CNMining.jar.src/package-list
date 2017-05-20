@@ -1,0 +1,8 @@
+org.processmining.plugins.log
+org.processmining.plugins.log.exporting
+org.processmining.plugins.log.logclassifiers
+org.processmining.plugins.log.logfilters
+org.processmining.plugins.log.logfilters.impl
+org.processmining.plugins.log.logfilters.ui
+org.processmining.plugins.log.reverse
+org.processmining.plugins.loginsertstart

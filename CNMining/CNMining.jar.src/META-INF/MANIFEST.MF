@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Class-Path: .
+Main-Class: org.processmining.plugins.core.Main
+
+Name: org/apache/lucene
+Specification-Title: Lucene Search Engine
+Implementation-Vemdpr: Lucene
+Implementation-Title: org.apache.lucene
+Implementation-Version: build 2004-11-29 15:13:05
+Specification-Version: 1.4.3
+Specification-Vendor: Lucene
+
+Name: cern/colt/
+Specification-Title: Colt Distribution
+Package-Title: cern.colt
+Implementation-Version: 1.0.3.165 (Thu Nov 28 11:31:47 CET 2002)
+Specification-Vendor: The Colt Project
+Implementation-Vendor: wolfgang.hoschek@cern.ch or http://nicewww.cern
+ .ch/~hoschek/colt/index.htm
+
