@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 /*
  * Questa classe modella un vincolo di precedenza 
+ * 
+ * DOVREBBE SERVIRE A SOLO SCOPO DI PARSING 
  */
 
 public class Constraint
