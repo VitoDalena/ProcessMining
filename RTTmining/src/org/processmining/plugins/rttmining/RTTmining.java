@@ -26,6 +26,19 @@ public class RTTmining {
         email = ""
     )
     public static String Process(PluginContext context) {
+		
+		Settings s = new Settings();
+	    
+	    s.setConstraintsEnabled(false);
+	    s.setConstr_file_name("");
+	    s.setSigmaLogNoise(0.0D);
+	    s.setLogName("log");
+	    s.setFallFactor(0.0D);
+	    s.setRelativeToBest(0.0D);
+	    
+	    context.log(s.getLogName());
+	    
+		
 		return "Hello RTTmining";
     }
 }
