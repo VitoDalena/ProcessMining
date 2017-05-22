@@ -1,7 +1,8 @@
 package org.processmining.plugins.rttmining;
 
+import org.deckfour.xes.model.XLog;
+import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 
 public class RTTmining {
@@ -25,20 +26,23 @@ public class RTTmining {
         author = "Riccardi, Tagliente, Tota", 
         email = ""
     )
-    public static String Process(PluginContext context) {
+	/*
+	 * Consiste nel Main del plugin stesso, 
+	 * l'esecutore di tutto e il gestore di input ed output
+	 */
+    public static String Process(UIPluginContext context, XLog log) throws Exception {
 		
-		Settings s = new Settings();
-	    
-	    s.setConstraintsEnabled(false);
-	    s.setConstr_file_name("");
-	    s.setSigmaLogNoise(0.0D);
-	    s.setLogName("log");
-	    s.setFallFactor(0.0D);
-	    s.setRelativeToBest(0.0D);
-	    
-	    context.log(s.getLogName());
-	    
+		// determina le impostazioni del plugin
+		SettingsView settingsView = new SettingsView(context, log);
+		Settings settings = settingsView.show();
+		// Se ho dato il consenso al caricamento dei vincoli
+		if( settings.isConstraintsEnabled() )
+		{
+			// procedo a eseguire il parsing
+			// essendo questi in formato xml
+			
+		}
 		
-		return "Hello RTTmining";
+		return settings.getLogName();
     }
 }
