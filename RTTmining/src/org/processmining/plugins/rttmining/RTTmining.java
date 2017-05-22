@@ -1,5 +1,7 @@
 package org.processmining.plugins.rttmining;
 
+import java.util.Iterator;
+
 import javax.swing.JOptionPane;
 
 import org.deckfour.xes.model.XLog;
@@ -35,9 +37,9 @@ public class RTTmining {
         help = "Produces the string: 'Hello world'"
     )
     @UITopiaVariant(
-        affiliation = "degree project", 
+        affiliation = "Process Mining with CSP", 
         author = "Riccardi, Tagliente, Tota", 
-        email = ""
+        email = "??"
     )
 	/*
 	 * Consiste nel Main del plugin stesso, 
@@ -68,14 +70,22 @@ public class RTTmining {
 		caricaVincoli();
 		
 		// Prepara l'ambiente di lavoro		
-		cnmining.aggiungiAttivitaFittizia(log);
+		LogUnfolder.aggiungiAttivitaFittizia(log);
 		// rimozione dei cicli
-	    Object[] unfoldingResult = LogUnfolder.unfold(log);
-		
+	    LogUnfolderResult unfoldResult = LogUnfolder.unfold(log);
+		// l'operazione di unfold mi produce 4 output
+	    cnmining.creaVincoliUnfolded(vincoli, unfoldResult);
+	    
+	    /*
+	    if (settings.areConstraintsAvailable()) {
+	      cnm.creaVincoliUnfolded(vincoli_positivi, vincoli_negati, lista_forbidden, vincoli_positivi_unfolded, 
+	        vincoli_negati_unfolded, lista_forbidden_unfolded, map);
+	    }
+	    */
+	    
 		///
 		
-		return String.valueOf(unfoldingResult.length);
-		//return "Hello RTTMining";
+		return "Hello RTTMining";
 	}
 	
 	/*
@@ -101,16 +111,23 @@ public class RTTmining {
 		        		 vincoli.positivi.add(vincolo);
 		        	 else
 		        	 {
-		        		 /*
-		        		 Iterator<String> localIterator2;
-		                 for (Iterator<String> localIterator1 = vincolo.getBodyList().iterator(); localIterator1.hasNext(); localIterator2.hasNext())
-		                 {
-		                	 localIterator2 = vincolo.getHeadList().iterator(); 
-		                 }
-		                 vincoli.negati.add(vincolo);
-		                 */
+		        		 vincoli.negati.add(vincolo);
+		        		 
 		                 // TODO: riga 955 CNMining, controllare bene
-		        	 }
+		        		 
+		        		 // Questa implementazione è di mia interpretazione
+		        		 Iterator<String> headIterator, bodyIterator;
+		        		 headIterator = vincolo.getHeadList().iterator();
+		        		 bodyIterator = vincolo.getBodyList().iterator();
+		        		 
+		        		 // trova la testa e la coda
+		        		 while(headIterator.hasNext())
+		        			 headIterator.next();
+		        		 while(bodyIterator.hasNext())
+		        			 bodyIterator.next();
+		        		 
+		        		 vincoli.forbidden.add(new Forbidden(bodyIterator.toString(), headIterator.toString()));		        		 
+		        	 }		        		 		     
 		         }
 			}
 			else {

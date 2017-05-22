@@ -13,8 +13,6 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 
 import com.carrotsearch.hppc.ObjectArrayList;
-import com.carrotsearch.hppc.ObjectIntOpenHashMap;
-import com.carrotsearch.hppc.ObjectObjectOpenHashMap;
 
 /*
  * Questo algoritmo dovrebbe occuparsi della rimozione
@@ -22,7 +20,10 @@ import com.carrotsearch.hppc.ObjectObjectOpenHashMap;
  */
 
 public class LogUnfolder
-{
+{	
+	/*
+	 * Non ho capito cosa cavolo fa
+	 */	
 	public static void aggiungiAttivitaFittizia(XLog xlog)
 	{
 		XFactory factory = XFactoryRegistry.instance().currentDefault();
@@ -59,41 +60,40 @@ public class LogUnfolder
 			trace.add(event_last);
 		}
 	}
-  
-	public static Object[] unfold(XLog log) throws Exception
+	
+	/*
+	 * Dovrebbe snodare i cicli 
+	 */
+	public static LogUnfolderResult unfold(XLog log) throws Exception
 	{
-		long time = System.currentTimeMillis();
-    
-		ObjectIntOpenHashMap<String> map = new ObjectIntOpenHashMap<String>();
-    
+		LogUnfolderResult result = new LogUnfolderResult();
+		
+		long time = System.currentTimeMillis();        
 		int count = 0;
-    
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
-    
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
+		
 		for (int i = 0; i < log.size(); i++)
 		{
 			XTrace trace = log.get(i);
 			String traccia = trace.getAttributes().get("concept:name") + " # " + i;
-			if (!traccia_attivita.containsKey(traccia))
+			if (!result.traccia_attivita.containsKey(traccia))
 			{
 				ObjectArrayList<String> lista = new ObjectArrayList<String>();
 				lista.trimToSize();
-				traccia_attivita.put(traccia, lista);
+				result.traccia_attivita.put(traccia, lista);
 			}
 			for (XEvent activity : trace)
 			{
 				String nome_attivita = activity.getAttributes().get("concept:name") + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
-				if (traccia_attivita.get(traccia).contains(nome_attivita) == false)
+				if (result.traccia_attivita.get(traccia).contains(nome_attivita) == false)
 				{
-					traccia_attivita.get(traccia).add(nome_attivita);
+					result.traccia_attivita.get(traccia).add(nome_attivita);
 				}
 				else
 				{
 					int counter = -1;
-					for (int ii = traccia_attivita.get(traccia).size() - 1; ii >= 0; ii--)
+					for (int ii = result.traccia_attivita.get(traccia).size() - 1; ii >= 0; ii--)
 					{
-						String nome_attiv = traccia_attivita.get(traccia).get(ii);
+						String nome_attiv = result.traccia_attivita.get(traccia).get(ii);
             
 						String[] split = nome_attiv.split("#");
 						if (split[0].equals(nome_attivita.split("#")[0]))
@@ -103,29 +103,29 @@ public class LogUnfolder
 						}
 					}
 					nome_attivita = nome_attivita.split("#")[0] + "#" + String.format("%04d", new Object[] { Integer.valueOf(counter) });
-					traccia_attivita.get(traccia).add(nome_attivita);
+					result.traccia_attivita.get(traccia).add(nome_attivita);
 				}
-				if (!attivita_tracce.containsKey(nome_attivita))
+				if (!result.attivita_tracce.containsKey(nome_attivita))
 				{
 					ObjectArrayList<String> lista_tracce = new ObjectArrayList<String>();
           
 					lista_tracce.add(traccia);
-					attivita_tracce.put(nome_attivita, lista_tracce);
+					result.attivita_tracce.put(nome_attivita, lista_tracce);
 				}
 				else
 				{
-					attivita_tracce.get(nome_attivita).add(traccia);
+					result.attivita_tracce.get(nome_attivita).add(traccia);
 				}
 			}
 		}
-		Object[] keys = attivita_tracce.keys;
+		Object[] keys = result.attivita_tracce.keys;
     
-		boolean[] states = attivita_tracce.allocated;
+		boolean[] states = result.attivita_tracce.allocated;
 		for (int i = 0; i < states.length; i++) {
 			if (states[i] != false) {
-				if (!map.containsKey((String)keys[i]))
+				if (!result.map.containsKey((String)keys[i]))
 				{
-					map.put((String)keys[i], count);
+					result.map.put((String)keys[i], count);
 					count++;
 				}
 				else
@@ -136,6 +136,8 @@ public class LogUnfolder
 		}
 		time = System.currentTimeMillis() - time;
     
-		return new Object[] { map, attivita_tracce, traccia_attivita, Long.valueOf(time) };
+		result.time = Long.valueOf(time);
+		
+		return result;
 	}
 }
