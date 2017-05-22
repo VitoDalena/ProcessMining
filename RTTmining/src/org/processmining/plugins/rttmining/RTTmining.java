@@ -13,6 +13,8 @@ public class RTTmining {
 	
 	// Memorizza qui le configurazioni generali del plugin
 	public static Settings settings;
+	// Gestore dei vincoli
+	public static ConstraintsManager vincoli;
 	
 	/*
 	 * Queste notazioni specificano le informazioni di contesto
@@ -44,16 +46,16 @@ public class RTTmining {
 		SettingsView settingsView = new SettingsView(context, log);
 		settings = settingsView.show();
 		
-		// L'utente non ha annullato l'esecuzione del plugin
-		// prosegui con la definizione della variabili utili
-
-	    ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList<Forbidden>();	    
-	    ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList<Constraint>();	    
-	    ObjectArrayList<Constraint> vincoli_negati = new ObjectArrayList<Constraint>();
-	    
 	    System.out.println("sigma log noise " + settings.getSigmaLogNoise());
 	    System.out.println("delta fall factor  " + settings.getFallFactor());
 	    System.out.println("relative to best  " + settings.getRelativeToBest());
+	    
+	    // Inizializzo le variabili utili all'algoritmo
+	    // 1. Il gestore dei vincoli
+	    vincoli = new ConstraintsManager();
+	    // 2. Inizializza l'oggetto che si occupa di gestire
+	    // l'algoritmo di cnmining
+	    CNMining cnmining = new CNMining();
 	    
 		// Se ho dato il consenso al caricamento dei vincoli
 		if( settings.isConstraintsEnabled() )
@@ -68,24 +70,21 @@ public class RTTmining {
 		         }
 		         for (int i = 0; i < constraints.size(); i++)
 		         {
-		        	 /*
-		        	 Constraint constr = constraints.get(i);
-		        	 if (constr.isPositiveConstraint())
-		        	 {
-		        		 vincoli_positivi.add(constr);
-		        	 }
+		        	 Constraint vincolo = constraints.get(i);
+		        	 if (vincolo.isPositiveConstraint())
+		        		 vincoli.positivi.add(vincolo);
 		        	 else
 		        	 {
+		        		 /*
 		        		 Iterator<String> localIterator2;
 		        		 for (Iterator<String> localIterator1 = constr.getBodyList().iterator(); localIterator1.hasNext(); localIterator2.hasNext())
 		        		 {
 		        			 localIterator2 = constr.getHeadList().iterator(); 
-		        			 // TODO: ho rimosso la parte sui forbidde
-		        			 // riga 955
+		        			 // TODO: riferimenti alla riga 955
 		        		 }
 		        		 vincoli_negati.add(constr);
+		        		 */
 		        	 }
-		        	 */
 		         }
 			}
 			else {
@@ -93,6 +92,12 @@ public class RTTmining {
 				JOptionPane.showMessageDialog(null, "Invalid constraints file\nThe algoritm will now run without constraints...");		          
 			}			
 		}
+		
+		// Prepara l'ambiente di lavoro
+		
+		cnmining.aggiungiAttivitaFittizia(log);
+		
+		///7
 		
 		return settings.getLogName();
     }
