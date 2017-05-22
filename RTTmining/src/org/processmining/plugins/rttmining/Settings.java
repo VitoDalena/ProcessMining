@@ -29,7 +29,7 @@ public class Settings
   		this.sigma_log_noise = sigmaLogNoise;
   	}
   
-  	public String getConstr_file_name(){
+  	public String getConstraintsFilename(){
   		return this.constr_file_name;
   	}
   
@@ -57,7 +57,7 @@ public class Settings
   		return this.rtb;
   	}
   
-  	public void setConstr_file_name(String constr_file_name){
+  	public void setConstraintsFilename(String constr_file_name){
   		this.constr_file_name = constr_file_name;
   	}
 }

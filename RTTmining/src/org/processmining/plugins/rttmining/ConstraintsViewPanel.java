@@ -23,6 +23,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ConstraintsViewPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private boolean constraintsEnabled = false;
 	private String filePath = "";
 	
@@ -112,13 +116,8 @@ public class ConstraintsViewPanel extends JPanel {
 	
 	public boolean isConstraintsEnabled()
 	{
-		return this.constraintsEnabled;
+		return this.constraintsEnabled && filePath.equals("") == false;
  	}
-  
-	public void setConstraintsEnabled(boolean constraintsEnabled)
-	{
-		this.constraintsEnabled = constraintsEnabled;
-	}
   
 	public String getFilePath()
 	{

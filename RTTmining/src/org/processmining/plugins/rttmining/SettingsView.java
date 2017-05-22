@@ -46,7 +46,7 @@ public class SettingsView {
 	    viewContainer.add(pannelloVincoli);
 		
 	    // Crea lo slider per valorizzare la variabile value
-	    final NiceSlider slider = SlickerFactory.instance().createNiceIntegerSlider("Tau percentage", 0, 
+	    final NiceSlider slider = SlickerFactory.instance().createNiceIntegerSlider("SigmaLogNoise percentage", 0, 
 	    	      100, 5, NiceSlider.Orientation.HORIZONTAL);
 	    ChangeListener listener = new ChangeListener()
 	    {
@@ -62,7 +62,7 @@ public class SettingsView {
 	    listener.stateChanged(null); // invocalo una volta
 	    
 	    // delta
-	    final NiceSlider slider1 = SlickerFactory.instance().createNiceIntegerSlider("delta percentage", 0, 100, 
+	    final NiceSlider slider1 = SlickerFactory.instance().createNiceIntegerSlider("FallFactor percentage", 0, 100, 
 	      90, NiceSlider.Orientation.HORIZONTAL);
 	    ChangeListener listener1 = new ChangeListener()
 	    {
@@ -76,7 +76,7 @@ public class SettingsView {
 	    listener1.stateChanged(null);
 	    
 	    // RelativeToBest
-	    final NiceSlider slider2 = SlickerFactory.instance().createNiceIntegerSlider("tau_rtb percentage", 0, 
+	    final NiceSlider slider2 = SlickerFactory.instance().createNiceIntegerSlider("RelativeToBest percentage", 0, 
 	      100, 75, NiceSlider.Orientation.HORIZONTAL);
 	    ChangeListener listener2 = new ChangeListener()
 	    {
@@ -109,7 +109,7 @@ public class SettingsView {
 	    Settings s = new Settings();
 	    
 	    s.setConstraintsEnabled(pannelloVincoli.isConstraintsEnabled());
-	    s.setConstr_file_name(pannelloVincoli.getFilePath());
+	    s.setConstraintsFilename(pannelloVincoli.getFilePath());
 	    s.setSigmaLogNoise(SettingsView.value);
 	    s.setLogName(logName);
 	    s.setFallFactor(SettingsView.delta);
