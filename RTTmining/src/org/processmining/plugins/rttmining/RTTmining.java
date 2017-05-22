@@ -74,14 +74,10 @@ public class RTTmining {
 		// rimozione dei cicli
 	    LogUnfolderResult unfoldResult = LogUnfolder.unfold(log);
 		// l'operazione di unfold mi produce 4 output
-	    cnmining.creaVincoliUnfolded(vincoli, unfoldResult);
+	    // Riga 922
+	    cnmining.creaVincoliUnfold(vincoli, unfoldResult);
 	    
-	    /*
-	    if (settings.areConstraintsAvailable()) {
-	      cnm.creaVincoliUnfolded(vincoli_positivi, vincoli_negati, lista_forbidden, vincoli_positivi_unfolded, 
-	        vincoli_negati_unfolded, lista_forbidden_unfolded, map);
-	    }
-	    */
+	    System.out.println("\nOK1\n");
 	    
 		///
 		
