@@ -39,6 +39,8 @@
 	<classpathentry kind="lib" path="tests/libs-external/lib-cobertura/log4j-1.2.9.jar"/>
 	<classpathentry kind="lib" path="tests/libs-external/cobertura.jar"/>
 	<classpathentry kind="lib" path="tests/libs-external/junit-4.8.1.jar"/>
-	<classpathentry kind="lib" path="lib/CNMining.jar"/>
+	<classpathentry kind="lib" path="lib/hppc-0.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
+	<classpathentry kind="lib" path="lib/PetriNets.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
