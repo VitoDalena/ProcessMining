@@ -58,7 +58,7 @@ public class RTTmining {
 	    CNMining cnmining = new CNMining();
 	    
 		// Se ho dato il consenso al caricamento dei vincoli
-		if( settings.isConstraintsEnabled() )
+		if( settings.areConstraintsEnabled() )
 		{
 			// procedo a eseguire il parsing
 			// essendo questi in formato xml

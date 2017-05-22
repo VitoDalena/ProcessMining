@@ -3,7 +3,6 @@ package org.processmining.plugins.rttmining;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Vector;
 
 import com.carrotsearch.hppc.IntArrayList;
 import com.carrotsearch.hppc.IntOpenHashSet;
@@ -19,41 +18,6 @@ public class WeightEstimator
 	public static final int DEFAULT_MAX_GAP = -1;
 	public static final double DEFAULT_FALL_FACTOR = 0.2D;
 	public static final int DEFAULT_ESTIMATION_STRATEGY = 2;
-  
-	public static void main(String[] args)
-	{
-		Vector<IntArrayList> log = new Vector<IntArrayList>();
-    
-		IntArrayList t1 = new IntArrayList();
-		t1.add(0);t1.add(1);t1.add(2);t1.add(3);t1.add(4);
-		log.add(t1);
-	  
-		IntArrayList t2 = new IntArrayList();
-		t2.add(0);t2.add(2);t2.add(1);t2.add(3);t2.add(4);
-		log.add(t2);
-    
-		double[][] weightMatrix = null;
-	  	try
-	  	{
-	  		WeightEstimator weightEstimator = new WeightEstimator(5, -1, 0.5D, 2);
-	  		for (IntArrayList t : log) {
-	  			weightEstimator.addTraceContribution(t);
-	  		}
-	  		weightEstimator.computeWeigths();
-	  		weightMatrix = weightEstimator.getDependencyMatrix();
-      
-	  		System.out.println("\n Dependency weights matrix");
-	  		printMatrix(weightMatrix);
-      
-	  		System.out.println("\n Cost matrix (precision=2)");
-      
-	  		System.out.println("\n Cost matrix (precision=4)");
-	  	}
-	  	catch (Exception e)
-	  	{
-	  		e.printStackTrace();
-	  	}
-	}
   
 	public static void printMatrix(double[][] matrix)
 	{

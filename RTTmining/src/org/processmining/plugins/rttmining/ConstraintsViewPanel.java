@@ -114,7 +114,7 @@ public class ConstraintsViewPanel extends JPanel {
 	    setLayout(groupLayout);
 	}
 	
-	public boolean isConstraintsEnabled()
+	public boolean areConstraintsEnabled()
 	{
 		return this.constraintsEnabled && filePath.equals("") == false;
  	}

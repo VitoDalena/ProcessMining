@@ -13,7 +13,7 @@ public class Settings
 	private String logName;
 	private double rtb;
   
-	public boolean isConstraintsEnabled(){
+	public boolean areConstraintsEnabled(){
 		return this.constraintsEnabled;
 	}
   

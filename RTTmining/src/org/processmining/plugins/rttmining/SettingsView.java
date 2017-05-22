@@ -108,7 +108,7 @@ public class SettingsView {
 	    
 	    Settings s = new Settings();
 	    
-	    s.setConstraintsEnabled(pannelloVincoli.isConstraintsEnabled());
+	    s.setConstraintsEnabled(pannelloVincoli.areConstraintsEnabled());
 	    s.setConstraintsFilename(pannelloVincoli.getFilePath());
 	    s.setSigmaLogNoise(SettingsView.value);
 	    s.setLogName(logName);
