@@ -28,7 +28,7 @@ public class ConstraintsViewPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private boolean constraintsEnabled = false;
-	private String filePath = "";
+	private String filename = ""; // nome del file scelto
 	
 	/*
 	 * Costruisci il controllo grafico
@@ -75,7 +75,7 @@ public class ConstraintsViewPanel extends JPanel {
 	    		{
 	    			System.out.println("You chose to open this file: " + filebrowser.getSelectedFile().getName());
 	    			label.setText(filebrowser.getSelectedFile().getAbsolutePath());
-	    			ConstraintsViewPanel.this.filePath = filebrowser.getSelectedFile().getAbsolutePath();
+	    			ConstraintsViewPanel.this.filename = filebrowser.getSelectedFile().getAbsolutePath();
 	    		}
 	    	}
 	    });
@@ -116,11 +116,11 @@ public class ConstraintsViewPanel extends JPanel {
 	
 	public boolean areConstraintsEnabled()
 	{
-		return this.constraintsEnabled && filePath.equals("") == false;
+		return this.constraintsEnabled && filename.equals("") == false;
  	}
   
-	public String getFilePath()
+	public String getFilename()
 	{
-		return this.filePath;
+		return this.filename;
 	}
 }

@@ -16,6 +16,9 @@ public class RTTmining {
 	// Gestore dei vincoli
 	public static ConstraintsManager vincoli;
 	
+	private static UIPluginContext context;
+	private static XLog log;
+	
 	/*
 	 * Queste notazioni specificano le informazioni di contesto
 	 * del plugin, come parametri di input e output
@@ -41,14 +44,18 @@ public class RTTmining {
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
     public static String Process(UIPluginContext context, XLog log) throws Exception {
-				
+		// Rendi il contesto e l'input globale a tutto il plugin
+		RTTmining.context = context;
+		RTTmining.log = log;		
+		
 		// determina le impostazioni del plugin
 		SettingsView settingsView = new SettingsView(context, log);
 		settings = settingsView.show();
 		
-	    System.out.println("sigma log noise " + settings.getSigmaLogNoise());
-	    System.out.println("delta fall factor  " + settings.getFallFactor());
-	    System.out.println("relative to best  " + settings.getRelativeToBest());
+		System.out.println("\n\nRTTmining\n\nSettings:\n");
+	    System.out.println("sigma log noise " + settings.sigmaLogNoise);
+	    System.out.println("delta fall factor  " + settings.fallFactor);
+	    System.out.println("relative to best  " + settings.relativeToBest);
 	    
 	    // Inizializzo le variabili utili all'algoritmo
 	    // 1. Il gestore dei vincoli
@@ -57,12 +64,31 @@ public class RTTmining {
 	    // l'algoritmo di cnmining
 	    CNMining cnmining = new CNMining();
 	    
+	    // esegui il parsing dei vincoli, se richiesto
+		caricaVincoli();
+		
+		// Prepara l'ambiente di lavoro		
+		cnmining.aggiungiAttivitaFittizia(log);
+		// rimozione dei cicli
+	    Object[] unfoldingResult = LogUnfolder.unfold(log);
+		
+		///
+		
+		return String.valueOf(unfoldingResult.length);
+		//return "Hello RTTMining";
+	}
+	
+	/*
+	 * Esegui il parsing dei vincoli da file xml
+	 * e caricali sulle variabili locali
+	 */
+	private static void caricaVincoli(){
 		// Se ho dato il consenso al caricamento dei vincoli
-		if( settings.areConstraintsEnabled() )
+		if( settings.areConstraintsAvailable() )
 		{
 			// procedo a eseguire il parsing
 			// essendo questi in formato xml
-			ConstraintParser constraintsParser = new ConstraintParser(settings.getConstraintsFilename());
+			ConstraintParser constraintsParser = new ConstraintParser(settings.constraintsFilename);
 			if(constraintsParser.parse()){
 				 ObjectArrayList<Constraint> constraints = constraintsParser.getConstraints();
 		         if (constraints.size() == 0) {
@@ -77,13 +103,13 @@ public class RTTmining {
 		        	 {
 		        		 /*
 		        		 Iterator<String> localIterator2;
-		        		 for (Iterator<String> localIterator1 = constr.getBodyList().iterator(); localIterator1.hasNext(); localIterator2.hasNext())
-		        		 {
-		        			 localIterator2 = constr.getHeadList().iterator(); 
-		        			 // TODO: riferimenti alla riga 955
-		        		 }
-		        		 vincoli_negati.add(constr);
-		        		 */
+		                 for (Iterator<String> localIterator1 = vincolo.getBodyList().iterator(); localIterator1.hasNext(); localIterator2.hasNext())
+		                 {
+		                	 localIterator2 = vincolo.getHeadList().iterator(); 
+		                 }
+		                 vincoli.negati.add(vincolo);
+		                 */
+		                 // TODO: riga 955 CNMining, controllare bene
 		        	 }
 		         }
 			}
@@ -92,13 +118,6 @@ public class RTTmining {
 				JOptionPane.showMessageDialog(null, "Invalid constraints file\nThe algoritm will now run without constraints...");		          
 			}			
 		}
-		
-		// Prepara l'ambiente di lavoro
-		
-		cnmining.aggiungiAttivitaFittizia(log);
-		
-		///7
-		
-		return settings.getLogName();
-    }
+	}
+	
 }

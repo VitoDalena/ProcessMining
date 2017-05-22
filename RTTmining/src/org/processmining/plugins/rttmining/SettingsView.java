@@ -25,7 +25,7 @@ public class SettingsView {
 	private UIPluginContext context;
 	private XLog log;
 	
-	private static double value = 0.0D, delta = 0.0D, relativeToBest = 0.0D;
+	private static double sigmaLogNoise = 0.0D, fallFactor = 0.0D, relativeToBest = 0.0D;
 	
 	public SettingsView(UIPluginContext context, XLog log){
 		this.context = context;
@@ -42,9 +42,7 @@ public class SettingsView {
 	    
 	    ProMPropertiesPanel viewContainer = new ProMPropertiesPanel("");
 	    ConstraintsViewPanel pannelloVincoli = new ConstraintsViewPanel();
-	    
-	    viewContainer.add(pannelloVincoli);
-		
+	    		
 	    // Crea lo slider per valorizzare la variabile value
 	    final NiceSlider slider = SlickerFactory.instance().createNiceIntegerSlider("SigmaLogNoise percentage", 0, 
 	    	      100, 5, NiceSlider.Orientation.HORIZONTAL);
@@ -54,7 +52,7 @@ public class SettingsView {
 	    	{
 	    		int percentage = slider.getSlider().getValue();
 	        
-	    		SettingsView.value = (percentage / 100.0D);
+	    		SettingsView.sigmaLogNoise = (percentage / 100.0D);
 	    	}
 	    };
 	    
@@ -69,7 +67,7 @@ public class SettingsView {
 	    	public void stateChanged(ChangeEvent e)
 	    	{
 	    		int percentage = slider1.getSlider().getValue();
-	    		SettingsView.delta = (percentage / 100.0D);
+	    		SettingsView.fallFactor = (percentage / 100.0D);
 	    	}
 	    };
 	    slider1.addChangeListener(listener1);
@@ -96,9 +94,10 @@ public class SettingsView {
 	    slider2.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
 	    
 	    // posiziona i controlli grafici
-	    viewContainer.add(slider, "Center");
-	    viewContainer.add(slider1, "South");
-	    viewContainer.add(slider2, "South");
+	    viewContainer.add(pannelloVincoli);
+	    viewContainer.add(slider);
+	    viewContainer.add(slider1);
+	    viewContainer.add(slider2);
 	    
 	    // mostra la schermata di configurazione
 	    TaskListener.InteractionResult result = context.showConfiguration("Settings", viewContainer);
@@ -106,14 +105,16 @@ public class SettingsView {
 	      context.getFutureResult(0).cancel(true);
 	    }
 	    
+	    // Raggruppe le confiruazioni del plugin
+	    
 	    Settings s = new Settings();
 	    
-	    s.setConstraintsEnabled(pannelloVincoli.areConstraintsEnabled());
-	    s.setConstraintsFilename(pannelloVincoli.getFilePath());
-	    s.setSigmaLogNoise(SettingsView.value);
-	    s.setLogName(logName);
-	    s.setFallFactor(SettingsView.delta);
-	    s.setRelativeToBest(SettingsView.relativeToBest);
+	    s.constraintsEnabled = pannelloVincoli.areConstraintsEnabled();
+	    s.constraintsFilename = pannelloVincoli.getFilename();
+	    s.sigmaLogNoise = SettingsView.sigmaLogNoise;
+	    s.logName = logName;
+	    s.fallFactor = SettingsView.fallFactor;
+	    s.relativeToBest = SettingsView.relativeToBest;
 	    
 	    return s;
 	}
