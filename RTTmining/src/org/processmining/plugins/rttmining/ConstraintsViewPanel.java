@@ -14,6 +14,13 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+/*
+ * Questa classe si occupa di generare l'aspetto grafico 
+ * di un pannello utilizzato per il caricamento del file xml
+ * contenente i vincoli di precedenza, utili all'algoritmo
+ * implementato 
+ */
+
 public class ConstraintsViewPanel extends JPanel {
 
 	private boolean constraintsEnabled = false;

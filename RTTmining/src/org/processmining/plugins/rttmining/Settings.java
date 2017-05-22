@@ -1,5 +1,9 @@
 package org.processmining.plugins.rttmining;
 
+/*
+ * Questa classe contiene le configurazioni generali del plugin
+ */
+
 public class Settings
 {
 	private String constr_file_name = "";

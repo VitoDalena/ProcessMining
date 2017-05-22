@@ -6,6 +6,10 @@ import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
 
 public class RTTmining {
+	
+	// Memorizza qui le configurazioni generali del plugin
+	public static Settings settings;
+	
 	/*
 	 * Queste notazioni specificano le informazioni di contesto
 	 * del plugin, come parametri di input e output
@@ -34,7 +38,7 @@ public class RTTmining {
 		
 		// determina le impostazioni del plugin
 		SettingsView settingsView = new SettingsView(context, log);
-		Settings settings = settingsView.show();
+		settings = settingsView.show();
 		// Se ho dato il consenso al caricamento dei vincoli
 		if( settings.isConstraintsEnabled() )
 		{

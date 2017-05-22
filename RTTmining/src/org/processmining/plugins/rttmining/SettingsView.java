@@ -15,6 +15,11 @@ import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
 import com.fluxicon.slickerbox.components.NiceSlider;
 import com.fluxicon.slickerbox.factory.SlickerFactory;
 
+/*
+ * Questa classe implementa l'interfaccia grafica
+ * utilizzata per la configurazione del plugin
+ */
+
 public class SettingsView {
 
 	private UIPluginContext context;
