@@ -138,6 +138,11 @@ public class RTTmining {
     		bestNextMatrix, grafoUnfolded, unfoldResult.map, 
     		vincoli.positivi, foldResult.map, grafoFolded
 	    );
+	    
+	    // CNMining.java riga 1197
+	    System.out.println("Algoritmo fase 2...");
+	    
+	    
 		
 		return "Hello RTTMining";
 	}
