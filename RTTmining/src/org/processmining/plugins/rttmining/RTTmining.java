@@ -8,6 +8,7 @@ import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.models.flexiblemodel.Flex;
 
 import com.carrotsearch.hppc.ObjectArrayList;
 
@@ -31,10 +32,10 @@ public class RTTmining {
 	@Plugin(
         name = "RTTmining Plugin", 
         parameterLabels = {}, 
-        returnLabels = { "Hello world string" }, 
-        returnTypes = { String.class }, 
+        returnLabels = { "CausalNet" }, 
+        returnTypes = { Flex.class }, 
         userAccessible = true, 
-        help = "Produces the string: 'Hello world'"
+        help = "Produces an Extended CausalNet"
     )
     @UITopiaVariant(
         affiliation = "Process Mining with CSP", 
@@ -45,7 +46,7 @@ public class RTTmining {
 	 * Consiste nel Main del plugin stesso, 
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
-    public static String Process(UIPluginContext context, XLog log) throws Exception {
+    public static Flex Process(UIPluginContext context, XLog log) throws Exception {
 		// Rendi il contesto e l'input globale a tutto il plugin
 		RTTmining.context = context;
 		RTTmining.log = log;		
@@ -236,8 +237,14 @@ public class RTTmining {
 		cnmining.rimuoviNodiRimuovibili(grafoFolded);
 		
 		// Riga 1382, inizio rappresentazione grafica
+		System.out.println("Rappresentazione grafica");
+		
+		CNMiningDiagram diagram = new CNMiningDiagram(grafoFolded);
+		diagram.build(log, startActivities, endActivities);
+		diagram.exportXML();
+		//diagram.visualize();
 	    
-		return "Hello RTTMining";
+		return diagram.getDiagram();
 	}
 	
 	/*
