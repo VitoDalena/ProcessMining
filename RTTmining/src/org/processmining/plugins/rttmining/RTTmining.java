@@ -77,7 +77,33 @@ public class RTTmining {
 	    // Riga 922
 	    cnmining.creaVincoliUnfold(vincoli, unfoldResult);
 	    
-	    System.out.println("\nOK1\n");
+	    System.out.println("OK1");
+	    
+	    // Crea matrice dei causal score
+	    double[][] csm = cnmining.calcoloMatriceDeiCausalScore(
+    		log, unfoldResult.map, 
+    		unfoldResult.traccia_attivita, settings.fallFactor
+	    );
+	    
+	    System.out.println("OK2");
+	    
+	    // crea matrice dei best next
+	    double[][] m = cnmining.buildBestNextMatrix(
+    		log, unfoldResult.map, 
+    		unfoldResult.traccia_attivita, csm, 
+    		vincoli.forbidden
+	    );
+	    if (settings.sigmaLogNoise > 0.0D) {
+	    	for (int i = 0; i < m.length; i++) {
+	    		for (int j = 0; j < m.length; j++) {
+	    			if (m[i][j] <= settings.sigmaLogNoise * unfoldResult.traccia_attivita.size()) {
+	    				m[i][j] = 0.0D;
+	    			}
+	    		}
+        	}
+	    }
+	    
+	    System.out.println("OK3");
 	    
 		///
 		
