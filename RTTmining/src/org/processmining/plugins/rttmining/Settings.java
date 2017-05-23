@@ -12,6 +12,7 @@ public class Settings
 	public double fallFactor;
 	public String logName;
 	public double relativeToBest;
+	public double sigmaUpCsDiff=0.2D;
 	
 	
 	public Settings(){

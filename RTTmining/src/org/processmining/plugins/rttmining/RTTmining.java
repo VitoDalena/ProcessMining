@@ -139,9 +139,15 @@ public class RTTmining {
     		vincoli.positivi, foldResult.map, grafoFolded
 	    );
 	    
-	    // CNMining.java riga 1197
+	    // CNMining.java riga 1162
 	    System.out.println("Algoritmo fase 2...");
 	    
+	    cnmining.algoritmo2(
+    		bestNextMatrix,grafoUnfolded,unfoldResult.map,
+    		unfoldResult.attivita_tracce,unfoldResult.traccia_attivita,
+    		causalScoreMatrix,settings.sigmaUpCsDiff, foldResult.map, 
+    		vincoli.forbidden,vincoli.positivi, vincoli.negati);
+	    	   
 	    
 		
 		return "Hello RTTMining";
@@ -151,6 +157,7 @@ public class RTTmining {
 	 * Esegui il parsing dei vincoli da file xml
 	 * e caricali sulle variabili locali
 	 */
+	
 	private static void caricaVincoli(){
 		// Se ho dato il consenso al caricamento dei vincoli
 		if( settings.areConstraintsAvailable() )
