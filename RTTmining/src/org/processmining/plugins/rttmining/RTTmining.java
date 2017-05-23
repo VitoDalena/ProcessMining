@@ -129,8 +129,15 @@ public class RTTmining {
 	    	System.out.println("Stampa il grafo folded");
 	      
 	    	// TODO: riga 1124
-	    	
+	    	// è una cosa di debug grafico su consolo
+	    	// per ora evito	
 	    }
+	    
+	    // trovo le attività parallele
+	    ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
+    		bestNextMatrix, grafoUnfolded, unfoldResult.map, 
+    		vincoli.positivi, foldResult.map, grafoFolded
+	    );
 		
 		return "Hello RTTMining";
 	}

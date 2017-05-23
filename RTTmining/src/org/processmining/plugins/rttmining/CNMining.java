@@ -15,6 +15,155 @@ import com.carrotsearch.hppc.cursors.ObjectCursor;
 
 public class CNMining {		
 
+	public ObjectArrayList<FakeDependency> getAttivitaParallele(double[][] m, Graph graph, ObjectIntOpenHashMap<String> map, ObjectArrayList<Constraint> vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, Graph folded_g)
+	{
+		// TODO: modificato dall'originale
+		// CNMining.java riga 4280
+		ObjectArrayList<FakeDependency> lista_attivita_parallele = new ObjectArrayList<FakeDependency>();
+		
+		Iterator<ObjectCursor<Node>> listaIterator = graph.listaNodi().iterator();
+		Iterator<ObjectCursor<Node>> adiacentiIterator;
+		
+		do {
+			ObjectCursor<Node> np = listaIterator.next();		      
+			adiacentiIterator = graph.adjacentNodes(np.value).iterator();
+
+			ObjectCursor<Node> nr = adiacentiIterator.next();
+			
+			if (this.bfs(graph, nr.value, np.value, null, null))
+			{
+				boolean vincoliSoddisfatti = verificaVincoliPositivi(
+					folded_g, 
+					folded_g.getNode((np.value).getNomeAttivita().split("#")[0], 
+					folded_map.get((np.value).getNomeAttivita().split("#")[0])), 
+					folded_g.getNode((nr.value).getNomeAttivita().split("#")[0], 
+					folded_map.get((nr.value).getNomeAttivita().split("#")[0])), 
+					vincoli_positivi, folded_map
+				);
+				if (vincoliSoddisfatti) {
+					lista_attivita_parallele.add(
+						new FakeDependency((np.value).getID_attivita(),
+						(nr.value).getID_attivita())
+					);
+				}
+			}
+			for (int ni = 0; ni < graph.listaNodi().size(); ni++)
+			{
+				Node n = graph.listaNodi().get(ni);
+				n.setMark(false);
+			}
+		}
+		while(listaIterator.hasNext() && adiacentiIterator.hasNext());
+		
+		return lista_attivita_parallele;
+	}
+	
+	private boolean bfs(Graph graph, Node x, Node y, Node f, ObjectArrayList<Node> path)
+	{
+		boolean atLeastOnePath = false;
+		if (x.equals(y))
+		{
+			if (graph.isConnected(x, y)) {
+				return true;
+			}
+			if (path == null) {
+				path = new ObjectArrayList<Node>();
+			}
+		}
+		ObjectArrayList<Node> nodes = new ObjectArrayList<Node>();
+		nodes.add(x);
+		x.setMark(true);
+		Node t;
+		int i = 0;
+		// TODO: ennesima modifica, fa sti for a cazzo
+		// CNMining.java riga 3180
+		do
+		{
+			t = nodes.remove(0);
+			if (path != null) {
+				path.add(t);
+			}
+			if (t.equals(y)) {
+				if (x.equals(y))
+				{
+					if (path.size() > 1) {
+						atLeastOnePath = true;
+					}
+				}
+				else {
+					atLeastOnePath = true;
+				}
+			}
+			Node k = graph.adjacentNodes(t).get(i);
+			if ((!k.isMarked()) && (!k.equals(f)))
+			{
+				k.setMark(true);
+				nodes.add(k);
+			}
+			i++;
+		}
+		while(!nodes.isEmpty() && i < graph.adjacentNodes(t).size());
+		return atLeastOnePath;
+	}
+	
+	public boolean verificaVincoliPositivi(Graph graph, Node np, Node nr, ObjectArrayList<Constraint> vincoliPositivi, ObjectIntOpenHashMap<String> map)
+	{
+		if ((np != null) && (nr != null)) {
+			graph.removeEdge(np, nr);
+		}
+		for (ObjectCursor<Constraint> vincoloPositivo : vincoliPositivi)
+		{
+			Constraint vincolo = vincoloPositivo.value;
+      
+			boolean path_constraint = vincolo.isPathConstraint();
+      
+			boolean vincolo_soddisfatto = false;
+			
+			Iterator<String> headIterator = vincolo.getHeadList().iterator();
+			Iterator<String> bodyIterator = vincolo.getBodyList().iterator();
+			
+			// TODO: interpretazione mia, riga 5400 CNMining.java 
+			while(headIterator.hasNext() && bodyIterator.hasNext())
+			{
+				String head = headIterator.next();
+				String body = bodyIterator.next();
+
+				Node nHead = graph.getNode(head, map.get(head));
+				Node nBody = graph.getNode(body, map.get(body));
+				
+				if (graph.isConnected(nBody, nHead))
+				{
+					vincolo_soddisfatto = true;          
+					break;
+				}
+				if (path_constraint)
+				{
+					for (int ni = 0; ni < graph.listaNodi().size(); ni++)
+					{
+						Node n = graph.listaNodi().get(ni);
+						n.setMark(false);
+					}
+					if (bfs(graph, nBody, nHead, null, null))
+					{
+						vincolo_soddisfatto = true;            
+						break;
+					}
+				}
+			}
+			if (!vincolo_soddisfatto)
+			{
+				if ((np != null) && (nr != null)) {
+					graph.addEdge(np, nr, false);
+				}
+				return false;
+			}
+		}
+		if ((np != null) && (nr != null)) {
+			graph.addEdge(np, nr, false);
+		}
+		return true;
+	}
+
 	public Graph costruisciGrafoFolded(Graph g, XLog log, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita)
 	{
 		int count = 0;
