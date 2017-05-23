@@ -143,13 +143,100 @@ public class RTTmining {
 	    System.out.println("Algoritmo fase 2...");
 	    
 	    cnmining.algoritmo2(
-    		bestNextMatrix,grafoUnfolded,unfoldResult.map,
-    		unfoldResult.attivita_tracce,unfoldResult.traccia_attivita,
-    		causalScoreMatrix,settings.sigmaUpCsDiff, foldResult.map, 
-    		vincoli.forbidden,vincoli.positivi, vincoli.negati);
-	    	   
+    		bestNextMatrix, grafoUnfolded, unfoldResult.map,
+    		unfoldResult.attivita_tracce, unfoldResult.traccia_attivita,
+    		causalScoreMatrix, settings.sigmaUpCsDiff, foldResult.map, 
+    		vincoli.forbidden, vincoli.positivi, vincoli.negati
+    	);
+	    	
+	    // Riaggiorno le risorse precedentemente calcolate
+	    // facendo, ora, riferimento ai risultati dell'algoritmo 2
+	    System.out.println("Ricostruisco grafo folded dopo algoritmo 2");
 	    
+	    grafoFolded = cnmining.costruisciGrafoFolded(
+	    	grafoUnfolded, log, foldResult.map, 
+	    	foldResult.attivita_tracce, foldResult.traccia_attivita
+	    );
+	    for (int i = 0; i < grafoUnfolded.listaNodi().size(); i++)
+	    {
+	    	Node n = grafoUnfolded.listaNodi().get(i);
+	    	n.setMark(false);
+	    }
+	    ObjectArrayList<FakeDependency> attivitaParalleleResidue = cnmining.getAttivitaParallele(
+	    	bestNextMatrix, grafoUnfolded, unfoldResult.map, 
+	    	vincoli.positivi, foldResult.map, grafoFolded
+	    );
+
+	    // Verifica sul folding
+	    for (int i = 0; i < grafoFolded.getLista_archi().size(); i++)
+	    {
+	    	Edge e = grafoFolded.getLista_archi().get(i);
+	    	for (int y = 0; y < vincoli.positivi.size(); y++)
+	    	{
+	    		Constraint c = vincoli.positivi.get(y);
+	    		if ((c.getBodyList().contains(e.getX().getNomeAttivita())) && 
+	    			(c.getHeadList().contains(e.getY().getNomeAttivita()))
+	    		)
+	    		{
+	    			e.setFlag(true);
+	    			System.out.println(e + " OK!!!!!!");
+	    			break;
+	    		}
+	    		System.out.println("NOT OK!!!!!!!");
+	    	}
+    	}
+	    System.out.println("GRAFO FOLDED!");
+	    
+	    // Riga 1220
+	    double[][] causalScoreMatrixResidua = cnmining.calcoloMatriceDeiCausalScore(
+	    	log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor
+	    );
+
+	    System.out.println("POST-PROCESSING RIMOZIONE DIPENDENZE INDIRETTE... ");
+	    
+	    cnmining.rimuoviDipendezeIndirette(
+	    	grafoFolded, foldResult.map, 
+	    	foldResult.attivita_tracce, foldResult.traccia_attivita, 
+	    	causalScoreMatrixResidua, settings.sigmaLogNoise, vincoli.positivi
+	    );
+	    
+	    Node start = new Node(
+	    	cnmining.attivita_iniziale, 
+	    	foldResult.map.get(cnmining.attivita_iniziale)
+	    );
+	    Node end = new Node(
+	    	cnmining.attivita_finale, 
+	    	foldResult.map.get(cnmining.attivita_finale)
+	    );
+	    
+	    ObjectArrayList<Node> startActivities = new ObjectArrayList<Node>();	    
+	    ObjectArrayList<Node> endActivities = new ObjectArrayList<Node>();
+	    
+	    grafoFolded = cnmining.rimuoviAttivitaFittizie(
+	    	grafoFolded, foldResult.map, 
+	    	foldResult.traccia_attivita, foldResult.attivita_tracce, 
+	    	start, end, log, startActivities, endActivities
+	    );
+	    	    
+	    cnmining.computeBindings(
+	    	grafoFolded, foldResult.traccia_attivita, foldResult.map
+	    );
+	    
+	    // TODO: riga 2184, sposto tutto in una funzione
+	    System.out.println("PROCEDURA REMOVABLE-EDGES ");
+	    
+	    causalScoreMatrixResidua = cnmining.calcoloMatriceDeiCausalScore(
+		    log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor
+		);
+	    
+	    cnmining.rimuoviArchiRimovibili(
+	    	grafoFolded, causalScoreMatrixResidua, 
+	    	vincoli.positivi, foldResult.map, settings.relativeToBest
+	    );
+		cnmining.rimuoviNodiRimuovibili(grafoFolded);
 		
+		// Riga 1382, inizio rappresentazione grafica
+	    
 		return "Hello RTTMining";
 	}
 	

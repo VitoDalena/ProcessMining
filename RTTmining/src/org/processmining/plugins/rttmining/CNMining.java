@@ -7,9 +7,11 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 
 import com.carrotsearch.hppc.IntArrayList;
+import com.carrotsearch.hppc.IntOpenHashSet;
 import com.carrotsearch.hppc.ObjectArrayList;
 import com.carrotsearch.hppc.ObjectContainer;
 import com.carrotsearch.hppc.ObjectIntOpenHashMap;
+import com.carrotsearch.hppc.ObjectLookupContainer;
 import com.carrotsearch.hppc.ObjectObjectOpenHashMap;
 import com.carrotsearch.hppc.ObjectOpenHashSet;
 import com.carrotsearch.hppc.cursors.ObjectCursor;
@@ -1177,5 +1179,581 @@ public class CNMining {
 			i--;
 		}
 		return successors_traccia;
+	}
+	
+	/*
+	 * #######################################
+ * 					Post processing
+	 * #######################################
+	 */
+	
+	// CNMining.java riga 5144
+	// TODO: implementazione nostra
+	public void rimuoviDipendezeIndirette(Graph g, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] cs, double sigma_2, ObjectArrayList<Constraint> vincoli_positivi)
+	{
+		ObjectArrayList<Node> adjacents;
+    	int cursor = 0;
+    	Iterator<ObjectCursor<Node>> nodeIterator = g.listaNodi().iterator();
+    	
+    	do 
+    	{
+    		ObjectCursor<Node> nn = nodeIterator.next();
+    		Node n = nn.value;
+    	      
+    		adjacents = g.adjacentNodes(n);
+    		adjacents.trimToSize();
+    		
+    		// TODO: proviamo con questa modifica
+    		if(cursor >= adjacents.size())
+    			continue;
+    		
+    		Node adjacent_i = adjacents.get(cursor);
+    		if ((n.getOuter_degree() == 1) || (adjacent_i.getInner_degree() == 1))
+    		{
+    			cursor++;
+    		}
+    		else
+    		{
+    			ObjectOpenHashSet<String> candidati = new ObjectOpenHashSet<String>();
+    			for (ObjectCursor<Node> mm : g.listaNodi())
+    			{
+    				Node m = mm.value;
+    				if ((!m.equals(n)) && (!m.equals(adjacent_i)))
+    				{
+    					for (ObjectCursor<Node> e : g.listaNodi()) {
+    						(e.value).setMark(false);
+    					}
+    					boolean condizione_1 = bfs(g, n, m, adjacent_i, null);
+    					for (ObjectCursor<Node> e : g.listaNodi()) {
+    						(e.value).setMark(false);
+    					}
+    					boolean condizione_2 = g.isConnected(m, adjacent_i);
+    					if ((condizione_1) && (condizione_2)) {
+    						candidati.add(m.getNomeAttivita());
+    					}
+    				}
+    			}
+    			if (candidati.size() > 0)
+    			{
+    				if (!verificaVincoliPositivi(g, n, adjacent_i, vincoli_positivi, map))
+    				{
+    					cursor++;
+    					continue;
+    				}
+    				ObjectArrayList<String> lista_tracce_n = new ObjectArrayList<String>(attivita_tracce.get(n.getNomeAttivita()));
+    				lista_tracce_n.trimToSize();
+          
+    				Object lista_tracce_i = new ObjectOpenHashSet((ObjectContainer)attivita_tracce.get(adjacent_i.getNomeAttivita()));
+          
+    				lista_tracce_n.retainAll((ObjectLookupContainer)lista_tracce_i);
+          
+    				boolean rimuovi_arco = true;
+    				if (lista_tracce_n.size() == 0) {
+    					rimuovi_arco = false;
+    				}
+    				int counter = 0;
+          
+    				int it1 = 0;
+    				while ((it1 < lista_tracce_n.size()) && (rimuovi_arco))
+    				{
+    					String trace_1 = lista_tracce_n.get(it1);
+    					if (!esisteAttivatore(trace_1, n.getNomeAttivita(), adjacent_i.getNomeAttivita(), traccia_attivita, candidati, true, false, false))
+    					{
+    						counter++;
+    						if (counter > sigma_2 * lista_tracce_n.size()) {
+    							rimuovi_arco = false;
+    						}
+    					}
+    					it1++;
+    				}
+    				if (rimuovi_arco)
+    				{
+    					g.removeEdge(n, adjacent_i);
+            
+    					n.decr_Outer_degree();
+    					adjacent_i.decr_Inner_degree();
+    				}
+    			}
+    			cursor++;
+    		}
+    	}
+    	while(nodeIterator.hasNext());
+	}
+	
+	// Riga 4130
+	private boolean esisteAttivatore(String trace, String activity_x, String activity_y, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectOpenHashSet<String> candidati_z, boolean flag, boolean autoanello_y, boolean forward)
+	{
+		ObjectArrayList<String> attivatore_traccia = new ObjectArrayList<String>();
+		int iter = 0;
+		if (!forward) {
+			iter = (traccia_attivita.get(trace)).size() - 1;
+		} else {
+			iter = 0;
+		}
+		boolean trovata_y = false;
+		while (((iter >= 0) && (!forward)) || ((iter < (traccia_attivita.get(trace)).size()) && (forward)))
+		{
+			String activity_z = (traccia_attivita.get(trace)).get(iter);
+			if ((!trovata_y) && (!activity_z.equals(activity_y)))
+			{
+				if (!forward) {
+					iter--;
+				} else {
+					iter++;
+				}
+			}
+			else
+			{
+				if (!trovata_y)
+				{
+					trovata_y = true;
+					if (!forward) {
+						iter--;
+					} else {
+						iter++;
+					}
+					if (((iter >= 0) && (!forward)) || ((iter < (traccia_attivita.get(trace)).size()) && (forward))) {
+						activity_z = (traccia_attivita.get(trace)).get(iter);
+					}
+				}
+				if (flag)
+				{
+					if (!activity_z.equals(activity_x))
+					{
+						if (!attivatore_traccia.contains(activity_z)) {
+							attivatore_traccia.add(activity_z);
+						}
+						if (activity_z.equals(activity_y)) {
+							attivatore_traccia = new ObjectArrayList<String>();
+						}
+					}
+					else
+					{
+						attivatore_traccia.retainAll(candidati_z);
+						if (attivatore_traccia.size() == 0) {
+							return false;
+						}
+						trovata_y = false;
+						attivatore_traccia = new ObjectArrayList<String>();
+					}
+				}
+				else if (!activity_z.equals(activity_y))
+				{
+					if (!attivatore_traccia.contains(activity_z)) {
+						attivatore_traccia.add(activity_z);
+					}
+				}
+				else
+				{
+					attivatore_traccia.retainAll(candidati_z);
+					if ((attivatore_traccia.size() == 0) && (!autoanello_y)) {
+						return false;
+					}
+					attivatore_traccia = new ObjectArrayList<String>();
+				}
+				if (!forward) {
+					iter--;
+				} else {
+					iter++;
+				}
+			}
+		}
+		if (!flag)
+		{
+			attivatore_traccia.retainAll(candidati_z);
+			if (attivatore_traccia.size() == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	// riga 1681
+	public Graph rimuoviAttivitaFittizie(Graph folded_g, ObjectIntOpenHashMap<String> folded_map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_traccia, Node start, Node end, XLog log, ObjectArrayList<Node> startActivities, ObjectArrayList<Node> endActivities)
+	{
+		ObjectArrayList<Node> startActs = new ObjectArrayList<Node>();
+		ObjectArrayList<Node> endActs = new ObjectArrayList<Node>();
+		for (int i = 0; i < log.size(); i++)
+		{
+			XTrace trace = log.get(i);
+			trace.remove(0);
+			trace.remove(trace.size() - 1);
+		}
+		int startID = start.getID_attivita();    
+		int endID = end.getID_attivita();
+    
+		attivita_traccia.remove(start.getNomeAttivita());
+		attivita_traccia.remove(end.getNomeAttivita());
+    
+		Object[] values = traccia_attivita.values;
+		boolean[] states = traccia_attivita.allocated;
+		for (int iii = 0; iii < states.length; iii++) {
+			if (states[iii] != false)
+			{
+				ObjectArrayList<String> vals = (ObjectArrayList)values[iii];
+				vals.removeFirstOccurrence(start.getNomeAttivita());
+				vals.removeFirstOccurrence(end.getNomeAttivita());
+			}
+		}
+		for (int ii = 0; ii < folded_g.getLista_archi().size(); ii++)
+		{
+			Edge e = folded_g.getLista_archi().get(ii);
+			if (e.getX().equals(start))
+			{
+				folded_g.getLista_archi().removeAllOccurrences(e);
+				startActs.add(e.getY());
+				folded_g.removeEdge(start, e.getY());
+				e.getY().decr_Inner_degree();
+				ii--;
+			}
+			if (e.getY().equals(end))
+			{
+				folded_g.getLista_archi().removeAllOccurrences(e);
+				endActs.add(e.getX());
+				folded_g.removeEdge(e.getX(), end);
+        
+				e.getX().decr_Outer_degree();
+				ii--;
+			}
+		}
+		folded_g.getMap().remove(start);
+		folded_g.getMap().remove(end);
+		folded_g.listaNodi().removeFirstOccurrence(start);
+		folded_g.listaNodi().removeFirstOccurrence(end);
+		folded_map.remove(start.getNomeAttivita());
+		folded_map.remove(end.getNomeAttivita());
+    
+		Graph cleanG = new Graph();
+		Node n;
+		for (int ii = 0; ii < folded_g.listaNodi().size(); ii++)
+		{
+			n = folded_g.listaNodi().get(ii);
+			if ((n.getID_attivita() > startID) && (n.getID_attivita() < endID))
+			{
+				Node newNode = new Node(n.getNomeAttivita(), n.getID_attivita() - 1);
+        
+				newNode.setInner_degree(n.getInner_degree());
+				newNode.setOuter_degree(n.getOuter_degree());
+				folded_map.remove(n.getNomeAttivita());
+				folded_map.put(newNode.getNomeAttivita(), newNode.getID_attivita());
+				cleanG.getMap().put(newNode, new ObjectOpenHashSet<Node>());
+			}
+			else if (n.getID_attivita() > endID)
+			{
+				Node newNode = new Node(n.getNomeAttivita(), n.getID_attivita() - 2);
+				newNode.setInner_degree(n.getInner_degree());
+				newNode.setOuter_degree(n.getOuter_degree());
+				folded_map.remove(n.getNomeAttivita());
+				folded_map.put(newNode.getNomeAttivita(), newNode.getID_attivita());
+				cleanG.getMap().put(newNode, new ObjectOpenHashSet<Node>());
+			}
+		}
+		for (ObjectCursor<Edge> ee : folded_g.getLista_archi())
+		{
+			Edge e = ee.value;
+			cleanG.addEdge(cleanG.getNode(e.getX().getNomeAttivita(), folded_map.get(e.getX().getNomeAttivita())), 
+					cleanG.getNode(e.getY().getNomeAttivita(), folded_map.get(e.getY().getNomeAttivita())), e.isFlag());
+		}
+		for (ObjectCursor<Node> e : startActs) {
+			if ((e.value).getOuter_degree() > 0)
+			{
+				Node cn = cleanG.getNode((e.value).getNomeAttivita(), folded_map.get((e.value).getNomeAttivita()));
+				startActivities.add(cn);
+			}
+		}
+		for (ObjectCursor<Node> e : endActs) {
+			if ((e.value).getInner_degree() > 0)
+			{
+				Node en = cleanG.getNode((e.value).getNomeAttivita(), folded_map.get((e.value).getNomeAttivita()));
+				endActivities.add(en);
+			}
+		}
+		startActs = null;
+		endActs = null;
+		cleanG.listaNodi();
+		return cleanG;
+	}
+	
+	// riga 5500
+	public void computeBindings(Graph g, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectIntOpenHashMap<String> map)
+	{
+		Object[] values = traccia_attivita.values;
+		ObjectArrayList<String> traccia;
+		for (int it1 = 0; it1 < traccia_attivita.allocated.length; it1++) {
+			if (traccia_attivita.allocated[it1] != false)
+			{
+				traccia = (ObjectArrayList)values[it1];
+        
+				IntOpenHashSet[] outputBindings = new IntOpenHashSet[traccia.size()];
+				IntArrayList[] outputBindingsExtended = new IntArrayList[traccia.size()];
+        
+				IntOpenHashSet[] inputBindings = new IntOpenHashSet[traccia.size()];
+				IntArrayList[] inputBindingsExtended = new IntArrayList[traccia.size()];
+				for (int i = 0; i < traccia.size(); i++)
+				{
+					outputBindings[i] = new IntOpenHashSet();
+					outputBindingsExtended[i] = new IntArrayList();
+					inputBindings[i] = new IntOpenHashSet();
+					inputBindingsExtended[i] = new IntArrayList();
+				}
+				int[] activitiesIDMapping = new int[traccia.size()];
+				for (int i = 0; i < traccia.size(); i++)
+				{
+					String activity = traccia.get(i);
+					activitiesIDMapping[i] = map.get(activity);
+          
+					boolean verificato = false;
+					for (int j = i + 1; j < traccia.size(); j++)
+					{
+						String successor = traccia.get(j);
+						if (g.isConnected(new Node(activity, map.get(activity)), new Node(successor, map.get(successor)))) {
+							if (!verificato)
+							{
+								if (!outputBindings[i].contains(map.get(successor))) {
+									outputBindings[i].add(map.get(successor));
+								}
+								if (!inputBindings[j].contains(map.get(activity))) {
+									inputBindings[j].add(map.get(activity));
+								}
+								outputBindingsExtended[i].add(map.get(successor));
+                
+								inputBindingsExtended[j].add(map.get(activity));
+                
+								verificato = true;
+							}
+							else
+							{
+								outputBindingsExtended[i].add(map.get(successor));
+                
+								inputBindingsExtended[j].add(map.get(activity));
+							}
+						}
+					}
+					verificato = false;
+					for (int j = i - 1; j >= 0; j--)
+					{
+						String predecessor = traccia.get(j);
+						if (g.isConnected(new Node(predecessor, map.get(predecessor)), new Node(activity, map.get(activity)))) {
+							if (!verificato)
+							{
+								if (!outputBindings[j].contains(map.get(activity))) {
+									outputBindings[j].add(map.get(activity));
+								}
+								if (!inputBindings[i].contains(map.get(predecessor))) {
+									inputBindings[i].add(map.get(predecessor));
+								}
+								inputBindingsExtended[i].add(map.get(predecessor));
+								
+								outputBindingsExtended[j].add(map.get(activity));
+                
+								verificato = true;
+							}
+							else
+							{
+								inputBindingsExtended[i].add(map.get(predecessor));
+                
+								outputBindingsExtended[j].add(map.get(activity));
+							}
+						}
+					}
+				}
+				for (int k = 0; k < activitiesIDMapping.length; k++)
+				{
+					if (!g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getOutput().containsKey(outputBindings[k])) {
+						g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getOutput().put(outputBindings[k], 1);
+					}
+					if (!g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getInput().containsKey(inputBindings[k])) {
+						g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getInput().put(inputBindings[k], 1);
+					}
+					if (!g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getExtendedOutput().containsKey(outputBindingsExtended[k])) {
+						g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getExtendedOutput().put(outputBindingsExtended[k], 1);
+					}
+					if (!g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getExtendedInput().containsKey(inputBindingsExtended[k])) {
+						g.getNode(getKeyByValue(map, activitiesIDMapping[k]), activitiesIDMapping[k]).getExtendedInput().put(inputBindingsExtended[k], 1);
+					}
+				}
+			}
+		}
+		for (ObjectCursor<Edge> ee : g.getLista_archi())
+		{
+			Edge e = ee.value;
+			if (e.isFlag())
+			{
+				IntOpenHashSet treeSetOut = new IntOpenHashSet();
+				treeSetOut.add(e.getY().getID_attivita());
+				if (!e.getX().getOutput().containsKey(treeSetOut))
+				{
+					e.getX().getOutput().put(treeSetOut, 1);
+					IntOpenHashSet treeSetIn = new IntOpenHashSet();
+					treeSetIn.add(e.getX().getID_attivita());
+					e.getY().getInput().put(treeSetIn, 1);
+				}
+			}
+		}
+	}
+	
+	/*
+	 * ############################
+	 * 		Rimozione Archi
+	 * ############################
+	 */
+	
+	public void rimuoviArchiRimovibili(Graph folded_g, double[][] csmOri, ObjectArrayList<Constraint> vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, double relative_to_best)
+	{
+		for (;;)
+		{
+			ObjectArrayList<Edge> removableEdges = removableEdges(
+				folded_g, csmOri, vincoli_positivi, 
+				folded_map, relative_to_best);
+			if (removableEdges.size() == 0) {
+				break;
+			}
+			Edge bestRemovable = null;
+      
+			double worst_causal_score = Double.MAX_VALUE;
+			for (int jj = 0; jj < removableEdges.size(); jj++)
+			{
+				Edge e = removableEdges.get(jj);
+        
+				double e_cs = csmOri[e.getX().getID_attivita()][e.getY().getID_attivita()];
+				if (e_cs < worst_causal_score)
+				{
+					worst_causal_score = e_cs;
+					bestRemovable = e;
+				}
+			}
+			folded_g.removeEdge(bestRemovable.getX(), bestRemovable.getY());
+			if (!verificaVincoliPositivi(folded_g, null, null, vincoli_positivi, folded_map))
+			{
+				folded_g.addEdge(bestRemovable.getX(), bestRemovable.getY(), true);
+			}
+			else
+			{
+				System.out.println("RIMOSSO ARCO " + bestRemovable.getX().getNomeAttivita() + " -> " + 
+						bestRemovable.getY().getNomeAttivita());
+        
+				ObjectIntOpenHashMap<IntOpenHashSet> obX = bestRemovable.getX().getOutput();
+        
+				ObjectIntOpenHashMap<IntOpenHashSet> ibY = bestRemovable.getY().getInput();
+        
+				Object[] keys = obX.keys;
+				for (int ts = 0; ts < obX.allocated.length; ts++) {
+					if (obX.allocated[ts] != false)
+					{
+						IntOpenHashSet tks = (IntOpenHashSet)keys[ts];
+						tks.remove(bestRemovable.getY().getID_attivita());
+					}
+				}
+				keys = ibY.keys;
+				for (int ts = 0; ts < ibY.allocated.length; ts++) {
+					if (ibY.allocated[ts] != false)
+					{
+						IntOpenHashSet tks = (IntOpenHashSet)keys[ts];
+						tks.remove(bestRemovable.getX().getID_attivita());
+					}
+				}
+				ObjectIntOpenHashMap<IntArrayList> extendedObX = bestRemovable.getX().getExtendedOutput();
+        
+				ObjectIntOpenHashMap<IntArrayList> extendedIbY = bestRemovable.getY().getExtendedInput();
+        
+				keys = extendedObX.keys;
+				for (int ts = 0; ts < extendedObX.allocated.length; ts++) {
+					if (extendedObX.allocated[ts] != false)
+					{
+						IntArrayList tks = (IntArrayList)keys[ts];
+						tks.removeAllOccurrences(bestRemovable.getY().getID_attivita());
+					}
+				}
+				keys = extendedIbY.keys;
+				for (int ts = 0; ts < extendedIbY.allocated.length; ts++) {
+					if (extendedIbY.allocated[ts] != false)
+					{
+						IntArrayList tks = (IntArrayList)keys[ts];
+						tks.removeAllOccurrences(bestRemovable.getX().getID_attivita());
+					}
+				}
+				removableEdges.removeFirstOccurrence(bestRemovable);
+			}
+		}
+	}
+	
+	public void rimuoviNodiRimuovibili(Graph folded_g)
+	{
+	    ObjectArrayList<Node> removableNodes = new ObjectArrayList<Node>();
+	    for (int jj = 0; jj < folded_g.listaNodi().size(); jj++)
+	    {
+	      Node n = folded_g.listaNodi().get(jj);
+	      if ((n.getInner_degree() == 0) && (n.getOuter_degree() == 0)) {
+	        removableNodes.add(n);
+	      }
+	    }
+	    for (int jj = 0; jj < removableNodes.size(); jj++)
+	    {
+	      Node removableNode = removableNodes.get(jj);
+	      folded_g.removeNode(removableNode);
+	    }
+	}
+	
+	private ObjectArrayList<Edge> removableEdges(Graph g, double[][] cs, ObjectArrayList<Constraint> folded_vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, double relative_to_best)
+	{
+		ObjectArrayList<Edge> removableEdges = new ObjectArrayList<Edge>();
+		ObjectArrayList<Edge> listaArchi = new ObjectArrayList<Edge>(g.getLista_archi());
+		for (ObjectCursor<Edge> ee : listaArchi)
+		{
+			Edge e = ee.value;
+			if ((verificaVincoliPositivi(g, e.getX(), e.getY(), folded_vincoli_positivi, folded_map)) && 
+					(bestScore(g, e.getX(), e.getY(), cs) > relative_to_best))
+			{
+				ObjectIntOpenHashMap<IntOpenHashSet> obX = e.getX().getOutput();
+        
+				ObjectIntOpenHashMap<IntOpenHashSet> ibY = e.getY().getInput();
+				Object[] keys = obX.keys;
+				for (int i = 0; i < obX.allocated.length; i++) {
+					if (obX.allocated[i] != false)
+					{
+						IntOpenHashSet ts = (IntOpenHashSet)keys[i];
+						if ((ts.contains(e.getY().getID_attivita())) && (ts.size() == 1)) {
+							break;
+						}
+					}
+				}
+				keys = ibY.keys;
+				for (int i = 0; i < ibY.allocated.length; i++) {
+					if (ibY.allocated[i] != false)
+					{
+						IntOpenHashSet ts = (IntOpenHashSet)keys[i];
+						if ((ts.contains(e.getX().getID_attivita())) && (ts.size() == 1)) {
+							break;
+						}
+					}
+				}
+				removableEdges.add(e);
+			}
+		}
+		return removableEdges;
+	}
+	
+	private double bestScore(Graph g, Node x, Node y, double[][] csm)
+	{
+		double bestcsOutX = 2.2250738585072014E-308D;
+    
+		double bestcsInY = 2.2250738585072014E-308D;
+		for (int i = 0; i < g.adjacentNodes(x).size(); i++)
+		{
+			Node adjacent = g.adjacentNodes(x).get(i);
+			if (csm[x.getID_attivita()][adjacent.getID_attivita()] > bestcsOutX) {
+				bestcsOutX = csm[x.getID_attivita()][adjacent.getID_attivita()];
+			}
+		}
+		for (int i = 0; i < g.listaNodi().size(); i++)
+		{
+			Node adjacent = g.listaNodi().get(i);
+			if ((g.isConnected(adjacent, y)) && (csm[adjacent.getID_attivita()][y.getID_attivita()] > bestcsInY)) {
+				bestcsInY = csm[adjacent.getID_attivita()][y.getID_attivita()];
+			}
+		}
+		double bestScore = bestcsOutX < bestcsInY ? bestcsOutX : bestcsInY;
+    
+		return 1.0D - csm[x.getID_attivita()][y.getID_attivita()] / bestScore;
 	}
 }
