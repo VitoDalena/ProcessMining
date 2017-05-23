@@ -117,7 +117,20 @@ public class RTTmining {
 	    	foldResult.attivita_tracce, foldResult.traccia_attivita
 	    );
 	    
+	    if (cnmining.verificaConsistenzaVincoli(vincoli.positivi, vincoli.negati) == false)
+	    {
+	    	System.out.println("\n\nImpossibile proseguire\nI Vincoli non sono consistenti");
+	    	System.exit(0);
+	    }
+	    else System.out.println("I Vincoli sono consistenti");
 	    
+	    if (settings.areConstraintsAvailable())
+	    {
+	    	System.out.println("Stampa il grafo folded");
+	      
+	    	// TODO: riga 1124
+	    	
+	    }
 		
 		return "Hello RTTMining";
 	}
