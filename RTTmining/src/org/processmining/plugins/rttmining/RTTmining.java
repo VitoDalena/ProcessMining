@@ -77,35 +77,47 @@ public class RTTmining {
 	    // Riga 922
 	    cnmining.creaVincoliUnfold(vincoli, unfoldResult);
 	    
-	    System.out.println("OK1");
+	    System.out.println("Causal Score Matrix");
 	    
 	    // Crea matrice dei causal score
-	    double[][] csm = cnmining.calcoloMatriceDeiCausalScore(
+	    double[][] causalScoreMatrix = cnmining.calcoloMatriceDeiCausalScore(
     		log, unfoldResult.map, 
     		unfoldResult.traccia_attivita, settings.fallFactor
 	    );
 	    
-	    System.out.println("OK2");
+	    System.out.println("Best Next Matrix");
 	    
 	    // crea matrice dei best next
-	    double[][] m = cnmining.buildBestNextMatrix(
+	    double[][] bestNextMatrix = cnmining.buildBestNextMatrix(
     		log, unfoldResult.map, 
-    		unfoldResult.traccia_attivita, csm, 
+    		unfoldResult.traccia_attivita, causalScoreMatrix, 
     		vincoli.forbidden
 	    );
 	    if (settings.sigmaLogNoise > 0.0D) {
-	    	for (int i = 0; i < m.length; i++) {
-	    		for (int j = 0; j < m.length; j++) {
-	    			if (m[i][j] <= settings.sigmaLogNoise * unfoldResult.traccia_attivita.size()) {
-	    				m[i][j] = 0.0D;
+	    	for (int i = 0; i < bestNextMatrix.length; i++) {
+	    		for (int j = 0; j < bestNextMatrix.length; j++) {
+	    			if (bestNextMatrix[i][j] <= settings.sigmaLogNoise * unfoldResult.traccia_attivita.size()) {
+	    				bestNextMatrix[i][j] = 0.0D;
 	    			}
 	    		}
         	}
 	    }
 	    
-	    System.out.println("OK3");
+	    // Costruisco il grafo unfolded
+	    // Utilizzando solo le informazioni contenute nel log
+	    System.out.println("Costruzione del grafo unfolded... ");
+	    Graph grafoUnfolded = cnmining.costruisciGrafoUnfolded(
+    		unfoldResult.map, bestNextMatrix
+	    );
 	    
-		///
+	    System.out.println("Costruzione del grafo folded...");
+	    LogUnfolderResult foldResult = new LogUnfolderResult();
+	    Graph grafoFolded = cnmining.costruisciGrafoFolded(
+	    	grafoUnfolded, log, foldResult.map, 
+	    	foldResult.attivita_tracce, foldResult.traccia_attivita
+	    );
+	    
+	    
 		
 		return "Hello RTTMining";
 	}
