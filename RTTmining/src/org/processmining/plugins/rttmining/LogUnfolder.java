@@ -64,13 +64,12 @@ public class LogUnfolder
 	/*
 	 * Dovrebbe snodare i cicli 
 	 */
+	
 	public static LogUnfolderResult unfold(XLog log) throws Exception
 	{
 		LogUnfolderResult result = new LogUnfolderResult();
-		
-		long time = System.currentTimeMillis();        
 		int count = 0;
-		
+    
 		for (int i = 0; i < log.size(); i++)
 		{
 			XTrace trace = log.get(i);
@@ -84,16 +83,16 @@ public class LogUnfolder
 			for (XEvent activity : trace)
 			{
 				String nome_attivita = activity.getAttributes().get("concept:name") + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
-				if (result.traccia_attivita.get(traccia).contains(nome_attivita) == false)
+				if (!(result.traccia_attivita.get(traccia)).contains(nome_attivita))
 				{
-					result.traccia_attivita.get(traccia).add(nome_attivita);
+					(result.traccia_attivita.get(traccia)).add(nome_attivita);
 				}
 				else
 				{
 					int counter = -1;
-					for (int ii = result.traccia_attivita.get(traccia).size() - 1; ii >= 0; ii--)
+					for (int ii = (result.traccia_attivita.get(traccia)).size() - 1; ii >= 0; ii--)
 					{
-						String nome_attiv = result.traccia_attivita.get(traccia).get(ii);
+						String nome_attiv = (result.traccia_attivita.get(traccia)).get(ii);
             
 						String[] split = nome_attiv.split("#");
 						if (split[0].equals(nome_attivita.split("#")[0]))
@@ -103,7 +102,7 @@ public class LogUnfolder
 						}
 					}
 					nome_attivita = nome_attivita.split("#")[0] + "#" + String.format("%04d", new Object[] { Integer.valueOf(counter) });
-					result.traccia_attivita.get(traccia).add(nome_attivita);
+					(result.traccia_attivita.get(traccia)).add(nome_attivita);
 				}
 				if (!result.attivita_tracce.containsKey(nome_attivita))
 				{
@@ -114,7 +113,7 @@ public class LogUnfolder
 				}
 				else
 				{
-					result.attivita_tracce.get(nome_attivita).add(traccia);
+					(result.attivita_tracce.get(nome_attivita)).add(traccia);
 				}
 			}
 		}
@@ -134,9 +133,6 @@ public class LogUnfolder
 				}
 			}
 		}
-		time = System.currentTimeMillis() - time;
-    
-		result.time = Long.valueOf(time);
 		
 		return result;
 	}

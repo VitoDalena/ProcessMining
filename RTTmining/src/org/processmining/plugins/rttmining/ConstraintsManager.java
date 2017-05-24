@@ -9,9 +9,14 @@ import com.carrotsearch.hppc.ObjectArrayList;
 
 public class ConstraintsManager {
 
-    ObjectArrayList<Forbidden> forbidden, forbiddenUnfolded;
-    ObjectArrayList<Constraint>	positivi, negati, 
-    	positiviUnfolded, negatiUnfolded;
+    ObjectArrayList<Forbidden> 
+    	forbidden, 
+    	forbiddenUnfolded;
+    ObjectArrayList<Constraint>	
+    	positivi, 
+    	negati, 
+    	positiviUnfolded, 
+    	negatiUnfolded;
     
     public ConstraintsManager(){
     	forbidden = new ObjectArrayList<Forbidden>();

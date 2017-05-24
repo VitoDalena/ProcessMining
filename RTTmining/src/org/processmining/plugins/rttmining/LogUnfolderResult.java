@@ -8,13 +8,11 @@ class LogUnfolderResult {
 	
 	public ObjectIntOpenHashMap<String> map;
 	public ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce;	    
-	public ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita;
-	long time;		
+	public ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita;		
 	
 	public LogUnfolderResult(){
 		map = new ObjectIntOpenHashMap<String>();	    
 		attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
 		traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
-		time = 0;
 	}
 }

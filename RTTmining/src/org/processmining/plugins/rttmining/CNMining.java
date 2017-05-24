@@ -180,7 +180,7 @@ public class CNMining {
 				XTrace trace = log.get(i);
 				String traccia = trace.getAttributes().get("concept:name") + " # " + i;
 				if (!traccia_attivita.containsKey(traccia)) {
-					traccia_attivita.put(traccia, new ObjectArrayList());
+					traccia_attivita.put(traccia, new ObjectArrayList<String>());
 				}
 				for (XEvent activity : trace)
 				{
@@ -192,7 +192,7 @@ public class CNMining {
 					}
 					if (!attivita_tracce.containsKey(nome_attivita))
 					{
-						ObjectArrayList<String> lista_tracce = new ObjectArrayList();
+						ObjectArrayList<String> lista_tracce = new ObjectArrayList<String>();
 						lista_tracce.add(traccia);
 						attivita_tracce.put(nome_attivita, lista_tracce);
 					}
@@ -240,15 +240,15 @@ public class CNMining {
 							while (it < graph.listaNodi().size())
 							{
 								Node new_n_k = graph.listaNodi().get(it);
-								if (new_n_k.getNomeAttivita().equals(((Node)n_k.value).getNomeAttivita().split("#")[0]))
+								if (new_n_k.getNomeAttivita().equals((n_k.value).getNomeAttivita().split("#")[0]))
 								{
 									if (((ObjectOpenHashSet)graph.getMap().get(newnode)).contains(new_n_k)) {
 										break;
 									}
 									for (ObjectCursor<Edge> e : lista_archi_unfolded) {
-										if (e.value.equals(new Edge(n, (Node)n_k.value)))
+										if (e.value.equals(new Edge(n, n_k.value)))
 										{
-											graph.addEdge(newnode, new_n_k, ((Edge)e.value).isFlag());
+											graph.addEdge(newnode, new_n_k, (e.value).isFlag());
 											
 											newnode.incr_Outer_degree();
 											new_n_k.incr_Inner_degree();
@@ -346,9 +346,9 @@ public class CNMining {
 	/*
 	 * TODO: non funziona
 	 */
-	public void creaVincoliUnfold(ConstraintsManager vincoli, LogUnfolderResult result)
+	public void creaVincoliUnfoled(ConstraintsManager vincoli, LogUnfolderResult result)
 	{
-		System.out.println("Creazione vincoli unfold");
+		System.out.println("Creazione vincoli unfoled");
 		int i = 0;
 		Iterator<ObjectCursor<Constraint>> positiviIterator = vincoli.positivi.iterator();
 		Iterator<ObjectCursor<Constraint>> negatiIterator = vincoli.negati.iterator();
@@ -405,7 +405,7 @@ public class CNMining {
 	    					if ((vincolo.value).getBodyList().contains(unfolded_body.split("#")[0]))
 	    					{
 	    						vincoloUnfolded.addBody(unfolded_body);
-	    						vincoli.forbidden.add(new Forbidden(unfolded_body, unfolded_head));
+	    						vincoli.forbiddenUnfolded.add(new Forbidden(unfolded_body, unfolded_head));
 	    					}
 	    				}
 	    			}
@@ -529,6 +529,577 @@ public class CNMining {
     	return mNext;
 	}
 	
+	// CNMining.java riga 3340
+	public void costruisciGrafoPG0(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati_unfolded, ObjectArrayList<Constraint> vincoli_negati_folded, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	{
+		boolean flag = false;
+		if (lista_vincoli_positivi_folded.size() == 0)
+		{
+			flag = true;
+			Object[] buffer = vincoli_negati_folded.buffer;
+			for (int i = 0; i < vincoli_negati_folded.size(); i++)
+			{
+				Constraint c = (Constraint)buffer[i];
+				if (!c.isPathConstraint())
+				{
+					flag = false;
+					break;
+				}
+			}
+		}
+		if (!flag)
+		{
+			bestEdge(
+				unfolded_g, m, lista_vincoli_positivi_unfolded, lista_vincoli_positivi_folded, 
+				vincoli_negati_folded, lista_forbidden, lista_forbidden_unfolded, map, 
+				attivita_tracce, traccia_attivita, csm, sigma, folded_g, folded_map
+			);
+      
+			bestPath(
+				unfolded_g, m, lista_vincoli_positivi_unfolded, lista_vincoli_positivi_folded, 
+				vincoli_negati_folded, lista_forbidden, lista_forbidden_unfolded, map, 
+				attivita_tracce, traccia_attivita, csm, sigma, folded_g, folded_map
+			);
+      
+			eliminaForbidden(
+				unfolded_g, lista_forbidden_unfolded, lista_forbidden, map, m, csm, attivita_tracce, 
+				traccia_attivita, lista_vincoli_positivi_folded, vincoli_negati_folded, folded_g, folded_map
+			);
+		}
+		else
+		{
+			System.out.println("SECONDO ALGORITMO ");
+			noPathConstraints(
+				unfolded_g, m, lista_vincoli_positivi_unfolded, lista_vincoli_positivi_folded, 
+				vincoli_negati_unfolded, vincoli_negati_folded, lista_forbidden, lista_forbidden_unfolded, 
+				map, attivita_tracce, traccia_attivita, csm, sigma, folded_g, folded_map
+			);
+		}
+	}
+	
+	public void bestEdge(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	{
+		sigma = -100.0D;
+		for (int i = 0; i < lista_vincoli_positivi_unfolded.size(); i++)
+		{
+			Constraint vincolo = lista_vincoli_positivi_unfolded.get(i);
+			if (!vincolo.isPathConstraint())
+			{
+				String bestBodyNode = "";
+				String bestHeadNode = "";
+				double bestNodeCS = -1.7976931348623157E308D;
+				
+				// TODO: interpretazione nostra
+				Iterator<String> bodyIterator = vincolo.getBodyList().iterator();
+				Iterator<String> headIterator = vincolo.getHeadList().iterator();
+				
+				while(bodyIterator.hasNext() && headIterator.hasNext()){
+					String body = bodyIterator.next();
+					String head = headIterator.next();
+					
+					String activity_x = body;          
+					String activity_a = head;
+          
+					double currentCS = csm[map.get(activity_x)][map.get(activity_a)];
+					if (currentCS > bestNodeCS)
+					{
+						bestBodyNode = activity_x;
+						bestHeadNode = activity_a;
+						bestNodeCS = currentCS;
+					}
+				}
+				
+				Node x = new Node(bestBodyNode, map.get(bestBodyNode));
+				Node a = new Node(bestHeadNode, map.get(bestHeadNode));
+				if (!unfolded_g.isConnected(x, a)) {
+					if (csm[map.get(bestBodyNode)][map.get(bestHeadNode)] >= sigma)
+					{
+						unfolded_g.addEdge(x, a, true);
+            
+						x.incr_Outer_degree();
+						a.incr_Inner_degree();
+					}
+					else
+					{
+						System.out.println("FALLIMENTO!");
+						System.out.println("IMPOSSIBILE AGGIUNGERE ARCO " + x.getNomeAttivita() + " => " + 
+							a.getNomeAttivita());
+					}
+				}
+			}
+		}
+	}
+	
+	public void bestPath(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	{
+		sigma = -100.0D;
+    
+		Node x = null;
+    
+		Node a = null;
+		for (int i = 0; i < lista_vincoli_positivi_unfolded.size(); i++)
+		{
+			Constraint vincolo = lista_vincoli_positivi_unfolded.get(i);
+			if (vincolo.isPathConstraint())
+			{
+				String bestBodyNode = "";
+				String bestHeadNode = "";
+				String bestThroughNode = "";
+        
+				double bestPathCS = -1.7976931348623157E308D;
+				
+				// TODO: modifica nostra
+				Iterator<String> bodyIterator = vincolo.getBodyList().iterator();
+				Iterator<String> headIterator = vincolo.getHeadList().iterator();
+				
+				while(bodyIterator.hasNext() && headIterator.hasNext()){
+					String body = bodyIterator.next();
+					String head = headIterator.next();
+					String activity_x = body;          
+					bestBodyNode = activity_x;
+					String activity_a = head;
+					bestHeadNode = activity_a;
+          
+					x = new Node(bestBodyNode, map.get(bestBodyNode));
+					a = new Node(bestHeadNode, map.get(bestHeadNode));
+					if (unfolded_g.isConnected(x, a)) {
+						break;
+					}
+					for (int ni = 0; ni < unfolded_g.listaNodi().size(); ni++)
+					{
+						Node n = unfolded_g.listaNodi().get(ni);
+						n.setMark(false);
+					}
+					if (bfs(unfolded_g, x, a, null, null)) {
+						break;
+					}
+				}
+				
+				// TODO: di nuovo
+				bodyIterator = vincolo.getBodyList().iterator();
+				headIterator = vincolo.getHeadList().iterator();
+				while(bodyIterator.hasNext() && headIterator.hasNext()){
+					String body = bodyIterator.next();
+					String head = headIterator.next();
+					
+					String activity_x = body;			          
+					bestBodyNode = activity_x;
+					
+					String activity_a = head;
+					bestHeadNode = activity_a;
+          
+					x = new Node(bestBodyNode, map.get(bestBodyNode));
+					a = new Node(bestHeadNode, map.get(bestHeadNode));
+          
+					boolean[] states = map.allocated;
+					Object[] keys = map.keys;
+					for (int ii = 0; ii < states.length; ii++) {
+						if (states[ii] != false)
+						{
+							String activity_y = (String)keys[ii];
+							if ((!activity_x.equals(activity_y)) && (!activity_a.equals(activity_y)) && 
+									(!lista_forbidden_unfolded.contains(new Forbidden(activity_x, activity_y))) && 
+									(!lista_forbidden_unfolded.contains(new Forbidden(activity_y, activity_a))) && 
+									(!activity_y.equals(attivita_iniziale + "#0000")) && 
+									(!activity_y.equals(attivita_finale + "#0000")))
+							{
+								double currentCS = -Math.log(1.1D - csm[map.get(activity_x)][map.get(activity_y)]) - 
+									Math.log(1.1D - csm[map.get(activity_y)][map.get(activity_a)]);
+								if (currentCS > bestPathCS)
+								{
+									bestThroughNode = activity_y;
+                  
+									bestPathCS = currentCS;
+								}
+							}
+						}
+					}
+				}
+				if (bestThroughNode.equals(""))
+				{
+					if (lista_forbidden_unfolded.contains(new Forbidden(bestBodyNode, bestHeadNode)))
+					{
+						System.out.println("Impossibile soddisfare il vincolo " + vincolo);
+						System.out.println("Provo con il prossimo set!");
+					}
+					else if (!unfolded_g.isConnected(x, a))
+					{
+						if (csm[map.get(bestBodyNode)][map.get(bestHeadNode)] >= sigma)
+						{
+							unfolded_g.addEdge(x, a, true);
+              
+							x.incr_Outer_degree();
+							a.incr_Inner_degree();
+						}
+						else
+						{
+							System.out.println("FALLIMENTO!");
+							System.out.println("IMPOSSIBILE AGGIUNGERE ARCO " + x.getNomeAttivita() + " => " + 
+								a.getNomeAttivita());
+						}
+         	}
+				}
+				else
+				{
+					Node y = new Node(bestThroughNode, map.get(bestThroughNode));
+					if (!unfolded_g.isConnected(x, a)) {
+						if (csm[map.get(bestBodyNode)][map.get(bestHeadNode)] >= sigma)
+						{
+							unfolded_g.addEdge(x, a, true);
+              
+							x.incr_Outer_degree();
+							a.incr_Inner_degree();
+						}
+						else
+						{
+							System.out.println("FALLIMENTO!");
+							System.out.println("IMPOSSIBILE AGGIUNGERE ARCO " + x.getNomeAttivita() + " => " + 
+								a.getNomeAttivita());
+              
+							continue;
+						}
+					}
+					if (!unfolded_g.isConnected(x, y)) {
+						if (csm[map.get(bestBodyNode)][map.get(bestThroughNode)] >= sigma)
+						{
+							unfolded_g.addEdge(x, y, true);
+              
+							x.incr_Outer_degree();
+							y.incr_Inner_degree();
+						}
+						else
+						{
+							System.out.println("FALLIMENTO!");
+							System.out.println("IMPOSSIBILE AGGIUNGERE ARCO " + x.getNomeAttivita() + " => " + 
+								y.getNomeAttivita());
+							continue;
+						}
+					}
+					if (!unfolded_g.isConnected(y, a)) {
+						if (csm[map.get(bestThroughNode)][map.get(bestHeadNode)] >= sigma)
+						{
+							unfolded_g.addEdge(y, a, true);
+              
+							y.incr_Outer_degree();
+							a.incr_Inner_degree();
+						}
+						else
+						{
+							System.out.println("FALLIMENTO!");
+							System.out.println("IMPOSSIBILE AGGIUNGERE ARCO " + y.getNomeAttivita() + " => " + 
+								a.getNomeAttivita());
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	// Riga 3900
+	public void eliminaForbidden(Graph g, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectArrayList<Forbidden> lista_forbidden, ObjectIntOpenHashMap<String> map, double[][] m, double[][] csm, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectArrayList<Constraint> vincoli_positivi, ObjectArrayList<Constraint> vincoli_negati, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	{
+		int it = 0;
+		while (it < lista_forbidden_unfolded.size())
+		{
+			Forbidden f = lista_forbidden_unfolded.get(it);
+      
+			Node x = new Node(f.getB(), map.get(f.getB()));
+			Node y = new Node(f.getA(), map.get(f.getA()));
+			if (g.isConnected(x, y))
+			{
+				boolean vincoli_soddisfatti = verificaVincoliPositivi(
+					folded_g, 
+					folded_g.getNode(x.getNomeAttivita().split("#")[0], 
+							folded_map.get(x.getNomeAttivita().split("#")[0])), 
+					folded_g.getNode(y.getNomeAttivita().split("#")[0], 
+							folded_map.get(y.getNomeAttivita().split("#")[0])), vincoli_positivi, folded_map
+				);
+				if (vincoli_soddisfatti)
+				{
+					g.removeEdge(x, y);
+          
+					m[x.getID_attivita()][y.getID_attivita()] = 0.0D;
+					System.out.println("RIMOSSO ARCO FORBIDDEN " + x.getNomeAttivita() + " => " + y.getNomeAttivita());
+					x.decr_Outer_degree();
+					y.decr_Inner_degree();
+          
+					ObjectOpenHashSet<String> lista_candidati_best_pred = null;
+          
+					lista_candidati_best_pred = bestPred_Folded(
+						y.getID_attivita(), x.getID_attivita(), map, 
+						attivita_tracce, traccia_attivita
+					);
+          
+					String best_pred = attivita_iniziale + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
+					String best_unfolded_item;
+					if (lista_candidati_best_pred != null) {
+						if (lista_candidati_best_pred.size() > 0)
+						{
+							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList();
+							for (ObjectCursor<String> activityCursor : lista_candidati_best_pred)
+							{
+								String activity = activityCursor.value;
+								best_unfolded_item = "";
+								double best_unfolded_cs = -1.0D;
+                
+								Object[] keys = map.keys;
+								for (int i = 0; i < map.allocated.length; i++) {
+									if (map.allocated[i] != false)
+									{
+										String unfolded_item = (String)keys[i];
+										if ((unfolded_item.split("#")[0].equals(activity)) && 
+											(csm[map.get(unfolded_item)][y.getID_attivita()] > best_unfolded_cs))
+										{
+											best_unfolded_item = unfolded_item;
+											best_unfolded_cs = csm[map.get(unfolded_item)][y.getID_attivita()];
+										}
+									}
+								}
+								lista_candidati_best_pred_unfolded.add(best_unfolded_item);
+							}
+							best_pred = getFinalBestPred(g, csm, y, map, lista_candidati_best_pred_unfolded, 
+								vincoli_negati, lista_forbidden, folded_g, folded_map, false);
+						}
+						else
+						{
+							System.out.println("FALLIMENTO BEST PRED NON TROVATO!!!");
+						}
+					}
+					ObjectOpenHashSet<String> lista_candidati_best_succ = null;
+          
+					lista_candidati_best_succ = bestSucc_Folded(x.getID_attivita(), y.getID_attivita(), map, 
+						attivita_tracce, traccia_attivita);
+          
+					String best_succ = attivita_finale + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
+					if (lista_candidati_best_succ != null) {
+						if (lista_candidati_best_succ.size() > 0)
+						{
+							Object lista_candidati_best_succ_unfolded = new ObjectArrayList();
+							for (ObjectCursor<String> activityCursor : lista_candidati_best_succ)
+							{
+								String activity = activityCursor.value;
+								best_unfolded_item = "";
+								double best_unfolded_cs = -1.0D;
+                
+								Object[] keys = map.keys;
+								for (int i = 0; i < map.allocated.length; i++) {
+									if (map.allocated[i] != false)
+									{
+										String unfolded_item = (String)keys[i];
+										if ((unfolded_item.split("#")[0].equals(activity)) && 
+											(csm[x.getID_attivita()][map.get(unfolded_item)] > best_unfolded_cs))
+										{
+											best_unfolded_item = unfolded_item;
+											best_unfolded_cs = csm[x.getID_attivita()][map.get(unfolded_item)];
+										}
+									}
+								}
+								((ObjectArrayList)lista_candidati_best_succ_unfolded).add(best_unfolded_item);
+							}
+							best_succ = getFinalBestSucc(g, csm, x, map, (ObjectArrayList)lista_candidati_best_succ_unfolded, 
+								vincoli_negati, lista_forbidden, folded_g, folded_map, false);
+						}
+						else
+						{
+							System.out.println("FALLIMENTO BEST SUCC NON TROVATO!!!");
+						}
+					}
+					if (!best_pred.equals(""))
+					{
+						Node nz = g.getNode(getKeyByValue(map, map.get(best_pred)), map.get(best_pred));
+						if (!g.isConnected(nz, y))
+						{
+							m[map.get(best_pred)][y.getID_attivita()] = 1.0D;
+							g.addEdge(nz, y, false);
+              
+							nz.incr_Outer_degree();
+							y.incr_Inner_degree();
+						}
+					}
+					if (!best_succ.equals(""))
+					{
+						Node nw = g.getNode(getKeyByValue(map, map.get(best_succ)), map.get(best_succ));
+						if (!g.isConnected(x, nw))
+						{
+							m[x.getID_attivita()][map.get(best_succ)] = 1.0D;
+							g.addEdge(x, nw, false);
+              
+							x.incr_Outer_degree();
+							nw.incr_Inner_degree();
+						}
+					}
+				}
+			}
+			it++;
+		}
+	}
+	
+	// riga 3400
+	public void noPathConstraints(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati_unfolded, ObjectArrayList<Constraint> vincoli_negati, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	{
+		Object[] buffer = lista_forbidden_unfolded.buffer;
+		for (int k = 0; k < lista_forbidden_unfolded.size(); k++)
+		{
+			Forbidden f = (Forbidden)buffer[k];
+      
+			Node x = new Node(f.getB(), map.get(f.getB()));
+			Node y = new Node(f.getA(), map.get(f.getA()));
+			if (unfolded_g.isConnected(x, y)) {
+				unfolded_g.removeEdge(x, y);
+			}
+			for (int ni = 0; ni < unfolded_g.listaNodi().size(); ni++)
+			{
+				Node n = unfolded_g.listaNodi().get(ni);
+				n.setMark(false);
+			}
+			ObjectArrayList<Node> listaNodiPath = new ObjectArrayList<Node>();
+			
+			boolean spezzaPath = bfs(unfolded_g, x, y, null, listaNodiPath);
+			if (spezzaPath)
+			{
+				ObjectArrayList<Edge> archiRimossi = new ObjectArrayList<Edge>();
+				do
+				{
+					double minCs = Double.MAX_VALUE;
+          
+					Node z = null;
+					Node w = null;
+					Node zz = null;
+					Node ww = null;
+					for (int i = 0; i < listaNodiPath.size() - 1; i++) {
+						for (int j = i + 1; j < listaNodiPath.size(); j++)
+						{
+							zz = listaNodiPath.get(i);
+							ww = listaNodiPath.get(j);
+							Edge e = new Edge(zz, ww);
+							if (unfolded_g.getLista_archi().contains(e)) {
+								if ((!archiRimossi.contains(e)) && (csm[zz.getID_attivita()][ww.getID_attivita()] < minCs))
+								{
+									minCs = csm[zz.getID_attivita()][ww.getID_attivita()];
+									z = zz;
+									w = ww;
+								}
+							}
+						}
+					}
+					archiRimossi.add(new Edge(z, w));
+          
+					unfolded_g.removeEdge(z, w);
+          
+					System.out.println("RIMOSSO ARCO FORBIDDEN " + z.getNomeAttivita() + " => " + w.getNomeAttivita());
+					m[z.getID_attivita()][w.getID_attivita()] = 0.0D;
+          
+					z.decr_Outer_degree();
+					w.decr_Inner_degree();
+          
+					ObjectOpenHashSet<String> lista_candidati_best_pred = null;
+          
+					lista_candidati_best_pred = bestPred_Folded(w.getID_attivita(), z.getID_attivita(), map, attivita_tracce, traccia_attivita);
+          
+					String best_pred = attivita_iniziale + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
+					if (lista_candidati_best_pred != null) {
+						if (lista_candidati_best_pred.size() > 0)
+						{
+							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList<String>();
+              
+							Iterator<ObjectCursor<String>> it = lista_candidati_best_pred.iterator();
+							while (it.hasNext())
+							{
+								String activity = (it.next()).value;
+                
+								String best_unfolded_item = "";
+								double best_unfolded_cs = -1.0D;
+                
+								Object[] keys2 = map.keys;
+								for (int j = 0; j < map.allocated.length; j++) {
+									if (map.allocated[j] != false)
+									{
+										String unfolded_item = (String)keys2[j];
+										if ((unfolded_item.split("#")[0].equals(activity)) && 
+											(csm[map.get(unfolded_item)][w.getID_attivita()] > best_unfolded_cs))
+										{
+											best_unfolded_item = unfolded_item;
+											best_unfolded_cs = csm[map.get(unfolded_item)][w.getID_attivita()];
+										}
+									}
+								}
+								lista_candidati_best_pred_unfolded.add(best_unfolded_item);
+							}
+							best_pred = getFinalBestPred(unfolded_g, csm, w, map, lista_candidati_best_pred_unfolded, 
+								vincoli_negati, lista_forbidden, folded_g, folded_map, true);
+						}
+					}
+					ObjectOpenHashSet<String> lista_candidati_best_succ = null;
+          
+					lista_candidati_best_succ = bestSucc_Folded(z.getID_attivita(), w.getID_attivita(), map, 
+						attivita_tracce, traccia_attivita);
+          
+					String best_succ = attivita_finale + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
+					if ((lista_candidati_best_succ != null) && 
+						(lista_candidati_best_succ.size() > 0))
+					{
+						ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList<String>();
+            
+						Iterator<ObjectCursor<String>> it = lista_candidati_best_succ.iterator();
+						while (it.hasNext())
+						{
+							String activity = (it.next()).value;
+							String best_unfolded_item = "";
+							double best_unfolded_cs = -1.0D;
+              
+							Object[] keys2 = map.keys;
+							for (int j = 0; j < map.allocated.length; j++) {
+								if (map.allocated[j] != false)
+								{
+									String unfolded_item = (String)keys2[j];
+									if ((unfolded_item.split("#")[0].equals(activity)) && 
+										(csm[z.getID_attivita()][map.get(unfolded_item)] > best_unfolded_cs))
+									{
+										best_unfolded_item = unfolded_item;
+										best_unfolded_cs = csm[z.getID_attivita()][map.get(unfolded_item)];
+									}
+								}
+							}
+							lista_candidati_best_succ_unfolded.add(best_unfolded_item);
+						}
+						best_succ = getFinalBestSucc(unfolded_g, csm, z, map, lista_candidati_best_succ_unfolded, 
+							vincoli_negati, lista_forbidden, folded_g, folded_map, true);
+					}
+					if (!best_pred.equals(""))
+					{
+						Node nz = unfolded_g.getNode(getKeyByValue(map, map.get(best_pred)), map.get(best_pred));
+						if (!unfolded_g.isConnected(nz, w))
+						{
+							m[map.get(best_pred)][w.getID_attivita()] = 1.0D;
+							unfolded_g.addEdge(nz, w, false);
+              
+							nz.incr_Outer_degree();
+							w.incr_Inner_degree();
+						}
+					}
+					if (!best_succ.equals(""))
+					{
+						Node nw = unfolded_g.getNode(getKeyByValue(map, map.get(best_succ)), map.get(best_succ));
+						if (!unfolded_g.isConnected(z, nw))
+						{
+							m[z.getID_attivita()][map.get(best_succ)] = 1.0D;
+							unfolded_g.addEdge(z, nw, false);
+              
+							z.incr_Outer_degree();
+							nw.incr_Inner_degree();
+						}
+					}
+					for (int ni = 0; ni < unfolded_g.listaNodi().size(); ni++)
+					{
+						Node n = unfolded_g.listaNodi().get(ni);
+						n.setMark(false);
+					}
+				} 
+				while (bfs(unfolded_g, x, y, null, null));
+			}
+		}
+	}
+
 	// ###########################################
 	//			Sezione algoritmo 2
 	// ###########################################

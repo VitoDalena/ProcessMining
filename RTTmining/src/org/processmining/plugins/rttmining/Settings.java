@@ -12,13 +12,14 @@ public class Settings
 	public double fallFactor;
 	public String logName;
 	public double relativeToBest;
-	public double sigmaUpCsDiff=0.2D;
+	public double sigmaUpCsDiff;
 	
 	
 	public Settings(){
 		this.constraintsFilename = this.logName = "";
 		this.constraintsEnabled = false;
 		this.sigmaLogNoise = this.fallFactor = this.relativeToBest = 0.0D;
+		this.sigmaUpCsDiff = 0.2D;
 	}
 	
 	public boolean areConstraintsAvailable(){

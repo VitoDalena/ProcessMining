@@ -18,10 +18,7 @@ public class RTTmining {
 	public static Settings settings;
 	// Gestore dei vincoli
 	public static ConstraintsManager vincoli;
-	
-	private static UIPluginContext context;
-	private static XLog log;
-	
+		
 	/*
 	 * Queste notazioni specificano le informazioni di contesto
 	 * del plugin, come parametri di input e output
@@ -47,10 +44,6 @@ public class RTTmining {
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
     public static Flex Process(UIPluginContext context, XLog log) throws Exception {
-		// Rendi il contesto e l'input globale a tutto il plugin
-		RTTmining.context = context;
-		RTTmining.log = log;		
-		
 		// determina le impostazioni del plugin
 		SettingsView settingsView = new SettingsView(context, log);
 		settings = settingsView.show();
@@ -76,7 +69,7 @@ public class RTTmining {
 	    LogUnfolderResult unfoldResult = LogUnfolder.unfold(log);
 		// l'operazione di unfold mi produce 4 output
 	    // Riga 922
-	    cnmining.creaVincoliUnfold(vincoli, unfoldResult);
+	    cnmining.creaVincoliUnfoled(vincoli, unfoldResult);
 	    
 	    System.out.println("Causal Score Matrix");
 	    
@@ -92,8 +85,10 @@ public class RTTmining {
 	    double[][] bestNextMatrix = cnmining.buildBestNextMatrix(
     		log, unfoldResult.map, 
     		unfoldResult.traccia_attivita, causalScoreMatrix, 
-    		vincoli.forbidden
+    		vincoli.forbiddenUnfolded
 	    );
+	    
+	    // Normalizza matrice
 	    if (settings.sigmaLogNoise > 0.0D) {
 	    	for (int i = 0; i < bestNextMatrix.length; i++) {
 	    		for (int j = 0; j < bestNextMatrix.length; j++) {
@@ -106,12 +101,12 @@ public class RTTmining {
 	    
 	    // Costruisco il grafo unfolded
 	    // Utilizzando solo le informazioni contenute nel log
-	    System.out.println("Costruzione del grafo unfolded... ");
+	    System.out.println("Costruzione del grafo unfolded originale... ");
 	    Graph grafoUnfolded = cnmining.costruisciGrafoUnfolded(
     		unfoldResult.map, bestNextMatrix
 	    );
 	    
-	    System.out.println("Costruzione del grafo folded...");
+	    System.out.println("Costruzione del grafo folded originale...");
 	    LogUnfolderResult foldResult = new LogUnfolderResult();
 	    Graph grafoFolded = cnmining.costruisciGrafoFolded(
 	    	grafoUnfolded, log, foldResult.map, 
@@ -127,11 +122,30 @@ public class RTTmining {
 	    
 	    if (settings.areConstraintsAvailable())
 	    {
-	    	System.out.println("Stampa il grafo folded");
+	    	System.out.println("Stampa il grafo folded PG0...");
 	      
-	    	// TODO: riga 1124
-	    	// è una cosa di debug grafico su consolo
-	    	// per ora evito	
+	    	// riga 1124
+	    	cnmining.costruisciGrafoPG0(
+	    		grafoUnfolded, bestNextMatrix, 
+	    		vincoli.positiviUnfolded, vincoli.positivi, 
+	    		vincoli.negatiUnfolded, vincoli.negati, 
+	    		vincoli.forbidden, vincoli.forbiddenUnfolded, 
+	    		unfoldResult.map, 
+	    		unfoldResult.attivita_tracce, unfoldResult.traccia_attivita,
+	    		causalScoreMatrix, settings.sigmaLogNoise,
+	    		grafoFolded, foldResult.map
+	    	);
+	    		      
+	    	Graph grafoPG0 = cnmining.costruisciGrafoFolded(
+	    		grafoUnfolded, log, foldResult.map, 
+	    		foldResult.attivita_tracce, foldResult.traccia_attivita
+	    	);
+	    	
+	    	if (!cnmining.verificaVincoliPositivi(grafoPG0, null, null, vincoli.positivi, foldResult.map))
+	        {
+	    		System.out.println("FALLIMENTO, PG0 NON SODDISFA I VINCOLI POSITIVI!");
+	    		System.exit(0);
+	        }
 	    }
 	    
 	    // trovo le attività parallele
@@ -280,13 +294,13 @@ public class RTTmining {
 		        		 headIterator = vincolo.getHeadList().iterator();
 		        		 bodyIterator = vincolo.getBodyList().iterator();
 		        		 
-		        		 // trova la testa e la coda
-		        		 while(headIterator.hasNext())
-		        			 headIterator.next();
-		        		 while(bodyIterator.hasNext())
-		        			 bodyIterator.next();
-		        		 
-		        		 vincoli.forbidden.add(new Forbidden(bodyIterator.toString(), headIterator.toString()));		        		 
+		        		 while(headIterator.hasNext() && bodyIterator.hasNext())
+		        		 {
+		        			 String body = bodyIterator.next();
+		        			 String head = headIterator.next();
+		        			 
+		        			 vincoli.forbidden.add(new Forbidden(body, head));
+		        		 }		        		 		        				        		 
 		        	 }		        		 		     
 		         }
 			}
