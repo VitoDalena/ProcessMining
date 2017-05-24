@@ -1109,7 +1109,6 @@ public class CNMining {
 	{
 		ObjectArrayList<FakeDependency> ap_rimosse = new ObjectArrayList<FakeDependency>();
 		ap_rimosse.trimToSize();
-		int k = 1;
 		for (;;)
 		{
 			
@@ -2169,7 +2168,7 @@ public class CNMining {
 	 * ############################
 	 */
 	
-	public void rimuoviArchiRimovibili(Graph folded_g, double[][] csmOri, ObjectArrayList<Constraint> vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, double relative_to_best)
+	public Graph rimuoviArchiRimovibili(Graph folded_g, double[][] csmOri, ObjectArrayList<Constraint> vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, double relative_to_best)
 	{
 		for (;;)
 		{
@@ -2246,9 +2245,11 @@ public class CNMining {
 				removableEdges.removeFirstOccurrence(bestRemovable);
 			}
 		}
+		
+		return folded_g;
 	}
 	
-	public void rimuoviNodiRimuovibili(Graph folded_g)
+	public Graph rimuoviNodiRimuovibili(Graph folded_g)
 	{
 	    ObjectArrayList<Node> removableNodes = new ObjectArrayList<Node>();
 	    for (int jj = 0; jj < folded_g.listaNodi().size(); jj++)
@@ -2263,6 +2264,9 @@ public class CNMining {
 	      Node removableNode = removableNodes.get(jj);
 	      folded_g.removeNode(removableNode);
 	    }
+	    
+	    
+	    return folded_g;
 	}
 	
 	private ObjectArrayList<Edge> removableEdges(Graph g, double[][] cs, ObjectArrayList<Constraint> folded_vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, double relative_to_best)

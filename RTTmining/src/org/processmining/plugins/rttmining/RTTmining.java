@@ -148,11 +148,13 @@ public class RTTmining {
 	        }
 	    }
 	    
+	    /* Non servono
 	    // trovo le attività parallele
 	    ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
     		bestNextMatrix, grafoUnfolded, unfoldResult.map, 
     		vincoli.positivi, foldResult.map, grafoFolded
 	    );
+	    */
 	    
 	    // CNMining.java riga 1162
 	    System.out.println("Algoritmo fase 2...");
@@ -177,10 +179,12 @@ public class RTTmining {
 	    	Node n = grafoUnfolded.listaNodi().get(i);
 	    	n.setMark(false);
 	    }
+	    /* Non viene mai usato manco questo
 	    ObjectArrayList<FakeDependency> attivitaParalleleResidue = cnmining.getAttivitaParallele(
 	    	bestNextMatrix, grafoUnfolded, unfoldResult.map, 
 	    	vincoli.positivi, foldResult.map, grafoFolded
 	    );
+	    */
 
 	    // Verifica sul folding
 	    for (int i = 0; i < grafoFolded.getLista_archi().size(); i++)
@@ -244,11 +248,11 @@ public class RTTmining {
 		    log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor
 		);
 	    
-	    cnmining.rimuoviArchiRimovibili(
+	    grafoFolded = cnmining.rimuoviArchiRimovibili(
 	    	grafoFolded, causalScoreMatrixResidua, 
 	    	vincoli.positivi, foldResult.map, settings.relativeToBest
 	    );
-		cnmining.rimuoviNodiRimuovibili(grafoFolded);
+		grafoFolded = cnmining.rimuoviNodiRimuovibili(grafoFolded);
 		
 		// Riga 1382, inizio rappresentazione grafica
 		System.out.println("Rappresentazione grafica");
