@@ -61,6 +61,8 @@ import org.deckfour.uitopia.api.event.TaskListener;
 /*      */ import org.processmining.framework.plugin.annotations.Plugin;
 /*      */ import org.processmining.framework.plugin.annotations.PluginVariant;
 /*      */ import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
+import org.processmining.models.causalnet.CausalNetAnnotations;
+import org.processmining.models.causalnet.CausalNetAnnotationsConnection;
 /*      */ import org.processmining.models.connections.GraphLayoutConnection;
 /*      */ import org.processmining.models.connections.flexiblemodel.FlexEndTaskNodeConnection;
 /*      */ import org.processmining.models.connections.flexiblemodel.FlexStartTaskNodeConnection;

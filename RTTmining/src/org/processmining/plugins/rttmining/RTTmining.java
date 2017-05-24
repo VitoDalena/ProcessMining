@@ -99,6 +99,16 @@ public class RTTmining {
         	}
 	    }
 	    
+	    ConsoleDebugger.logAttivita(log);
+	    ConsoleDebugger.logVincolo(vincoli.positivi, "positivi");
+	    ConsoleDebugger.logVincolo(vincoli.positiviUnfolded, "positiviUnfolded");
+	    ConsoleDebugger.logVincolo(vincoli.negati, "negati");
+	    ConsoleDebugger.logVincolo(vincoli.negatiUnfolded, "negatiUnfolded");
+	    ConsoleDebugger.logForbidden(vincoli.forbidden, "forbidden");
+	    ConsoleDebugger.logForbidden(vincoli.forbiddenUnfolded, "forbiddenUnfolded");
+	    ConsoleDebugger.logMatrice(causalScoreMatrix, "CausalScoreMatrix");
+	    ConsoleDebugger.logMatrice(bestNextMatrix, "BestNextMatrix");
+	    
 	    // Costruisco il grafo unfolded
 	    // Utilizzando solo le informazioni contenute nel log
 	    System.out.println("Costruzione del grafo unfolded originale... ");
