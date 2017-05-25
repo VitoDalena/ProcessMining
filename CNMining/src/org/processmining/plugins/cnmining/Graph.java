@@ -12,7 +12,7 @@ public class Graph
   
 	public void addEdge(Node node1, Node node2, boolean flag)
 	{
-		ObjectOpenHashSet<Node> adjacent = (ObjectOpenHashSet)this.map.get(node1);
+		ObjectOpenHashSet<Node> adjacent = this.map.get(node1);
 		if (adjacent == null)
 		{
 			adjacent = new ObjectOpenHashSet<Node>();
@@ -30,9 +30,9 @@ public class Graph
   
 	public ObjectArrayList<Node> adjacentNodes(Node last)
 	{
-	    ObjectOpenHashSet<Node> adjacent = (ObjectOpenHashSet)this.map.get(last);
+	    ObjectOpenHashSet<Node> adjacent = this.map.get(last);
 	    if (adjacent == null) {
-	    	return new ObjectArrayList();
+	    	return new ObjectArrayList<Node>();
 	    }
 	    ObjectArrayList<Node> adjacents = new ObjectArrayList<Node>(adjacent);
 	    adjacents.trimToSize();
@@ -67,7 +67,7 @@ public class Graph
   
  	public boolean isConnected(Node node1, Node node2)
  	{
-	    ObjectOpenHashSet<Node> adjacent = (ObjectOpenHashSet)this.map.get(node1);
+	    ObjectOpenHashSet<Node> adjacent = this.map.get(node1);
 	    if (adjacent == null) {
 	    	return false;
 	    }
@@ -104,7 +104,7 @@ public class Graph
   
  	public boolean removeEdge(Node node1, Node node2)
  	{
- 		ObjectOpenHashSet<Node> adjacent = (ObjectOpenHashSet)this.map.get(node1);
+ 		ObjectOpenHashSet<Node> adjacent = this.map.get(node1);
  		this.lista_archi.removeAllOccurrences(new Edge(node1, node2));
  		if (adjacent != null) {
  			return adjacent.remove(node2);

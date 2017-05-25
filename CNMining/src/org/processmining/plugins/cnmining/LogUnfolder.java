@@ -62,9 +62,9 @@ public class LogUnfolder
 		int count = 0;
     
 		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
-    
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
-		for (int i = 0; i < log.size(); i++)
+    	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
+		
+    	for (int i = 0; i < log.size(); i++)
 		{
 			XTrace trace = (XTrace)log.get(i);
 			String traccia = trace.getAttributes().get("concept:name") + " # " + i;
@@ -77,16 +77,16 @@ public class LogUnfolder
 			for (XEvent activity : trace)
 			{
 				String nome_attivita = activity.getAttributes().get("concept:name") + "#" + String.format("%04d", new Object[] { Integer.valueOf(0) });
-				if (!((ObjectArrayList)traccia_attivita.get(traccia)).contains(nome_attivita))
+				if (!(traccia_attivita.get(traccia)).contains(nome_attivita))
 				{
-					((ObjectArrayList)traccia_attivita.get(traccia)).add(nome_attivita);
+					(traccia_attivita.get(traccia)).add(nome_attivita);
 				}
 				else
 				{
 					int counter = -1;
-					for (int ii = ((ObjectArrayList)traccia_attivita.get(traccia)).size() - 1; ii >= 0; ii--)
+					for (int ii = (traccia_attivita.get(traccia)).size() - 1; ii >= 0; ii--)
 					{
-						String nome_attiv = (String)((ObjectArrayList)traccia_attivita.get(traccia)).get(ii);
+						String nome_attiv = (traccia_attivita.get(traccia)).get(ii);
             
 						String[] split = nome_attiv.split("#");
 						if (split[0].equals(nome_attivita.split("#")[0]))
@@ -96,7 +96,7 @@ public class LogUnfolder
 						}
 					}
 					nome_attivita = nome_attivita.split("#")[0] + "#" + String.format("%04d", new Object[] { Integer.valueOf(counter) });
-					((ObjectArrayList)traccia_attivita.get(traccia)).add(nome_attivita);
+					(traccia_attivita.get(traccia)).add(nome_attivita);
 				}
 				if (!attivita_tracce.containsKey(nome_attivita))
 				{
@@ -107,7 +107,7 @@ public class LogUnfolder
 				}
 				else
 				{
-					((ObjectArrayList)attivita_tracce.get(nome_attivita)).add(traccia);
+					(attivita_tracce.get(nome_attivita)).add(traccia);
 				}
 			}
 		}
