@@ -12,53 +12,38 @@ import com.carrotsearch.hppc.ObjectOpenHashSet;
 import com.carrotsearch.hppc.cursors.IntCursor;
 import com.carrotsearch.hppc.cursors.ObjectCursor;
 import com.fluxicon.slickerbox.components.NiceSlider;
-import com.fluxicon.slickerbox.components.NiceSlider.Orientation;
 import com.fluxicon.slickerbox.factory.SlickerFactory;
-import com.jgraph.layout.JGraphFacade;
-import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintStream;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.StandardOpenOption;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
-import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.deckfour.uitopia.api.event.TaskListener;
-import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
 import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.extension.std.XTimeExtension;
 import org.deckfour.xes.factory.XFactory;
 import org.deckfour.xes.factory.XFactoryRegistry;
 import org.deckfour.xes.model.XAttribute;
-import org.deckfour.xes.model.XAttributeMap;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
-import org.jgraph.graph.GraphLayoutCache;
 import org.processmining.contexts.cli.CLIContext;
 import org.processmining.contexts.cli.CLIPluginContext;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.framework.plugin.ProMFuture;
-import org.processmining.framework.plugin.Progress;
 import org.processmining.framework.plugin.annotations.Plugin;
-import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
 import org.processmining.models.causalnet.CausalNetAnnotations;
 import org.processmining.models.causalnet.CausalNetAnnotationsConnection;
@@ -71,13 +56,10 @@ import org.processmining.models.flexiblemodel.FlexFactory;
 import org.processmining.models.flexiblemodel.FlexNode;
 import org.processmining.models.flexiblemodel.SetFlex;
 import org.processmining.models.flexiblemodel.StartTaskNodesSet;
-import org.processmining.models.graphbased.ViewSpecificAttributeMap;
-import org.processmining.models.graphbased.directed.DirectedGraph;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetNode;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
-import org.processmining.models.jgraph.ProMGraphModel;
 import org.processmining.models.jgraph.ProMJGraph;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
@@ -214,9 +196,9 @@ public class CNMining
 		System.out.println("delta fall factor  " + ff);
 		System.out.println("relative to best  " + relative_to_best);
  
-		ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList();
-		ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList();
-		ObjectArrayList<Constraint> vincoli_negati = new ObjectArrayList();
+		ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList<Forbidden>();
+		ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList<Constraint>();
+		ObjectArrayList<Constraint> vincoli_negati = new ObjectArrayList<Constraint>();
      
 		if (enable_constraints) {
 			if (s.getConstr_file_name().equals("")) {
@@ -256,9 +238,9 @@ public class CNMining
 				}
 			}
 		}
-		ObjectArrayList<Forbidden> lista_forbidden_unfolded = new ObjectArrayList();
-		ObjectArrayList<Constraint> vincoli_positivi_unfolded = new ObjectArrayList();
-		ObjectArrayList<Constraint> vincoli_negati_unfolded = new ObjectArrayList();
+		ObjectArrayList<Forbidden> lista_forbidden_unfolded = new ObjectArrayList<Forbidden>();
+		ObjectArrayList<Constraint> vincoli_positivi_unfolded = new ObjectArrayList<Constraint>();
+		ObjectArrayList<Constraint> vincoli_negati_unfolded = new ObjectArrayList<Constraint>();
 		CNMining cnm = new CNMining();
  
 		cnm.aggiungiAttivitaFittizia(log);
@@ -328,7 +310,7 @@ public class CNMining
 					}
 				}
 				if (!found) {
-					graph.getMap().put(node, new ObjectOpenHashSet());
+					graph.getMap().put(node, new ObjectOpenHashSet<Node>());
 				}
 			}
 		}
@@ -353,9 +335,9 @@ public class CNMining
  
 	    System.out.println("GRAFO FOLDED ORIGINALE SOLO LOG");
      
-	    ObjectIntOpenHashMap<String> folded_map = new ObjectIntOpenHashMap();
-	 	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_attivita_tracce = new ObjectObjectOpenHashMap();
-	  	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_traccia_attivita = new ObjectObjectOpenHashMap();
+	    ObjectIntOpenHashMap<String> folded_map = new ObjectIntOpenHashMap<String>();
+	 	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
+	  	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
      
 	  	Graph folded_G_Ori = cnm.getGrafoAggregato(
 	  		graph, log, true, folded_map, 
@@ -403,7 +385,6 @@ public class CNMining
 	  		m, graph, map, vincoli_positivi, 
 	  		folded_map, folded_G_Ori
 		);
-	  	int counter = 1;
   	
 	  	System.out.println();
 	  	System.out.println("START ALGORITMO 2... ");
@@ -439,8 +420,6 @@ public class CNMining
 	  		m, graph, map, 
 	  		vincoli_positivi, folded_map, folded_g
 	  	);
-     
-	  	counter = 1;
 	  	
   		System.out.println();
   		System.out.println();
@@ -482,9 +461,9 @@ public class CNMining
 	    Node start = new Node(attivita_iniziale, folded_map.get(attivita_iniziale));
 	    Node end = new Node(attivita_finale, folded_map.get(attivita_finale));
  
-	    ObjectArrayList<Node> startActivities = new ObjectArrayList();
+	    ObjectArrayList<Node> startActivities = new ObjectArrayList<Node>();
  
-	    ObjectArrayList<Node> endActivities = new ObjectArrayList();
+	    ObjectArrayList<Node> endActivities = new ObjectArrayList<Node>();
  
 	    folded_g = cnm.rimuoviAttivitaFittizie(
 	    	folded_g, folded_map, folded_traccia_attivita, 
@@ -577,7 +556,7 @@ public class CNMining
        		}
 	    }
      
-	    ObjectArrayList<Node> removableNodes = new ObjectArrayList();
+	    ObjectArrayList<Node> removableNodes = new ObjectArrayList<Node>();
     	for (int jj = 0; jj < folded_g.listaNodi().size(); jj++) {
     		Node n = (Node)folded_g.listaNodi().get(jj);
     		if ((n.getInner_degree() == 0) && (n.getOuter_degree() == 0)) {
@@ -766,8 +745,8 @@ public class CNMining
  
 	public Graph rimuoviAttivitaFittizie(Graph folded_g, ObjectIntOpenHashMap<String> folded_map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_traccia, Node start, Node end, XLog log, ObjectArrayList<Node> startActivities, ObjectArrayList<Node> endActivities)
 	{
-		ObjectArrayList<Node> startActs = new ObjectArrayList();
-		ObjectArrayList<Node> endActs = new ObjectArrayList();
+		ObjectArrayList<Node> startActs = new ObjectArrayList<Node>();
+		ObjectArrayList<Node> endActs = new ObjectArrayList<Node>();
      
 		for (int i = 0; i < log.size(); i++)
 		{
@@ -1199,7 +1178,7 @@ public class CNMining
 	
 	public void algoritmo2(double[][] m, Graph graph, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma_1, ObjectIntOpenHashMap<String> folded_map, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Constraint> vincoli_positivi, ObjectArrayList<Constraint> vincoli_negati)
 	{
-		ObjectArrayList<FakeDependency> ap_rimosse = new ObjectArrayList();
+		ObjectArrayList<FakeDependency> ap_rimosse = new ObjectArrayList<FakeDependency>();
 		ap_rimosse.trimToSize();
 		int k = 1;
      
@@ -1260,7 +1239,7 @@ public class CNMining
 			{
 				if (lista_candidati_best_pred.size() > 0)
 				{
-					ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList();
+					ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList<String>();
 					Object[] keys = lista_candidati_best_pred.keys;
            
 					for (int i = 0; i < lista_candidati_best_pred.allocated.length; i++) {
@@ -1315,7 +1294,7 @@ public class CNMining
 			if (lista_candidati_best_succ != null) {
 				if (lista_candidati_best_succ.size() > 0)
 				{
-					ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList();
+					ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList<String>();
 					
 					Iterator<ObjectCursor<String>> it = lista_candidati_best_succ.iterator();
 					while (it.hasNext())
@@ -1422,7 +1401,7 @@ public class CNMining
 					{
 						if (lista_candidati_best_pred_yx.size() > 0)
 						{
-							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList();
+							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList<String>();
                
 							Iterator<ObjectCursor<String>> it = lista_candidati_best_pred_yx.iterator();
 							while (it.hasNext())
@@ -1473,7 +1452,7 @@ public class CNMining
 					if (lista_candidati_best_succ_yx != null) {
 						if (lista_candidati_best_succ_yx.size() > 0)
 						{
-							ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList();
+							ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList<String>();
                 
 							Iterator<ObjectCursor<String>> it = lista_candidati_best_succ.iterator();
 							while (it.hasNext())
@@ -1568,7 +1547,7 @@ public class CNMining
 			trace_1 = (String)lista_tracce_x.get(0);
 			attivita_candidate = getPredecessors_FoldedLocal(trace_1, attivita_x, attivita_y, traccia_attivita);
 		} else {
-			attivita_candidate = new ObjectOpenHashSet();
+			attivita_candidate = new ObjectOpenHashSet<String>();
 			attivita_candidate.add(attivita_iniziale);
 		}
  
@@ -1605,7 +1584,7 @@ public class CNMining
 			trace_1 = (String)lista_tracce_x.get(0);
 			attivita_candidate = getSuccessors_FoldedLocal(trace_1, attivita_x, attivita_y, traccia_attivita);
 		} else {
-			attivita_candidate = new ObjectOpenHashSet();
+			attivita_candidate = new ObjectOpenHashSet<String>();
 			attivita_candidate.add(attivita_finale);
 		}
  
@@ -1631,9 +1610,9 @@ public class CNMining
 			if (graph.isConnected(x, y))
 				return true;
 			if (path == null)
-		        path = new ObjectArrayList();
+		        path = new ObjectArrayList<Node>();
 		}
-		ObjectArrayList<Node> nodes = new ObjectArrayList();
+		ObjectArrayList<Node> nodes = new ObjectArrayList<Node>();
 		nodes.add(x);
 		x.setMark(true);
 		Node t;
@@ -1709,8 +1688,8 @@ public class CNMining
 			{
 				ObjectArrayList<String> value = (ObjectArrayList)values[i];
           
-				ObjectArrayList<String> predecessors = new ObjectArrayList();
-				ObjectArrayList<String> successors = new ObjectArrayList(value);
+				ObjectArrayList<String> predecessors = new ObjectArrayList<String>();
+				ObjectArrayList<String> successors = new ObjectArrayList<String>(value);
          
 				int count = 0;
  
@@ -1835,14 +1814,14 @@ public class CNMining
 				n.setMark(false);
 			}
        
-			ObjectArrayList<Node> listaNodiPath = new ObjectArrayList();
+			ObjectArrayList<Node> listaNodiPath = new ObjectArrayList<Node>();
        
 			boolean spezzaPath = bfs(unfolded_g, x, y, null, listaNodiPath);
         
 			if (spezzaPath)
 			{
 				
-				ObjectArrayList<Edge> archiRimossi = new ObjectArrayList();
+				ObjectArrayList<Edge> archiRimossi = new ObjectArrayList<Edge>();
 				
 				do
 				{
@@ -1929,7 +1908,7 @@ public class CNMining
 					if ((lista_candidati_best_succ != null) && 
 						(lista_candidati_best_succ.size() > 0))
 					{
-						ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList();
+						ObjectArrayList<String> lista_candidati_best_succ_unfolded = new ObjectArrayList<String>();
            
 						Iterator<ObjectCursor<String>> it = lista_candidati_best_succ.iterator();
 						while (it.hasNext())
@@ -1993,7 +1972,7 @@ public class CNMining
 	
 	public double[][] calcoloMatriceDeiCausalScore(XLog log, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double ff)
   	{
-		ObjectArrayList<IntArrayList> vlog = new ObjectArrayList();
+		ObjectArrayList<IntArrayList> vlog = new ObjectArrayList<IntArrayList>();
      
 		Object[] values = traccia_attivita.values;
 		ObjectCursor<String> s;
@@ -2144,7 +2123,7 @@ public class CNMining
 					{
 						if (lista_candidati_best_pred.size() > 0)
 						{
-							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList();
+							ObjectArrayList<String> lista_candidati_best_pred_unfolded = new ObjectArrayList<String>();
                
 							for (ObjectCursor<String> activityCursor : lista_candidati_best_pred)
 							{
@@ -2184,7 +2163,7 @@ public class CNMining
 					if (lista_candidati_best_succ != null) {
 						if (lista_candidati_best_succ.size() > 0)
 						{
-							Object lista_candidati_best_succ_unfolded = new ObjectArrayList();
+							Object lista_candidati_best_succ_unfolded = new ObjectArrayList<Object>();
                
 							for (ObjectCursor<String> activityCursor : lista_candidati_best_succ) {
 								String activity = (String)activityCursor.value;
@@ -2249,7 +2228,7 @@ public class CNMining
 	
 	private boolean esisteAttivatore(String trace, String activity_x, String activity_y, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectOpenHashSet<String> candidati_z, boolean flag, boolean autoanello_y, boolean forward)
 	{
-		ObjectArrayList<String> attivatore_traccia = new ObjectArrayList();
+		ObjectArrayList<String> attivatore_traccia = new ObjectArrayList<String>();
      
 		int iter;
 		if (!forward) {
@@ -2294,7 +2273,7 @@ public class CNMining
 							attivatore_traccia.add(activity_z);
 						}
 						if (activity_z.equals(activity_y)) {
-							attivatore_traccia = new ObjectArrayList();
+							attivatore_traccia = new ObjectArrayList<String>();
 						}
 					}
 					else
@@ -2305,7 +2284,7 @@ public class CNMining
 							return false;
 						}
 						trovata_y = false;
-						attivatore_traccia = new ObjectArrayList();
+						attivatore_traccia = new ObjectArrayList<String>();
 					}
 				}
 				else if (!activity_z.equals(activity_y))
@@ -2320,7 +2299,7 @@ public class CNMining
 					if ((attivatore_traccia.size() == 0) && (!autoanello_y)) {
 						return false;
 					}   
-					attivatore_traccia = new ObjectArrayList();
+					attivatore_traccia = new ObjectArrayList<String>();
 				}        
 				if (!forward) {
 					iter--;
@@ -2377,7 +2356,7 @@ public class CNMining
  
 	public ObjectArrayList<FakeDependency> getAttivitaParallele(double[][] m, Graph graph, ObjectIntOpenHashMap<String> map, ObjectArrayList<Constraint> vincoli_positivi, ObjectIntOpenHashMap<String> folded_map, Graph folded_g)
 	{
-		ObjectArrayList<FakeDependency> lista_attivita_parallele = new ObjectArrayList();
+		ObjectArrayList<FakeDependency> lista_attivita_parallele = new ObjectArrayList<FakeDependency>();
     
 		Iterator localIterator2;
 		Iterator localIterator1 = graph.listaNodi().iterator();
@@ -2433,7 +2412,7 @@ public class CNMining
 		for (ObjectCursor<String> attivita_zCursor : lista_candidati_best_pred_unfolded) {
 			String attivita_z = (String)attivita_zCursor.value;
        
-			ObjectArrayList<Node> c_nodes = new ObjectArrayList();
+			ObjectArrayList<Node> c_nodes = new ObjectArrayList<Node>();
        
 			int violations_counter = 0;
        
