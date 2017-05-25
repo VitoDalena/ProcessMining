@@ -116,75 +116,30 @@ public class CNMining
 	    System.out.println("- sigma log noise " + settings.sigmaLogNoise);
 	    System.out.println("- delta fall factor  " + settings.fallFactor);
 	    System.out.println("- relative to best  " + settings.relativeToBest);
-		
-		boolean enable_constraints = false;
-     
-		if (settings.areConstraintsAvailable()) {
-			if (settings.constraintsFilename.equals("")) {
-				JOptionPane.showMessageDialog(null, "Incorrect path to constraints file\nThe algoritm will now run without constraints...");
-				enable_constraints = false;
-			}
-			else {
-				ConstraintParser cp = new ConstraintParser(settings.constraintsFilename);
-				boolean validFile = cp.run();
-				
-				if (!validFile) {
-					JOptionPane.showMessageDialog(null, "Invalid constraints file\nThe algoritm will now run without constraints...");
-					enable_constraints = false;
-				}
-				else {
-					ObjectArrayList<Constraint> constraints = cp.getConstraints();
-					if (constraints.size() == 0) {
-						JOptionPane.showMessageDialog(null, "No constraints contained in the input file...");
-					}
-					for (int i = 0; i < constraints.size(); i++) {
-						Constraint constr = (Constraint)constraints.get(i);
-						if (constr.isPositiveConstraint()) {
-							vincoli.positivi.add(constr);
-						} 
-						else 
-						{ 
-							Iterator localIterator2 = constr.getHeadList().iterator();
-							Iterator localIterator1 = constr.getBodyList().iterator();
-							while(localIterator1.hasNext() && localIterator2.hasNext()){
-								String body = (String)localIterator1.next();
-								String head = (String)localIterator2.next();
-								vincoli.forbidden.add(new Forbidden(body, head));
-							}
-							vincoli.negati.add(constr);
-						}
-					}
-				}
-			}
-		}
 
 		CNMining cnmining = new CNMining();
+		
+		boolean vincoliDisponibili = cnmining.caricaVincoli(vincoli, settings);
  
 		cnmining.aggiungiAttivitaFittizia(log);
 		
-		Object[] array = LogUnfolder.unfold(log);
+		UnfoldResult unfoldResult = LogUnfolder.unfold(log);
      
-		ObjectIntOpenHashMap<String> map = (ObjectIntOpenHashMap)array[0];
-     
-		Object attivita_tracce = (ObjectObjectOpenHashMap)array[1];
-     
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = (ObjectObjectOpenHashMap)array[2];
-     
-		if (enable_constraints) {
+		if (vincoliDisponibili) {
 			cnmining.creaVincoliUnfolded(
 				vincoli.positivi, vincoli.negati, vincoli.forbidden, vincoli.positiviUnfolded, 
-				vincoli.negatiUnfolded, vincoli.forbiddenUnfolded, map
+				vincoli.negatiUnfolded, vincoli.forbiddenUnfolded, unfoldResult.map
 			);
 		}
 		context.getProgress().setValue(10);
      
 		System.out.println("OK1");
      
-		double[][] causalScoreMatrix = cnmining.calcoloMatriceDeiCausalScore(log, map, traccia_attivita, settings.fallFactor);
+		double[][] causalScoreMatrix = cnmining.calcoloMatriceDeiCausalScore(log, unfoldResult.map, unfoldResult.traccia_attivita, settings.fallFactor);
 
 		System.out.println("OK2");
 
-		double[][] bestNextMatrix = cnmining.buildBestNextMatrix(log, map, traccia_attivita, causalScoreMatrix, vincoli.forbiddenUnfolded);
+		double[][] bestNextMatrix = cnmining.buildBestNextMatrix(log, unfoldResult.map, unfoldResult.traccia_attivita, causalScoreMatrix, vincoli.forbiddenUnfolded);
      
 		System.out.println("OK3");
 		if (settings.sigmaLogNoise > 0.0D)
@@ -193,7 +148,7 @@ public class CNMining
 			{
 				for (int j = 0; j < bestNextMatrix.length; j++)
 				{
-					if (bestNextMatrix[i][j] <= settings.sigmaLogNoise * traccia_attivita.size())
+					if (bestNextMatrix[i][j] <= settings.sigmaLogNoise * unfoldResult.traccia_attivita.size())
 					{
 						bestNextMatrix[i][j] = 0.0D; 
 					}
@@ -206,9 +161,9 @@ public class CNMining
      
 		Graph graph = new Graph();
  
-		Object[] keys = map.keys;
-		int[] values = map.values;
-		boolean[] states = map.allocated;
+		Object[] keys = unfoldResult.map.keys;
+		int[] values = unfoldResult.map.values;
+		boolean[] states = unfoldResult.map.allocated;
  
 		for (int iii = 0; iii < states.length; iii++)
 		{
@@ -235,9 +190,9 @@ public class CNMining
 		for (int p = 0; p < bestNextMatrix.length; p++) {
 			for (int r = 0; r < bestNextMatrix[0].length; r++)
 				if (bestNextMatrix[p][r] > 0.0D) {
-					Node np = graph.getNode(cnmining.getKeyByValue(map, p), p);
+					Node np = graph.getNode(cnmining.getKeyByValue(unfoldResult.map, p), p);
        
-         	 Node nr = graph.getNode(cnmining.getKeyByValue(map, r), r);
+         	 Node nr = graph.getNode(cnmining.getKeyByValue(unfoldResult.map, r), r);
        
          	 graph.addEdge(np, nr, false);
        
@@ -271,7 +226,7 @@ public class CNMining
 	  		System.exit(0);
 	  	}
 	  	
-	  	if (enable_constraints) {
+	  	if (vincoliDisponibili) {
 	  		System.out.println("STAMPA PG0 FOLDED");
        
 	  		cnmining.buildPG0(
@@ -279,8 +234,8 @@ public class CNMining
   				vincoli.positivi, vincoli.negatiUnfolded, 
   				vincoli.negati, vincoli.forbidden, 
   				vincoli.forbiddenUnfolded, 
-  				map, (ObjectObjectOpenHashMap)attivita_tracce, 
-  				traccia_attivita, causalScoreMatrix, settings.sigmaLowCsConstrEdges, 
+  				unfoldResult.map, (ObjectObjectOpenHashMap)unfoldResult.attivita_tracce, 
+  				unfoldResult.traccia_attivita, causalScoreMatrix, settings.sigmaLowCsConstrEdges, 
   				folded_G_Ori, folded_map
   			);
        
@@ -299,8 +254,8 @@ public class CNMining
      
 	  	context.getProgress().setValue(30);
 	  	
-	  	ObjectArrayList<FakeDependency> attivita_parallele = cnmining.getAttivitaParallele(
-	  		bestNextMatrix, graph, map, vincoli.positivi, 
+	  	ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
+	  		bestNextMatrix, graph, unfoldResult.map, vincoli.positivi, 
 	  		folded_map, folded_G_Ori
 		);
   	
@@ -309,8 +264,8 @@ public class CNMining
 	  	System.out.println();
   
 	  	cnmining.algoritmo2(
-  			bestNextMatrix, graph, map, (ObjectObjectOpenHashMap)attivita_tracce,
-  			traccia_attivita, causalScoreMatrix, settings.sigmaUpCsDiff, folded_map, 
+  			bestNextMatrix, graph, unfoldResult.map, (ObjectObjectOpenHashMap)unfoldResult.attivita_tracce,
+  			unfoldResult.traccia_attivita, causalScoreMatrix, settings.sigmaUpCsDiff, folded_map, 
   			vincoli.forbidden, vincoli.positivi, vincoli.negati
 		);
 	  	System.out.println();
@@ -335,7 +290,7 @@ public class CNMining
 	  	}
      
 	  	ObjectArrayList<FakeDependency> attivita_parallele_residue = cnmining.getAttivitaParallele(
-	  		bestNextMatrix, graph, map, 
+	  		bestNextMatrix, graph, unfoldResult.map, 
 	  		vincoli.positivi, folded_map, folded_g
 	  	);
 	  	
@@ -659,7 +614,48 @@ public class CNMining
 
     	return new Object[] { flexDiagram, startTaskNodes, endTaskNodes, annotations };
 	}
-   
+	
+	private boolean caricaVincoli(ConstraintsManager vincoli, Settings settings){
+		if (settings.areConstraintsAvailable()) {
+			if (settings.constraintsFilename.equals("")) {
+				JOptionPane.showMessageDialog(null, "Incorrect path to constraints file\nThe algoritm will now run without constraints...");
+				return false;
+			}
+			else {
+				ConstraintParser cp = new ConstraintParser(settings.constraintsFilename);
+				boolean validFile = cp.run();
+				
+				if (!validFile) {
+					JOptionPane.showMessageDialog(null, "Invalid constraints file\nThe algoritm will now run without constraints...");
+					return false;
+				}
+				else {
+					ObjectArrayList<Constraint> constraints = cp.getConstraints();
+					if (constraints.size() == 0) {
+						JOptionPane.showMessageDialog(null, "No constraints contained in the input file...");
+					}
+					for (int i = 0; i < constraints.size(); i++) {
+						Constraint constr = (Constraint)constraints.get(i);
+						if (constr.isPositiveConstraint()) {
+							vincoli.positivi.add(constr);
+						} 
+						else 
+						{ 
+							Iterator localIterator2 = constr.getHeadList().iterator();
+							Iterator localIterator1 = constr.getBodyList().iterator();
+							while(localIterator1.hasNext() && localIterator2.hasNext()){
+								String body = (String)localIterator1.next();
+								String head = (String)localIterator2.next();
+								vincoli.forbidden.add(new Forbidden(body, head));
+							}
+							vincoli.negati.add(constr);
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}   
  
 	public Graph rimuoviAttivitaFittizie(Graph folded_g, ObjectIntOpenHashMap<String> folded_map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_traccia, Node start, Node end, XLog log, ObjectArrayList<Node> startActivities, ObjectArrayList<Node> endActivities)
 	{
