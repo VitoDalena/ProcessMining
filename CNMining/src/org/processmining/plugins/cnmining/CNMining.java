@@ -75,7 +75,7 @@ public class CNMining
 	public static String attivita_finale = "_END_";
    
 	public static long time;
-   
+	   
 	@Plugin(
 		name="CNMining", 
 		parameterLabels = { "log" }, 
@@ -108,16 +108,14 @@ public class CNMining
 	
 	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings) throws Exception
 	{
+		ConstraintsManager vincoli = new ConstraintsManager();
+		
 		context.getProgress().setValue(1);
 		
 		System.out.println("\n\nCNMining\n\nSettings:\n");
 	    System.out.println("- sigma log noise " + settings.sigmaLogNoise);
 	    System.out.println("- delta fall factor  " + settings.fallFactor);
 	    System.out.println("- relative to best  " + settings.relativeToBest);
- 
-		ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList<Forbidden>();
-		ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList<Constraint>();
-		ObjectArrayList<Constraint> vincoli_negati = new ObjectArrayList<Constraint>();
 		
 		boolean enable_constraints = false;
      
@@ -142,7 +140,7 @@ public class CNMining
 					for (int i = 0; i < constraints.size(); i++) {
 						Constraint constr = (Constraint)constraints.get(i);
 						if (constr.isPositiveConstraint()) {
-							vincoli_positivi.add(constr);
+							vincoli.positivi.add(constr);
 						} 
 						else 
 						{ 
@@ -151,17 +149,15 @@ public class CNMining
 							while(localIterator1.hasNext() && localIterator2.hasNext()){
 								String body = (String)localIterator1.next();
 								String head = (String)localIterator2.next();
-								lista_forbidden.add(new Forbidden(body, head));
+								vincoli.forbidden.add(new Forbidden(body, head));
 							}
-							vincoli_negati.add(constr);
+							vincoli.negati.add(constr);
 						}
 					}
 				}
 			}
 		}
-		ObjectArrayList<Forbidden> lista_forbidden_unfolded = new ObjectArrayList<Forbidden>();
-		ObjectArrayList<Constraint> vincoli_positivi_unfolded = new ObjectArrayList<Constraint>();
-		ObjectArrayList<Constraint> vincoli_negati_unfolded = new ObjectArrayList<Constraint>();
+
 		CNMining cnm = new CNMining();
  
 		cnm.aggiungiAttivitaFittizia(log);
@@ -176,8 +172,8 @@ public class CNMining
      
 		if (enable_constraints) {
 			cnm.creaVincoliUnfolded(
-				vincoli_positivi, vincoli_negati, lista_forbidden, vincoli_positivi_unfolded, 
-				vincoli_negati_unfolded, lista_forbidden_unfolded, map
+				vincoli.positivi, vincoli.negati, vincoli.forbidden, vincoli.positiviUnfolded, 
+				vincoli.negatiUnfolded, vincoli.forbiddenUnfolded, map
 			);
 		}
 		context.getProgress().setValue(10);
@@ -188,7 +184,7 @@ public class CNMining
 
 		System.out.println("OK2");
 
-		double[][] m = cnm.buildBestNextMatrix(log, map, traccia_attivita, csm, lista_forbidden_unfolded);
+		double[][] m = cnm.buildBestNextMatrix(log, map, traccia_attivita, csm, vincoli.forbiddenUnfolded);
      
 		System.out.println("OK3");
 		if (settings.sigmaLogNoise > 0.0D)
@@ -268,7 +264,7 @@ public class CNMining
      
 	  	System.out.println();
 	  	
-	  	boolean vincoli_consistenti = cnm.verifica_consistenza_vincoli(vincoli_positivi, vincoli_negati);
+	  	boolean vincoli_consistenti = cnm.verifica_consistenza_vincoli(vincoli.positivi, vincoli.negati);
      
 	  	if (!vincoli_consistenti) {
 	  		System.out.println("FALLIMENTO VINCOLI INCONSISTENTI ");
@@ -279,10 +275,10 @@ public class CNMining
 	  		System.out.println("STAMPA PG0 FOLDED");
        
 	  		cnm.buildPG0(
-  				graph, m, vincoli_positivi_unfolded, 
-  				vincoli_positivi, vincoli_negati_unfolded, 
-  				vincoli_negati, lista_forbidden, 
-  				lista_forbidden_unfolded, 
+  				graph, m, vincoli.positiviUnfolded, 
+  				vincoli.positivi, vincoli.negatiUnfolded, 
+  				vincoli.negati, vincoli.forbidden, 
+  				vincoli.forbiddenUnfolded, 
   				map, (ObjectObjectOpenHashMap)attivita_tracce, 
   				traccia_attivita, csm, settings.sigmaLowCsConstrEdges, 
   				folded_G_Ori, folded_map
@@ -295,7 +291,7 @@ public class CNMining
        
 	       System.out.println();
 	       
-	       if (!cnm.verificaVincoliPositivi(folded_PG0, null, null, vincoli_positivi, folded_map)) {
+	       if (!cnm.verificaVincoliPositivi(folded_PG0, null, null, vincoli.positivi, folded_map)) {
 	    	   System.out.println("FALLIMENTO PG0 NON SODDISFA I VINCOLI POSITIVI!");
 	    	   System.exit(0);
 	       }
@@ -304,7 +300,7 @@ public class CNMining
 	  	context.getProgress().setValue(30);
 	  	
 	  	ObjectArrayList<FakeDependency> attivita_parallele = cnm.getAttivitaParallele(
-	  		m, graph, map, vincoli_positivi, 
+	  		m, graph, map, vincoli.positivi, 
 	  		folded_map, folded_G_Ori
 		);
   	
@@ -315,7 +311,7 @@ public class CNMining
 	  	cnm.algoritmo2(
   			m, graph, map, (ObjectObjectOpenHashMap)attivita_tracce,
   			traccia_attivita, csm, settings.sigmaUpCsDiff, folded_map, 
-  			lista_forbidden, vincoli_positivi, vincoli_negati
+  			vincoli.forbidden, vincoli.positivi, vincoli.negati
 		);
 	  	System.out.println();
      
@@ -340,7 +336,7 @@ public class CNMining
      
 	  	ObjectArrayList<FakeDependency> attivita_parallele_residue = cnm.getAttivitaParallele(
 	  		m, graph, map, 
-	  		vincoli_positivi, folded_map, folded_g
+	  		vincoli.positivi, folded_map, folded_g
 	  	);
 	  	
   		System.out.println();
@@ -350,8 +346,8 @@ public class CNMining
   		{
   			Edge e = (Edge)folded_g.getLista_archi().get(jj);
        
-  			for (int kk = 0; kk < vincoli_positivi.size(); kk++) {
-  				Constraint c = (Constraint)vincoli_positivi.get(kk);
+  			for (int kk = 0; kk < vincoli.positivi.size(); kk++) {
+  				Constraint c = (Constraint)vincoli.positivi.get(kk);
   				if ((c.getBodyList().contains(e.getX().getNomeAttivita())) && (c.getHeadList().contains(e.getY().getNomeAttivita())))
   				{ 
   					e.setFlag(true);
@@ -377,7 +373,7 @@ public class CNMining
 	    cnm.postProcessing_dip_indirette(
     		folded_g, folded_map, folded_attivita_tracce, 
     		folded_traccia_attivita, csmOri, 
-    		settings.sigmaLogNoise, vincoli_positivi
+    		settings.sigmaLogNoise, vincoli.positivi
     	);
 	    
 	    Node start = new Node(attivita_iniziale, folded_map.get(attivita_iniziale));
@@ -403,7 +399,7 @@ public class CNMining
 	    for (;;)
 	    {
 	    	ObjectArrayList<Edge> removableEdges = cnm.removableEdges(
-	    		folded_g, csmOri, vincoli_positivi, folded_map, settings.relativeToBest
+	    		folded_g, csmOri, vincoli.positivi, folded_map, settings.relativeToBest
 	    	);
        
 	       if (removableEdges.size() == 0) {
@@ -427,7 +423,7 @@ public class CNMining
        
 	       folded_g.removeEdge(bestRemovable.getX(), bestRemovable.getY());
        
-	       if (!cnm.verificaVincoliPositivi(folded_g, null, null, vincoli_positivi, folded_map)) {
+	       if (!cnm.verificaVincoliPositivi(folded_g, null, null, vincoli.positivi, folded_map)) {
 	    	   folded_g.addEdge(bestRemovable.getX(), bestRemovable.getY(), true);
 	       }
 	       else
