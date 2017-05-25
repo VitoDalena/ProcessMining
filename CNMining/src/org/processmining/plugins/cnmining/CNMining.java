@@ -171,42 +171,37 @@ public class CNMining
      
 	    Settings s = new Settings();
      
-	    s.setConstraintsEnabled(pannello.isConstraintsEnabled());
-	    s.setConstr_file_name(pannello.getFilePath());
-	    s.setSigmaLogNoise(value);
-	    s.setLogName(logName);
-	    s.setFallFactor(delta);
-	    s.setRelativeToBest(relative_to_best);
+	    s.constraintsEnabled = (pannello.isConstraintsEnabled());
+	    s.constraintsFilename = (pannello.getFilePath());
+	    s.sigmaLogNoise = (value);
+	    s.logName = (logName);
+	    s.fallFactor = (delta);
+	    s.relativeToBest = (relative_to_best);
      
 	    return startCNMining(context, log, s);
 	}
 	
-	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings s) throws Exception
+	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings) throws Exception
 	{
 		context.getProgress().setValue(1);
 		
-		boolean enable_constraints = s.isConstraintsEnabled();
-		double sigma_up_cs_diff = 0.2D;
-		double sigma_low_cs_constr_edges = 0.0D;
-		double sigma_log_noise = s.getSigmaLogNoise();
-		double ff = s.getFallFactor();
-		double relative_to_best = s.getRelativeToBest();
-		
-		System.out.println("sigma log noise " + sigma_log_noise);
-		System.out.println("delta fall factor  " + ff);
-		System.out.println("relative to best  " + relative_to_best);
+		System.out.println("sigma log noise " + settings.sigmaLogNoise);
+		System.out.println("delta fall factor  " + settings.fallFactor);
+		System.out.println("relative to best  " + settings.relativeToBest);
  
 		ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList<Forbidden>();
 		ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList<Constraint>();
 		ObjectArrayList<Constraint> vincoli_negati = new ObjectArrayList<Constraint>();
+		
+		boolean enable_constraints = false;
      
-		if (enable_constraints) {
-			if (s.getConstr_file_name().equals("")) {
+		if (settings.areConstraintsAvailable()) {
+			if (settings.constraintsFilename.equals("")) {
 				JOptionPane.showMessageDialog(null, "Incorrect path to constraints file\nThe algoritm will now run without constraints...");
 				enable_constraints = false;
 			}
 			else {
-				ConstraintParser cp = new ConstraintParser(s.getConstr_file_name());
+				ConstraintParser cp = new ConstraintParser(settings.constraintsFilename);
 				boolean validFile = cp.run();
 				
 				if (!validFile) {
@@ -263,20 +258,20 @@ public class CNMining
      
 		System.out.println("OK1");
      
-		double[][] csm = cnm.calcoloMatriceDeiCausalScore(log, map, traccia_attivita, ff);
+		double[][] csm = cnm.calcoloMatriceDeiCausalScore(log, map, traccia_attivita, settings.fallFactor);
 
 		System.out.println("OK2");
 
 		double[][] m = cnm.buildBestNextMatrix(log, map, traccia_attivita, csm, lista_forbidden_unfolded);
      
 		System.out.println("OK3");
-		if (sigma_log_noise > 0.0D)
+		if (settings.sigmaLogNoise > 0.0D)
 		{
 			for (int i = 0; i < m.length; i++)
 			{
 				for (int j = 0; j < m.length; j++)
 				{
-					if (m[i][j] <= sigma_log_noise * traccia_attivita.size())
+					if (m[i][j] <= settings.sigmaLogNoise * traccia_attivita.size())
 					{
 						m[i][j] = 0.0D; 
 					}
@@ -363,7 +358,7 @@ public class CNMining
   				vincoli_negati, lista_forbidden, 
   				lista_forbidden_unfolded, 
   				map, (ObjectObjectOpenHashMap)attivita_tracce, 
-  				traccia_attivita, csm, sigma_low_cs_constr_edges, 
+  				traccia_attivita, csm, settings.sigmaLowCsConstrEdges, 
   				folded_G_Ori, folded_map
   			);
        
@@ -381,6 +376,7 @@ public class CNMining
 	  	}
      
 	  	context.getProgress().setValue(30);
+	  	
 	  	ObjectArrayList<FakeDependency> attivita_parallele = cnm.getAttivitaParallele(
 	  		m, graph, map, vincoli_positivi, 
 	  		folded_map, folded_G_Ori
@@ -392,7 +388,7 @@ public class CNMining
   
 	  	cnm.algoritmo2(
   			m, graph, map, (ObjectObjectOpenHashMap)attivita_tracce,
-  			traccia_attivita, csm, sigma_up_cs_diff, folded_map, 
+  			traccia_attivita, csm, settings.sigmaUpCsDiff, folded_map, 
   			lista_forbidden, vincoli_positivi, vincoli_negati
 		);
 	  	System.out.println();
@@ -444,7 +440,7 @@ public class CNMining
      
   		System.out.println();
   		
-  		double[][] csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, ff);
+  		double[][] csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
      
   		System.out.println();
 	    context.getProgress().setValue(55);
@@ -455,7 +451,7 @@ public class CNMining
 	    cnm.postProcessing_dip_indirette(
     		folded_g, folded_map, folded_attivita_tracce, 
     		folded_traccia_attivita, csmOri, 
-    		sigma_log_noise, vincoli_positivi
+    		settings.sigmaLogNoise, vincoli_positivi
     	);
 	    
 	    Node start = new Node(attivita_iniziale, folded_map.get(attivita_iniziale));
@@ -475,7 +471,7 @@ public class CNMining
  
 	    System.out.println("PROCEDURA REMOVABLE-EDGES ");
      
-	    csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, ff);
+	    csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
      
  
 	    for (;;)
