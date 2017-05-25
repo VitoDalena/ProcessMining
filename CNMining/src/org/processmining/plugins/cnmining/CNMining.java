@@ -110,9 +110,10 @@ public class CNMining
 	{
 		context.getProgress().setValue(1);
 		
-		System.out.println("sigma log noise " + settings.sigmaLogNoise);
-		System.out.println("delta fall factor  " + settings.fallFactor);
-		System.out.println("relative to best  " + settings.relativeToBest);
+		System.out.println("\n\nCNMining\n\nSettings:\n");
+	    System.out.println("- sigma log noise " + settings.sigmaLogNoise);
+	    System.out.println("- delta fall factor  " + settings.fallFactor);
+	    System.out.println("- relative to best  " + settings.relativeToBest);
  
 		ObjectArrayList<Forbidden> lista_forbidden = new ObjectArrayList<Forbidden>();
 		ObjectArrayList<Constraint> vincoli_positivi = new ObjectArrayList<Constraint>();
