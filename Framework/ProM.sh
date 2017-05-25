@@ -4,7 +4,7 @@
 ## ProM specific
 ###
 PROGRAM=ProM
-CP=./dist/ProM-Framework.jar:./dist/ProM-Contexts.jar:./dist/ProM-Models.jar:./dist/ProM-Plugins.jar:../RTTmining/dist/RTTmining.jar:../CNMining/dist/CNMining.jar
+CP=./dist/ProM-Framework.jar:./dist/ProM-Contexts.jar:./dist/ProM-Models.jar:./dist/ProM-Plugins.jar:../CNMining/dist/CNMining.jar:../RTTmining/dist/RTTmining.jar
 LIBDIR=./lib
 MAIN=org.processmining.contexts.uitopia.UI
 
