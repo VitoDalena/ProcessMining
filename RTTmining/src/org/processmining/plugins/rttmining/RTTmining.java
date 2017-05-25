@@ -6,6 +6,8 @@ import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.plugins.cnmining.CNMining;
+import org.processmining.plugins.cnmining.Settings;
+import org.processmining.plugins.cnmining.SettingsView;
 
 public class RTTmining {
 			
@@ -20,10 +22,10 @@ public class RTTmining {
 	@Plugin(
         name = "RTTmining Plugin", 
         parameterLabels = { "Log file" }, 
-        returnLabels = { "Extended CausalNet" }, 
-        returnTypes = { Flex.class }, 
+        returnLabels = { "Hello World" }, 
+        returnTypes = { String.class }, 
         userAccessible = true, 
-        help = "Produces Extended CausalNet"
+        help = "Produces XMI"
     )
     @UITopiaVariant(
         affiliation = "Process Mining with CSP", 
@@ -34,10 +36,13 @@ public class RTTmining {
 	 * Consiste nel Main del plugin stesso, 
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
-    public static Flex Process(UIPluginContext context, XLog log) throws Exception {
+    public static String Process(UIPluginContext context, XLog log) throws Exception {
 		
-		Object[] result = CNMining.run(context, log);
-		return (Flex)result[0];
+		SettingsView settingsView = new SettingsView(context, log);
+		Settings settings = settingsView.show();
+		
+		Object[] result = CNMining.startCNMining(context, log, settings, false);
+		return "Hello RTTmining";
 		
 	}	
 }

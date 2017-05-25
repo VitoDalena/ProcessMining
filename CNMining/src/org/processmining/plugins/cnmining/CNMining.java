@@ -103,10 +103,10 @@ public class CNMining
 		SettingsView settingsView = new SettingsView(context, log);
 		Settings settings = settingsView.show();
      
-	    return startCNMining(context, log, settings);
+	    return startCNMining(context, log, settings, true);
 	}
 	
-	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings) throws Exception
+	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings, boolean showDiagram) throws Exception
 	{
 		ConstraintsManager vincoli = new ConstraintsManager();
 		
@@ -386,20 +386,22 @@ public class CNMining
     	context.getProgress().setValue(85);
  
     	context.getProgress().setValue(100);
- 
-    	context.getFutureResult(0).setLabel(flexDiagram.getLabel());
-    	context.getFutureResult(1).setLabel("Start tasks node of " + flexDiagram.getLabel());
-    	context.getFutureResult(2).setLabel("End tasks node of " + flexDiagram.getLabel());
-    	context.getFutureResult(3).setLabel("Annotations of " + flexDiagram.getLabel());
- 
-    	context.addConnection(new FlexStartTaskNodeConnection("Start tasks node of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, diagram.startTaskNodes));
-    	context.addConnection(new FlexEndTaskNodeConnection("End tasks node of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, diagram.endTaskNodes));
-    	context.addConnection(new CausalNetAnnotationsConnection("Annotations of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, diagram.annotations));
+    	
+    	if(showDiagram){
+    		context.getFutureResult(0).setLabel(flexDiagram.getLabel());
+        	context.getFutureResult(1).setLabel("Start tasks node of " + flexDiagram.getLabel());
+        	context.getFutureResult(2).setLabel("End tasks node of " + flexDiagram.getLabel());
+        	context.getFutureResult(3).setLabel("Annotations of " + flexDiagram.getLabel());
      
-    	visualize(flexDiagram);
+        	context.addConnection(new FlexStartTaskNodeConnection("Start tasks node of " + flexDiagram.getLabel() + 
+    			" connection", flexDiagram, diagram.startTaskNodes));
+        	context.addConnection(new FlexEndTaskNodeConnection("End tasks node of " + flexDiagram.getLabel() + 
+    			" connection", flexDiagram, diagram.endTaskNodes));
+        	context.addConnection(new CausalNetAnnotationsConnection("Annotations of " + flexDiagram.getLabel() + 
+    			" connection", flexDiagram, diagram.annotations));
+         	
+        	visualize(flexDiagram);
+    	}	
 
     	return new Object[] { flexDiagram, diagram.startTaskNodes, diagram.endTaskNodes, diagram.annotations };
 	}
