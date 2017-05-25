@@ -64,7 +64,6 @@ public class Edge
   
 	public int hashCode()
 	{
-		int prime = 31;
 		int result = 1;
 		result = 31 * result + (this.flag ? 1231 : 1237);
 		result = 31 * result + (this.x == null ? 0 : this.x.hashCode());

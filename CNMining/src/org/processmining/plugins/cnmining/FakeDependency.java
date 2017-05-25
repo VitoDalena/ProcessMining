@@ -60,7 +60,6 @@ public class FakeDependency
   
 	public int hashCode()
 	{
-		int prime = 31;
 		int result = 1;
 		result = 31 * result + this.id_attivita_x;
 		result = 31 * result + this.id_attivita_y;

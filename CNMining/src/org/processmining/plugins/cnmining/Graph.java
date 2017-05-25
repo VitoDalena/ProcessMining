@@ -6,8 +6,8 @@ import com.carrotsearch.hppc.ObjectOpenHashSet;
 
 public class Graph
 {
-	private ObjectObjectOpenHashMap<Node, ObjectOpenHashSet<Node>> map = new ObjectObjectOpenHashMap();
-	private final ObjectArrayList<Edge> lista_archi = new ObjectArrayList();
+	private ObjectObjectOpenHashMap<Node, ObjectOpenHashSet<Node>> map = new ObjectObjectOpenHashMap<Node, ObjectOpenHashSet<Node>>();
+	private final ObjectArrayList<Edge> lista_archi = new ObjectArrayList<Edge>();
 	private ObjectArrayList<Node> listaNodi;
   
 	public void addEdge(Node node1, Node node2, boolean flag)
@@ -15,7 +15,7 @@ public class Graph
 		ObjectOpenHashSet<Node> adjacent = (ObjectOpenHashSet)this.map.get(node1);
 		if (adjacent == null)
 		{
-			adjacent = new ObjectOpenHashSet();
+			adjacent = new ObjectOpenHashSet<Node>();
 			this.map.put(node1, adjacent);
 		}
 		adjacent.add(node2);
@@ -34,7 +34,7 @@ public class Graph
 	    if (adjacent == null) {
 	    	return new ObjectArrayList();
 	    }
-	    ObjectArrayList<Node> adjacents = new ObjectArrayList(adjacent);
+	    ObjectArrayList<Node> adjacents = new ObjectArrayList<Node>(adjacent);
 	    adjacents.trimToSize();
 	    return adjacents;
 	}
@@ -88,7 +88,7 @@ public class Graph
  	{
  		if (this.listaNodi == null)
  		{
- 			this.listaNodi = new ObjectArrayList();
+ 			this.listaNodi = new ObjectArrayList<Node>();
  			Object[] keys = this.map.keys;
 	      
  			boolean[] states = this.map.allocated;

@@ -6,10 +6,10 @@ import com.carrotsearch.hppc.ObjectIntOpenHashMap;
 
 public class Node
 {
-	ObjectIntOpenHashMap<IntOpenHashSet> output = new ObjectIntOpenHashMap();
-	ObjectIntOpenHashMap<IntOpenHashSet> input = new ObjectIntOpenHashMap();
-	ObjectIntOpenHashMap<IntArrayList> extendedOutput = new ObjectIntOpenHashMap();
-	ObjectIntOpenHashMap<IntArrayList> extendedInput = new ObjectIntOpenHashMap();
+	ObjectIntOpenHashMap<IntOpenHashSet> output = new ObjectIntOpenHashMap<IntOpenHashSet>();
+	ObjectIntOpenHashMap<IntOpenHashSet> input = new ObjectIntOpenHashMap<IntOpenHashSet>();
+	ObjectIntOpenHashMap<IntArrayList> extendedOutput = new ObjectIntOpenHashMap<IntArrayList>();
+	ObjectIntOpenHashMap<IntArrayList> extendedInput = new ObjectIntOpenHashMap<IntArrayList>();
   
 	public ObjectIntOpenHashMap<IntArrayList> getExtendedOutput()
 	{
@@ -122,7 +122,6 @@ public class Node
   
 	public int hashCode()
 	{
-		int prime = 31;
 		int result = 1;
 		result = 31 * result + this.id_attivita;
 		result = 31 * result + (this.nome_attivita == null ? 0 : this.nome_attivita.hashCode());

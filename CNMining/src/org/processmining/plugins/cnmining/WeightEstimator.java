@@ -5,8 +5,6 @@ import com.carrotsearch.hppc.IntOpenHashSet;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.util.Vector;
 
 public class WeightEstimator
 {
@@ -92,7 +90,6 @@ public class WeightEstimator
 	public void addTraceContribution(IntArrayList trace)
 	{
 		this.computationStarted = true;
-		int pos1 = 0;
     
 		IntOpenHashSet visitedTasks = new IntOpenHashSet();
 		for (int i = 0; i < trace.size(); i++)

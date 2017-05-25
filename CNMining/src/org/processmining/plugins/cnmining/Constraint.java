@@ -5,8 +5,8 @@ import java.util.LinkedList;
 
 public class Constraint
 {
-	private final LinkedList<String> head_list = new LinkedList();
-	private final LinkedList<String> body_list = new LinkedList();
+	private final LinkedList<String> head_list = new LinkedList<String>();
+	private final LinkedList<String> body_list = new LinkedList<String>();
 	private boolean positive_constraint;
 	private boolean pathConstraint = false;
   
@@ -69,7 +69,6 @@ public class Constraint
   
 	public int hashCode()
 	{
-		int prime = 31;
 		int result = 1;
 		result = 31 * result + (this.head_list == null ? 0 : this.head_list.hashCode());
 		return result;

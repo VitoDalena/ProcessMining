@@ -56,7 +56,6 @@ public class Forbidden
   
 	public int hashCode()
 	{
-		int prime = 31;
 		int result = 1;
 		result = 31 * result + (this.a == null ? 0 : this.a.hashCode());
 		result = 31 * result + (this.b == null ? 0 : this.b.hashCode());

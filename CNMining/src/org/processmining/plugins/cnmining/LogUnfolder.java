@@ -3,16 +3,13 @@ package org.processmining.plugins.cnmining;
 import com.carrotsearch.hppc.ObjectArrayList;
 import com.carrotsearch.hppc.ObjectIntOpenHashMap;
 import com.carrotsearch.hppc.ObjectObjectOpenHashMap;
-import java.io.PrintStream;
 import java.util.Date;
 import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.extension.std.XTimeExtension;
 import org.deckfour.xes.factory.XFactory;
-import org.deckfour.xes.factory.XFactoryNaiveImpl;
 import org.deckfour.xes.factory.XFactoryRegistry;
 import org.deckfour.xes.model.XAttribute;
-import org.deckfour.xes.model.XAttributeMap;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
@@ -60,20 +57,20 @@ public class LogUnfolder
 	{
 		long time = System.currentTimeMillis();
     
-		ObjectIntOpenHashMap<String> map = new ObjectIntOpenHashMap();
+		ObjectIntOpenHashMap<String> map = new ObjectIntOpenHashMap<String>();
     
 		int count = 0;
     
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce = new ObjectObjectOpenHashMap();
+		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
     
-		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = new ObjectObjectOpenHashMap();
+		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
 		for (int i = 0; i < log.size(); i++)
 		{
 			XTrace trace = (XTrace)log.get(i);
 			String traccia = trace.getAttributes().get("concept:name") + " # " + i;
 			if (!traccia_attivita.containsKey(traccia))
 			{
-				ObjectArrayList<String> lista = new ObjectArrayList();
+				ObjectArrayList<String> lista = new ObjectArrayList<String>();
 				lista.trimToSize();
 				traccia_attivita.put(traccia, lista);
 			}
@@ -103,7 +100,7 @@ public class LogUnfolder
 				}
 				if (!attivita_tracce.containsKey(nome_attivita))
 				{
-					ObjectArrayList<String> lista_tracce = new ObjectArrayList();
+					ObjectArrayList<String> lista_tracce = new ObjectArrayList<String>();
           
 					lista_tracce.add(traccia);
 					attivita_tracce.put(nome_attivita, lista_tracce);

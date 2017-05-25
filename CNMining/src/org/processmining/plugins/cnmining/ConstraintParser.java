@@ -43,7 +43,7 @@ public class ConstraintParser extends DefaultHandler
 	public ConstraintParser(String pathToConstraints)
 	{
 		this.pathToConstraints = pathToConstraints;
-		this.constraints = new ObjectArrayList();
+		this.constraints = new ObjectArrayList<Constraint>();
 	}
   
 	public void characters(char[] ch, int start, int length) throws SAXException
