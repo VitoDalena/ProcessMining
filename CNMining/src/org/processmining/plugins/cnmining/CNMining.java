@@ -158,9 +158,9 @@ public class CNMining
 			}
 		}
 
-		CNMining cnm = new CNMining();
+		CNMining cnmining = new CNMining();
  
-		cnm.aggiungiAttivitaFittizia(log);
+		cnmining.aggiungiAttivitaFittizia(log);
 		
 		Object[] array = LogUnfolder.unfold(log);
      
@@ -171,7 +171,7 @@ public class CNMining
 		ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita = (ObjectObjectOpenHashMap)array[2];
      
 		if (enable_constraints) {
-			cnm.creaVincoliUnfolded(
+			cnmining.creaVincoliUnfolded(
 				vincoli.positivi, vincoli.negati, vincoli.forbidden, vincoli.positiviUnfolded, 
 				vincoli.negatiUnfolded, vincoli.forbiddenUnfolded, map
 			);
@@ -180,22 +180,22 @@ public class CNMining
      
 		System.out.println("OK1");
      
-		double[][] csm = cnm.calcoloMatriceDeiCausalScore(log, map, traccia_attivita, settings.fallFactor);
+		double[][] causalScoreMatrix = cnmining.calcoloMatriceDeiCausalScore(log, map, traccia_attivita, settings.fallFactor);
 
 		System.out.println("OK2");
 
-		double[][] m = cnm.buildBestNextMatrix(log, map, traccia_attivita, csm, vincoli.forbiddenUnfolded);
+		double[][] bestNextMatrix = cnmining.buildBestNextMatrix(log, map, traccia_attivita, causalScoreMatrix, vincoli.forbiddenUnfolded);
      
 		System.out.println("OK3");
 		if (settings.sigmaLogNoise > 0.0D)
 		{
-			for (int i = 0; i < m.length; i++)
+			for (int i = 0; i < bestNextMatrix.length; i++)
 			{
-				for (int j = 0; j < m.length; j++)
+				for (int j = 0; j < bestNextMatrix.length; j++)
 				{
-					if (m[i][j] <= settings.sigmaLogNoise * traccia_attivita.size())
+					if (bestNextMatrix[i][j] <= settings.sigmaLogNoise * traccia_attivita.size())
 					{
-						m[i][j] = 0.0D; 
+						bestNextMatrix[i][j] = 0.0D; 
 					}
 				}
 			}
@@ -232,12 +232,12 @@ public class CNMining
 			}
 		}
  
-		for (int p = 0; p < m.length; p++) {
-			for (int r = 0; r < m[0].length; r++)
-				if (m[p][r] > 0.0D) {
-					Node np = graph.getNode(cnm.getKeyByValue(map, p), p);
+		for (int p = 0; p < bestNextMatrix.length; p++) {
+			for (int r = 0; r < bestNextMatrix[0].length; r++)
+				if (bestNextMatrix[p][r] > 0.0D) {
+					Node np = graph.getNode(cnmining.getKeyByValue(map, p), p);
        
-         	 Node nr = graph.getNode(cnm.getKeyByValue(map, r), r);
+         	 Node nr = graph.getNode(cnmining.getKeyByValue(map, r), r);
        
          	 graph.addEdge(np, nr, false);
        
@@ -256,7 +256,7 @@ public class CNMining
 	 	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_attivita_tracce = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
 	  	ObjectObjectOpenHashMap<String, ObjectArrayList<String>> folded_traccia_attivita = new ObjectObjectOpenHashMap<String, ObjectArrayList<String>>();
      
-	  	Graph folded_G_Ori = cnm.getGrafoAggregato(
+	  	Graph folded_G_Ori = cnmining.getGrafoAggregato(
 	  		graph, log, true, folded_map, 
 	  		folded_attivita_tracce, 
 	  		folded_traccia_attivita
@@ -264,7 +264,7 @@ public class CNMining
      
 	  	System.out.println();
 	  	
-	  	boolean vincoli_consistenti = cnm.verifica_consistenza_vincoli(vincoli.positivi, vincoli.negati);
+	  	boolean vincoli_consistenti = cnmining.verifica_consistenza_vincoli(vincoli.positivi, vincoli.negati);
      
 	  	if (!vincoli_consistenti) {
 	  		System.out.println("FALLIMENTO VINCOLI INCONSISTENTI ");
@@ -274,24 +274,24 @@ public class CNMining
 	  	if (enable_constraints) {
 	  		System.out.println("STAMPA PG0 FOLDED");
        
-	  		cnm.buildPG0(
-  				graph, m, vincoli.positiviUnfolded, 
+	  		cnmining.buildPG0(
+  				graph, bestNextMatrix, vincoli.positiviUnfolded, 
   				vincoli.positivi, vincoli.negatiUnfolded, 
   				vincoli.negati, vincoli.forbidden, 
   				vincoli.forbiddenUnfolded, 
   				map, (ObjectObjectOpenHashMap)attivita_tracce, 
-  				traccia_attivita, csm, settings.sigmaLowCsConstrEdges, 
+  				traccia_attivita, causalScoreMatrix, settings.sigmaLowCsConstrEdges, 
   				folded_G_Ori, folded_map
   			);
        
-	       Graph folded_PG0 = cnm.getGrafoAggregato(
+	       Graph folded_PG0 = cnmining.getGrafoAggregato(
     		   graph, log, false, folded_map, folded_attivita_tracce, 
     		   folded_traccia_attivita
 		   );
        
 	       System.out.println();
 	       
-	       if (!cnm.verificaVincoliPositivi(folded_PG0, null, null, vincoli.positivi, folded_map)) {
+	       if (!cnmining.verificaVincoliPositivi(folded_PG0, null, null, vincoli.positivi, folded_map)) {
 	    	   System.out.println("FALLIMENTO PG0 NON SODDISFA I VINCOLI POSITIVI!");
 	    	   System.exit(0);
 	       }
@@ -299,8 +299,8 @@ public class CNMining
      
 	  	context.getProgress().setValue(30);
 	  	
-	  	ObjectArrayList<FakeDependency> attivita_parallele = cnm.getAttivitaParallele(
-	  		m, graph, map, vincoli.positivi, 
+	  	ObjectArrayList<FakeDependency> attivita_parallele = cnmining.getAttivitaParallele(
+	  		bestNextMatrix, graph, map, vincoli.positivi, 
 	  		folded_map, folded_G_Ori
 		);
   	
@@ -308,9 +308,9 @@ public class CNMining
 	  	System.out.println("START ALGORITMO 2... ");
 	  	System.out.println();
   
-	  	cnm.algoritmo2(
-  			m, graph, map, (ObjectObjectOpenHashMap)attivita_tracce,
-  			traccia_attivita, csm, settings.sigmaUpCsDiff, folded_map, 
+	  	cnmining.algoritmo2(
+  			bestNextMatrix, graph, map, (ObjectObjectOpenHashMap)attivita_tracce,
+  			traccia_attivita, causalScoreMatrix, settings.sigmaUpCsDiff, folded_map, 
   			vincoli.forbidden, vincoli.positivi, vincoli.negati
 		);
 	  	System.out.println();
@@ -322,7 +322,7 @@ public class CNMining
      
 	  	System.out.println();
      
-	  	Graph folded_g = cnm.getGrafoAggregato(
+	  	Graph folded_g = cnmining.getGrafoAggregato(
 			graph, log, false, folded_map, 
 	  		folded_attivita_tracce, 
 	  		folded_traccia_attivita
@@ -334,8 +334,8 @@ public class CNMining
 	  		n.setMark(false);
 	  	}
      
-	  	ObjectArrayList<FakeDependency> attivita_parallele_residue = cnm.getAttivitaParallele(
-	  		m, graph, map, 
+	  	ObjectArrayList<FakeDependency> attivita_parallele_residue = cnmining.getAttivitaParallele(
+	  		bestNextMatrix, graph, map, 
 	  		vincoli.positivi, folded_map, folded_g
 	  	);
 	  	
@@ -362,7 +362,7 @@ public class CNMining
      
   		System.out.println();
   		
-  		double[][] csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
+  		double[][] csmOri = cnmining.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
      
   		System.out.println();
 	    context.getProgress().setValue(55);
@@ -370,7 +370,7 @@ public class CNMining
 	    System.out.println("POST-PROCESSING RIMOZIONE DIPENDENZE INDIRETTE... ");
 	    System.out.println();
      
-	    cnm.postProcessing_dip_indirette(
+	    cnmining.postProcessing_dip_indirette(
     		folded_g, folded_map, folded_attivita_tracce, 
     		folded_traccia_attivita, csmOri, 
     		settings.sigmaLogNoise, vincoli.positivi
@@ -383,22 +383,22 @@ public class CNMining
  
 	    ObjectArrayList<Node> endActivities = new ObjectArrayList<Node>();
  
-	    folded_g = cnm.rimuoviAttivitaFittizie(
+	    folded_g = cnmining.rimuoviAttivitaFittizie(
 	    	folded_g, folded_map, folded_traccia_attivita, 
 	    	folded_attivita_tracce, start, end, 
 	    	log, startActivities, endActivities
 	    );
  
-	    cnm.computeBindings(folded_g, folded_traccia_attivita, folded_map);
+	    cnmining.computeBindings(folded_g, folded_traccia_attivita, folded_map);
  
 	    System.out.println("PROCEDURA REMOVABLE-EDGES ");
      
-	    csmOri = cnm.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
+	    csmOri = cnmining.calcoloMatriceDeiCausalScore(log, folded_map, folded_traccia_attivita, settings.fallFactor);
      
  
 	    for (;;)
 	    {
-	    	ObjectArrayList<Edge> removableEdges = cnm.removableEdges(
+	    	ObjectArrayList<Edge> removableEdges = cnmining.removableEdges(
 	    		folded_g, csmOri, vincoli.positivi, folded_map, settings.relativeToBest
 	    	);
        
@@ -423,7 +423,7 @@ public class CNMining
        
 	       folded_g.removeEdge(bestRemovable.getX(), bestRemovable.getY());
        
-	       if (!cnm.verificaVincoliPositivi(folded_g, null, null, vincoli.positivi, folded_map)) {
+	       if (!cnmining.verificaVincoliPositivi(folded_g, null, null, vincoli.positivi, folded_map)) {
 	    	   folded_g.addEdge(bestRemovable.getX(), bestRemovable.getY(), true);
 	       }
 	       else
