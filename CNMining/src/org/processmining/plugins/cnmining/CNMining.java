@@ -373,157 +373,13 @@ public class CNMining
     		Node removableNode = (Node)removableNodes.get(jj);
     		grafoFolded.removeNode(removableNode);
     	}
+    	
+    	System.out.println("Rappresenzatione grafica...");
  
-    	CausalNetAnnotations annotations = new CausalNetAnnotations();
- 
-    	Flex flexDiagram = FlexFactory.newFlex("Causal Net CNMining");
- 
-    	FlexNode[] nodes = new FlexNode[grafoFolded.listaNodi().size()];
- 
-    	System.out.println("nodes length " + nodes.length);
-    	System.out.println("graph length " + grafoFolded.listaNodi().size());
-     
- 
-    	IntIntOpenHashMap flexMap = new IntIntOpenHashMap();
-     
-    	int index = 0;
-     
-    	String bindingsContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ExtendedCausalNet name=\"" + 
-			((XAttribute)log.getAttributes().get("concept:name")).toString() + "\"\n" + 
-			"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" + 
-			"xsi:noNamespaceSchemaLocation=\"ExtendedCausalNetSchema.xsd\">\n";
-     
-    	for (int ii = 0; ii < grafoFolded.listaNodi().size(); ii++)
-    	{
-    		Node n = (Node)grafoFolded.listaNodi().get(ii);
-   
-    		flexMap.put(n.getID_attivita(), index);
-    		
-    		nodes[index] = flexDiagram.addNode(n.getNomeAttivita());
-   
-    		annotations.addNodeInfo(nodes[index], "id", n.getNomeAttivita());
-    		index++;
-   
-    		bindingsContent = bindingsContent + "<Node name=\"" + n.getNomeAttivita() + "\" id=\"" + n.getID_attivita() + "\">\n" + 
-				"<ExtendedInputBindings>\n";
-   
-    		ObjectIntOpenHashMap<IntArrayList> extendedObX = n.getExtendedOutput();
-   
-    		ObjectIntOpenHashMap<IntArrayList> extendedIbY = n.getExtendedInput();
-   
-    		keys = extendedIbY.keys;
-   
-    		for (int ts = 0; ts < extendedIbY.allocated.length; ts++)
-    			if (extendedIbY.allocated[ts] != false) {
-    				IntArrayList tks = (IntArrayList)keys[ts];
-    				if (tks.size() > 0) {
-    					bindingsContent = bindingsContent + "{";
-    					for (int i = 0; i < tks.size() - 1; i++) {
-    						bindingsContent = bindingsContent + tks.get(i) + ", ";
-    					}
-    					bindingsContent = bindingsContent + tks.get(tks.size() - 1) + "}\n";
-    				}
-    			}
-    		bindingsContent = bindingsContent + "</ExtendedInputBindings>\n";
-    		bindingsContent = bindingsContent + "<ExtendedOutputBindings>\n";
-   
-    		keys = extendedObX.keys;
-   
-    		for (int ts = 0; ts < extendedObX.allocated.length; ts++)
-    			if (extendedObX.allocated[ts] != false) {
-    				IntArrayList tks = (IntArrayList)keys[ts];
-    				if (tks.size() > 0) {
-    					bindingsContent = bindingsContent + "{";
-    					for (int i = 0; i < tks.size() - 1; i++)
-    						bindingsContent = bindingsContent + tks.get(i) + ", ";
-    					bindingsContent = bindingsContent + tks.get(tks.size() - 1) + "}\n";
-    				}
-    			}
-    		bindingsContent = bindingsContent + "</ExtendedOutputBindings>\n</Node>\n";
-    	}
-	    	
-    	for (int ii = 0; ii < grafoFolded.getLista_archi().size(); ii++) {
-    		Edge e = (Edge)grafoFolded.getLista_archi().get(ii);
-   
-    		flexDiagram.addArc(nodes[flexMap.get(e.getX().getID_attivita())], 
-    				nodes[flexMap.get(e.getY().getID_attivita())]);
-    		bindingsContent = bindingsContent + "<Edge src= \"" + e.getX().getID_attivita() + "\" dest= \"" + e.getY().getID_attivita() + "\" /> \n";
-    	}
-     
-    	bindingsContent = bindingsContent + "</ExtendedCausalNet>\n";
- 
-    	File ec = new File("ExtendedCausalNet.xml");
-    	if (ec.exists())
-    		ec.delete();
-    	ec.createNewFile();
-    	try {
-    		Files.write(FileSystems.getDefault().getPath(".", new String[] { "ExtendedCausalNet.xml" }), bindingsContent.getBytes(), new OpenOption[] {
-			StandardOpenOption.APPEND });
-    	} catch (IOException ioe) {
-    		ioe.printStackTrace();
-    	}
-      
-    	for (int ii = 0; ii < grafoFolded.listaNodi().size(); ii++)
-    	{
-    		Node n = (Node)grafoFolded.listaNodi().get(ii);
-    		
-    		keys = n.getOutput().keys;
-    		
-    		for (int ts = 0; ts < n.getOutput().allocated.length; ts++) {
-    			if (n.getOutput().allocated[ts] != false) {
-    				IntOpenHashSet se = (IntOpenHashSet)keys[ts];
-       
-    				SetFlex set = new SetFlex();
-    				for (IntCursor o : se) {
-    					set.add(nodes[flexMap.get(o.value)]);
-    				}
-    				if ((set.size() != 0) || (endActivities.contains(n)))
-    					nodes[flexMap.get(n.getID_attivita())].addOutputNodes(set);
-    			}
-    		}
-    		keys = n.getInput().keys;
-   
-    		for (int ts = 0; ts < n.getInput().allocated.length; ts++) {
-    			if (n.getInput().allocated[ts] != false) {
-    				IntOpenHashSet se = (IntOpenHashSet)keys[ts];
-       
-    				SetFlex set = new SetFlex();
-    				for (IntCursor i : se) {
-    					set.add(nodes[flexMap.get(i.value)]);
-    				}
-    				if ((set.size() != 0) || (startActivities.contains(n))) {
-    					nodes[flexMap.get(n.getID_attivita())].addInputNodes(set);
-    				}
-    			}
-    		}
-    	}
-     
-    	StartTaskNodesSet startTaskNodes = new StartTaskNodesSet();
-     
-    	for (int i = 0; i < startActivities.size(); i++) {
-    		Node n = (Node)startActivities.get(i);
-    		SetFlex setStart = new SetFlex();
-   
-    		setStart.add(nodes[flexMap.get(n.getID_attivita())]);
-   
-    		startTaskNodes.add(setStart);
-    	}     
- 
-    	EndTaskNodesSet endTaskNodes = new EndTaskNodesSet();
-	    	
-    	for (int i = 0; i < endActivities.size(); i++)
-    	{
-    		Node n = (Node)startActivities.get(i);
-   
-    		SetFlex setEnd = new SetFlex();
-   
-    		setEnd.add(nodes[flexMap.get(n.getID_attivita())]);
-   
-    		endTaskNodes.add(setEnd);
-    	}     
-    	for (int i = 0; i < nodes.length; i++) {
-    		nodes[i].commitUpdates();
-    	}
+    	CNMiningDiagram diagram = new CNMiningDiagram(grafoFolded);
+    	diagram.build(log, startActivities, endActivities);
+    	diagram.exportXML();
+    	Flex flexDiagram = diagram.flex();
  
     	System.out.println();
       
@@ -537,15 +393,15 @@ public class CNMining
     	context.getFutureResult(3).setLabel("Annotations of " + flexDiagram.getLabel());
  
     	context.addConnection(new FlexStartTaskNodeConnection("Start tasks node of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, startTaskNodes));
+			" connection", flexDiagram, diagram.startTaskNodes));
     	context.addConnection(new FlexEndTaskNodeConnection("End tasks node of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, endTaskNodes));
+			" connection", flexDiagram, diagram.endTaskNodes));
     	context.addConnection(new CausalNetAnnotationsConnection("Annotations of " + flexDiagram.getLabel() + 
-			" connection", flexDiagram, annotations));
+			" connection", flexDiagram, diagram.annotations));
      
     	visualize(flexDiagram);
 
-    	return new Object[] { flexDiagram, startTaskNodes, endTaskNodes, annotations };
+    	return new Object[] { flexDiagram, diagram.startTaskNodes, diagram.endTaskNodes, diagram.annotations };
 	}
 	
 	private boolean caricaVincoli(ConstraintsManager vincoli, Settings settings){
