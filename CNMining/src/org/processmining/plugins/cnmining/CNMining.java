@@ -74,9 +74,6 @@ public class CNMining
 	public static String attivita_iniziale = "_START_";
 	public static String attivita_finale = "_END_";
    
-	public static double value = 0.0D;
-	public static double delta = 0.0D;
-	public static double relative_to_best = 0.0D;
 	public static long time;
    
 	@Plugin(
@@ -103,82 +100,10 @@ public class CNMining
 	)
 	public static Object[] run(UIPluginContext context, XLog log) throws Exception
 	{
-		XConceptExtension conceptExtension = XConceptExtension.instance();
-		String logName = conceptExtension.extractName(log);
+		SettingsView settingsView = new SettingsView(context, log);
+		Settings settings = settingsView.show();
      
-		ProMPropertiesPanel panel = new ProMPropertiesPanel("");     
-	    PannelloConstraints pannello = new PannelloConstraints();
-	    panel.add(pannello, 1);
-	    
-	    final NiceSlider slider = SlickerFactory.instance().createNiceIntegerSlider(
-	    	"T percentage", 0, 
-	    	100, 5, NiceSlider.Orientation.HORIZONTAL
-	    );
-	    ChangeListener listener = new ChangeListener()
-	    {
-	    	public void stateChanged(ChangeEvent e)
-	    	{
-	    		int percentage = slider.getSlider().getValue();
-	    		CNMining.value = (percentage / 100.0D);
-	    	}
-	    };
-	    slider.addChangeListener(listener);
-	    listener.stateChanged(null);
-     
-	    final NiceSlider slider1 = SlickerFactory.instance().createNiceIntegerSlider(
-	    	"δ percentage", 0, 100, 
-	    	90, NiceSlider.Orientation.HORIZONTAL
-	    );
-	    ChangeListener listener1 = new ChangeListener()
-	    {
-	    	public void stateChanged(ChangeEvent e)
-	    	{
-	    		int percentage = slider1.getSlider().getValue();
-	    		CNMining.delta = (percentage / 100.0D);
-	    	}
-	    };
-	    slider1.addChangeListener(listener1);
-	    listener1.stateChanged(null);
-     
-	    final NiceSlider slider2 = SlickerFactory.instance().createNiceIntegerSlider(
-    		"\034T_r2b percentage", 0, 
-    		100, 75, NiceSlider.Orientation.HORIZONTAL
-    	);
-	    ChangeListener listener2 = new ChangeListener()
-	    {
-	    	public void stateChanged(ChangeEvent e)
-	    	{
-	    		int percentage = slider2.getSlider().getValue();
-	    		CNMining.relative_to_best = (percentage / 100.0D);
-	    	}
-	    };
-	    slider2.addChangeListener(listener2);
-	    listener2.stateChanged(null);
-     
-	    slider.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
-	    slider1.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
-	    slider2.setBorder(BorderFactory.createEtchedBorder(Color.white, Color.gray));
-     
-	    panel.add(slider, "Center");
-	    panel.add(slider1, "South");
-	    panel.add(slider2, "South");
-     
-	    TaskListener.InteractionResult result = context.showConfiguration("Settings", panel);
-     
-	    if (result.equals(TaskListener.InteractionResult.CANCEL)) {
-	    	context.getFutureResult(0).cancel(true);
-	    }
-     
-	    Settings s = new Settings();
-     
-	    s.constraintsEnabled = (pannello.isConstraintsEnabled());
-	    s.constraintsFilename = (pannello.getFilePath());
-	    s.sigmaLogNoise = (value);
-	    s.logName = (logName);
-	    s.fallFactor = (delta);
-	    s.relativeToBest = (relative_to_best);
-     
-	    return startCNMining(context, log, s);
+	    return startCNMining(context, log, settings);
 	}
 	
 	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings) throws Exception
@@ -477,7 +402,7 @@ public class CNMining
 	    for (;;)
 	    {
 	    	ObjectArrayList<Edge> removableEdges = cnm.removableEdges(
-	    		folded_g, csmOri, vincoli_positivi, folded_map, relative_to_best
+	    		folded_g, csmOri, vincoli_positivi, folded_map, settings.relativeToBest
 	    	);
        
 	       if (removableEdges.size() == 0) {
