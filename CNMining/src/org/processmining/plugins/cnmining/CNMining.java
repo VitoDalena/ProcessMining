@@ -159,49 +159,46 @@ public class CNMining
 		
 		System.out.println("Costruzione del grafo unfolded originale...");
 				
-		Graph graph = cnmining.costruisciGrafoUnfolded(unfoldResult.map, bestNextMatrix);
+		Graph grafoUnfolded = cnmining.costruisciGrafoUnfolded(unfoldResult.map, bestNextMatrix);
 		 
 	    System.out.println("Costruzione del grafo folded originale...");
      
 	    UnfoldResult foldResult = new UnfoldResult();
 	    
-	  	Graph folded_G_Ori = cnmining.getGrafoAggregato(
-	  		graph, log, true, foldResult.map, 
+	  	Graph grafoFoldedOriginale = cnmining.getGrafoAggregato(
+	  		grafoUnfolded, log, true, foldResult.map, 
 	  		foldResult.attivita_tracce, 
 	  		foldResult.traccia_attivita
 	  	);
-     
-	  	System.out.println();
-	  	
-	  	boolean vincoli_consistenti = cnmining.verifica_consistenza_vincoli(vincoli.positivi, vincoli.negati);
-     
-	  	if (!vincoli_consistenti) {
-	  		System.out.println("FALLIMENTO VINCOLI INCONSISTENTI ");
+	  	     
+	  	if (!cnmining.verifica_consistenza_vincoli(vincoli.positivi, vincoli.negati)) {
+	  		System.out.println("\nImpossibile proseguire\nI Vincoli non sono consistenti");
 	  		System.exit(0);
 	  	}
+	  	else System.out.println("I Vincoli sono consistenti");
 	  	
 	  	if (vincoliDisponibili) {
-	  		System.out.println("STAMPA PG0 FOLDED");
+	  		System.out.println("Stampa il grafo folded PG0...");
        
-	  		cnmining.buildPG0(
-  				graph, bestNextMatrix, vincoli.positiviUnfolded, 
+	  		cnmining.costruisciGrafoPG0(
+  				grafoUnfolded, bestNextMatrix, vincoli.positiviUnfolded, 
   				vincoli.positivi, vincoli.negatiUnfolded, 
   				vincoli.negati, vincoli.forbidden, 
   				vincoli.forbiddenUnfolded, 
   				unfoldResult.map, (ObjectObjectOpenHashMap)unfoldResult.attivita_tracce, 
   				unfoldResult.traccia_attivita, causalScoreMatrix, settings.sigmaLowCsConstrEdges, 
-  				folded_G_Ori, foldResult.map
+  				grafoFoldedOriginale, foldResult.map
   			);
        
-	       Graph folded_PG0 = cnmining.getGrafoAggregato(
-    		   graph, log, false, foldResult.map, foldResult.attivita_tracce, 
+	       Graph grafoPG0 = cnmining.getGrafoAggregato(
+    		   grafoUnfolded, log, false, foldResult.map, foldResult.attivita_tracce, 
     		   foldResult.traccia_attivita
 		   );
        
 	       System.out.println();
 	       
-	       if (!cnmining.verificaVincoliPositivi(folded_PG0, null, null, vincoli.positivi, foldResult.map)) {
-	    	   System.out.println("FALLIMENTO PG0 NON SODDISFA I VINCOLI POSITIVI!");
+	       if (!cnmining.verificaVincoliPositivi(grafoPG0, null, null, vincoli.positivi, foldResult.map)) {
+	    	   System.out.println("Fallimento\nIl grafo PG0 non soddisfa i vincoli positivi!");
 	    	   System.exit(0);
 	       }
 	  	}
@@ -209,51 +206,41 @@ public class CNMining
 	  	context.getProgress().setValue(30);
 	  	
 	  	ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
-	  		bestNextMatrix, graph, unfoldResult.map, vincoli.positivi, 
-	  		foldResult.map, folded_G_Ori
+	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, vincoli.positivi, 
+	  		foldResult.map, grafoFoldedOriginale
 		);
   	
-	  	System.out.println();
-	  	System.out.println("START ALGORITMO 2... ");
-	  	System.out.println();
+	  	System.out.println("Esecuzione algortimo 2... ");
   
 	  	cnmining.algoritmo2(
-  			bestNextMatrix, graph, unfoldResult.map, (ObjectObjectOpenHashMap)unfoldResult.attivita_tracce,
+  			bestNextMatrix, grafoUnfolded, unfoldResult.map, (ObjectObjectOpenHashMap)unfoldResult.attivita_tracce,
   			unfoldResult.traccia_attivita, causalScoreMatrix, settings.sigmaUpCsDiff, foldResult.map, 
   			vincoli.forbidden, vincoli.positivi, vincoli.negati
 		);
-	  	System.out.println();
+	  	
+	  	System.out.println("Costruisco il grafo folded dopo algoritmo 2");
      
-	  	System.out.println("GRAFO DOPO AVER APPLICATO ALGORITMO 2");
-	  	System.out.println();
- 
-	  	System.out.println("ATTIVITA PARALLELE RESIDUE DOPO ALGORITMO 2...");
-     
-	  	System.out.println();
-     
-	  	Graph folded_g = cnmining.getGrafoAggregato(
-			graph, log, false, foldResult.map, 
+	  	Graph grafoFolded = cnmining.getGrafoAggregato(
+			grafoUnfolded, log, false, foldResult.map, 
 			foldResult.attivita_tracce, 
 			foldResult.traccia_attivita
 	  	);
      
  
-	  	for (int ni = 0; ni < graph.listaNodi().size(); ni++) {
-	  		Node n = (Node)graph.listaNodi().get(ni);
+	  	for (int ni = 0; ni < grafoUnfolded.listaNodi().size(); ni++) {
+	  		Node n = (Node)grafoUnfolded.listaNodi().get(ni);
 	  		n.setMark(false);
 	  	}
      
-	  	ObjectArrayList<FakeDependency> attivita_parallele_residue = cnmining.getAttivitaParallele(
-	  		bestNextMatrix, graph, unfoldResult.map, 
-	  		vincoli.positivi, foldResult.map, folded_g
+	  	ObjectArrayList<FakeDependency> attivitaParalleleResidue = cnmining.getAttivitaParallele(
+	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, 
+	  		vincoli.positivi, foldResult.map, grafoFolded
 	  	);
-	  	
-  		System.out.println();
-  		System.out.println();
      
-  		for (int jj = 0; jj < folded_g.getLista_archi().size(); jj++)
+	  	// Verifica sul folding
+  		for (int jj = 0; jj < grafoFolded.getLista_archi().size(); jj++)
   		{
-  			Edge e = (Edge)folded_g.getLista_archi().get(jj);
+  			Edge e = (Edge)grafoFolded.getLista_archi().get(jj);
        
   			for (int kk = 0; kk < vincoli.positivi.size(); kk++) {
   				Constraint c = (Constraint)vincoli.positivi.get(kk);
@@ -266,49 +253,41 @@ public class CNMining
   				System.out.println("NOT OK!!!!!!!");
   			}
   		}
-     
-  		System.out.println("GRAFO FOLDED ");
-     
-  		System.out.println();
   		
-  		double[][] csmOri = cnmining.calcoloMatriceDeiCausalScore(log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor);
+  		double[][] causalScoreMatrixResidua = cnmining.calcoloMatriceDeiCausalScore(log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor);
      
-  		System.out.println();
 	    context.getProgress().setValue(55);
      
-	    System.out.println("POST-PROCESSING RIMOZIONE DIPENDENZE INDIRETTE... ");
-	    System.out.println();
+	    System.out.println("PostProcessing: rimozione dipendenze indirette... ");
      
-	    cnmining.postProcessing_dip_indirette(
-    		folded_g, foldResult.map, foldResult.attivita_tracce, 
-    		foldResult.traccia_attivita, csmOri, 
+	    cnmining.rimuoviDipendenzeIndirette(
+    		grafoFolded, foldResult.map, foldResult.attivita_tracce, 
+    		foldResult.traccia_attivita, causalScoreMatrixResidua, 
     		settings.sigmaLogNoise, vincoli.positivi
     	);
 	    
 	    Node start = new Node(attivita_iniziale, foldResult.map.get(attivita_iniziale));
 	    Node end = new Node(attivita_finale, foldResult.map.get(attivita_finale));
  
-	    ObjectArrayList<Node> startActivities = new ObjectArrayList<Node>();
- 
+	    ObjectArrayList<Node> startActivities = new ObjectArrayList<Node>(); 
 	    ObjectArrayList<Node> endActivities = new ObjectArrayList<Node>();
  
-	    folded_g = cnmining.rimuoviAttivitaFittizie(
-	    	folded_g, foldResult.map, foldResult.traccia_attivita, 
+	    grafoFolded = cnmining.rimuoviAttivitaFittizie(
+	    	grafoFolded, foldResult.map, foldResult.traccia_attivita, 
 	    	foldResult.attivita_tracce, start, end, 
 	    	log, startActivities, endActivities
 	    );
  
-	    cnmining.computeBindings(folded_g, foldResult.traccia_attivita, foldResult.map);
+	    cnmining.computeBindings(grafoFolded, foldResult.traccia_attivita, foldResult.map);
  
-	    System.out.println("PROCEDURA REMOVABLE-EDGES ");
+	    System.out.println("Rimozione degli archi rimuovibili...");
      
-	    csmOri = cnmining.calcoloMatriceDeiCausalScore(log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor);
-     
- 
+	    causalScoreMatrixResidua = cnmining.calcoloMatriceDeiCausalScore(log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor);
+      
 	    for (;;)
 	    {
 	    	ObjectArrayList<Edge> removableEdges = cnmining.removableEdges(
-	    		folded_g, csmOri, vincoli.positivi, foldResult.map, settings.relativeToBest
+	    		grafoFolded, causalScoreMatrixResidua, vincoli.positivi, foldResult.map, settings.relativeToBest
 	    	);
        
 	       if (removableEdges.size() == 0) {
@@ -322,7 +301,7 @@ public class CNMining
 	       {
 	    	   Edge e = (Edge)removableEdges.get(jj);
          
-	    	   double e_cs = csmOri[e.getX().getID_attivita()][e.getY().getID_attivita()];
+	    	   double e_cs = causalScoreMatrixResidua[e.getX().getID_attivita()][e.getY().getID_attivita()];
          
 	    	   if (e_cs < worst_causal_score) {
 	    		   worst_causal_score = e_cs;
@@ -330,14 +309,14 @@ public class CNMining
 	    	   }
 	       }
        
-	       folded_g.removeEdge(bestRemovable.getX(), bestRemovable.getY());
+	       grafoFolded.removeEdge(bestRemovable.getX(), bestRemovable.getY());
        
-	       if (!cnmining.verificaVincoliPositivi(folded_g, null, null, vincoli.positivi, foldResult.map)) {
-	    	   folded_g.addEdge(bestRemovable.getX(), bestRemovable.getY(), true);
+	       if (!cnmining.verificaVincoliPositivi(grafoFolded, null, null, vincoli.positivi, foldResult.map)) {
+	    	   grafoFolded.addEdge(bestRemovable.getX(), bestRemovable.getY(), true);
 	       }
 	       else
 	       {
-	    	   System.out.println("RIMOSSO ARCO " + bestRemovable.getX().getNomeAttivita() + " -> " + 
+	    	   System.out.println("Rimosso arco " + bestRemovable.getX().getNomeAttivita() + " -> " + 
     			   bestRemovable.getY().getNomeAttivita());
          
  
@@ -384,25 +363,25 @@ public class CNMining
 	    }
      
 	    ObjectArrayList<Node> removableNodes = new ObjectArrayList<Node>();
-    	for (int jj = 0; jj < folded_g.listaNodi().size(); jj++) {
-    		Node n = (Node)folded_g.listaNodi().get(jj);
+    	for (int jj = 0; jj < grafoFolded.listaNodi().size(); jj++) {
+    		Node n = (Node)grafoFolded.listaNodi().get(jj);
     		if ((n.getInner_degree() == 0) && (n.getOuter_degree() == 0)) {
     			removableNodes.add(n);
     		}
     	}
     	for (int jj = 0; jj < removableNodes.size(); jj++) {
     		Node removableNode = (Node)removableNodes.get(jj);
-    		folded_g.removeNode(removableNode);
+    		grafoFolded.removeNode(removableNode);
     	}
  
     	CausalNetAnnotations annotations = new CausalNetAnnotations();
  
     	Flex flexDiagram = FlexFactory.newFlex("Causal Net CNMining");
  
-    	FlexNode[] nodes = new FlexNode[folded_g.listaNodi().size()];
+    	FlexNode[] nodes = new FlexNode[grafoFolded.listaNodi().size()];
  
     	System.out.println("nodes length " + nodes.length);
-    	System.out.println("graph length " + folded_g.listaNodi().size());
+    	System.out.println("graph length " + grafoFolded.listaNodi().size());
      
  
     	IntIntOpenHashMap flexMap = new IntIntOpenHashMap();
@@ -414,9 +393,9 @@ public class CNMining
 			"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" + 
 			"xsi:noNamespaceSchemaLocation=\"ExtendedCausalNetSchema.xsd\">\n";
      
-    	for (int ii = 0; ii < folded_g.listaNodi().size(); ii++)
+    	for (int ii = 0; ii < grafoFolded.listaNodi().size(); ii++)
     	{
-    		Node n = (Node)folded_g.listaNodi().get(ii);
+    		Node n = (Node)grafoFolded.listaNodi().get(ii);
    
     		flexMap.put(n.getID_attivita(), index);
     		
@@ -463,8 +442,8 @@ public class CNMining
     		bindingsContent = bindingsContent + "</ExtendedOutputBindings>\n</Node>\n";
     	}
 	    	
-    	for (int ii = 0; ii < folded_g.getLista_archi().size(); ii++) {
-    		Edge e = (Edge)folded_g.getLista_archi().get(ii);
+    	for (int ii = 0; ii < grafoFolded.getLista_archi().size(); ii++) {
+    		Edge e = (Edge)grafoFolded.getLista_archi().get(ii);
    
     		flexDiagram.addArc(nodes[flexMap.get(e.getX().getID_attivita())], 
     				nodes[flexMap.get(e.getY().getID_attivita())]);
@@ -484,9 +463,9 @@ public class CNMining
     		ioe.printStackTrace();
     	}
       
-    	for (int ii = 0; ii < folded_g.listaNodi().size(); ii++)
+    	for (int ii = 0; ii < grafoFolded.listaNodi().size(); ii++)
     	{
-    		Node n = (Node)folded_g.listaNodi().get(ii);
+    		Node n = (Node)grafoFolded.listaNodi().get(ii);
     		
     		keys = n.getOutput().keys;
     		
@@ -1670,7 +1649,7 @@ public class CNMining
 		return mNext;
 	}
 	
-	public void buildPG0(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati_unfolded, ObjectArrayList<Constraint> vincoli_negati_folded, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
+	public void costruisciGrafoPG0(Graph unfolded_g, double[][] m, ObjectArrayList<Constraint> lista_vincoli_positivi_unfolded, ObjectArrayList<Constraint> lista_vincoli_positivi_folded, ObjectArrayList<Constraint> vincoli_negati_unfolded, ObjectArrayList<Constraint> vincoli_negati_folded, ObjectArrayList<Forbidden> lista_forbidden, ObjectArrayList<Forbidden> lista_forbidden_unfolded, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] csm, double sigma, Graph folded_g, ObjectIntOpenHashMap<String> folded_map)
 	{
 		boolean flag = false;
      
@@ -2801,7 +2780,7 @@ public class CNMining
 		return successors_traccia;
 	}
    
-	public void postProcessing_dip_indirette(Graph g, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] cs, double sigma_2, ObjectArrayList<Constraint> vincoli_positivi)
+	public void rimuoviDipendenzeIndirette(Graph g, ObjectIntOpenHashMap<String> map, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> attivita_tracce, ObjectObjectOpenHashMap<String, ObjectArrayList<String>> traccia_attivita, double[][] cs, double sigma_2, ObjectArrayList<Constraint> vincoli_positivi)
 	{
 		ObjectArrayList<Node> adjacents;
     
