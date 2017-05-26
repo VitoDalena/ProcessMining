@@ -9,6 +9,8 @@
 @set X=%X%;.\dist\ProM-Contexts.jar
 @set X=%X%;.\dist\ProM-Models.jar
 @set X=%X%;.\dist\ProM-Plugins.jar
+@set X=%X%;..\CNMining\dist\CNMining.jar
+@set X=%X%;..\RTTmining\dist\RTTmining.jar
 
 @for /R .\lib %%I IN ("*.jar") DO @call :add .\lib\%%~nI.jar
 
