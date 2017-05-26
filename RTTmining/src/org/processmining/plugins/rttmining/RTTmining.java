@@ -1,13 +1,18 @@
 package org.processmining.plugins.rttmining;
 
+import org.deckfour.xes.model.XAttribute;
+import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
+import org.deckfour.xes.model.XTrace;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.plugins.cnmining.CNMining;
+import org.processmining.plugins.cnmining.LogUnfolder;
 import org.processmining.plugins.cnmining.Settings;
 import org.processmining.plugins.cnmining.SettingsView;
+import org.processmining.plugins.cnmining.UnfoldResult;
 
 public class RTTmining {
 			
@@ -38,10 +43,14 @@ public class RTTmining {
 	 */
     public static String Process(UIPluginContext context, XLog log) throws Exception {
 		
-		SettingsView settingsView = new SettingsView(context, log);
-		Settings settings = settingsView.show();
-		
-		Object[] result = CNMining.startCNMining(context, log, settings, false);
+		UnfoldResult result = LogUnfolder.unfold(log);
+		System.out.println("map");
+		System.out.println(result.map);
+		System.out.println("traccia_attivita");
+		System.out.println(result.traccia_attivita);
+		System.out.println("attivita_tracce");
+		System.out.println(result.attivita_tracce);
+
 		return "Hello RTTmining";
 		
 	}	
