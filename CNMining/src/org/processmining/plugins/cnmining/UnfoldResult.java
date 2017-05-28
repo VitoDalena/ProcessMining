@@ -44,6 +44,13 @@ public class UnfoldResult {
  * 
  * 
  * Il senso dell'oggetto map mi è ancora ignoto.
+ * Si presenta nella forma:
+ * [
+ * 		'attivita1#0000' => valore1,
+ * 		'attivita2#0000' => valore2,
+ * 		...
+ * ]
+ * Dove valore è un intero definito da un contatore
  * 
  * 
  */
