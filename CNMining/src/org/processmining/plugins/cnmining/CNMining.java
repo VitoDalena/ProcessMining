@@ -668,6 +668,12 @@ public class CNMining
 		return true;
 	}
 	
+	/*
+	 * Estende il file di log
+	 * per ogni traccia ci aggiunge le attività
+	 * _START_ e _END_ e ci assegna un timestamp ad entrambe 
+	 */
+	
 	public void aggiungiAttivitaFittizia(XLog xlog)
 	{
 		XFactory factory = (XFactory)XFactoryRegistry.instance().currentDefault();
