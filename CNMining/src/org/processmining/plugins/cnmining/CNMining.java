@@ -106,11 +106,12 @@ public class CNMining
 	    return startCNMining(context, log, settings, true);
 	}
 	
-	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings, boolean showDiagram) throws Exception
+	public static Object[] startCNMining(UIPluginContext context, XLog log, Settings settings, boolean uiMode) throws Exception
 	{
 		ConstraintsManager vincoli = new ConstraintsManager();
 		
-		context.getProgress().setValue(1);
+		if(uiMode)
+			context.getProgress().setValue(1);
 		
 		System.out.println("\nCNMining\n\nSettings:");
 	    System.out.println("Sigma log noise: " + settings.sigmaLogNoise);
@@ -131,7 +132,8 @@ public class CNMining
 				vincoli.negatiUnfolded, vincoli.forbiddenUnfolded, unfoldResult.map
 			);
 		}
-		context.getProgress().setValue(10);
+		if(uiMode)
+			context.getProgress().setValue(10);
      
 		System.out.println("Causal Score Matrix...");
      
@@ -203,7 +205,8 @@ public class CNMining
 	       }
 	  	}
      
-	  	context.getProgress().setValue(30);
+	  	if(uiMode)
+	  		context.getProgress().setValue(30);
 	  	
 	  	ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
 	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, vincoli.positivi, 
@@ -256,7 +259,8 @@ public class CNMining
   		
   		double[][] causalScoreMatrixResidua = cnmining.calcoloMatriceDeiCausalScore(log, foldResult.map, foldResult.traccia_attivita, settings.fallFactor);
      
-	    context.getProgress().setValue(55);
+  		if(uiMode)
+  			context.getProgress().setValue(55);
      
 	    System.out.println("PostProcessing: rimozione dipendenze indirette... ");
      
@@ -382,12 +386,11 @@ public class CNMining
     	Flex flexDiagram = diagram.flex();
  
     	System.out.println();
-      
-    	context.getProgress().setValue(85);
- 
-    	context.getProgress().setValue(100);
     	
-    	if(showDiagram){
+    	if(uiMode){
+        	context.getProgress().setValue(85);     
+        	context.getProgress().setValue(100);
+    		
     		context.getFutureResult(0).setLabel(flexDiagram.getLabel());
         	context.getFutureResult(1).setLabel("Start tasks node of " + flexDiagram.getLabel());
         	context.getFutureResult(2).setLabel("End tasks node of " + flexDiagram.getLabel());
