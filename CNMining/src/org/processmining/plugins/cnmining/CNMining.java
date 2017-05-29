@@ -73,7 +73,7 @@ public class CNMining
 {
 	public static String attivita_iniziale = "_START_";
 	public static String attivita_finale = "_END_";
-   
+	   
 	public static long time;
 	   
 	@Plugin(
@@ -212,7 +212,7 @@ public class CNMining
 	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, vincoli.positivi, 
 	  		foldResult.map, grafoFoldedOriginale
 		);
-  	
+	  	
 	  	System.out.println("Esecuzione algortimo 2... ");
   
 	  	cnmining.algoritmo2(

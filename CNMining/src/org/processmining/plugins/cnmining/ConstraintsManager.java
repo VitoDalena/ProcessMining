@@ -8,10 +8,10 @@ import com.carrotsearch.hppc.ObjectArrayList;
 
 public class ConstraintsManager {
 
-    ObjectArrayList<Forbidden> 
+    public ObjectArrayList<Forbidden> 
     	forbidden, 
     	forbiddenUnfolded;
-    ObjectArrayList<Constraint>	
+    public ObjectArrayList<Constraint>	
     	positivi, 
     	negati, 
     	positiviUnfolded, 
