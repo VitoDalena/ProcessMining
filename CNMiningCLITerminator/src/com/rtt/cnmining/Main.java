@@ -42,9 +42,7 @@ public class Main {
             System.out.println(pattern.ANDjoin("Complete_optional_actions"));
             System.out.println(pattern.ORjoin("Complete_optional_actions"));
 
-            XmiGenerator generator = new XmiGenerator(cnminningGraph, inspector);
-            System.out.println(generator);
-
+            
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());
