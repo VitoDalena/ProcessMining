@@ -6,8 +6,9 @@ public class RTTnode {
 
     private String name;
     private String id;
-    ArrayList<RTTedge> incoming;
-    ArrayList<RTTedge> outcoming;
+    private ArrayList<RTTedge> incoming;
+    private ArrayList<RTTedge> outcoming;
+    private String type;
 
     private static int idCounter = 0;
 
@@ -36,6 +37,22 @@ public class RTTnode {
 
     public String id(){
         return this.id;
+    }
+
+    public void split(){
+        this.type = "split";
+    }
+
+    public void join(){
+        this.type = "join";
+    }
+
+    public void type(String value){
+        this.type = value;
+    }
+
+    public String type(){
+        return this.type;
     }
 
     public String toXMI(){

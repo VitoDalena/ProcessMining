@@ -38,6 +38,30 @@ public class LogInspector {
         return result;
     }
 
+    // Ritorna la lista delle attività iniziali
+    public ArrayList<String> startNodes(){
+        ArrayList<String> result = new ArrayList<>();
+
+        for(String activity: this.activities()){
+            if(this.predecessors(activity).size() == 0 && result.contains(activity) == false)
+                result.add(activity);
+        }
+
+        return result;
+    }
+
+    // Ritorna la lista delle attività finali
+    public ArrayList<String> endNodes(){
+        ArrayList<String> result = new ArrayList<>();
+
+        for(String activity: this.activities()){
+            if(this.followers(activity).size() == 0 && result.contains(activity) == false)
+                result.add(activity);
+        }
+
+        return result;
+    }
+
     // Ritorna la lista delle attività t(i), tali che a > t(i)
     public ArrayList<String> followers(String activity){
         ArrayList<String> result = new ArrayList<>();
