@@ -5,6 +5,7 @@ import org.deckfour.xes.in.XMxmlParser;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
+import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
 
@@ -26,6 +27,20 @@ public class Main {
             settings.relativeToBest = 0.75;
 
             Object[] data = CNMining.startCNMining(null, log, settings, false);
+            Flex cnminningGraph = (Flex)data[0];
+            printFlex(cnminningGraph);
+
+            LogInspector inspector = new LogInspector(log);
+            PatternMap pattern = new PatternMap(inspector);
+
+            System.out.println(inspector.activities());
+            System.out.println();
+            System.out.println(inspector.orOperator("Start_recall", "Start_recall"));
+            System.out.println(pattern.ANDsplit("Start_recall"));
+            System.out.println(pattern.ANDsplit("Consider_optional_actions"));
+            System.out.println(pattern.XORsplit("Consider_optional_actions"));
+            System.out.println(pattern.ANDjoin("Complete_optional_actions"));
+            System.out.println(pattern.ORjoin("Complete_optional_actions"));
 
         }
         catch(Exception e){
@@ -62,5 +77,9 @@ public class Main {
             System.out.println("exception" + e.toString());
             return null;
         }
+    }
+
+    static void printFlex(Flex graph){
+
     }
 }
