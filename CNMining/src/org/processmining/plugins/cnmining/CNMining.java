@@ -208,10 +208,12 @@ public class CNMining
 	  	if(uiMode)
 	  		context.getProgress().setValue(30);
 	  	
+	  	/*
 	  	ObjectArrayList<FakeDependency> attivitaParallele = cnmining.getAttivitaParallele(
 	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, vincoli.positivi, 
 	  		foldResult.map, grafoFoldedOriginale
 		);
+		*/
 	  	
 	  	System.out.println("Esecuzione algortimo 2... ");
   
@@ -235,10 +237,12 @@ public class CNMining
 	  		n.setMark(false);
 	  	}
      
+	  	/*
 	  	ObjectArrayList<FakeDependency> attivitaParalleleResidue = cnmining.getAttivitaParallele(
 	  		bestNextMatrix, grafoUnfolded, unfoldResult.map, 
 	  		vincoli.positivi, foldResult.map, grafoFolded
 	  	);
+	  	*/
      
 	  	// Verifica sul folding
   		for (int jj = 0; jj < grafoFolded.getLista_archi().size(); jj++)
@@ -1392,14 +1396,17 @@ public class CNMining
 				atLeastOnePath = true;
 				}
 			}
-			Node k = (Node)graph.adjacentNodes(t).get(i);
-			if ((!k.isMarked()) && (!k.equals(f))) {
-				k.setMark(true);
-				nodes.add(k);
+			if(i < graph.adjacentNodes(t).size())			
+			{
+				Node k = (Node)graph.adjacentNodes(t).get(i);
+				if ((!k.isMarked()) && (!k.equals(f))) {
+					k.setMark(true);
+					nodes.add(k);
+				}
+				i++;
 			}
-			i++;
 		}
-		while(!nodes.isEmpty() && i < graph.adjacentNodes(t).size());
+		while(!nodes.isEmpty());
  
 		return atLeastOnePath;
 	}
