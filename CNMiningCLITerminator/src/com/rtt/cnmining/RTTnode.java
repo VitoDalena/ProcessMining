@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class RTTnode {
 
-    private String name;
-    private String id;
-    private ArrayList<RTTedge> incoming;
-    private ArrayList<RTTedge> outcoming;
+    public String name;
+    public String id;
     private String type;
+    private boolean isInitial;
+    private boolean isFinal;
 
     private static int idCounter = 0;
 
@@ -16,47 +16,74 @@ public class RTTnode {
         this.name = name;
         this.id = "Node-" + idCounter;
         idCounter++;
+        this.node();
+        this.isFinal = false;
+        this.isInitial = false;
     }
 
     public RTTnode(String name, String id){
         this.name = name;
         this.id = id;
+        this.node();
+        this.isFinal = false;
+        this.isInitial = false;
     }
 
-    public ArrayList<RTTedge> outcoming(){
-        return this.outcoming;
+    public void node(){
+        this.type = "Node";
     }
 
-    public ArrayList<RTTedge> incoming(){
-        return this.incoming;
-    }
-
-    public String name(){
-        return this.name;
-    }
-
-    public String id(){
-        return this.id;
-    }
-
-    public void split(){
-        this.type = "split";
+    public void fork(){
+        this.type = "ForkNode";
     }
 
     public void join(){
-        this.type = "join";
+        this.type = "JoinNode";
     }
 
-    public void type(String value){
-        this.type = value;
+    public void initialNode(){
+        this.isInitial = true;
+        this.isFinal = false;
     }
 
-    public String type(){
-        return this.type;
+    public void finalNode(){
+        this.isInitial = false;
+        this.isFinal = true;
     }
 
     public String toXMI(){
+        return this.toXMI("", "");
+    }
+
+    public String toXMI(String outcoming, String incoming){
         StringBuilder str = new StringBuilder();
+
+        str.append("<node xmi:type=\"uml:");
+        if(this.isFinal)
+            str.append("FinalNode");
+        else if(this.isInitial)
+            str.append("InitialNode");
+        else str.append("OpaqueAction");
+
+        str.append("\" xmi:id=\"");
+        str.append(this.id);
+
+        str.append("\" name=\"");
+        str.append(this.name);
+
+        if(outcoming.isEmpty() == false) {
+            str.append("\" outgoing=\"");
+            str.append(outcoming);
+            str.append("\"");
+        }
+
+        if(incoming.isEmpty() == false) {
+            str.append("\" incoming=\"");
+            str.append(incoming);
+            str.append("\"");
+        }
+
+        str.append("/>");
 
         return str.toString();
     }
@@ -64,7 +91,11 @@ public class RTTnode {
     public String toString(){
         StringBuilder str = new StringBuilder();
 
-
+        str.append(this.type + ": " + this.name + ", id: " + this.id);
+        if(isInitial)
+            str.append(" [InitialNode]");
+        else if(isFinal)
+            str.append(" [FinalNode]");
 
         return str.toString();
     }

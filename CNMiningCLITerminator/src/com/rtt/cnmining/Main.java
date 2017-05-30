@@ -30,20 +30,29 @@ public class Main {
             Flex cnminningGraph = (Flex)data[0];
             printFlex(cnminningGraph);
 
-            LogInspector inspector = new LogInspector(log);
-            PatternMap pattern = new PatternMap(inspector);
+            LogInspector logInspector = new LogInspector(log);
+            FlexInspector flexInspector = new FlexInspector(cnminningGraph);
+            PatternMap pattern = new PatternMap(logInspector);
 
-            System.out.println(inspector.activities());
+            System.out.println(logInspector.activities());
+            System.out.println(flexInspector.activities());
             System.out.println();
-            System.out.println(inspector.orOperator("Start_recall", "Start_recall"));
-            System.out.println(pattern.ANDsplit("Start_recall"));
             System.out.println(pattern.ANDsplit("Consider_optional_actions"));
-            System.out.println(pattern.XORsplit("Consider_optional_actions"));
             System.out.println(pattern.ANDjoin("Complete_optional_actions"));
-            System.out.println(pattern.ORjoin("Complete_optional_actions"));
+            System.out.println(logInspector.followers("PROLOGUE"));
 
-            System.out.println(inspector.startNodes());
-            System.out.println(inspector.endNodes());
+            System.out.println(logInspector.startActivities());
+            System.out.println(logInspector.endActivities());
+
+            System.out.println(flexInspector.startActivities());
+            System.out.println(flexInspector.endActivities());
+            System.out.println(flexInspector.followers("PROLOGUE"));
+
+            RTTmining mining = new RTTmining(logInspector, flexInspector);
+            RTTgraph graph = mining.process();
+            System.out.println(graph);
+            System.out.println(graph.toXMI());
+
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());

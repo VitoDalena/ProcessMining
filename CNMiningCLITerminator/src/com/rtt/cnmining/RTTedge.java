@@ -5,8 +5,8 @@ public class RTTedge {
     private static int idCounter = 0;
 
     private RTTnode beginNode, endNode;
-    private String id;
-    private String name;
+    public String id;
+    public String name;
 
     public RTTedge(RTTnode start, RTTnode end){
         this.beginNode = start;
@@ -28,24 +28,20 @@ public class RTTedge {
         return this.endNode;
     }
 
-    public String id(){
-        return this.id;
-    }
-
-    public void name(String value){
-        this.name = value;
-    }
-
-    public String name(){
-        return this.name;
-    }
-
     public String toXMI(){
         return null;
     }
 
     public String toString(){
-        return this.begin().toString() + " -> " + this.end().toString();
+        StringBuilder str = new StringBuilder("{ ");
+
+        str.append(this.begin().toString());
+        str.append(" -> ");
+        str.append(this.end().toString());
+
+        str.append(" }");
+
+        return str.toString();
     }
 
 }

@@ -1,8 +1,12 @@
 package com.rtt.cnmining;
 
+import org.processmining.models.flexiblemodel.Flex;
+import org.processmining.models.flexiblemodel.FlexEdge;
+import org.processmining.models.flexiblemodel.FlexNode;
+
 /*
-    Questa classe si occupa di eseguire il parsing
-    del file di output del plugin CNMining
+    Questa classe esegue una conversione dell'output del plugin di
+    CNMining (in formato xml) verso un grafo Flex.
  */
 public class CNParser {
 
@@ -10,6 +14,10 @@ public class CNParser {
 
     public CNParser(String filename){
         this.filename = filename;
+    }
+
+    public Flex parse(){
+        return null; // TODO
     }
 
 }

@@ -12,7 +12,7 @@ import org.deckfour.xes.model.XTrace;
 
 import java.util.ArrayList;
 
-public class LogInspector {
+public class LogInspector extends Inspector {
 
     private XLog log;
 
@@ -39,7 +39,7 @@ public class LogInspector {
     }
 
     // Ritorna la lista delle attività iniziali
-    public ArrayList<String> startNodes(){
+    public ArrayList<String> startActivities(){
         ArrayList<String> result = new ArrayList<>();
 
         for(String activity: this.activities()){
@@ -51,7 +51,7 @@ public class LogInspector {
     }
 
     // Ritorna la lista delle attività finali
-    public ArrayList<String> endNodes(){
+    public ArrayList<String> endActivities(){
         ArrayList<String> result = new ArrayList<>();
 
         for(String activity: this.activities()){
