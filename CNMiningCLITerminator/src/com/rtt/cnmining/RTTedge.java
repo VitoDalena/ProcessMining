@@ -32,6 +32,24 @@ public class RTTedge {
         return null;
     }
 
+    public String toJson(){
+        StringBuilder json = new StringBuilder("{");
+
+        json.append("form: \"");
+        json.append(this.begin().name);
+        json.append("\"");
+
+        json.append(" ");
+
+        json.append("to: \"");
+        json.append(this.end().name);
+        json.append("\"");
+
+        json.append("}");
+
+        return json.toString();
+    }
+
     public String toString(){
         StringBuilder str = new StringBuilder("{ ");
 

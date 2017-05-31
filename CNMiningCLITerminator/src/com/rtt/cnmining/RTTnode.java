@@ -42,7 +42,7 @@ public class RTTnode {
     }
 
     public void branch(){
-        this.type = "ORNode";
+        this.type = "BranchNode";
     }
 
     public void initialNode(){
@@ -90,6 +90,24 @@ public class RTTnode {
         str.append("/>");
 
         return str.toString();
+    }
+
+    public String toJson(){
+        StringBuilder json = new StringBuilder("{");
+
+        json.append("key: \"");
+        json.append(this.name);
+        json.append("\"");
+
+        json.append(" ");
+
+        json.append("type: \"");
+        json.append(this.type);
+        json.append("\"");
+
+        json.append("}");
+
+        return json.toString();
     }
 
     public String toString(){

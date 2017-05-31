@@ -69,6 +69,25 @@ public class RTTgraph {
     public String toJson(){
         StringBuilder json = new StringBuilder();
 
+        String comma = "";
+
+        json.append("[\n");
+        for (RTTnode node: this.nodes()) {
+            json.append(comma + node.toJson());
+            comma = ",\n";
+        }
+        json.append("\n]");
+
+        json.append("\n");
+
+        comma = "";
+        json.append("[\n");
+        for (RTTedge edge: this.edges()) {
+            json.append(comma + edge.toJson());
+            comma = ",\n";
+        }
+        json.append("\n]");
+
         return json.toString();
     }
 
