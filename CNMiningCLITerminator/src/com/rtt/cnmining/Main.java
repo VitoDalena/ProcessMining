@@ -51,7 +51,9 @@ public class Main {
             RTTmining mining = new RTTmining(logInspector, flexInspector);
             RTTgraph graph = mining.process();
             System.out.println(graph);
-            System.out.println(graph.toXMI());
+            //System.out.println(graph.toXMI());
+
+            System.out.println(logInspector.followers("EPILOGUE"));
 
         }
         catch(Exception e){

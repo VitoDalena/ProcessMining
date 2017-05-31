@@ -66,6 +66,12 @@ public class RTTgraph {
         return str.toString();
     }
 
+    public String toJson(){
+        StringBuilder json = new StringBuilder();
+
+        return json.toString();
+    }
+
     public String toXMI(){
         StringBuilder xmi = new StringBuilder("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 

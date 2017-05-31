@@ -41,6 +41,10 @@ public class RTTnode {
         this.type = "JoinNode";
     }
 
+    public void branch(){
+        this.type = "ORNode";
+    }
+
     public void initialNode(){
         this.isInitial = true;
         this.isFinal = false;
