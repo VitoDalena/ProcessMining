@@ -10,6 +10,11 @@ import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 public class Main {
@@ -50,11 +55,11 @@ public class Main {
 
             RTTmining mining = new RTTmining(logInspector, flexInspector);
             RTTgraph graph = mining.process();
-            System.out.println(graph);
-            System.out.println(graph.toJson());
+            //System.out.println(graph);
 
-            System.out.println(logInspector.followers("EPILOGUE"));
-
+            saveFile("rttgraph.json", graph.toJson());
+            saveFile("rttgraph.xmi", graph.toXMI());
+            saveFile("rttgraph.txt", graph.toString());
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());
@@ -89,6 +94,28 @@ public class Main {
         catch(Exception e){
             System.out.println("exception" + e.toString());
             return null;
+        }
+    }
+
+    public static void saveFile(String filename, String content) throws Exception {
+        System.out.println("Exporting File: " + filename + "...");
+        File ec = new File(filename);
+        if (ec.exists()) {
+            ec.delete();
+        }
+        ec.createNewFile();
+        try
+        {
+            Files.write(FileSystems.getDefault().getPath(
+                    ".", new String[] { filename }),
+                    content.getBytes(), new OpenOption[] {
+                            StandardOpenOption.APPEND
+                    }
+            );
+        }
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
         }
     }
 

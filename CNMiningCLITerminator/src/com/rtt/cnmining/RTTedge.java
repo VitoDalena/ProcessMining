@@ -24,8 +24,16 @@ public class RTTedge {
         return this.beginNode;
     }
 
+    public void begin(RTTnode value){
+        this.beginNode = value;
+    }
+
     public RTTnode end(){
         return this.endNode;
+    }
+
+    public void end(RTTnode value){
+        this.endNode = value;
     }
 
     public String toXMI(){
@@ -35,11 +43,11 @@ public class RTTedge {
     public String toJson(){
         StringBuilder json = new StringBuilder("{");
 
-        json.append("form: \"");
+        json.append("from: \"");
         json.append(this.begin().name);
         json.append("\"");
 
-        json.append(" ");
+        json.append(", ");
 
         json.append("to: \"");
         json.append(this.end().name);

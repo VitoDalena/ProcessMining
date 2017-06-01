@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class RTTnode {
 
+    public static final String JoinNode = "JoinNode";
+    public static final String ForkNode = "ForkNode";
+    public static final String BranchNode = "BranchNode";
+    public static final String Node = "Node";
+    public static final String InitialNode = "InitialNode";
+    public static final String FinalNode = "FinalNode";
+
     public String name;
     public String id;
     private String type;
-    private boolean isInitial;
-    private boolean isFinal;
 
     private static int idCounter = 0;
 
@@ -17,42 +22,40 @@ public class RTTnode {
         this.id = "Node-" + idCounter;
         idCounter++;
         this.node();
-        this.isFinal = false;
-        this.isInitial = false;
     }
 
     public RTTnode(String name, String id){
         this.name = name;
         this.id = id;
         this.node();
-        this.isFinal = false;
-        this.isInitial = false;
     }
 
     public void node(){
-        this.type = "Node";
+        this.type = Node;
     }
 
     public void fork(){
-        this.type = "ForkNode";
+        this.type = ForkNode;
     }
 
     public void join(){
-        this.type = "JoinNode";
+        this.type = JoinNode;
     }
 
     public void branch(){
-        this.type = "BranchNode";
+        this.type = BranchNode;
+    }
+
+    public boolean isType(String value){
+        return this.type.equals(value);
     }
 
     public void initialNode(){
-        this.isInitial = true;
-        this.isFinal = false;
+        this.type = InitialNode;
     }
 
     public void finalNode(){
-        this.isInitial = false;
-        this.isFinal = true;
+        this.type = FinalNode;
     }
 
     public String toXMI(){
@@ -63,9 +66,9 @@ public class RTTnode {
         StringBuilder str = new StringBuilder();
 
         str.append("<node xmi:type=\"uml:");
-        if(this.isFinal)
+        if(this.isType(FinalNode))
             str.append("FinalNode");
-        else if(this.isInitial)
+        else if(this.isType(InitialNode))
             str.append("InitialNode");
         else str.append("OpaqueAction");
 
@@ -74,9 +77,10 @@ public class RTTnode {
 
         str.append("\" name=\"");
         str.append(this.name);
+        str.append("\"");
 
         if(outcoming.isEmpty() == false) {
-            str.append("\" outgoing=\"");
+            str.append(" outgoing=\"");
             str.append(outcoming);
             str.append("\"");
         }
@@ -99,10 +103,24 @@ public class RTTnode {
         json.append(this.name);
         json.append("\"");
 
-        json.append(" ");
+        json.append(", ");
 
         json.append("type: \"");
         json.append(this.type);
+        json.append("\"");
+
+        json.append(", ");
+
+        json.append("color: \"");
+        if(isType(ForkNode))
+            json.append("red");
+        else if(isType(JoinNode))
+            json.append("pink");
+        else if(isType(BranchNode))
+            json.append("cyan");
+        else if(isType(InitialNode) || isType(FinalNode))
+            json.append("black");
+        else json.append("orange");
         json.append("\"");
 
         json.append("}");
@@ -114,10 +132,6 @@ public class RTTnode {
         StringBuilder str = new StringBuilder();
 
         str.append(this.type + ": " + this.name + ", id: " + this.id);
-        if(isInitial)
-            str.append(" [InitialNode]");
-        else if(isFinal)
-            str.append(" [FinalNode]");
 
         return str.toString();
     }

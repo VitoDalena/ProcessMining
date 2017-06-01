@@ -35,6 +35,18 @@ public class RTTgraph {
         return this.nodes;
     }
 
+    public ArrayList<RTTnode> nodesByType(String type){
+        ArrayList<RTTnode> result = new ArrayList<>();
+
+        for(RTTnode node: this.nodes())
+        {
+            if(node.isType(type) && result.contains(node) == false)
+                result.add(node);
+        }
+
+        return result;
+    }
+
     public RTTnode node(String name){
         for(RTTnode node: this.nodes()){
             if(node.name.equals((name)))
@@ -43,8 +55,68 @@ public class RTTgraph {
         return null;
     }
 
+    public RTTnode nodeById(String id){
+        for(RTTnode node: this.nodes()){
+            if(node.id.equals((id)))
+                return node;
+        }
+        return null;
+    }
+
+    public ArrayList<RTTnode> followers(RTTnode node){
+        ArrayList<RTTnode> result = new ArrayList<>();
+
+        for(RTTedge edge: this.edgesStartWith(node)){
+            if(result.contains(edge.end()) == false)
+                result.add(edge.end());
+        }
+
+        return result;
+    }
+
+    public ArrayList<RTTnode> predecessors(RTTnode node){
+        ArrayList<RTTnode> result = new ArrayList<>();
+
+        for(RTTedge edge: this.edgesEndWith(node)){
+            if(result.contains(edge.begin()) == false)
+                result.add(edge.begin());
+        }
+
+        return result;
+    }
+
     public ArrayList<RTTedge> edges(){
         return this.edges;
+    }
+
+    // Ritorna la lista di archi in uscita dal nodo specificato
+    public ArrayList<RTTedge> edgesStartWith(RTTnode node){
+        ArrayList<RTTedge> result = new ArrayList<>();
+
+        if(this.nodes.contains(node) == false)
+            return result;
+
+        for(RTTedge edge: this.edges()){
+            if(edge.begin().equals(node) && result.contains(edge) == false)
+                result.add(edge);
+        }
+
+        return result;
+    }
+
+    // Ritorna la lista di archi in entrata dal nodo specificato
+    public ArrayList<RTTedge> edgesEndWith(RTTnode node){
+        ArrayList<RTTedge> result = new ArrayList<>();
+
+        if(this.nodes.contains(node) == false)
+            return result;
+
+        for(RTTedge edge: this.edges()){
+            if(edge.end().equals(node) && result.contains(edge) == false)
+                result.add(edge);
+        }
+
+        return result;
     }
 
     public String toString(){
@@ -78,7 +150,7 @@ public class RTTgraph {
         }
         json.append("\n]");
 
-        json.append("\n");
+        json.append(",\n");
 
         comma = "";
         json.append("[\n");

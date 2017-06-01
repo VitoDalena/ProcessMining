@@ -1,0 +1,47 @@
+RTTgraph:Activity Diagram
+Nodes:
+FinalNode: EPILOGUE, id: Node-0
+Node: Complete_recall, id: Node-1
+Node: Complete_optional_actions, id: Node-2
+Node: Prepare_to_destory_or_modify, id: Node-3
+Node: Identify_remedies, id: Node-4
+Node: Start_recall, id: Node-5
+Node: Notify_third_parties, id: Node-6
+Node: Keep_records, id: Node-7
+Node: Stop_distribution, id: Node-8
+Node: Stop_production, id: Node-9
+Node: Arrange_disposal, id: Node-10
+InitialNode: PROLOGUE, id: Node-11
+Node: Consider_optional_actions, id: Node-12
+ForkNode: ForkStart_recall, id: Node-13
+ForkNode: ForkConsider_optional_actions, id: Node-14
+JoinNode: JoinComplete_recall, id: Node-15
+JoinNode: JoinComplete_optional_actions, id: Node-16
+JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17
+BranchNode: BranchConsider_optional_actions, id: Node-18
+Edges:
+{ Node: Complete_recall, id: Node-1 -> FinalNode: EPILOGUE, id: Node-0 }
+{ Node: Complete_optional_actions, id: Node-2 -> JoinNode: JoinComplete_recall, id: Node-15 }
+{ Node: Prepare_to_destory_or_modify, id: Node-3 -> JoinNode: JoinComplete_optional_actions, id: Node-16 }
+{ Node: Identify_remedies, id: Node-4 -> JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 }
+{ Node: Notify_third_parties, id: Node-6 -> JoinNode: JoinComplete_recall, id: Node-15 }
+{ Node: Keep_records, id: Node-7 -> JoinNode: JoinComplete_recall, id: Node-15 }
+{ Node: Stop_distribution, id: Node-8 -> JoinNode: JoinComplete_recall, id: Node-15 }
+{ Node: Stop_production, id: Node-9 -> JoinNode: JoinComplete_optional_actions, id: Node-16 }
+{ Node: Arrange_disposal, id: Node-10 -> JoinNode: JoinComplete_recall, id: Node-15 }
+{ InitialNode: PROLOGUE, id: Node-11 -> Node: Start_recall, id: Node-5 }
+{ Node: Start_recall, id: Node-5 -> ForkNode: ForkStart_recall, id: Node-13 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Consider_optional_actions, id: Node-12 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Identify_remedies, id: Node-4 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Arrange_disposal, id: Node-10 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Keep_records, id: Node-7 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Notify_third_parties, id: Node-6 }
+{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Stop_distribution, id: Node-8 }
+{ ForkNode: ForkConsider_optional_actions, id: Node-14 -> Node: Stop_production, id: Node-9 }
+{ ForkNode: ForkConsider_optional_actions, id: Node-14 -> Node: Prepare_to_destory_or_modify, id: Node-3 }
+{ JoinNode: JoinComplete_recall, id: Node-15 -> Node: Complete_recall, id: Node-1 }
+{ JoinNode: JoinComplete_optional_actions, id: Node-16 -> Node: Complete_optional_actions, id: Node-2 }
+{ JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 -> Node: Prepare_to_destory_or_modify, id: Node-3 }
+{ Node: Consider_optional_actions, id: Node-12 -> BranchNode: BranchConsider_optional_actions, id: Node-18 }
+{ BranchNode: BranchConsider_optional_actions, id: Node-18 -> ForkNode: ForkConsider_optional_actions, id: Node-14 }
+{ BranchNode: BranchConsider_optional_actions, id: Node-18 -> JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 }

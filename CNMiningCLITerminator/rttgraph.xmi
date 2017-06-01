@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="5691247" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="99872978" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-4 Node-5 Node-6 Node-7 Node-8 Node-9 Node-10 Node-11 Node-12 Node-13 Node-14 Node-15 Node-16 Node-17 Node-18 ">
+<node xmi:type="uml:FinalNode" xmi:id="Node-0" name="EPILOGUE"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="Complete_recall"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-2" name="Complete_optional_actions"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-3" name="Prepare_to_destory_or_modify"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-4" name="Identify_remedies"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-5" name="Start_recall"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-6" name="Notify_third_parties"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="Keep_records"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-8" name="Stop_distribution"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-9" name="Stop_production"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-10" name="Arrange_disposal"/>
+<node xmi:type="uml:InitialNode" xmi:id="Node-11" name="PROLOGUE"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-12" name="Consider_optional_actions"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-13" name="ForkStart_recall"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-14" name="ForkConsider_optional_actions"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-15" name="JoinComplete_recall"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-16" name="JoinComplete_optional_actions"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-17" name="JoinPrepare_to_destory_or_modify"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-18" name="BranchConsider_optional_actions"/>
+</packagedElement>
+</uml:Model>

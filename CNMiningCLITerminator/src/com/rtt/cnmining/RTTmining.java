@@ -47,8 +47,25 @@ public class RTTmining {
         // Occorre individuare i nodi di fork e branch.
 
         for(RTTnode node: residui){
-            this.findOutgoingEdges(graph, node);
+            this.outgoingEdges(graph, node);
         }
+
+        // Se sono stati aggiunti dei fork node
+        // devo inserire dei join
+        for(RTTnode node: nodesForIncomingProcessing(graph)){
+            incomingEdges(graph, node);
+        }
+
+        // Verifica e correzione dei fork
+        for(RTTnode forkNode: graph.nodesByType(RTTnode.ForkNode)){
+            for(RTTnode node: graph.followers(forkNode))
+                this.verifyParallel(graph, node);
+            this.verifyFork(graph, forkNode);
+        }
+
+        // Verifico e correggo eventuali errori nell'inserimento dei join
+        for(RTTnode joinNode: graph.nodesByType(RTTnode.JoinNode))
+            this.verifyJoin(graph, joinNode);
 
         return graph;
     }
@@ -91,9 +108,11 @@ public class RTTmining {
     }
 
     /*
-
+        Questo metodo si occupa di mappare gli archi in uscita per
+        quei nodi ch presentano più di una alternativa.
+        In particolare qui si vanno a mappare le diramazioni e i fork
      */
-    private boolean findOutgoingEdges(RTTgraph graph, RTTnode node){
+    private boolean outgoingEdges(RTTgraph graph, RTTnode node){
         ArrayList<String> followers = this.causalnet.followers(node.name);
 
         if(followers.size() <= 1)
@@ -186,4 +205,152 @@ public class RTTmining {
 
         return true;
     }
+
+    private ArrayList<RTTnode> nodesForIncomingProcessing(RTTgraph graph){
+        ArrayList<RTTnode> result = new ArrayList<>();
+
+        for(RTTnode node: graph.nodes()){
+            if(result.contains(node) == false &&
+                    (node.isType(RTTnode.FinalNode) || node.isType(RTTnode.Node)))
+                result.add(node);
+        }
+
+        return result;
+    }
+
+    /*
+        Qui ci occupiamo di andare a sincronizzare le operazioni
+        di fork, chiudendole con dei join node
+     */
+    private void incomingEdges(RTTgraph graph, RTTnode node){
+        ArrayList<RTTedge> predecessorsEdges = graph.edgesEndWith(node);
+
+        if(predecessorsEdges.size() <= 1)
+            return;
+
+        PatternMap map = new PatternMap(this.log);
+        BranchPattern pattern = map.ANDjoin(node.name);
+
+        System.out.println("Branch at " + node.name);
+        System.out.println(pattern);
+
+        if(pattern == null){
+            // TODO
+            // cè un errore, come lo gestisco?
+        }
+
+
+        RTTnode joinNode = new RTTnode("Join" + node.name);
+        joinNode.join();
+        graph.add(joinNode);
+
+        graph.add(new RTTedge(joinNode, node));
+
+        for(int i = 0; i < predecessorsEdges.size(); i++){
+            RTTedge edge = predecessorsEdges.get(i);
+
+            if(pattern.branches.contains(edge.begin().name))
+                edge.end(joinNode);
+
+        }
+    }
+
+    // Verifico che il join node inserito sia corretto
+    // altrimenti lo rimuovo
+    private void verifyJoin(RTTgraph graph, RTTnode joinNode){
+        ArrayList<RTTnode> predecessors = graph.predecessors(joinNode);
+        if(predecessors.size() == 0){
+            // ho inserito un join inutile
+            // rimuovilo
+            ArrayList<RTTedge> outgoing = graph.edgesStartWith(joinNode);
+            graph.edges().remove(outgoing.get(0));
+
+            graph.nodes().remove(joinNode);
+            return;
+        }
+    }
+
+    /*
+        Fornito un nodo successivo ad un fork, verifico che ogni sua diramazione
+        porti ad un join
+     */
+    private void verifyParallel(RTTgraph graph, RTTnode node){
+        ArrayList<RTTnode> followers = graph.followers(node);
+
+        if(followers.size() != 1)
+            return;
+
+        RTTnode follower = followers.get(0);
+        if(follower.isType(RTTnode.Node) == false && follower.isType(RTTnode.FinalNode) == false)
+            return;
+
+        ArrayList<RTTnode> predecessors = graph.predecessors(follower);
+        RTTnode joinNode = null;
+
+        for(RTTnode n: predecessors){
+            if(n.isType(RTTnode.JoinNode))
+            {
+                joinNode = n;
+                break;
+            }
+        }
+
+        System.out.println(joinNode);
+
+        if(joinNode == null)
+            return;
+
+        // Se è presente un join
+        // allora cambia la direzione dell'arco in uscita verso il join
+
+        for(RTTedge outcoming: graph.edgesStartWith(node))
+            outcoming.end(joinNode);
+
+    }
+
+    /*
+        In alcuni casi puo capitare che un fork punti verso un nodo preceduto da un join
+        In tal caso quel for occorre farlo precedere da un branch che punta verso il join
+     */
+    private void verifyFork(RTTgraph graph, RTTnode forkNode){
+        ArrayList<RTTnode> followers = graph.followers(forkNode);
+
+        RTTnode branchNode = null;
+
+        // Devo assicurarmi di avere un solo branch prima del fork
+        for(RTTnode node: graph.predecessors(forkNode)) {
+            if (node.isType(RTTnode.BranchNode)) {
+                branchNode = node;
+                break;
+            }
+        }
+
+        for(RTTnode follower: followers){
+            for(RTTnode predecessor: graph.predecessors(follower)){
+                if(predecessor.isType(RTTnode.JoinNode)){
+                    // Ok il nodo a cui punto possiede un join
+                    // esegui la modifica del grafo
+
+                    if(branchNode == null){
+                        branchNode = new RTTnode("Branch" + forkNode.name.replace("Fork", ""));
+                        branchNode.branch();
+
+                        graph.add(branchNode);
+
+                        // rimuovi l'arco che collega il node precedente con il fork
+                        RTTedge edge = graph.edgesEndWith(forkNode).get(0);
+
+                        graph.add(new RTTedge(edge.begin(), branchNode));
+                        graph.add(new RTTedge(branchNode, forkNode));
+                        graph.edges().remove(edge);
+                    }
+
+                    graph.add(new RTTedge(branchNode, predecessor));
+
+                    break;
+                }
+            }
+        }
+    }
+
 }
