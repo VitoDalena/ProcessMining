@@ -12,10 +12,6 @@ public class RTTmining {
         this.causalnet = causalnet;
     }
 
-    private boolean isValidGraph(){
-        return true;
-    }
-
     public RTTgraph process(){
         // Inizializza il grafo inserendovi i nodi rappresentanti le attività
         RTTgraph graph = new RTTgraph();
