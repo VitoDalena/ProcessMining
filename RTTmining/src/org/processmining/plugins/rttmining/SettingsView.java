@@ -6,6 +6,8 @@ import org.processmining.framework.util.ui.widgets.ProMPropertiesPanel;
 
 public class SettingsView {
 	
+	private ProMPropertiesPanel viewContainer;
+	
 	private UIPluginContext context;
 	
 	public SettingsView(UIPluginContext context){
@@ -14,12 +16,12 @@ public class SettingsView {
 	
 	public Settings show(){
 		
-		ProMPropertiesPanel viewContainer = new ProMPropertiesPanel("");
-		PannelloOntologia pannelloOntologia = new PannelloOntologia();
+		viewContainer = new ProMPropertiesPanel("");
+
+		PannelloOntologia pannelloOntologia = new PannelloOntologia();		
+		// Posiziona gli elementi grafici
+		viewContainer.add(pannelloOntologia);		
 		
-		// posiziona i controlli grafici
-	    viewContainer.add(pannelloOntologia);
-	    
 	    // mostra la schermata di configurazione
 	    TaskListener.InteractionResult result = context.showConfiguration("Settings", viewContainer);
 	    if (result.equals(TaskListener.InteractionResult.CANCEL)) {

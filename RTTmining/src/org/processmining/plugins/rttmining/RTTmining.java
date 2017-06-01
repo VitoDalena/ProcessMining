@@ -24,7 +24,7 @@ public class RTTmining {
 	 */	
 	
 	@Plugin(
-        name = "RTTmining Plugin", 
+        name = "RTTmining", 
         parameterLabels = { "Log file", "Extended CausalNet" }, 
         returnLabels = { "Hello World" }, 
         returnTypes = { String.class }, 
@@ -45,8 +45,6 @@ public class RTTmining {
 		SettingsView settingsView = new SettingsView(context);
 		Settings settings = settingsView.show();
 		
-		System.out.println(settings.logFilename);
-		
 		LogInspector logInspector = new LogInspector(log);
         FlexInspector flexInspector = new FlexInspector(causalnet);
 
@@ -59,6 +57,31 @@ public class RTTmining {
 		
 		return "Hello RTTmining";
 		
+	}
+	
+	/*
+	 * In questa variante del plugin
+	 * prevediamo come input il file di output del CNMining in formato XML
+	 * e non il grafo costruito dalla sua esecuzione
+	 */
+	@Plugin(
+        name = "RTTmining1", 
+        parameterLabels = { "Log file" }, 
+        returnLabels = { "Hello World" }, 
+        returnTypes = { String.class }, 
+        userAccessible = true, 
+        help = "Produces XMI"
+    )
+    @UITopiaVariant(
+        affiliation = "Process Mining with CSP", 
+        author = "Riccardi, Tagliente, Tota", 
+        email = "??"
+    )
+	public static String ProcessWithoutDependencies(UIPluginContext context, XLog log) throws Exception {
+		SettingsView settingsView = new SettingsView(context);
+		Settings settings = settingsView.show();
+		
+		return "Hello RTTmining";
 	}
 	
 	private static void saveFile(String filename, String content) throws Exception {
