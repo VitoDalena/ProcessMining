@@ -1,17 +1,15 @@
 package org.processmining.plugins.rttmining;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.LayoutStyle;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class PannelloOntologia extends JPanel {
@@ -24,7 +22,7 @@ public class PannelloOntologia extends JPanel {
 	
 	public PannelloOntologia(){
 		setBackground(Color.GRAY);
-	    
+	    		
 		final JFileChooser chooser = new JFileChooser(".");
    		FileNameExtensionFilter filter = new FileNameExtensionFilter("OWL Ontology", new String[] { "owl" });
    		chooser.setFileFilter(filter);
@@ -52,7 +50,11 @@ public class PannelloOntologia extends JPanel {
     
    		this.add(lblTitle);
    		this.add(btnSelect);
-   		this.add(labelFilename);
+   		this.add(labelFilename);   		
+
+		Dimension size = this.getSize();
+		size.height = 30;
+		this.setSize(size);
 	}
 	
 	public String getFilePath()
