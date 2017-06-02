@@ -33,6 +33,9 @@ public class Main {
 
             Object[] data = CNMining.startCNMining(null, log, settings, false);
             Flex cnminningGraph = (Flex)data[0];
+            //CNParser parser = new CNParser("ExtendedCausalNet.xml");
+            //Flex cnminningGraph = parser.parse();
+
             printFlex(cnminningGraph);
 
             LogInspector logInspector = new LogInspector(log);

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>WebMining</title>
+	<title>RTTmining</title>
 	<style>
 	#myDiagramDiv {
 		width: 100%;
@@ -31,44 +31,92 @@ myDiagram = $(go.Diagram, "myDiagramDiv",  // create a Diagram for the DIV HTML 
 	}
 );
 
-// define a simple Node template
-myDiagram.nodeTemplate =
+var ActivityNode = $(go.Node, "Spot",
+  	$(go.Panel, "Auto",
+    	$(go.Shape, "RoundedRectangle",
+          	new go.Binding("fill", "color")
+        ),
+        $(go.TextBlock,
+          	new go.Binding("text", "key")
+        )
+    )
+);
 
-	$(go.Node, "Auto",  // the Shape will go around the TextBlock
-		$(go.Shape, "Ellipse", { 
-			strokeWidth: 0,
-			name: "SHAPE",
-            fill: "lightgray",  // default value, but also data-bound
-            stroke: "transparent",  // modified by highlighting
-            strokeWidth: 2
-		},
-	  // Shape.fill is bound to Node.data.color
-	  		new go.Binding("fill", "color")
-	  	),
-		$(go.TextBlock,
-  			{ margin: 8 },  // some room around the text
-  // TextBlock.text is bound to Node.data.key
-  			new go.Binding("text", "key")
-  		)
-	);
+var InitialNode = $(go.Node, "Spot",
+  	$(go.Panel, "Vertical", 
+    	$(go.Shape, 
+    		"Circle", 
+    		{ width: 22, height: 22, fill: "black" }
+        ),
+        $(go.TextBlock,
+          	new go.Binding("text", "key")
+        )
+    )
+);
 
-	 // define the Link template
-    myDiagram.linkTemplate =
-      $(go.Link,
-        {
-          selectable: false,      // links cannot be selected by the user
-          curve: go.Link.Bezier,
-          layerName: "Background"  // don't cross in front of any nodes
-        },
-        $(go.Shape,  // this shape only shows when it isHighlighted
-          { isPanelMain: true, stroke: null, strokeWidth: 5 },
-          new go.Binding("stroke", "isHighlighted", function(h) { return h ? "red" : null; }).ofObject()),
-        $(go.Shape,
-          // mark each Shape to get the link geometry with isPanelMain: true
-          { isPanelMain: true, stroke: "black", strokeWidth: 1 },
-          new go.Binding("stroke", "color")),
-        $(go.Shape, { toArrow: "Standard" })
-      );
+var FinalNode = $(go.Node, "Spot",
+  	$(go.Panel, "Vertical", 
+    	$(go.Shape,
+          	"Circle", 
+    		{ width: 16, height: 16, fill: "black" }
+        ),
+        $(go.TextBlock,
+          	new go.Binding("text", "key")
+        )
+    )
+);
+
+var BranchNode = $(go.Node, "Spot",
+  	$(go.Panel, "Auto",
+    	$(go.Shape, "Diamond",{ width: 20, height: 20, fill: 'lightblue', margin: 0})
+    )
+);
+
+var ForkNode = $(go.Node, "Spot",
+  	$(go.Panel, "Auto",
+    	$(go.Shape, "Rectangle", { width: 14, height: 30, fill: 'blue', margin: 0})
+    )
+);
+
+var JoinNode = $(go.Node, "Spot",
+  	$(go.Panel, "Auto",
+    	$(go.Shape, "Rectangle", { width: 14, height: 30, fill: 'crimson', margin: 0})
+    )
+);
+
+var templmap = new go.Map("string", go.Node);
+templmap.add("Node", ActivityNode);
+templmap.add("InitialNode", InitialNode);
+templmap.add("FinalNode", FinalNode);
+templmap.add("BranchNode", BranchNode);
+templmap.add("ForkNode", ForkNode);
+templmap.add("JoinNode", JoinNode);
+myDiagram.nodeTemplateMap = templmap;
+
+myDiagram.layout = $(go.TreeLayout);
+
+ // define the Link template
+myDiagram.linkTemplate =
+$(go.Link,
+	{
+  		selectable: false,      // links cannot be selected by the user
+  		curve: go.Link.Bezier,
+	  	layerName: "Background"  // don't cross in front of any nodes
+	},
+	$(go.Shape,  // this shape only shows when it isHighlighted
+  	{ 
+		isPanelMain: true, 
+		stroke: null, 
+		strokeWidth: 5 
+	},
+	new go.Binding("stroke", "isHighlighted", function(h) { return h ? "red" : null; }).ofObject()),
+	$(go.Shape,
+	  	// mark each Shape to get the link geometry with isPanelMain: true
+	  	{ isPanelMain: true, stroke: "black", strokeWidth: 1 },
+	  	new go.Binding("stroke", "color")),
+		$(go.Shape, { toArrow: "Standard" }
+	)
+);
 
 // but use the default Link template, by not setting Diagram.linkTemplate
 
@@ -77,25 +125,25 @@ myDiagram.nodeTemplate =
 var model = $(go.GraphLinksModel);
 model.nodeDataArray =
 [
-{key: "EPILOGUE", type: "FinalNode", color: "black"},
-{key: "Complete_recall", type: "Node", color: "orange"},
-{key: "Complete_optional_actions", type: "Node", color: "orange"},
-{key: "Prepare_to_destory_or_modify", type: "Node", color: "orange"},
-{key: "Identify_remedies", type: "Node", color: "orange"},
-{key: "Start_recall", type: "Node", color: "orange"},
-{key: "Notify_third_parties", type: "Node", color: "orange"},
-{key: "Keep_records", type: "Node", color: "orange"},
-{key: "Stop_distribution", type: "Node", color: "orange"},
-{key: "Stop_production", type: "Node", color: "orange"},
-{key: "Arrange_disposal", type: "Node", color: "orange"},
-{key: "PROLOGUE", type: "InitialNode", color: "black"},
-{key: "Consider_optional_actions", type: "Node", color: "orange"},
-{key: "ForkStart_recall", type: "ForkNode", color: "red"},
-{key: "ForkConsider_optional_actions", type: "ForkNode", color: "red"},
-{key: "JoinComplete_recall", type: "JoinNode", color: "pink"},
-{key: "JoinComplete_optional_actions", type: "JoinNode", color: "pink"},
-{key: "JoinPrepare_to_destory_or_modify", type: "JoinNode", color: "pink"},
-{key: "BranchConsider_optional_actions", type: "BranchNode", color: "cyan"}
+{key: "EPILOGUE", category: "FinalNode", color: "black"},
+{key: "Complete_recall", category: "Node", color: "orange"},
+{key: "Complete_optional_actions", category: "Node", color: "orange"},
+{key: "Prepare_to_destory_or_modify", category: "Node", color: "orange"},
+{key: "Identify_remedies", category: "Node", color: "orange"},
+{key: "Start_recall", category: "Node", color: "orange"},
+{key: "Notify_third_parties", category: "Node", color: "orange"},
+{key: "Keep_records", category: "Node", color: "orange"},
+{key: "Stop_distribution", category: "Node", color: "orange"},
+{key: "Stop_production", category: "Node", color: "orange"},
+{key: "Arrange_disposal", category: "Node", color: "orange"},
+{key: "PROLOGUE", category: "InitialNode", color: "black"},
+{key: "Consider_optional_actions", category: "Node", color: "orange"},
+{key: "ForkStart_recall", category: "ForkNode", color: "red"},
+{key: "ForkConsider_optional_actions", category: "ForkNode", color: "red"},
+{key: "JoinComplete_recall", category: "JoinNode", color: "pink"},
+{key: "JoinComplete_optional_actions", category: "JoinNode", color: "pink"},
+{key: "JoinPrepare_to_destory_or_modify", category: "JoinNode", color: "pink"},
+{key: "BranchConsider_optional_actions", category: "BranchNode", color: "cyan"}
 ];
 model.linkDataArray =
 [
