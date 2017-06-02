@@ -185,9 +185,13 @@ public class RTTgraph {
 
         for(RTTnode node: this.nodes()){
             xmi.append("\n");
-            xmi.append(node.toXMI());
+            xmi.append(node.toXMI(this.xmiOutcoming(node), this.xmiIncoming(node)));
         }
 
+        for(RTTedge edge: this.edges()){
+            xmi.append("\n");
+            xmi.append(edge.toXMI());
+        }
 
         xmi.append("\n");
         xmi.append("</packagedElement>");
@@ -195,6 +199,35 @@ public class RTTgraph {
         xmi.append("</uml:Model>");
 
         return xmi.toString();
+    }
+
+    private String xmiOutcoming(RTTnode node){
+        StringBuilder str = new StringBuilder();
+
+        String comma = "";
+        for(RTTedge edge: this.edgesStartWith(node))
+        {
+            str.append(comma);
+            str.append(edge.id);
+            comma = " ";
+        }
+
+        return str.toString();
+    }
+
+
+    private String xmiIncoming(RTTnode node){
+        StringBuilder str = new StringBuilder();
+
+        String comma = "";
+        for(RTTedge edge: this.edgesEndWith(node))
+        {
+            str.append(comma);
+            str.append(edge.id);
+            comma = " ";
+        }
+
+        return str.toString();
     }
 
 }
