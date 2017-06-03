@@ -18,6 +18,17 @@ import java.nio.file.OpenOption;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 
+
+/*
+    Parametri:
+        -json per abilitare lesportazione in json
+        -o per definire il nome dei file di output
+            esempio -o foo produrrà: foo.txt, foo.xmi, foo.json
+        -dir per specificare la directory di output
+            esempio -dir ../
+        filename del log da processare
+ */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -28,7 +39,25 @@ public class Main {
             return;
         }
 
-        String logFilename = args[0];
+        ArgManager argManager = new ArgManager(args);
+        String logFilename = argManager.log();
+        if(logFilename.isEmpty()){
+            System.out.println("[ERROR] Need a log");
+            return;
+        }
+        System.out.println("[LOG] " + logFilename);
+
+        boolean exportJson = argManager.flag("-json");
+        String outputFilename = argManager.param("-o");
+        if(outputFilename.isEmpty())
+            outputFilename = "rttmining";
+
+        String outputDir = argManager.param("-dir");
+        if(outputDir.isEmpty() == false){
+            if(outputDir.endsWith("/") == false)
+                outputDir += "/";
+        }
+
         XLog log = parseLog(logFilename);
 
         try{
@@ -47,12 +76,17 @@ public class Main {
             RTTgraph graph = mining.process();
             //System.out.println(graph);
 
-            saveFile("rttgraph.json", graph.toJson());
-            saveFile("rttgraph.xmi", graph.toXMI());
-            saveFile("rttgraph.txt", graph.toString());
+            System.out.println("OutputDit = " + outputDir);
+            if(exportJson)
+                saveFile(outputDir + outputFilename + ".json", graph.toJson());
+            saveFile(outputDir + outputFilename + ".xmi", graph.toXMI());
+            saveFile(outputDir + outputFilename + ".txt", graph.toString());
+
+            System.out.println("RTTminingResult=SUCCESS");
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());
+            System.out.println("RTTminingResult=ERROR");
         }
     }
 
