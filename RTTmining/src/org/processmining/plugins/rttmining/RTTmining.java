@@ -51,11 +51,10 @@ public class RTTmining {
         RTTmining mining = new RTTmining(logInspector, flexInspector);
         RTTgraph graph = mining.process();        
 
-        saveFile("rttgraph.json", graph.toJson());
         saveFile("rttgraph.xmi", graph.toXMI());
         saveFile("rttgraph.txt", graph.toString());
 		
-		return "Hello RTTmining";
+		return "XMI located at: ./rttgraph.xmi";
 		
 	}
 	
@@ -80,6 +79,9 @@ public class RTTmining {
 	public static String ProcessWithoutDependencies(UIPluginContext context, XLog log) throws Exception {
 		SettingsView settingsView = new SettingsView(context);
 		Settings settings = settingsView.show();
+		
+		//CNParser parser = new CNParser("ExtendedCausalNet.xml");
+        //Flex cnminningGraph = parser.parse();
 		
 		return "Hello RTTmining";
 	}

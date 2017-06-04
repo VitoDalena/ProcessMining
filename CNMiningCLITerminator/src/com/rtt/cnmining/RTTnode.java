@@ -122,7 +122,7 @@ public class RTTnode {
 
         json.append(", ");
 
-        json.append("type: \"");
+        json.append("category: \"");
         json.append(this.type);
         json.append("\"");
 

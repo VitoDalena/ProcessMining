@@ -38,7 +38,42 @@ public class RTTedge {
     }
 
     public String toXMI(){
-        return null;
+        StringBuilder xmi = new StringBuilder();
+
+        xmi.append("<edge ");
+        xmi.append("xmi:type=\"uml:ControlFlow\" ");
+
+        xmi.append("xmi:id=\"");
+        xmi.append(this.id);
+        xmi.append("\" ");
+
+        xmi.append("target=\"");
+        xmi.append(this.end().id);
+        xmi.append("\" ");
+
+        xmi.append("source=\"");
+        xmi.append(this.begin().id);
+        xmi.append("\" ");
+
+        xmi.append(">\n");
+
+        xmi.append("\t");
+        xmi.append("<guard xmi:type=\"uml:LiteralBoolean\" xmi:id=\"");
+        xmi.append(this.id + "guard");
+        xmi.append("\" name=\"");
+        xmi.append(this.begin().name + "_To_" + this.end().name + "_guard");
+        xmi.append("\" value=\"true\"/>\n");
+
+        xmi.append("\t");
+        xmi.append("<weight xmi:type=\"uml:LiteralInteger\" xmi:id=\"");
+        xmi.append(this.id + "weight");
+        xmi.append("\" name=\"");
+        xmi.append(this.begin().name + "_To_" + this.end().name + "_weight");
+        xmi.append("\" />\n");
+
+        xmi.append("</edge>");
+
+        return xmi.toString();
     }
 
     public String toJson(){

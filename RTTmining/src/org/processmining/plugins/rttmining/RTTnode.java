@@ -67,9 +67,15 @@ public class RTTnode {
 
         str.append("<node xmi:type=\"uml:");
         if(this.isType(FinalNode))
-            str.append("FinalNode");
+            str.append("ActivityFinalNode");
         else if(this.isType(InitialNode))
             str.append("InitialNode");
+        else if(this.isType(ForkNode))
+            str.append("ForkNode");
+        else if(this.isType(JoinNode))
+            str.append("JoinNode");
+        else if(this.isType(BranchNode))
+            str.append("DecisionNode");
         else str.append("OpaqueAction");
 
         str.append("\" xmi:id=\"");
@@ -86,12 +92,23 @@ public class RTTnode {
         }
 
         if(incoming.isEmpty() == false) {
-            str.append("\" incoming=\"");
+            str.append(" incoming=\"");
             str.append(incoming);
             str.append("\"");
         }
 
-        str.append("/>");
+        if(this.isType(JoinNode)){
+            str.append(">\n");
+
+            str.append("<joinSpec xmi:type=\"uml:LiteralBoolean\" xmi:id=\"");
+            str.append(this.id + "_spec");
+            str.append("\" name=\"");
+            str.append(this.name);
+            str.append("\" value=\"true\"/>\n");
+
+            str.append("</node>");
+        }
+        else str.append("/>");
 
         return str.toString();
     }
@@ -105,7 +122,7 @@ public class RTTnode {
 
         json.append(", ");
 
-        json.append("type: \"");
+        json.append("category: \"");
         json.append(this.type);
         json.append("\"");
 
