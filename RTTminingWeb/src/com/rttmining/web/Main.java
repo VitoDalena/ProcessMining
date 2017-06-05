@@ -27,6 +27,12 @@ import java.util.List;
         -dir per specificare la directory di output
             esempio -dir ../
         filename del log da processare
+
+        -sigma Per impostare il sigma log noise
+        -ff per impostare il fall factor
+        -rtb per impostare il relative to best
+
+        -constraints per impostare il percorso del contenente i vincoli
  */
 
 public class Main {
@@ -58,14 +64,45 @@ public class Main {
                 outputDir += "/";
         }
 
+        Settings settings = new Settings();
+        settings.sigmaLogNoise = 0.5;
+        settings.fallFactor = 0.9;
+        settings.relativeToBest = 0.75;
+
+        if(argManager.param("-sigma").isEmpty() == false){
+            double sigma = Double.parseDouble(argManager.param("-sigma"));
+            sigma = Math.min(sigma, 1);
+            sigma = Math.max(0, sigma);
+            settings.sigmaLogNoise = sigma;
+        }
+
+        if(argManager.param("-ff").isEmpty() == false){
+            double ff = Double.parseDouble(argManager.param("-ff"));
+            ff = Math.min(ff, 1);
+            ff = Math.max(0, ff);
+            settings.fallFactor = ff;
+        }
+
+        if(argManager.param("-rtb").isEmpty() == false){
+            double rtb = Double.parseDouble(argManager.param("-rtb"));
+            rtb = Math.min(rtb, 1);
+            rtb = Math.max(0, rtb);
+            settings.relativeToBest = rtb;
+        }
+
+        if(argManager.param("-constraints").isEmpty() == false)
+        {
+            settings.constraintsEnabled = true;
+            settings.constraintsFilename = argManager.param("-constraints");
+        }
+
         XLog log = parseLog(logFilename);
+        if( log == null ){
+            System.out.println("Unable to parse the log");
+            System.out.println("RTTminingResult=ERROR");
+        }
 
         try{
-            Settings settings = new Settings();
-            settings.sigmaLogNoise = 0.5;
-            settings.fallFactor = 0.9;
-            settings.relativeToBest = 0.75;
-
             Object[] data = CNMining.startCNMining(null, log, settings, false);
             Flex cnminningGraph = (Flex)data[0];
 

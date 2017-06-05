@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraint_Set process_ID="1"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="ConstraintSchema.xsd">
+
+<Constraint type="notPath">
+<Head>Stop_distribution</Head>
+<Head>Notify_third_parties</Head>
+<Head>Keep_records</Head>
+<Head>Identify_remedies</Head>
+<Head>Arrange_disposal</Head>
+<Body>Complete_optional_actions</Body>
+</Constraint>
+
+<Constraint type="notPath">
+<Head>Complete_optional_actions</Head>
+<Body>Stop_distribution</Body>
+<Body>Notify_third_parties</Body>
+<Body>Keep_records</Body>
+<Body>Identify_remedies</Body>
+<Body>Arrange_disposal</Body>
+</Constraint>
+</Constraint_Set>

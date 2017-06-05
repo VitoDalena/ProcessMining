@@ -14,6 +14,7 @@ public class SettingsView {
 	
 	private ProMPropertiesPanel viewContainer;
 	private boolean jsonEnabled = false;
+	private boolean importCNMiningLog = false;
 	
 	private UIPluginContext context;
 	
@@ -21,11 +22,18 @@ public class SettingsView {
 		this.context = context;
 	}
 	
+	// Se abilitato, significa che il plugin prevede l'input del
+	// CNMining come file di log e no come diagramma processato
+	public void causalnetFromLog(){
+		this.importCNMiningLog = true;
+	}
+	
 	public Settings show(){
 		
 		viewContainer = new ProMPropertiesPanel("");
 
-		PannelloOntologia pannelloOntologia = new PannelloOntologia();		
+		PannelloOntologia pannelloOntologia = new PannelloOntologia();	
+		PannelloCNMining pannelloCNMining = new PannelloCNMining();
 		
 		final JCheckBox exportToJson = new JCheckBox("");
 		exportToJson.setSelected(false);
@@ -46,6 +54,9 @@ public class SettingsView {
 		
 		// Posiziona gli elementi grafici
 		viewContainer.add(pannelloOntologia);
+		if(this.importCNMiningLog){
+			viewContainer.add(pannelloCNMining);
+		}
 		viewContainer.add(new JLabel("Export to Json "));
 		viewContainer.add(exportToJson);
 				
@@ -58,6 +69,7 @@ public class SettingsView {
 	    // Raggruppe le configurazioni del plugin
 	    Settings settings = new Settings();
 		settings.ontologyFilename = pannelloOntologia.getFilePath();
+		settings.causalnetFilename = pannelloCNMining.getFilePath();
 		settings.exportJson = this.jsonEnabled;
 	    
 		return settings;

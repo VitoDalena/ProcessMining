@@ -8,8 +8,12 @@ Pure\Route::path( __DIR__ . '/controllers' );
 $router = new Pure\Router();
 
 $router->get("/", "HomeController@index");
-$router->post("/upload", "UploadController@upload");
-$router->get('/process/$filename', "RTTminingController@process");
+
+$router->post("/log", "UploadController@log");
+$router->post("/ontology", "UploadController@ontology");
+$router->post("/constraints", "UploadController@constraints");
+
+$router->post('/process/$filename', "RTTminingController@process");
 $router->get('/visualize/$filename', "RTTminingController@visualize");
 
 if( !$router->dispatch() ){

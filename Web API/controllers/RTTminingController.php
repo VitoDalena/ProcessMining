@@ -9,9 +9,17 @@ class RTTminingController extends Controller {
     	// pulisci la cartella di output
     	self::clear();
 
-    	$filename = "public/uploads/$name.mxml";
+    	$log = "public/uploads/log/$name.mxml";
         
-        $output = shell_exec("java -jar RTTminingWeb.jar -json $filename -dir bin -o $name");
+        $cmd = "java -jar RTTminingWeb.jar -json $log -dir bin -o $name";
+        $cmd .= " -sigma $_POST[sigma] -ff $_POST[ff] -rtb $_POST[rtb]";
+
+        //$cmd .= " -ontology public/uploads/ontology/$_POST[ontology].owl";
+
+        if( empty($_POST['constraints']) == false )
+            $cmd .= " -constraints public/uploads/constraints/$_POST[constraints].xml";
+
+        $output = shell_exec($cmd);
 		if (strpos($output, 'RTTminingResult=ERROR') !== false) {
 			echo "RTTminingResult:ERROR";
 			return;

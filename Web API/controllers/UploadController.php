@@ -8,10 +8,10 @@ class UploadController extends Controller {
 		Se l'upload avviene correttamente ritorna il nome del file,
 		altrimenti ritorna la stringa UPLOAD:ERROR
 	*/
-    function upload(){
+    function log(){
 
         // pulisce la cartella di uploads
-        self::clear();
+        self::clear("log");
         
         if( empty($_FILES) == true){
         	echo "UPLOAD:ERROR";
@@ -22,7 +22,7 @@ class UploadController extends Controller {
         $pieces = explode("/", $name);
         $name = $pieces[ count($pieces)-1 ];
 
-        $filename = "public/uploads/$name.mxml";
+        $filename = "public/uploads/log/$name.mxml";
 
         if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
         	echo $name;
@@ -31,10 +31,36 @@ class UploadController extends Controller {
     }
 
     /*
+        Se l'upload avviene correttamente ritorna il nome del file,
+        altrimenti ritorna la stringa UPLOAD:ERROR
+    */
+    function constraints($name){
+
+        // pulisce la cartella di uploads
+        self::clear("constraints");
+        
+        if( empty($_FILES) == true){
+            echo "UPLOAD:ERROR";
+            return;
+        }        
+
+        $name = $_FILES["file"]["tmp_name"];
+        $pieces = explode("/", $name);
+        $name = $pieces[ count($pieces)-1 ];
+
+        $filename = "public/uploads/constraints/$name.xml";
+
+        if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
+            echo $name;
+        else 
+            echo "UPLOAD:ERROR";
+    }
+
+    /*
 		Questa funzione pulisce la cartella di uploads
     */
-    public static function clear(){
-        $directory = "public/uploads";
+    public static function clear($dir){
+        $directory = "public/uploads/$dir";
 
         if(is_dir($directory)) {
             $scan = scandir($directory);

@@ -35,6 +35,9 @@ public class RTTgraph {
         return this.nodes;
     }
 
+    /*
+     * Ritorna la lista di nodi di uno specifico tipo
+     */
     public ArrayList<RTTnode> nodesByType(String type){
         ArrayList<RTTnode> result = new ArrayList<RTTnode>();
 
@@ -47,6 +50,7 @@ public class RTTgraph {
         return result;
     }
 
+    // Ritorna il nodo avente nome specificato
     public RTTnode node(String name){
         for(RTTnode node: this.nodes()){
             if(node.name.equals((name)))
@@ -55,6 +59,7 @@ public class RTTgraph {
         return null;
     }
 
+    // Ritorna il nodo avente id specificato
     public RTTnode nodeById(String id){
         for(RTTnode node: this.nodes()){
             if(node.id.equals((id)))

@@ -78,12 +78,29 @@ public class RTTmining {
     )
 	public static String ProcessWithoutDependencies(UIPluginContext context, XLog log) throws Exception {
 		SettingsView settingsView = new SettingsView(context);
+		// Abilita l'importazione della rete causale da log
+		settingsView.causalnetFromLog();
 		Settings settings = settingsView.show();
 		
-		//CNParser parser = new CNParser("ExtendedCausalNet.xml");
-        //Flex cnminningGraph = parser.parse();
+		if(settings.causalnetFilename.isEmpty()){
+			return "Error! RTTmining needs an Extended CausalNet to precede!";
+		}
+		CNParser parser = new CNParser(settings.causalnetFilename);
+        Flex causalnet = parser.parse();
+        if( causalnet == null ){
+        	return "Error found during " + settings.causalnetFilename + " parsing!";
+        }
 		
-		return "Hello RTTmining";
+        LogInspector logInspector = new LogInspector(log);
+        FlexInspector flexInspector = new FlexInspector(causalnet);
+
+        RTTmining mining = new RTTmining(logInspector, flexInspector);
+        RTTgraph graph = mining.process();        
+
+        saveFile("rttgraph.xmi", graph.toXMI());
+        saveFile("rttgraph.txt", graph.toString());
+		
+		return "XMI located at: ./rttgraph.xmi";
 	}
 	
 	private static void saveFile(String filename, String content) throws Exception {
