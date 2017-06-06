@@ -22,6 +22,15 @@ if( file_exists(__DIR__ . '/public/uploads/constraints') == false )
 $router = new Pure\Router();
 
 $router->get("/", "HomeController@index");
+// Pulizia forzata
+$router->get("/reset", function(){
+	array_map('unlink', glob(__DIR__."/bin/*.*"));
+	array_map('unlink', glob(__DIR__."/public/uploads/log/*.*"));
+	array_map('unlink', glob(__DIR__."/public/uploads/constraints/*.*"));
+
+	// redireziona verso la home
+	@header( "Location: /", true, 302 );
+});
 
 // POST ajax per l'upload dei file
 $router->post("/log", "UploadController@log");

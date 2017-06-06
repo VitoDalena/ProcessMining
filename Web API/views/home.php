@@ -154,6 +154,7 @@ document.getElementById('log_upload').onchange = function(e){
     if( btn_ontology.className.includes("invisible") == false )
         btn_ontology.className += ' invisible';
     logFilename = constraintsFilename = null;
+    $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
     if (file) {
@@ -226,7 +227,7 @@ function process(){
             {
                 alert("RTTmining fallito!");
                 if( btn_download.className.includes("invisible") == false )
-                        btn_download.className += ' invisible';
+                    btn_download.className += ' invisible';
                 if( btn_visualize.className.includes("invisible") == false )
                     btn_visualize.className += ' invisible';
                 if( btn_ontology.className.includes("invisible") == false )

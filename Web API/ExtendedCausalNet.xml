@@ -1,163 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtendedCausalNet name="all_10_0  "
+<ExtendedCausalNet name="CpnToolsLog"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
-<Node name="Keep_records" id="4">
+<Node name="SSSTTTAAARRRTTT" id="0">
+<ExtendedInputBindings>
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+{1, 1}
+</ExtendedOutputBindings>
+</Node>
+<Node name="Attend Classes Ride Motorbikes" id="7">
+<ExtendedInputBindings>
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+</ExtendedOutputBindings>
+</Node>
+<Node name="Attend Classes Drive Cars" id="2">
+<ExtendedInputBindings>
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+</ExtendedOutputBindings>
+</Node>
+<Node name="EEENNNDDD" id="6">
+<ExtendedInputBindings>
+{5, 5}
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+</ExtendedOutputBindings>
+</Node>
+<Node name="Do Theoretical Exam" id="3">
 <ExtendedInputBindings>
 {1, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{11, 11}
+{5, 5}
 </ExtendedOutputBindings>
 </Node>
-<Node name="Start_recall" id="1">
+<Node name="Do Practical Exam Drive Cars" id="4">
+<ExtendedInputBindings>
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+</ExtendedOutputBindings>
+</Node>
+<Node name="Apply for License" id="1">
 <ExtendedInputBindings>
 {0, 0}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{3, 4, 2, 5, 6, 7, 3, 4, 2, 5, 6, 7}
-{7, 2, 4, 6, 3, 5, 7, 2, 4, 6, 3, 5}
-{3, 5, 7, 4, 6, 2, 3, 5, 7, 4, 6, 2}
-{4, 7, 3, 5, 6, 2, 4, 7, 3, 5, 6, 2}
-{6, 2, 5, 7, 3, 4, 6, 2, 5, 7, 3, 4}
-{6, 5, 3, 7, 2, 4, 6, 5, 3, 7, 2, 4}
-{5, 7, 3, 6, 4, 2, 5, 7, 3, 6, 4, 2}
-{2, 3, 5, 7, 6, 4, 2, 3, 5, 7, 6, 4}
-{7, 2, 3, 5, 4, 6, 7, 2, 3, 5, 4, 6}
-{2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7}
-{4, 7, 3, 5, 2, 6, 4, 7, 3, 5, 2, 6}
-{7, 3, 4, 6, 2, 5, 7, 3, 4, 6, 2, 5}
-{7, 5, 6, 4, 3, 2, 7, 5, 6, 4, 3, 2}
-{4, 6, 2, 7, 5, 3, 4, 6, 2, 7, 5, 3}
-{6, 2, 4, 5, 7, 3, 6, 2, 4, 5, 7, 3}
-{2, 6, 5, 7, 4, 3, 2, 6, 5, 7, 4, 3}
-{6, 3, 5, 4, 2, 7, 6, 3, 5, 4, 2, 7}
-{6, 3, 2, 7, 5, 4, 6, 3, 2, 7, 5, 4}
-{6, 2, 5, 7, 4, 3, 6, 2, 5, 7, 4, 3}
+{3, 3}
 </ExtendedOutputBindings>
 </Node>
-<Node name="EPILOGUE" id="12">
+<Node name="Get Result" id="5">
 <ExtendedInputBindings>
-{11, 11}
+{3, 3}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
+{6, 6}
 </ExtendedOutputBindings>
 </Node>
-<Node name="Identify_remedies" id="7">
-<ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{8, 8}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Arrange_disposal" id="6">
-<ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{11, 11}
-</ExtendedOutputBindings>
-</Node>
-<Node name="PROLOGUE" id="0">
+<Node name="Do Practical Exam Ride Motorbikes" id="8">
 <ExtendedInputBindings>
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{1, 1}
 </ExtendedOutputBindings>
 </Node>
-<Node name="Notify_third_parties" id="3">
-<ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{11, 11}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Prepare_to_destory_or_modify" id="8">
-<ExtendedInputBindings>
-{5, 7, 7, 5}
-{5, 5}
-{7, 5, 5, 7}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{10, 10}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Complete_recall" id="11">
-<ExtendedInputBindings>
-{4, 3, 2, 6, 10, 10, 6, 2, 3, 4}
-{6, 2, 4, 3, 10, 10, 3, 4, 2, 6}
-{6, 2, 10, 3, 4, 4, 3, 10, 2, 6}
-{6, 3, 2, 4, 10, 10, 4, 2, 3, 6}
-{2, 3, 10, 6, 4, 4, 6, 10, 3, 2}
-{2, 3, 4, 6, 10, 10, 6, 4, 3, 2}
-{6, 4, 3, 2, 10, 10, 2, 3, 4, 6}
-{6, 2, 10, 4, 3, 3, 4, 10, 2, 6}
-{3, 10, 4, 6, 2, 2, 6, 4, 10, 3}
-{2, 4, 6, 3, 10, 10, 3, 6, 4, 2}
-{3, 4, 6, 2, 10, 10, 2, 6, 4, 3}
-{3, 4, 2, 6, 10, 10, 6, 2, 4, 3}
-{4, 6, 2, 3, 10, 10, 3, 2, 6, 4}
-{4, 3, 6, 10, 2, 2, 10, 6, 3, 4}
-{2, 6, 10, 4, 3, 3, 4, 10, 6, 2}
-{3, 6, 4, 2, 10, 10, 2, 4, 6, 3}
-{6, 3, 4, 2, 10, 10, 2, 4, 3, 6}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{12, 12}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Consider_optional_actions" id="5">
-<ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{8, 9, 8, 9}
-{9, 8, 9, 8}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Stop_distribution" id="2">
-<ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{11, 11}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Stop_production" id="9">
-<ExtendedInputBindings>
-{5, 5}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{10, 10}
-</ExtendedOutputBindings>
-</Node>
-<Node name="Complete_optional_actions" id="10">
-<ExtendedInputBindings>
-{9, 8, 8, 9}
-{8, 9, 9, 8}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{11, 11}
-</ExtendedOutputBindings>
-</Node>
-<Edge src= "11" dest= "12" /> 
-<Edge src= "9" dest= "10" /> 
-<Edge src= "2" dest= "11" /> 
-<Edge src= "0" dest= "1" /> 
-<Edge src= "7" dest= "8" /> 
-<Edge src= "5" dest= "9" /> 
-<Edge src= "5" dest= "8" /> 
-<Edge src= "8" dest= "10" /> 
-<Edge src= "4" dest= "11" /> 
-<Edge src= "10" dest= "11" /> 
-<Edge src= "1" dest= "5" /> 
-<Edge src= "1" dest= "4" /> 
-<Edge src= "1" dest= "6" /> 
+<Edge src= "5" dest= "6" /> 
+<Edge src= "3" dest= "5" /> 
 <Edge src= "1" dest= "3" /> 
-<Edge src= "1" dest= "2" /> 
-<Edge src= "1" dest= "7" /> 
-<Edge src= "6" dest= "11" /> 
-<Edge src= "3" dest= "11" /> 
+<Edge src= "0" dest= "1" /> 
 </ExtendedCausalNet>
