@@ -59,7 +59,7 @@
                 <form id = 'settings_form' method = 'POST' action = '#' class = 'form'>
                     <div class="form-group">
                         <label>Sigma Log Noise</label>
-                        <input id='sigma' type="number" class="form-control" name='sigma' step="0.1" min="0" max="1" value='0.5'>
+                        <input id='sigma' type="number" class="form-control" name='sigma' step="0.1" min="0" max="1" value='0.05'>
                     </div>
                     <div class="form-group">
                         <label>Fall Factor</label>

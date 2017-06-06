@@ -11,14 +11,18 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 </Node>
 <Node name="Attend Classes Ride Motorbikes" id="7">
 <ExtendedInputBindings>
+{1, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
+{3, 3}
 </ExtendedOutputBindings>
 </Node>
 <Node name="Attend Classes Drive Cars" id="2">
 <ExtendedInputBindings>
+{1, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
+{3, 3}
 </ExtendedOutputBindings>
 </Node>
 <Node name="EEENNNDDD" id="6">
@@ -30,16 +34,20 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 </Node>
 <Node name="Do Theoretical Exam" id="3">
 <ExtendedInputBindings>
-{1, 1}
+{1, 7, 7, 1}
+{1, 2, 2, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{5, 5}
+{8, 5, 8, 5}
+{4, 5, 4, 5}
 </ExtendedOutputBindings>
 </Node>
 <Node name="Do Practical Exam Drive Cars" id="4">
 <ExtendedInputBindings>
+{3, 3}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
+{5, 5}
 </ExtendedOutputBindings>
 </Node>
 <Node name="Apply for License" id="1">
@@ -47,12 +55,14 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 {0, 0}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{3, 3}
+{7, 3, 7, 3}
+{2, 3, 2, 3}
 </ExtendedOutputBindings>
 </Node>
 <Node name="Get Result" id="5">
 <ExtendedInputBindings>
-{3, 3}
+{3, 8, 8, 3}
+{3, 4, 4, 3}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
 {6, 6}
@@ -60,12 +70,22 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 </Node>
 <Node name="Do Practical Exam Ride Motorbikes" id="8">
 <ExtendedInputBindings>
+{3, 3}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
+{5, 5}
 </ExtendedOutputBindings>
 </Node>
 <Edge src= "5" dest= "6" /> 
+<Edge src= "2" dest= "3" /> 
+<Edge src= "4" dest= "5" /> 
 <Edge src= "3" dest= "5" /> 
+<Edge src= "3" dest= "4" /> 
+<Edge src= "3" dest= "8" /> 
+<Edge src= "1" dest= "2" /> 
 <Edge src= "1" dest= "3" /> 
+<Edge src= "1" dest= "7" /> 
+<Edge src= "8" dest= "5" /> 
+<Edge src= "7" dest= "3" /> 
 <Edge src= "0" dest= "1" /> 
 </ExtendedCausalNet>
