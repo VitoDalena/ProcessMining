@@ -18,9 +18,7 @@ class UploadController extends Controller {
         	return;
         }        
 
-        $name = $_FILES["file"]["tmp_name"];
-        $pieces = explode("/", $name);
-        $name = $pieces[ count($pieces)-1 ];
+        $name = basename($_FILES["file"]["tmp_name"], '.tmp');
 
         $filename = "public/uploads/log/$name.mxml";
 
@@ -44,9 +42,7 @@ class UploadController extends Controller {
             return;
         }        
 
-        $name = $_FILES["file"]["tmp_name"];
-        $pieces = explode("/", $name);
-        $name = $pieces[ count($pieces)-1 ];
+        $name = basename($_FILES["file"]["tmp_name"], '.tmp');
 
         $filename = "public/uploads/constraints/$name.xml";
 
