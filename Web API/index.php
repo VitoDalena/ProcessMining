@@ -5,15 +5,31 @@ include_once "lib/Router.php";
 include_once "lib/Controller.php";
 Pure\Route::path( __DIR__ . '/controllers' );
 
+// Verifica l'esistenza delle cartelle necessarie
+// in caso negativo, creale
+
+if( file_exists(__DIR__ . '/bin') == false )
+	mkdir(__DIR__ . '/bin');
+if( file_exists(__DIR__ . '/public/uploads') == false )
+	mkdir(__DIR__ . '/public/uploads');
+if( file_exists(__DIR__ . '/public/uploads/log') == false )
+	mkdir(__DIR__ . '/public/uploads/log');
+if( file_exists(__DIR__ . '/public/uploads/constraints') == false )
+	mkdir(__DIR__ . '/public/uploads/constraints');
+
+// Definizione delle rotte
+
 $router = new Pure\Router();
 
 $router->get("/", "HomeController@index");
 
+// POST ajax per l'upload dei file
 $router->post("/log", "UploadController@log");
-$router->post("/ontology", "UploadController@ontology");
 $router->post("/constraints", "UploadController@constraints");
 
+// API ajax per l'elaborazione RTTmining
 $router->post('/process/$filename', "RTTminingController@process");
+// GET ajax per ottenere i dati di visualizzazione
 $router->get('/visualize/$filename', "RTTminingController@visualize");
 
 if( !$router->dispatch() ){
