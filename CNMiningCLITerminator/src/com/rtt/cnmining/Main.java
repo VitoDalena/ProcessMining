@@ -27,7 +27,7 @@ public class Main {
         try {
 
             Settings settings = new Settings();
-            settings.sigmaLogNoise = 0.5;
+            settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
             settings.relativeToBest = 0.75;
 
@@ -40,29 +40,19 @@ public class Main {
 
             LogInspector logInspector = new LogInspector(log);
             FlexInspector flexInspector = new FlexInspector(cnminningGraph);
-            PatternMap pattern = new PatternMap(logInspector);
-
-            System.out.println(logInspector.activities());
-            System.out.println(flexInspector.activities());
-            System.out.println();
-            System.out.println(pattern.ANDsplit("Consider_optional_actions"));
-            System.out.println(pattern.ANDjoin("Complete_optional_actions"));
-            System.out.println(logInspector.followers("PROLOGUE"));
-
-            System.out.println(logInspector.startActivities());
-            System.out.println(logInspector.endActivities());
-
-            System.out.println(flexInspector.startActivities());
-            System.out.println(flexInspector.endActivities());
-            System.out.println(flexInspector.followers("PROLOGUE"));
 
             RTTmining mining = new RTTmining(logInspector, flexInspector);
             RTTgraph graph = mining.process();
             //System.out.println(graph);
 
+            RTTmining2 mining2 = new RTTmining2(cnminningGraph);
+            graph = mining2.process();
+            System.out.println(graph);
+
             saveFile("rttgraph.json", graph.toJson());
             saveFile("rttgraph.xmi", graph.toXMI());
             saveFile("rttgraph.txt", graph.toString());
+
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());

@@ -21,14 +21,22 @@ public class RTTgraph {
         this.name = name;
     }
 
-    public void add(RTTnode node){
-        if(this.nodes.contains(node) == false)
-            this.nodes.add(node);
+    public RTTnode add(RTTnode node){
+        RTTnode n = this.node(node.name);
+        if( n != null )
+            return n;
+
+        this.nodes.add(node);
+        return node;
     }
 
-    public void add(RTTedge edge){
-        if(this.edges.contains(edge) == false)
-            this.edges.add(edge);
+    public RTTedge add(RTTedge edge){
+        RTTedge e = this.edge(edge.begin().name, edge.end().name);
+        if( e != null )
+            return e;
+
+        this.edges.add(edge);
+        return edge;
     }
 
     public ArrayList<RTTnode> nodes(){
@@ -87,6 +95,22 @@ public class RTTgraph {
 
     public ArrayList<RTTedge> edges(){
         return this.edges;
+    }
+
+    public RTTedge edge(String beginNode, String endNode){
+        for(RTTedge edge: this.edges()){
+            if(edge.begin().name.equals(beginNode) && edge.end().name.equals(endNode))
+                return edge;
+        }
+        return null;
+    }
+
+    public RTTedge edgeById(String beginNode, String endNode){
+        for(RTTedge edge: this.edges()){
+            if(edge.begin().id.equals(beginNode) && edge.end().id.equals(endNode))
+                return edge;
+        }
+        return null;
     }
 
     // Ritorna la lista di archi in uscita dal nodo specificato

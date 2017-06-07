@@ -19,7 +19,7 @@ public class FlexInspector extends Inspector {
 
         for(FlexNode node: this.graph.getNodes()){
             if(result.contains(node.toString()) == false)
-                result.add(node.toString());
+                result.add(node.getLabel());
         }
 
         return result;

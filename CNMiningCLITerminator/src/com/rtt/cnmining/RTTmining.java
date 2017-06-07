@@ -150,7 +150,6 @@ public class RTTmining {
             }
             // Ho la casistica OR -> arco1, arco2,... arcoN, AND
             else {
-                System.out.println("ORAND");
                 // Aggiungo prima il nodo OR
                 RTTnode branchNode = new RTTnode("Branch" + node.name);
                 branchNode.branch();
@@ -227,12 +226,10 @@ public class RTTmining {
         PatternMap map = new PatternMap(this.log);
         BranchPattern pattern = map.ANDjoin(node.name);
 
-        System.out.println("Branch at " + node.name);
-        System.out.println(pattern);
-
         if(pattern == null){
             // TODO
             // cè un errore, come lo gestisco?
+            return;
         }
 
 
@@ -290,8 +287,6 @@ public class RTTmining {
                 break;
             }
         }
-
-        System.out.println(joinNode);
 
         if(joinNode == null)
             return;
