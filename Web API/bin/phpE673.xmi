@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="90203788" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="89939285" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-4 Node-5 Node-6 Node-7 Node-8 Node-9 Node-10 Node-13 Node-16 ">
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-0" name="F" outgoing="Edge-0" incoming="Edge-18"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="G" outgoing="Edge-1" incoming="Edge-9"/>
+<node xmi:type="uml:InitialNode" xmi:id="Node-2" name="SSSTTTAAARRRTTT" outgoing="Edge-2"/>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-3" name="EEENNNDDD" incoming="Edge-6"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-4" name="B" outgoing="Edge-3" incoming="Edge-13"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-5" name="C" outgoing="Edge-4" incoming="Edge-14"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-6" name="E" outgoing="Edge-5" incoming="Edge-10"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="D" outgoing="Edge-6" incoming="Edge-22"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-8" name="A" outgoing="Edge-7" incoming="Edge-2"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-9" name="BranchA" outgoing="Edge-8" incoming="Edge-7"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-10" name="ForkBranchA" outgoing="Edge-9 Edge-10" incoming="Edge-8"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-13" name="JoinD" outgoing="Edge-19" incoming="Edge-1 Edge-5">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-13_spec" name="JoinD" value="true"/>
+</node>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-16" name="BranchD" outgoing="Edge-22" incoming="Edge-19"/>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-15" source="Node-0" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="F_To_JoinD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="F_To_JoinD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-13" source="Node-1" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="G_To_JoinD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="G_To_JoinD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-8" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="SSSTTTAAARRRTTT_To_A_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="SSSTTTAAARRRTTT_To_A_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-14" source="Node-4" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="B_To_JoinD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="B_To_JoinD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-14" source="Node-5" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="C_To_JoinD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="C_To_JoinD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-13" source="Node-6" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="E_To_JoinD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="E_To_JoinD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-3" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="D_To_EEENNNDDD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="D_To_EEENNNDDD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-9" source="Node-8" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="A_To_BranchA_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="A_To_BranchA_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-10" source="Node-9" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="BranchA_To_ForkBranchA_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="BranchA_To_ForkBranchA_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-1" source="Node-10" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="ForkBranchA_To_G_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="ForkBranchA_To_G_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-10" target="Node-6" source="Node-10" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-10guard" name="ForkBranchA_To_E_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-10weight" name="ForkBranchA_To_E_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-13" target="Node-4" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-13guard" name="ForkBranchA_To_B_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-13weight" name="ForkBranchA_To_B_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-14" target="Node-5" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-14guard" name="ForkBranchA_To_C_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-14weight" name="ForkBranchA_To_C_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-18" target="Node-0" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-18guard" name="ForkBranchA_To_F_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-18weight" name="ForkBranchA_To_F_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-16" source="Node-13" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="JoinD_To_BranchD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="JoinD_To_BranchD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-7" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="BranchD_To_D_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="BranchD_To_D_weight" />
+</edge>
+</packagedElement>
+</uml:Model>

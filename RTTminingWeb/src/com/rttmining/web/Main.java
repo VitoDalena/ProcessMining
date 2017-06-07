@@ -5,10 +5,7 @@ import org.deckfour.xes.model.XLog;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
-import org.processmining.plugins.rttmining.FlexInspector;
-import org.processmining.plugins.rttmining.LogInspector;
-import org.processmining.plugins.rttmining.RTTgraph;
-import org.processmining.plugins.rttmining.RTTmining;
+import org.processmining.plugins.rttmining.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -106,10 +103,11 @@ public class Main {
             Object[] data = CNMining.startCNMining(null, log, settings, false);
             Flex cnminningGraph = (Flex)data[0];
 
-            LogInspector logInspector = new LogInspector(log);
-            FlexInspector flexInspector = new FlexInspector(cnminningGraph);
+            //LogInspector logInspector = new LogInspector(log);
+            //FlexInspector flexInspector = new FlexInspector(cnminningGraph);
 
-            RTTmining mining = new RTTmining(logInspector, flexInspector);
+            //RTTmining mining = new RTTmining(logInspector, flexInspector);
+            RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();
             //System.out.println(graph);
 

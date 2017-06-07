@@ -1,47 +1,29 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: Start_recall, id: Node-0
-Node: Complete_optional_actions, id: Node-1
-Node: Complete_recall, id: Node-2
-FinalNode: EPILOGUE, id: Node-3
-Node: Arrange_disposal, id: Node-4
-Node: Keep_records, id: Node-5
-Node: Stop_distribution, id: Node-6
-Node: Notify_third_parties, id: Node-7
-Node: Prepare_to_destory_or_modify, id: Node-8
-Node: Consider_optional_actions, id: Node-9
-Node: Stop_production, id: Node-10
-InitialNode: PROLOGUE, id: Node-11
-Node: Identify_remedies, id: Node-12
-ForkNode: ForkStart_recall, id: Node-13
-ForkNode: ForkConsider_optional_actions, id: Node-14
-JoinNode: JoinComplete_optional_actions, id: Node-15
-JoinNode: JoinComplete_recall, id: Node-16
-JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17
-BranchNode: BranchConsider_optional_actions, id: Node-18
+Node: E, id: Node-0
+InitialNode: SSSTTTAAARRRTTT, id: Node-1
+FinalNode: EEENNNDDD, id: Node-2
+Node: A, id: Node-3
+Node: D, id: Node-4
+Node: G, id: Node-5
+Node: F, id: Node-6
+Node: B, id: Node-7
+Node: C, id: Node-8
+Node: H, id: Node-9
+ForkNode: ForkA, id: Node-10
+JoinNode: JoinG, id: Node-11
 Edges:
-{ Node: Complete_optional_actions, id: Node-1 -> JoinNode: JoinComplete_recall, id: Node-16 }
-{ Node: Complete_recall, id: Node-2 -> FinalNode: EPILOGUE, id: Node-3 }
-{ Node: Arrange_disposal, id: Node-4 -> JoinNode: JoinComplete_recall, id: Node-16 }
-{ Node: Keep_records, id: Node-5 -> JoinNode: JoinComplete_recall, id: Node-16 }
-{ Node: Stop_distribution, id: Node-6 -> JoinNode: JoinComplete_recall, id: Node-16 }
-{ Node: Notify_third_parties, id: Node-7 -> JoinNode: JoinComplete_recall, id: Node-16 }
-{ Node: Prepare_to_destory_or_modify, id: Node-8 -> JoinNode: JoinComplete_optional_actions, id: Node-15 }
-{ Node: Stop_production, id: Node-10 -> JoinNode: JoinComplete_optional_actions, id: Node-15 }
-{ InitialNode: PROLOGUE, id: Node-11 -> Node: Start_recall, id: Node-0 }
-{ Node: Identify_remedies, id: Node-12 -> JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 }
-{ Node: Start_recall, id: Node-0 -> ForkNode: ForkStart_recall, id: Node-13 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Notify_third_parties, id: Node-7 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Arrange_disposal, id: Node-4 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Keep_records, id: Node-5 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Stop_distribution, id: Node-6 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Consider_optional_actions, id: Node-9 }
-{ ForkNode: ForkStart_recall, id: Node-13 -> Node: Identify_remedies, id: Node-12 }
-{ ForkNode: ForkConsider_optional_actions, id: Node-14 -> Node: Stop_production, id: Node-10 }
-{ ForkNode: ForkConsider_optional_actions, id: Node-14 -> Node: Prepare_to_destory_or_modify, id: Node-8 }
-{ JoinNode: JoinComplete_optional_actions, id: Node-15 -> Node: Complete_optional_actions, id: Node-1 }
-{ JoinNode: JoinComplete_recall, id: Node-16 -> Node: Complete_recall, id: Node-2 }
-{ JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 -> Node: Prepare_to_destory_or_modify, id: Node-8 }
-{ Node: Consider_optional_actions, id: Node-9 -> BranchNode: BranchConsider_optional_actions, id: Node-18 }
-{ BranchNode: BranchConsider_optional_actions, id: Node-18 -> ForkNode: ForkConsider_optional_actions, id: Node-14 }
-{ BranchNode: BranchConsider_optional_actions, id: Node-18 -> JoinNode: JoinPrepare_to_destory_or_modify, id: Node-17 }
+{ Node: E, id: Node-0 -> JoinNode: JoinG, id: Node-11 }
+{ InitialNode: SSSTTTAAARRRTTT, id: Node-1 -> Node: A, id: Node-3 }
+{ Node: A, id: Node-3 -> ForkNode: ForkA, id: Node-10 }
+{ ForkNode: ForkA, id: Node-10 -> Node: B, id: Node-7 }
+{ ForkNode: ForkA, id: Node-10 -> Node: E, id: Node-0 }
+{ ForkNode: ForkA, id: Node-10 -> Node: F, id: Node-6 }
+{ ForkNode: ForkA, id: Node-10 -> Node: D, id: Node-4 }
+{ Node: D, id: Node-4 -> JoinNode: JoinG, id: Node-11 }
+{ Node: G, id: Node-5 -> Node: H, id: Node-9 }
+{ Node: F, id: Node-6 -> Node: C, id: Node-8 }
+{ Node: B, id: Node-7 -> JoinNode: JoinG, id: Node-11 }
+{ Node: C, id: Node-8 -> JoinNode: JoinG, id: Node-11 }
+{ Node: H, id: Node-9 -> FinalNode: EEENNNDDD, id: Node-2 }
+{ JoinNode: JoinG, id: Node-11 -> Node: G, id: Node-5 }

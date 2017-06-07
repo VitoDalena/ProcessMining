@@ -1,25 +1,31 @@
 package com.rtt.cnmining;
 
+import org.processmining.models.flexiblemodel.Flex;
+import org.processmining.models.flexiblemodel.FlexNode;
+import org.processmining.models.flexiblemodel.SetFlex;
+
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 
 public class RTTmining {
 
-    private LogInspector log;
-    private FlexInspector causalnet;
+    private Flex causalnet;
+    private FlexInspector inspector;
 
-    public RTTmining(LogInspector log, FlexInspector causalnet){
-        this.log = log;
-        this.causalnet = causalnet;
+    public RTTmining(Flex diagram){
+        this.causalnet = diagram;
+        this.inspector = new FlexInspector(this.causalnet);
     }
 
     public RTTgraph process(){
         // Inizializza il grafo inserendovi i nodi rappresentanti le attività
         RTTgraph graph = new RTTgraph();
 
-        ArrayList<String> startActivities = this.causalnet.startActivities();
-        ArrayList<String> endActivities = this.causalnet.endActivities();
+        ArrayList<String> startActivities = this.inspector.startActivities();
+        ArrayList<String> endActivities = this.inspector.endActivities();
 
-        for (String activity: this.causalnet.activities()){
+        for (String activity: this.inspector.activities()){
             RTTnode node = new RTTnode(activity);
 
             if(startActivities.contains(activity))
@@ -30,316 +36,110 @@ public class RTTmining {
             graph.add(node);
         }
 
-        // lista dei nodi che non devono essere più processati
-        ArrayList<RTTnode> residui = findDirectEdges(graph);
-
-        if(residui.size() == 0){
-            // Siamo stati fortunati, non sono presenti diramazioni
-            // o fork per attività parallele
-            return graph;
-        }
-
-        // Invece, sono presenti diramazioni.
-        // Occorre individuare i nodi di fork e branch.
-
-        for(RTTnode node: residui){
-            this.outgoingEdges(graph, node);
-        }
-
-        // Se sono stati aggiunti dei fork node
-        // devo inserire dei join
-        for(RTTnode node: nodesForIncomingProcessing(graph)){
-            incomingEdges(graph, node);
-        }
-
-        // Verifica e correzione dei fork
-        for(RTTnode forkNode: graph.nodesByType(RTTnode.ForkNode)){
-            for(RTTnode node: graph.followers(forkNode))
-                this.verifyParallel(graph, node);
-            this.verifyFork(graph, forkNode);
-        }
-
-        // Verifico e correggo eventuali errori nell'inserimento dei join
-        for(RTTnode joinNode: graph.nodesByType(RTTnode.JoinNode))
-            this.verifyJoin(graph, joinNode);
+        // Conversione degli output bindings
+        this.convertOutputBindings(graph);
+        // Conversione degli input bindings
+        this.convertInputBindings(graph);
 
         return graph;
     }
 
-    /*
-        Trova tutti gli archi diretti,
-        li dove un nodo presenza un insieme di followers di cardinalità 1.
-        Ritorna la lista di nodi ai quali non è stato possibile mappare gli
-        archi outgoing, in quanto seguito da diramazioni o fork.
-     */
-    private ArrayList<RTTnode> findDirectEdges(RTTgraph graph) {
-        ArrayList<RTTnode> result = new ArrayList<RTTnode>();
+    private void convertOutputBindings(RTTgraph graph){
+        for(FlexNode node: this.causalnet.getNodes()){
+            Set<SetFlex> outputs = node.getOutputNodes();
+            RTTnode current = graph.node(node.getLabel());
 
-        for (RTTnode node : graph.nodes()) {
-            ArrayList<String> followers = this.causalnet.followers(node.name);
-
-            if (followers.size() == 1) {
-                String activity = followers.get(0);
-
-                RTTnode endNode = graph.node(activity);
-                if (endNode == null)
-                    continue;
-
-                RTTedge edge = new RTTedge(node, endNode);
-                graph.add(edge);
-            }
-            else if(followers.size() == 0){
-                // Si tratta del nodo finale
-                // vale come completato
-            }
-            else {
-                // il nodo in esame non è stato mappato
-                // inseriscilo tra i residui
-                if (result.contains(node) == false)
-                    result.add(node);
-            }
-        }
-
-        return result;
-    }
-
-    /*
-        Questo metodo si occupa di mappare gli archi in uscita per
-        quei nodi ch presentano più di una alternativa.
-        In particolare qui si vanno a mappare le diramazioni e i fork
-     */
-    private boolean outgoingEdges(RTTgraph graph, RTTnode node){
-        ArrayList<String> followers = this.causalnet.followers(node.name);
-
-        if(followers.size() <= 1)
-            return false;
-
-        PatternMap map = new PatternMap(this.log);
-        BranchPattern pattern = map.ANDsplit(node.name);
-
-        if(pattern != null){
-            // cè un ANDsplit
-            // dobbiamo verificare se è solo un AND o un OR -> (arco1, arco2, ..., arcoN, AND)
-            ArrayList<String> andList = new ArrayList<>();
-
-            // Controllo che tutti i follower siano inclusi nel pattern
-            for(String activity: followers){
-                if(pattern.branches.contains(activity) && andList.contains(activity) == false)
-                    andList.add(activity);
-            }
-
-            // Sono tutti in AND
-            if(andList.size() == followers.size()){
-                RTTnode forkNode = new RTTnode("Fork" + node.name);
-                forkNode.fork();
-
-                graph.add(forkNode);
-
-                RTTedge firstEdge = new RTTedge(node, forkNode);
-                graph.add(firstEdge);
-
-                for(String activity: followers){
-                    RTTnode endNode = graph.node(activity);
-
-                    if(endNode == null)
-                        continue;
-
-                    RTTedge endEdge = new RTTedge(forkNode, endNode);
-                    graph.add(endEdge);
-                }
-            }
-            // Ho la casistica OR -> arco1, arco2,... arcoN, AND
-            else {
-                // Aggiungo prima il nodo OR
-                RTTnode branchNode = new RTTnode("Branch" + node.name);
+            if(outputs.size() > 1){
+                // Aggiungi un branch
+                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
                 branchNode.branch();
-
                 graph.add(branchNode);
 
-                // Aggiungo il nodo Fork
-                RTTnode forkNode = new RTTnode("Fork" + node.name);
-                forkNode.fork();
+                graph.add(new RTTedge(current, branchNode));
+                current = branchNode;
+            }
 
-                graph.add(forkNode);
+            for(SetFlex output: outputs){
+                RTTnode beginNode = current;
 
-                // Aggiungo l'arco che collega il nodo in esame con l'OR
-                graph.add(new RTTedge(node, branchNode));
-                // Collego l'OR con il fork
-                graph.add(new RTTedge(branchNode, forkNode));
+                // Inserisci un fork
+                if(output.size() > 1){
+                    RTTnode forkNode = new RTTnode("Fork"+current.name);
+                    forkNode.fork();
+                    graph.add(forkNode);
 
-                for(String activity: followers){
-                    RTTnode endNode = graph.node(activity);
-                    if(endNode == null)
-                        continue;
+                    graph.add(new RTTedge(beginNode, forkNode));
 
-                    if(andList.contains(activity))
-                        graph.add(new RTTedge(forkNode, endNode));
-                    else graph.add(new RTTedge(branchNode, endNode));
+                    beginNode = forkNode;
                 }
-            }
-        }
-        else {
-            RTTnode branchNode = new RTTnode("Branch" + node.name);
-            branchNode.branch();
 
-            graph.add(branchNode);
+                // Aggiungi gli archi
+                Iterator<FlexNode> i = output.iterator();
+                while(i.hasNext()){
+                    FlexNode n = i.next();
 
-            RTTedge firstEdge = new RTTedge(node, branchNode);
-            graph.add(firstEdge);
-
-            for(String activity: followers){
-                RTTnode endNode = graph.node(activity);
-
-                if(endNode != null)
-                    continue;
-
-                RTTedge endEdge = new RTTedge(branchNode, endNode);
-                graph.add(endEdge);
-            }
-        }
-
-        return true;
-    }
-
-    private ArrayList<RTTnode> nodesForIncomingProcessing(RTTgraph graph){
-        ArrayList<RTTnode> result = new ArrayList<>();
-
-        for(RTTnode node: graph.nodes()){
-            if(result.contains(node) == false &&
-                    (node.isType(RTTnode.FinalNode) || node.isType(RTTnode.Node)))
-                result.add(node);
-        }
-
-        return result;
-    }
-
-    /*
-        Qui ci occupiamo di andare a sincronizzare le operazioni
-        di fork, chiudendole con dei join node
-     */
-    private void incomingEdges(RTTgraph graph, RTTnode node){
-        ArrayList<RTTedge> predecessorsEdges = graph.edgesEndWith(node);
-
-        if(predecessorsEdges.size() <= 1)
-            return;
-
-        PatternMap map = new PatternMap(this.log);
-        BranchPattern pattern = map.ANDjoin(node.name);
-
-        if(pattern == null){
-            // TODO
-            // cè un errore, come lo gestisco?
-            return;
-        }
-
-
-        RTTnode joinNode = new RTTnode("Join" + node.name);
-        joinNode.join();
-        graph.add(joinNode);
-
-        graph.add(new RTTedge(joinNode, node));
-
-        for(int i = 0; i < predecessorsEdges.size(); i++){
-            RTTedge edge = predecessorsEdges.get(i);
-
-            if(pattern.branches.contains(edge.begin().name))
-                edge.end(joinNode);
-
-        }
-    }
-
-    // Verifico che il join node inserito sia corretto
-    // altrimenti lo rimuovo
-    private void verifyJoin(RTTgraph graph, RTTnode joinNode){
-        ArrayList<RTTnode> predecessors = graph.predecessors(joinNode);
-        if(predecessors.size() == 0){
-            // ho inserito un join inutile
-            // rimuovilo
-            ArrayList<RTTedge> outgoing = graph.edgesStartWith(joinNode);
-            graph.edges().remove(outgoing.get(0));
-
-            graph.nodes().remove(joinNode);
-            return;
-        }
-    }
-
-    /*
-        Fornito un nodo successivo ad un fork, verifico che ogni sua diramazione
-        porti ad un join
-     */
-    private void verifyParallel(RTTgraph graph, RTTnode node){
-        ArrayList<RTTnode> followers = graph.followers(node);
-
-        if(followers.size() != 1)
-            return;
-
-        RTTnode follower = followers.get(0);
-        if(follower.isType(RTTnode.Node) == false && follower.isType(RTTnode.FinalNode) == false)
-            return;
-
-        ArrayList<RTTnode> predecessors = graph.predecessors(follower);
-        RTTnode joinNode = null;
-
-        for(RTTnode n: predecessors){
-            if(n.isType(RTTnode.JoinNode))
-            {
-                joinNode = n;
-                break;
-            }
-        }
-
-        if(joinNode == null)
-            return;
-
-        // Se è presente un join
-        // allora cambia la direzione dell'arco in uscita verso il join
-
-        for(RTTedge outcoming: graph.edgesStartWith(node))
-            outcoming.end(joinNode);
-
-    }
-
-    /*
-        In alcuni casi puo capitare che un fork punti verso un nodo preceduto da un join
-        In tal caso quel for occorre farlo precedere da un branch che punta verso il join
-     */
-    private void verifyFork(RTTgraph graph, RTTnode forkNode){
-        ArrayList<RTTnode> followers = graph.followers(forkNode);
-
-        RTTnode branchNode = null;
-
-        // Devo assicurarmi di avere un solo branch prima del fork
-        for(RTTnode node: graph.predecessors(forkNode)) {
-            if (node.isType(RTTnode.BranchNode)) {
-                branchNode = node;
-                break;
-            }
-        }
-
-        for(RTTnode follower: followers){
-            for(RTTnode predecessor: graph.predecessors(follower)){
-                if(predecessor.isType(RTTnode.JoinNode)){
-                    // Ok il nodo a cui punto possiede un join
-                    // esegui la modifica del grafo
-
-                    if(branchNode == null){
-                        branchNode = new RTTnode("Branch" + forkNode.name.replace("Fork", ""));
-                        branchNode.branch();
-
-                        graph.add(branchNode);
-
-                        // rimuovi l'arco che collega il node precedente con il fork
-                        RTTedge edge = graph.edgesEndWith(forkNode).get(0);
-
-                        graph.add(new RTTedge(edge.begin(), branchNode));
-                        graph.add(new RTTedge(branchNode, forkNode));
-                        graph.edges().remove(edge);
+                    RTTnode endNode = graph.node(n.getLabel());
+                    if(endNode == null){
+                        System.out.println("[Warning:convertOutputBindings] cannot find node: " + n.getLabel());
+                        continue;
                     }
 
-                    graph.add(new RTTedge(branchNode, predecessor));
-
-                    break;
+                    graph.add(new RTTedge(beginNode, endNode));
                 }
+            }
+        }
+    }
+
+    /*
+        In questo caso non posso semplicemente inserire gli archi,
+        ma devo andare a modificare quelli precedentemente inseriti
+        durante la fase di conversione degli output bindings
+     */
+    private void convertInputBindings(RTTgraph graph){
+        for(FlexNode node: this.causalnet.getNodes()) {
+            Set<SetFlex> inputs = node.getInputNodes();
+            RTTnode current = graph.node(node.getLabel());
+
+            for(SetFlex input: inputs) {
+                RTTnode endNode = current;
+
+                // Inserisci un join
+                if (input.size() > 1) {
+                    RTTnode joinNode = new RTTnode("Join" + current.name);
+                    joinNode.join();
+                    graph.add(joinNode);
+
+                    graph.add(new RTTedge(joinNode, endNode));
+                    endNode = joinNode;
+                }
+
+                // Modifica gli archi gli archi
+                Iterator<FlexNode> i = input.iterator();
+                while(i.hasNext()) {
+                    FlexNode n = i.next();
+
+                    for(RTTedge e: graph.edgesEndWith(current))
+                    {
+                        if(e.begin().name.contains(n.getLabel()))
+                            e.end(endNode);
+                    }
+                }
+            }
+
+            // Branch join
+            if(inputs.size() > 1){
+                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                branchNode.branch();
+                branchNode = graph.add(branchNode);
+
+                // Aggiorna tutti i collegamenti che puntavano
+                // al nodo corrente, verso il branch
+                for(RTTedge edge: graph.edgesEndWith(current)){
+                    edge.end(branchNode);
+                }
+
+                // Collega il branch al nodo corrente
+                graph.add(new RTTedge(branchNode, current));
             }
         }
     }

@@ -1,0 +1,44 @@
+RTTgraph:Activity Diagram
+Nodes:
+Node: split2, id: Node-0
+Node: F, id: Node-1
+Node: D, id: Node-2
+Node: split1, id: Node-3
+Node: C, id: Node-4
+Node: join1, id: Node-5
+Node: join2, id: Node-6
+Node: G, id: Node-7
+Node: B, id: Node-8
+InitialNode: SSSTTTAAARRRTTT, id: Node-9
+Node: H, id: Node-10
+Node: A, id: Node-11
+Node: split, id: Node-12
+Node: E, id: Node-13
+Node: join, id: Node-14
+FinalNode: EEENNNDDD, id: Node-15
+ForkNode: ForkA, id: Node-16
+BranchNode: Branchjoin, id: Node-17
+BranchNode: BranchD, id: Node-18
+JoinNode: Joinjoin, id: Node-19
+Edges:
+{ Node: split2, id: Node-0 -> Node: F, id: Node-1 }
+{ Node: F, id: Node-1 -> Node: E, id: Node-13 }
+{ Node: D, id: Node-2 -> FinalNode: EEENNNDDD, id: Node-15 }
+{ Node: split1, id: Node-3 -> Node: G, id: Node-7 }
+{ Node: C, id: Node-4 -> JoinNode: Joinjoin, id: Node-19 }
+{ Node: join1, id: Node-5 -> BranchNode: BranchD, id: Node-18 }
+{ Node: join2, id: Node-6 -> BranchNode: BranchD, id: Node-18 }
+{ Node: G, id: Node-7 -> Node: H, id: Node-10 }
+{ Node: B, id: Node-8 -> JoinNode: Joinjoin, id: Node-19 }
+{ InitialNode: SSSTTTAAARRRTTT, id: Node-9 -> Node: split, id: Node-12 }
+{ Node: H, id: Node-10 -> Node: join1, id: Node-5 }
+{ Node: A, id: Node-11 -> ForkNode: ForkA, id: Node-16 }
+{ ForkNode: ForkA, id: Node-16 -> Node: B, id: Node-8 }
+{ ForkNode: ForkA, id: Node-16 -> Node: C, id: Node-4 }
+{ Node: split, id: Node-12 -> Node: A, id: Node-11 }
+{ Node: E, id: Node-13 -> Node: join2, id: Node-6 }
+{ Node: join, id: Node-14 -> BranchNode: Branchjoin, id: Node-17 }
+{ BranchNode: Branchjoin, id: Node-17 -> Node: split2, id: Node-0 }
+{ BranchNode: Branchjoin, id: Node-17 -> Node: split1, id: Node-3 }
+{ BranchNode: BranchD, id: Node-18 -> Node: D, id: Node-2 }
+{ JoinNode: Joinjoin, id: Node-19 -> Node: join, id: Node-14 }

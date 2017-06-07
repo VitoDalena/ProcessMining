@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="58699095" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="34796606" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-4 Node-5 Node-6 Node-7 Node-8 Node-9 ">
+<node xmi:type="uml:InitialNode" xmi:id="Node-0" name="SSSTTTAAARRRTTT" outgoing="Edge-0"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="ProcPends" outgoing="Edge-1" incoming="Edge-7"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-2" name="BEGIN" outgoing="Edge-2" incoming="Edge-0"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-3" name="END" outgoing="Edge-3" incoming="Edge-9"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-4" name="RSO" outgoing="Edge-4" incoming="Edge-6"/>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-5" name="EEENNNDDD" incoming="Edge-3"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-6" name="SetPath" outgoing="Edge-5" incoming="Edge-2"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="RPB" outgoing="Edge-8" incoming="Edge-1"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-8" name="ForkSetPath" outgoing="Edge-6 Edge-7" incoming="Edge-5"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-9" name="JoinEND" outgoing="Edge-9" incoming="Edge-4 Edge-8">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-9_spec" name="JoinEND" value="true"/>
+</node>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-2" source="Node-0" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="SSSTTTAAARRRTTT_To_BEGIN_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="SSSTTTAAARRRTTT_To_BEGIN_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-7" source="Node-1" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="ProcPends_To_RPB_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="ProcPends_To_RPB_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-6" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="BEGIN_To_SetPath_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="BEGIN_To_SetPath_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-5" source="Node-3" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="END_To_EEENNNDDD_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="END_To_EEENNNDDD_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-9" source="Node-4" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="RSO_To_JoinEND_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="RSO_To_JoinEND_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-8" source="Node-6" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="SetPath_To_ForkSetPath_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="SetPath_To_ForkSetPath_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-4" source="Node-8" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="ForkSetPath_To_RSO_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="ForkSetPath_To_RSO_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-1" source="Node-8" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="ForkSetPath_To_ProcPends_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="ForkSetPath_To_ProcPends_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-9" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="RPB_To_JoinEND_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="RPB_To_JoinEND_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-3" source="Node-9" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="JoinEND_To_END_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="JoinEND_To_END_weight" />
+</edge>
+</packagedElement>
+</uml:Model>

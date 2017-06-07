@@ -1,0 +1,29 @@
+RTTgraph:Activity Diagram
+Nodes:
+InitialNode: SSSTTTAAARRRTTT, id: Node-0
+Node: Do Practical Exam Drive Cars, id: Node-1
+Node: Attend Classes Drive Cars, id: Node-2
+FinalNode: EEENNNDDD, id: Node-3
+Node: Attend Classes Ride Motorbikes, id: Node-4
+Node: Do Practical Exam Ride Motorbikes, id: Node-5
+Node: Apply for License, id: Node-6
+Node: Do Theoretical Exam, id: Node-7
+Node: Get Result, id: Node-8
+BranchNode: BranchApply for License, id: Node-9
+BranchNode: BranchDo Theoretical Exam, id: Node-10
+BranchNode: BranchGet Result, id: Node-12
+Edges:
+{ InitialNode: SSSTTTAAARRRTTT, id: Node-0 -> Node: Apply for License, id: Node-6 }
+{ Node: Do Practical Exam Drive Cars, id: Node-1 -> BranchNode: BranchGet Result, id: Node-12 }
+{ Node: Attend Classes Drive Cars, id: Node-2 -> BranchNode: BranchDo Theoretical Exam, id: Node-10 }
+{ Node: Attend Classes Ride Motorbikes, id: Node-4 -> BranchNode: BranchDo Theoretical Exam, id: Node-10 }
+{ Node: Do Practical Exam Ride Motorbikes, id: Node-5 -> BranchNode: BranchGet Result, id: Node-12 }
+{ Node: Apply for License, id: Node-6 -> BranchNode: BranchApply for License, id: Node-9 }
+{ BranchNode: BranchApply for License, id: Node-9 -> Node: Attend Classes Drive Cars, id: Node-2 }
+{ BranchNode: BranchApply for License, id: Node-9 -> Node: Attend Classes Ride Motorbikes, id: Node-4 }
+{ Node: Do Theoretical Exam, id: Node-7 -> BranchNode: BranchDo Theoretical Exam, id: Node-10 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-10 -> Node: Do Practical Exam Ride Motorbikes, id: Node-5 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-10 -> Node: Do Practical Exam Drive Cars, id: Node-1 }
+{ Node: Get Result, id: Node-8 -> FinalNode: EEENNNDDD, id: Node-3 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-10 -> Node: Do Theoretical Exam, id: Node-7 }
+{ BranchNode: BranchGet Result, id: Node-12 -> Node: Get Result, id: Node-8 }

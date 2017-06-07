@@ -1,0 +1,30 @@
+[
+{key: "SSSTTTAAARRRTTT", category: "InitialNode", color: "black"},
+{key: "Do Practical Exam Drive Cars", category: "Node", color: "orange"},
+{key: "Attend Classes Drive Cars", category: "Node", color: "orange"},
+{key: "EEENNNDDD", category: "FinalNode", color: "black"},
+{key: "Attend Classes Ride Motorbikes", category: "Node", color: "orange"},
+{key: "Do Practical Exam Ride Motorbikes", category: "Node", color: "orange"},
+{key: "Apply for License", category: "Node", color: "orange"},
+{key: "Do Theoretical Exam", category: "Node", color: "orange"},
+{key: "Get Result", category: "Node", color: "orange"},
+{key: "BranchApply for License", category: "BranchNode", color: "cyan"},
+{key: "BranchDo Theoretical Exam", category: "BranchNode", color: "cyan"},
+{key: "BranchGet Result", category: "BranchNode", color: "cyan"}
+],
+[
+{from: "SSSTTTAAARRRTTT", to: "Apply for License"},
+{from: "Do Practical Exam Drive Cars", to: "BranchGet Result"},
+{from: "Attend Classes Drive Cars", to: "BranchDo Theoretical Exam"},
+{from: "Attend Classes Ride Motorbikes", to: "BranchDo Theoretical Exam"},
+{from: "Do Practical Exam Ride Motorbikes", to: "BranchGet Result"},
+{from: "Apply for License", to: "BranchApply for License"},
+{from: "BranchApply for License", to: "Attend Classes Drive Cars"},
+{from: "BranchApply for License", to: "Attend Classes Ride Motorbikes"},
+{from: "Do Theoretical Exam", to: "BranchDo Theoretical Exam"},
+{from: "BranchDo Theoretical Exam", to: "Do Practical Exam Ride Motorbikes"},
+{from: "BranchDo Theoretical Exam", to: "Do Practical Exam Drive Cars"},
+{from: "Get Result", to: "EEENNNDDD"},
+{from: "BranchDo Theoretical Exam", to: "Do Theoretical Exam"},
+{from: "BranchGet Result", to: "Get Result"}
+]

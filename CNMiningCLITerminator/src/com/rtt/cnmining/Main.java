@@ -38,15 +38,8 @@ public class Main {
 
             printFlex(cnminningGraph);
 
-            LogInspector logInspector = new LogInspector(log);
-            FlexInspector flexInspector = new FlexInspector(cnminningGraph);
-
-            RTTmining mining = new RTTmining(logInspector, flexInspector);
+            RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();
-            //System.out.println(graph);
-
-            RTTmining2 mining2 = new RTTmining2(cnminningGraph);
-            graph = mining2.process();
             System.out.println(graph);
 
             saveFile("rttgraph.json", graph.toJson());
