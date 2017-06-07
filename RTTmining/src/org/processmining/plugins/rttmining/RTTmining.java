@@ -55,6 +55,8 @@ public class RTTmining {
 		
         saveFile("rttgraph.xmi", graph.toXMI());
         saveFile("rttgraph.txt", graph.toString());
+		if(settings.exportJson)
+			saveFile("rttgraph.json", graph.toJson());
 		
 		return "XMI located at: ./rttgraph.xmi";
 		
@@ -98,6 +100,8 @@ public class RTTmining {
         
         saveFile("rttgraph.xmi", graph.toXMI());
         saveFile("rttgraph.txt", graph.toString());
+		if(settings.exportJson)
+			saveFile("rttgraph.json", graph.toJson());
 		
 		return "XMI located at: ./rttgraph.xmi";
 	}
