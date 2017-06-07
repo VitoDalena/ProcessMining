@@ -24,7 +24,7 @@ class RTTminingController extends Controller {
 			echo "RTTminingResult:ERROR";
 			return;
 		}		
-		echo file_get_contents("bin/$name.xmi");
+		echo file_get_contents("bin/$name.uml");
 
     }
 

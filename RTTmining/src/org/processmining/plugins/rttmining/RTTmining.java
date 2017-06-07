@@ -58,7 +58,7 @@ public class RTTmining {
 		if(settings.exportJson)
 			saveFile("rttgraph.json", graph.toJson());
 		
-		return "XMI located at: ./rttgraph.xmi";
+		return graph.toXMI();
 		
 	}
 	
@@ -103,7 +103,7 @@ public class RTTmining {
 		if(settings.exportJson)
 			saveFile("rttgraph.json", graph.toJson());
 		
-		return "XMI located at: ./rttgraph.xmi";
+		return graph.toXMI();
 	}
 	
 	private static void saveFile(String filename, String content) throws Exception {
@@ -159,6 +159,9 @@ public class RTTmining {
         System.out.println();
         // Conversione degli input bindings
         this.convertInputBindings(graph);
+
+        System.out.println();
+        this.fix(graph);
 
         return graph;
     }
@@ -218,55 +221,92 @@ public class RTTmining {
         ma devo andare a modificare quelli precedentemente inseriti
         durante la fase di conversione degli output bindings
      */
-    private void convertInputBindings(RTTgraph graph){
+    private void convertInputBindings(RTTgraph graph) {
         System.out.println("[RTTmining] computing input bindings...");
-        
-        for(FlexNode node: this.causalnet.getNodes()) {
+
+        for (FlexNode node : this.causalnet.getNodes()) {
             Set<SetFlex> inputs = node.getInputNodes();
             RTTnode current = graph.node(node.getLabel());
 
+            if(inputs.size() > 1){
+                // Aggiungi un branch
+                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                branchNode.branch();
+                graph.add(branchNode);
+
+                graph.add(new RTTedge(branchNode, current));
+                current = branchNode;
+            }
+
             for(SetFlex input: inputs) {
-            	System.out.println(input + " -> " + node.getLabel());
-            	 
+                System.out.println(input + " -> " + node.getLabel());
+
                 RTTnode endNode = current;
 
-                // Inserisci un join
-                if (input.size() > 1) {
+                if(input.size() > 1){
                     RTTnode joinNode = new RTTnode("Join" + current.name);
                     joinNode.join();
-                    graph.add(joinNode);
+                    joinNode = graph.add(joinNode);
 
                     graph.add(new RTTedge(joinNode, endNode));
                     endNode = joinNode;
                 }
 
-                // Modifica gli archi gli archi
+                // Aggiungi gli archi
                 Iterator<FlexNode> i = input.iterator();
                 while(i.hasNext()) {
                     FlexNode n = i.next();
-
-                    for(RTTedge e: graph.edgesEndWith(current))
-                    {
-                        if(e.begin().name.contains(n.getLabel()))
+                    for(RTTedge e: graph.edgesEndWith(graph.node(node.getLabel()))){
+                        if(e.begin().name.contains(n.getLabel())) {
+                            System.out.println("[Fixing Edge] " + e.toString() + "...");
                             e.end(endNode);
+                            System.out.println("[Fixed] " + e.toString());
+                        }
+                        else {
+                            //System.out.println("[Fix Fail] " + e.toString());
+                        }
                     }
                 }
             }
+        }
+    }
 
-            // Branch join
-            if(inputs.size() > 1){
-                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
-                branchNode.branch();
-                branchNode = graph.add(branchNode);
+    private void fix(RTTgraph graph){
+        System.out.println("[RTTmining] fixing graph...");
 
-                // Aggiorna tutti i collegamenti che puntavano
-                // al nodo corrente, verso il branch
-                for(RTTedge edge: graph.edgesEndWith(current)){
-                    edge.end(branchNode);
-                }
+        for(RTTnode node:graph.nodesByType(RTTnode.BranchNode)){
+            ArrayList<RTTedge> incoming = graph.edgesEndWith(node);
+            ArrayList<RTTedge> outcoming = graph.edgesStartWith(node);
 
-                // Collega il branch al nodo corrente
-                graph.add(new RTTedge(branchNode, current));
+            if(incoming.size() == 1 && outcoming.size() == 1){
+                System.out.println("[Graph Fix] Deleting node " + node.toString());
+
+                graph.add(new RTTedge(incoming.get(0).begin(), outcoming.get(0).end()));
+
+                graph.nodes().remove(node);
+                graph.edges().remove(incoming.get(0));
+                graph.edges().remove(outcoming.get(0));
+            }
+        }
+
+        for(RTTnode node:graph.nodesByType(RTTnode.JoinNode)){
+            ArrayList<RTTedge> incoming = graph.edgesEndWith(node);
+            ArrayList<RTTedge> outcoming = graph.edgesStartWith(node);
+
+            if(incoming.size() == 1 && outcoming.size() == 1){
+                System.out.println("[Graph Fix] Deleting node " + node.toString());
+
+                graph.add(new RTTedge(incoming.get(0).begin(), outcoming.get(0).end()));
+
+                graph.nodes().remove(node);
+                graph.edges().remove(incoming.get(0));
+                graph.edges().remove(outcoming.get(0));
+            }
+            else if(incoming.size() == 0 && outcoming.size() == 1){
+                System.out.println("[Graph Fix] Deleting node " + node.toString());
+
+                graph.nodes().remove(node);
+                graph.edges().remove(outcoming.get(0));
             }
         }
     }

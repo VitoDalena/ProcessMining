@@ -37,15 +37,11 @@ public class Main {
             //CNParser parser = new CNParser("ExtendedCausalNet.xml");
             //Flex cnminningGraph = parser.parse();
 
-            System.out.println(cnminningGraph.getNodes());
-            System.out.println(cnminningGraph.getEdges());
-
-            printFlex(cnminningGraph);
-
             RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();
             //System.out.println(graph);
 
+            System.out.println();
             saveFile("rttgraph.json", graph.toJson());
             saveFile("rttgraph.uml", graph.toXMI());
             saveFile("rttgraph.txt", graph.toString());
