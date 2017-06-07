@@ -1,12 +1,10 @@
 package com.rtt.cnmining;
 
-import org.processmining.models.flexiblemodel.Flex;
-import org.processmining.models.flexiblemodel.FlexEdge;
-import org.processmining.models.flexiblemodel.FlexFactory;
-import org.processmining.models.flexiblemodel.FlexNode;
+import org.processmining.models.flexiblemodel.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Set;
 
 /*
     Questa classe esegue una conversione dell'output del plugin di
@@ -44,7 +42,26 @@ public class CNParser {
             return null;
         }
 
+        this.computeBindings(graph);
+
         return graph;
+    }
+
+    private void computeBindings(Flex graph){
+        for(FlexNode node:graph.getNodes()){
+            SetFlex input = new SetFlex();
+            SetFlex output = new SetFlex();
+
+            for(FlexEdge<? extends FlexNode, ? extends FlexNode> edges: graph.getEdges()){
+                if(edges.getSource().getLabel().equals(node.getLabel())) {
+                    output.add(edges.getTarget());
+                }
+                else if(edges.getTarget().getLabel().equals(node.getLabel()))
+                    input.add(edges.getSource());
+            }
+            node.getOutputNodes().add(output);
+            node.getInputNodes().add(input);
+        }
     }
 
     private void addNode(Flex graph, String line){

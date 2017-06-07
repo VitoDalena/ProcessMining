@@ -21,7 +21,8 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/log1.mxml");
+        XLog log = parse("logs/log.mxml");
+
         //printLog(log);
 
         try {
@@ -35,6 +36,9 @@ public class Main {
             Flex cnminningGraph = (Flex)data[0];
             //CNParser parser = new CNParser("ExtendedCausalNet.xml");
             //Flex cnminningGraph = parser.parse();
+
+            System.out.println(cnminningGraph.getNodes());
+            System.out.println(cnminningGraph.getEdges());
 
             printFlex(cnminningGraph);
 

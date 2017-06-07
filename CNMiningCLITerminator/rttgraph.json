@@ -1,20 +1,11 @@
 [
-{key: "SSSTTTAAARRRTTT", category: "InitialNode", color: "black"},
-{key: "B", category: "Node", color: "orange"},
-{key: "A", category: "Node", color: "orange"},
-{key: "C", category: "Node", color: "orange"},
-{key: "EEENNNDDD", category: "FinalNode", color: "black"},
-{key: "D", category: "Node", color: "orange"},
-{key: "BranchA", category: "BranchNode", color: "cyan"},
-{key: "BranchD", category: "BranchNode", color: "cyan"}
+{key: "b", category: "Node", color: "orange"},
+{key: "e", category: "Node", color: "orange"},
+{key: "d", category: "FinalNode", color: "black"},
+{key: "a", category: "InitialNode", color: "black"},
+{key: "f", category: "Node", color: "orange"},
+{key: "c", category: "Node", color: "orange"}
 ],
 [
-{from: "SSSTTTAAARRRTTT", to: "A"},
-{from: "B", to: "BranchD"},
-{from: "A", to: "BranchA"},
-{from: "BranchA", to: "C"},
-{from: "BranchA", to: "BranchD"},
-{from: "C", to: "B"},
-{from: "D", to: "EEENNNDDD"},
-{from: "BranchD", to: "D"}
+
 ]
