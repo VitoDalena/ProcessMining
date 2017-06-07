@@ -47,7 +47,7 @@ public class Main {
             //System.out.println(graph);
 
             saveFile("rttgraph.json", graph.toJson());
-            saveFile("rttgraph.xmi", graph.toXMI());
+            saveFile("rttgraph.uml", graph.toXMI());
             saveFile("rttgraph.txt", graph.toString());
             saveFile("rttgraph.js", "var data = [" + graph.toJson() + "]");
 

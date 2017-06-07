@@ -53,7 +53,7 @@ public class RTTmining {
 		RTTmining mining = new RTTmining(causalnet);
 		RTTgraph graph = mining.process();
 		
-        saveFile("rttgraph.xmi", graph.toXMI());
+        saveFile("rttgraph.uml", graph.toXMI());
         saveFile("rttgraph.txt", graph.toString());
 		if(settings.exportJson)
 			saveFile("rttgraph.json", graph.toJson());

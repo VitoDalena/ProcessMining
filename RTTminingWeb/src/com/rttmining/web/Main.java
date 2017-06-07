@@ -114,7 +114,7 @@ public class Main {
             System.out.println("OutputDit = " + outputDir);
             if(exportJson)
                 saveFile(outputDir + outputFilename + ".json", graph.toJson());
-            saveFile(outputDir + outputFilename + ".xmi", graph.toXMI());
+            saveFile(outputDir + outputFilename + ".uml", graph.toXMI());
             saveFile(outputDir + outputFilename + ".txt", graph.toString());
 
             System.out.println("RTTminingResult=SUCCESS");
