@@ -2,61 +2,65 @@
 <ExtendedCausalNet name="CpnToolsLog"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
-<Node name="B" id="5">
+<Node name="B" id="3">
 <ExtendedInputBindings>
-{1, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{7, 7}
-</ExtendedOutputBindings>
-</Node>
-<Node name="F" id="3">
-<ExtendedInputBindings>
-{1, 1}
+{2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+{2, 2}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
 {4, 4}
+{4, 4}
+{4, 4}
+{4, 4}
+{4, 4}
+{4, 4}
+{4, 4}
+{4, 4}
 </ExtendedOutputBindings>
 </Node>
-<Node name="EEENNNDDD" id="9">
+<Node name="C" id="2">
 <ExtendedInputBindings>
-{8, 8}
+{1, 1}
+{1, 1}
+{1, 1}
+{1, 1}
+{1, 1}
+{1, 1}
+{1, 1}
+{1, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-</ExtendedOutputBindings>
-</Node>
-<Node name="C" id="4">
-<ExtendedInputBindings>
+{3, 3, 3, 3, 3, 3}
+{3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
+{3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
+{3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
+{3, 3, 3, 3}
+{3, 3, 3, 3, 3, 3, 3, 3}
+{3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
 {3, 3}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{7, 7}
 </ExtendedOutputBindings>
 </Node>
-<Node name="D" id="6">
+<Node name="D" id="4">
 <ExtendedInputBindings>
+{1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1}
 {1, 1}
+{1, 3, 3, 1}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{7, 7}
+{5, 5}
 </ExtendedOutputBindings>
 </Node>
-<Node name="E" id="2">
+<Node name="EEENNNDDD" id="5">
 <ExtendedInputBindings>
-{1, 1}
+{4, 4}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{7, 7}
-</ExtendedOutputBindings>
-</Node>
-<Node name="G" id="7">
-<ExtendedInputBindings>
-{5, 4, 2, 6, 6, 2, 4, 5}
-{2, 4, 5, 6, 6, 5, 4, 2}
-{6, 4, 2, 5, 5, 2, 4, 6}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{8, 8}
 </ExtendedOutputBindings>
 </Node>
 <Node name="A" id="1">
@@ -64,19 +68,9 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 {0, 0}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-{5, 3, 2, 6, 5, 3, 2, 6}
-{6, 3, 2, 5, 6, 3, 2, 5}
-{2, 3, 5, 6, 2, 3, 5, 6}
-{3, 2, 5, 6, 3, 2, 5, 6}
-{3, 5, 2, 6, 3, 5, 2, 6}
-</ExtendedOutputBindings>
-</Node>
-<Node name="H" id="8">
-<ExtendedInputBindings>
-{7, 7}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{9, 9}
+{2, 2, 2, 2, 2, 2, 2, 2, 4, 2, 2, 2, 2, 2, 2, 2, 2, 4}
+{4, 4}
+{2, 4, 2, 4}
 </ExtendedOutputBindings>
 </Node>
 <Node name="SSSTTTAAARRRTTT" id="0">
@@ -86,16 +80,10 @@ xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
 {1, 1}
 </ExtendedOutputBindings>
 </Node>
-<Edge src= "7" dest= "8" /> 
-<Edge src= "5" dest= "7" /> 
-<Edge src= "3" dest= "4" /> 
-<Edge src= "4" dest= "7" /> 
-<Edge src= "8" dest= "9" /> 
-<Edge src= "2" dest= "7" /> 
-<Edge src= "6" dest= "7" /> 
-<Edge src= "1" dest= "6" /> 
-<Edge src= "1" dest= "3" /> 
-<Edge src= "1" dest= "5" /> 
+<Edge src= "1" dest= "4" /> 
 <Edge src= "1" dest= "2" /> 
+<Edge src= "2" dest= "3" /> 
 <Edge src= "0" dest= "1" /> 
+<Edge src= "4" dest= "5" /> 
+<Edge src= "3" dest= "4" /> 
 </ExtendedCausalNet>

@@ -38,6 +38,7 @@ public class RTTmining {
 
         // Conversione degli output bindings
         this.convertOutputBindings(graph);
+        System.out.println();
         // Conversione degli input bindings
         this.convertInputBindings(graph);
 
@@ -45,6 +46,8 @@ public class RTTmining {
     }
 
     private void convertOutputBindings(RTTgraph graph){
+        System.out.println("[RTTmining] computing otuput bindings...");
+
         for(FlexNode node: this.causalnet.getNodes()){
             Set<SetFlex> outputs = node.getOutputNodes();
             RTTnode current = graph.node(node.getLabel());
@@ -60,6 +63,8 @@ public class RTTmining {
             }
 
             for(SetFlex output: outputs){
+                System.out.println(node.getLabel() + " -> " + output);
+
                 RTTnode beginNode = current;
 
                 // Inserisci un fork
@@ -96,11 +101,16 @@ public class RTTmining {
         durante la fase di conversione degli output bindings
      */
     private void convertInputBindings(RTTgraph graph){
+        System.out.println("[RTTmining] computing input bindings...");
+
         for(FlexNode node: this.causalnet.getNodes()) {
             Set<SetFlex> inputs = node.getInputNodes();
             RTTnode current = graph.node(node.getLabel());
 
             for(SetFlex input: inputs) {
+
+                System.out.println(input + " -> " + node.getLabel());
+
                 RTTnode endNode = current;
 
                 // Inserisci un join
@@ -118,10 +128,16 @@ public class RTTmining {
                 while(i.hasNext()) {
                     FlexNode n = i.next();
 
+                    boolean trovato = false;
                     for(RTTedge e: graph.edgesEndWith(current))
                     {
-                        if(e.begin().name.contains(n.getLabel()))
+                        if(e.begin().name.contains(n.getLabel())) {
+                            trovato = true;
                             e.end(endNode);
+                        }
+                    }
+                    if(!trovato){
+                        graph.add(new RTTedge(graph.node(n.getLabel()), endNode));
                     }
                 }
             }
@@ -140,6 +156,50 @@ public class RTTmining {
 
                 // Collega il branch al nodo corrente
                 graph.add(new RTTedge(branchNode, current));
+            }
+        }
+    }
+
+    private void convertInputBindings1(RTTgraph graph) {
+        System.out.println("[RTTmining] computing input bindings...");
+
+        for (FlexNode node : this.causalnet.getNodes()) {
+            Set<SetFlex> inputs = node.getInputNodes();
+            RTTnode current = graph.node(node.getLabel());
+
+            if(inputs.size() > 1){
+                // Aggiungi un branch
+                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                branchNode.branch();
+                graph.add(branchNode);
+
+                graph.add(new RTTedge(branchNode, current));
+                current = branchNode;
+            }
+
+            for(SetFlex input: inputs) {
+                System.out.println(input + " -> " + node.getLabel());
+
+                RTTnode endNode = current;
+
+                if(input.size() > 1){
+                    RTTnode joinNode = new RTTnode("Join" + current.name);
+                    joinNode.join();
+                    joinNode = graph.add(joinNode);
+
+                    graph.add(new RTTedge(joinNode, endNode));
+                    endNode = joinNode;
+                }
+
+                // Aggiungi gli archi
+                Iterator<FlexNode> i = input.iterator();
+                while(i.hasNext()) {
+                    FlexNode n = i.next();
+                    for(RTTedge e: graph.edgesEndWith(graph.node(node.getLabel()))){
+                        if(e.begin().name.contains(n.getLabel()))
+                            e.end(endNode);
+                    }
+                }
             }
         }
     }

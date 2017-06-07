@@ -21,7 +21,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse();
+        XLog log = parse("logs/log1.mxml");
         //printLog(log);
 
         try {
@@ -40,11 +40,12 @@ public class Main {
 
             RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();
-            System.out.println(graph);
+            //System.out.println(graph);
 
             saveFile("rttgraph.json", graph.toJson());
             saveFile("rttgraph.xmi", graph.toXMI());
             saveFile("rttgraph.txt", graph.toString());
+            saveFile("rttgraph.js", "var data = [" + graph.toJson() + "]");
 
         }
         catch(Exception e){
@@ -66,10 +67,10 @@ public class Main {
         }
     }
 
-    static XLog parse(){
+    static XLog parse(String name){
         try {
             XMxmlParser parser = new XMxmlParser();
-            File file = new File("logs/log.mxml");
+            File file = new File(name);
             System.out.println(file.exists());
             System.out.println(parser.canParse(file));
             List<XLog> logs = parser.parse(file);

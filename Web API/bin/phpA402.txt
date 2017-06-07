@@ -1,0 +1,19 @@
+RTTgraph:Activity Diagram
+Nodes:
+FinalNode: EEENNNDDD, id: Node-0
+Node: C, id: Node-1
+Node: D, id: Node-2
+Node: A, id: Node-3
+InitialNode: SSSTTTAAARRRTTT, id: Node-4
+Node: B, id: Node-5
+BranchNode: BranchA, id: Node-6
+BranchNode: BranchD, id: Node-7
+Edges:
+{ Node: C, id: Node-1 -> Node: B, id: Node-5 }
+{ Node: D, id: Node-2 -> FinalNode: EEENNNDDD, id: Node-0 }
+{ Node: A, id: Node-3 -> BranchNode: BranchA, id: Node-6 }
+{ BranchNode: BranchA, id: Node-6 -> BranchNode: BranchD, id: Node-7 }
+{ BranchNode: BranchA, id: Node-6 -> Node: C, id: Node-1 }
+{ InitialNode: SSSTTTAAARRRTTT, id: Node-4 -> Node: A, id: Node-3 }
+{ Node: B, id: Node-5 -> BranchNode: BranchD, id: Node-7 }
+{ BranchNode: BranchD, id: Node-7 -> Node: D, id: Node-2 }
