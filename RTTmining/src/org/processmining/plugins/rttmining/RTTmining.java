@@ -156,6 +156,7 @@ public class RTTmining {
 
         // Conversione degli output bindings
         this.convertOutputBindings(graph);
+        System.out.println();
         // Conversione degli input bindings
         this.convertInputBindings(graph);
 
@@ -163,6 +164,8 @@ public class RTTmining {
     }
 
     private void convertOutputBindings(RTTgraph graph){
+    	System.out.println("[RTTmining] computing otuput bindings...");
+    	
         for(FlexNode node: this.causalnet.getNodes()){
             Set<SetFlex> outputs = node.getOutputNodes();
             RTTnode current = graph.node(node.getLabel());
@@ -178,6 +181,8 @@ public class RTTmining {
             }
 
             for(SetFlex output: outputs){
+                System.out.println(node.getLabel() + " -> " + output);
+                
                 RTTnode beginNode = current;
 
                 // Inserisci un fork
@@ -214,11 +219,15 @@ public class RTTmining {
         durante la fase di conversione degli output bindings
      */
     private void convertInputBindings(RTTgraph graph){
+        System.out.println("[RTTmining] computing input bindings...");
+        
         for(FlexNode node: this.causalnet.getNodes()) {
             Set<SetFlex> inputs = node.getInputNodes();
             RTTnode current = graph.node(node.getLabel());
 
             for(SetFlex input: inputs) {
+            	System.out.println(input + " -> " + node.getLabel());
+            	 
                 RTTnode endNode = current;
 
                 // Inserisci un join
