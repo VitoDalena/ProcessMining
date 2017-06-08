@@ -167,15 +167,15 @@ public class RTTmining {
     }
 
     private void convertOutputBindings(RTTgraph graph){
-    	System.out.println("[RTTmining] computing otuput bindings...");
-    	
+        System.out.println("[RTTmining] computing otuput bindings...");
+
         for(FlexNode node: this.causalnet.getNodes()){
             Set<SetFlex> outputs = node.getOutputNodes();
             RTTnode current = graph.node(node.getLabel());
 
             if(outputs.size() > 1){
                 // Aggiungi un branch
-                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                RTTnode branchNode = new RTTnode("BranchOut"+node.getLabel());
                 branchNode.branch();
                 graph.add(branchNode);
 
@@ -185,7 +185,7 @@ public class RTTmining {
 
             for(SetFlex output: outputs){
                 System.out.println(node.getLabel() + " -> " + output);
-                
+
                 RTTnode beginNode = current;
 
                 // Inserisci un fork
@@ -230,7 +230,7 @@ public class RTTmining {
 
             if(inputs.size() > 1){
                 // Aggiungi un branch
-                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                RTTnode branchNode = new RTTnode("BranchIn"+node.getLabel());
                 branchNode.branch();
                 graph.add(branchNode);
 
@@ -258,6 +258,13 @@ public class RTTmining {
                     FlexNode n = i.next();
                     for(RTTedge e: graph.edgesEndWith(graph.node(node.getLabel()))){
                         if(e.begin().name.contains(n.getLabel())) {
+                        	
+                        	if(e.begin().equals(endNode))
+                                continue;
+                            if(e.begin().name.contains("BranchIn") && endNode.name.contains("JoinBranch") &&
+                                    endNode.name.contains(n.getLabel()))
+                                continue;
+                        	
                             System.out.println("[Fixing Edge] " + e.toString() + "...");
                             e.end(endNode);
                             System.out.println("[Fixed] " + e.toString());

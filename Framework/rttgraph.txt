@@ -1,29 +1,29 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: E, id: Node-0
-InitialNode: SSSTTTAAARRRTTT, id: Node-1
-FinalNode: EEENNNDDD, id: Node-2
-Node: A, id: Node-3
-Node: D, id: Node-4
-Node: G, id: Node-5
-Node: F, id: Node-6
-Node: B, id: Node-7
-Node: C, id: Node-8
-Node: H, id: Node-9
-ForkNode: ForkA, id: Node-10
-JoinNode: JoinG, id: Node-11
+Node: Do Practical Exam Ride Motorbikes, id: Node-13
+FinalNode: EEENNNDDD, id: Node-14
+Node: Do Practical Exam Drive Cars, id: Node-15
+Node: Attend Classes Ride Motorbikes, id: Node-16
+Node: Apply for License, id: Node-17
+Node: Attend Classes Drive Cars, id: Node-18
+Node: Do Theoretical Exam, id: Node-19
+InitialNode: SSSTTTAAARRRTTT, id: Node-20
+Node: Get Result, id: Node-21
+BranchNode: BranchApply for License, id: Node-22
+BranchNode: BranchDo Theoretical Exam, id: Node-23
+BranchNode: BranchGet Result, id: Node-25
 Edges:
-{ Node: E, id: Node-0 -> JoinNode: JoinG, id: Node-11 }
-{ InitialNode: SSSTTTAAARRRTTT, id: Node-1 -> Node: A, id: Node-3 }
-{ Node: A, id: Node-3 -> ForkNode: ForkA, id: Node-10 }
-{ ForkNode: ForkA, id: Node-10 -> Node: B, id: Node-7 }
-{ ForkNode: ForkA, id: Node-10 -> Node: E, id: Node-0 }
-{ ForkNode: ForkA, id: Node-10 -> Node: F, id: Node-6 }
-{ ForkNode: ForkA, id: Node-10 -> Node: D, id: Node-4 }
-{ Node: D, id: Node-4 -> JoinNode: JoinG, id: Node-11 }
-{ Node: G, id: Node-5 -> Node: H, id: Node-9 }
-{ Node: F, id: Node-6 -> Node: C, id: Node-8 }
-{ Node: B, id: Node-7 -> JoinNode: JoinG, id: Node-11 }
-{ Node: C, id: Node-8 -> JoinNode: JoinG, id: Node-11 }
-{ Node: H, id: Node-9 -> FinalNode: EEENNNDDD, id: Node-2 }
-{ JoinNode: JoinG, id: Node-11 -> Node: G, id: Node-5 }
+{ Node: Do Practical Exam Ride Motorbikes, id: Node-13 -> BranchNode: BranchGet Result, id: Node-25 }
+{ Node: Do Practical Exam Drive Cars, id: Node-15 -> BranchNode: BranchGet Result, id: Node-25 }
+{ Node: Attend Classes Ride Motorbikes, id: Node-16 -> BranchNode: BranchDo Theoretical Exam, id: Node-24 }
+{ Node: Apply for License, id: Node-17 -> BranchNode: BranchApply for License, id: Node-22 }
+{ BranchNode: BranchApply for License, id: Node-22 -> Node: Attend Classes Drive Cars, id: Node-18 }
+{ BranchNode: BranchApply for License, id: Node-22 -> Node: Attend Classes Ride Motorbikes, id: Node-16 }
+{ Node: Attend Classes Drive Cars, id: Node-18 -> BranchNode: BranchDo Theoretical Exam, id: Node-24 }
+{ Node: Do Theoretical Exam, id: Node-19 -> BranchNode: BranchDo Theoretical Exam, id: Node-23 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-23 -> Node: Do Practical Exam Drive Cars, id: Node-15 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-23 -> Node: Do Practical Exam Ride Motorbikes, id: Node-13 }
+{ InitialNode: SSSTTTAAARRRTTT, id: Node-20 -> Node: Apply for License, id: Node-17 }
+{ Node: Get Result, id: Node-21 -> FinalNode: EEENNNDDD, id: Node-14 }
+{ BranchNode: BranchDo Theoretical Exam, id: Node-24 -> Node: Do Theoretical Exam, id: Node-19 }
+{ BranchNode: BranchGet Result, id: Node-25 -> Node: Get Result, id: Node-21 }

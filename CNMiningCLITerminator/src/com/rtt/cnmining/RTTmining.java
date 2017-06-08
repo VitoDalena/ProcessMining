@@ -57,7 +57,7 @@ public class RTTmining {
 
             if(outputs.size() > 1){
                 // Aggiungi un branch
-                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                RTTnode branchNode = new RTTnode("BranchOut"+node.getLabel());
                 branchNode.branch();
                 graph.add(branchNode);
 
@@ -174,9 +174,9 @@ public class RTTmining {
 
             if(inputs.size() > 1){
                 // Aggiungi un branch
-                RTTnode branchNode = new RTTnode("Branch"+node.getLabel());
+                RTTnode branchNode = new RTTnode("BranchIn"+node.getLabel());
                 branchNode.branch();
-                graph.add(branchNode);
+                branchNode = graph.add(branchNode);
 
                 graph.add(new RTTedge(branchNode, current));
                 current = branchNode;
@@ -202,6 +202,13 @@ public class RTTmining {
                     FlexNode n = i.next();
                     for(RTTedge e: graph.edgesEndWith(graph.node(node.getLabel()))){
                         if(e.begin().name.contains(n.getLabel())) {
+
+                            if(e.begin().equals(endNode))
+                                continue;
+                            if(e.begin().name.contains("BranchIn") && endNode.name.contains("JoinBranch") &&
+                                    endNode.name.contains(n.getLabel()))
+                                continue;
+
                             System.out.println("[Fixing Edge] " + e.toString() + "...");
                             e.end(endNode);
                             System.out.println("[Fixed] " + e.toString());

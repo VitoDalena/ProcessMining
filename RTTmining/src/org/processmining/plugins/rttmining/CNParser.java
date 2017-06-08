@@ -2,8 +2,10 @@ package org.processmining.plugins.rttmining;
 
 
 import org.processmining.models.flexiblemodel.Flex;
+import org.processmining.models.flexiblemodel.FlexEdge;
 import org.processmining.models.flexiblemodel.FlexFactory;
 import org.processmining.models.flexiblemodel.FlexNode;
+import org.processmining.models.flexiblemodel.SetFlex;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -44,8 +46,27 @@ public class CNParser {
             System.out.println(e.toString());
             return null;
         }
+        
+        this.computeBindings(graph);
 
         return graph;
+    }
+    
+    private void computeBindings(Flex graph){
+        for(FlexNode node:graph.getNodes()){
+            SetFlex input = new SetFlex();
+            SetFlex output = new SetFlex();
+
+            for(FlexEdge<? extends FlexNode, ? extends FlexNode> edges: graph.getEdges()){
+                if(edges.getSource().getLabel().equals(node.getLabel())) {
+                    output.add(edges.getTarget());
+                }
+                else if(edges.getTarget().getLabel().equals(node.getLabel()))
+                    input.add(edges.getSource());
+            }
+            node.getOutputNodes().add(output);
+            node.getInputNodes().add(input);
+        }
     }
 
     private void addNode(Flex graph, String line){

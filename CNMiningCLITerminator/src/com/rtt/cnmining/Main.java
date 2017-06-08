@@ -39,7 +39,8 @@ public class Main {
 
             RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();
-            //System.out.println(graph);
+            System.out.println();
+            System.out.println(graph);
 
             System.out.println();
             saveFile("rttgraph.json", graph.toJson());
