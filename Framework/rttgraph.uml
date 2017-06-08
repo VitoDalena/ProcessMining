@@ -1,73 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="28384264" name="Activity Diagram">
-<packagedElement xmi:type="uml:Activity" xmi:id="59856821" name="Activity Diagram" node="Node-13 Node-14 Node-15 Node-16 Node-17 Node-18 Node-19 Node-20 Node-21 Node-22 Node-23 Node-25 ">
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-13" name="Do Practical Exam Ride Motorbikes" outgoing="Edge-14" incoming="Edge-23"/>
-<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-14" name="EEENNNDDD" incoming="Edge-25"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-15" name="Do Practical Exam Drive Cars" outgoing="Edge-15" incoming="Edge-22"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-16" name="Attend Classes Ride Motorbikes" outgoing="Edge-16" incoming="Edge-19"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-17" name="Apply for License" outgoing="Edge-17" incoming="Edge-24"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-18" name="Attend Classes Drive Cars" outgoing="Edge-20" incoming="Edge-18"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-19" name="Do Theoretical Exam" outgoing="Edge-21" incoming="Edge-26"/>
-<node xmi:type="uml:InitialNode" xmi:id="Node-20" name="SSSTTTAAARRRTTT" outgoing="Edge-24"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-21" name="Get Result" outgoing="Edge-25" incoming="Edge-27"/>
-<node xmi:type="uml:DecisionNode" xmi:id="Node-22" name="BranchApply for License" outgoing="Edge-18 Edge-19" incoming="Edge-17"/>
-<node xmi:type="uml:DecisionNode" xmi:id="Node-23" name="BranchDo Theoretical Exam" outgoing="Edge-22 Edge-23" incoming="Edge-21"/>
-<node xmi:type="uml:DecisionNode" xmi:id="Node-25" name="BranchGet Result" outgoing="Edge-27" incoming="Edge-14 Edge-15"/>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-14" target="Node-25" source="Node-13" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-14guard" name="Do Practical Exam Ride Motorbikes_To_BranchGet Result_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-14weight" name="Do Practical Exam Ride Motorbikes_To_BranchGet Result_weight" />
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="71871865" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="5284495" name="Activity Diagram" node="Node-30 Node-31 Node-32 Node-33 Node-34 Node-35 Node-36 Node-37 Node-38 Node-39 Node-40 Node-41 Node-42 Node-43 Node-44 Node-45 Node-46 Node-47 Node-48 Node-51 ">
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-30" name="Complete_recall" outgoing="Edge-43" incoming="Edge-68"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-31" name="Keep_records" outgoing="Edge-44" incoming="Edge-59"/>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-32" name="EPILOGUE" incoming="Edge-43"/>
+<node xmi:type="uml:InitialNode" xmi:id="Node-33" name="PROLOGUE" outgoing="Edge-45"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-34" name="Prepare_to_destory_or_modify" outgoing="Edge-46" incoming="Edge-69"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-35" name="Notify_third_parties" outgoing="Edge-47" incoming="Edge-64"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-36" name="Identify_remedies" outgoing="Edge-48" incoming="Edge-61"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-37" name="Consider_optional_actions" outgoing="Edge-51" incoming="Edge-63"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-38" name="Stop_production" outgoing="Edge-57" incoming="Edge-53 Edge-56"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-39" name="Start_recall" outgoing="Edge-58" incoming="Edge-45"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-40" name="Arrange_disposal" outgoing="Edge-65" incoming="Edge-60"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-41" name="Complete_optional_actions" outgoing="Edge-66" incoming="Edge-75"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-42" name="Stop_distribution" outgoing="Edge-67" incoming="Edge-62"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-43" name="BranchOutIdentify_remedies" outgoing="Edge-49 Edge-50" incoming="Edge-48"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-44" name="BranchOutConsider_optional_actions" outgoing="Edge-52 Edge-53 Edge-54" incoming="Edge-51"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-45" name="ForkBranchOutConsider_optional_actions" outgoing="Edge-55 Edge-56" incoming="Edge-54"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-46" name="ForkStart_recall" outgoing="Edge-59 Edge-60 Edge-61 Edge-62 Edge-63 Edge-64" incoming="Edge-58"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-47" name="JoinComplete_recall" outgoing="Edge-68" incoming="Edge-44 Edge-47 Edge-65 Edge-66 Edge-67">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-47_spec" name="JoinComplete_recall" value="true"/>
+</node>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-48" name="BranchInPrepare_to_destory_or_modify" outgoing="Edge-69" incoming="Edge-50 Edge-55"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-51" name="JoinBranchInComplete_optional_actions" outgoing="Edge-75" incoming="Edge-46 Edge-49 Edge-52 Edge-57">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-51_spec" name="JoinBranchInComplete_optional_actions" value="true"/>
+</node>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-43" target="Node-32" source="Node-30" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-43guard" name="Complete_recall_To_EPILOGUE_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-43weight" name="Complete_recall_To_EPILOGUE_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-15" target="Node-25" source="Node-15" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-15guard" name="Do Practical Exam Drive Cars_To_BranchGet Result_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-15weight" name="Do Practical Exam Drive Cars_To_BranchGet Result_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-44" target="Node-47" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-44guard" name="Keep_records_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-44weight" name="Keep_records_To_JoinComplete_recall_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-16" target="Node-24" source="Node-16" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-16guard" name="Attend Classes Ride Motorbikes_To_BranchDo Theoretical Exam_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-16weight" name="Attend Classes Ride Motorbikes_To_BranchDo Theoretical Exam_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-45" target="Node-39" source="Node-33" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-45guard" name="PROLOGUE_To_Start_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-45weight" name="PROLOGUE_To_Start_recall_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-17" target="Node-22" source="Node-17" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-17guard" name="Apply for License_To_BranchApply for License_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-17weight" name="Apply for License_To_BranchApply for License_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-46" target="Node-51" source="Node-34" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-46guard" name="Prepare_to_destory_or_modify_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-46weight" name="Prepare_to_destory_or_modify_To_JoinBranchInComplete_optional_actions_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-18" target="Node-18" source="Node-22" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-18guard" name="BranchApply for License_To_Attend Classes Drive Cars_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-18weight" name="BranchApply for License_To_Attend Classes Drive Cars_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-47" target="Node-47" source="Node-35" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-47guard" name="Notify_third_parties_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-47weight" name="Notify_third_parties_To_JoinComplete_recall_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-16" source="Node-22" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="BranchApply for License_To_Attend Classes Ride Motorbikes_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="BranchApply for License_To_Attend Classes Ride Motorbikes_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-48" target="Node-43" source="Node-36" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-48guard" name="Identify_remedies_To_BranchOutIdentify_remedies_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-48weight" name="Identify_remedies_To_BranchOutIdentify_remedies_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-20" target="Node-24" source="Node-18" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-20guard" name="Attend Classes Drive Cars_To_BranchDo Theoretical Exam_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-20weight" name="Attend Classes Drive Cars_To_BranchDo Theoretical Exam_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-49" target="Node-51" source="Node-43" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-49guard" name="BranchOutIdentify_remedies_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-49weight" name="BranchOutIdentify_remedies_To_JoinBranchInComplete_optional_actions_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-21" target="Node-23" source="Node-19" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-21guard" name="Do Theoretical Exam_To_BranchDo Theoretical Exam_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-21weight" name="Do Theoretical Exam_To_BranchDo Theoretical Exam_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-50" target="Node-48" source="Node-43" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-50guard" name="BranchOutIdentify_remedies_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-50weight" name="BranchOutIdentify_remedies_To_BranchInPrepare_to_destory_or_modify_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-15" source="Node-23" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="BranchDo Theoretical Exam_To_Do Practical Exam Drive Cars_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="BranchDo Theoretical Exam_To_Do Practical Exam Drive Cars_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-51" target="Node-44" source="Node-37" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-51guard" name="Consider_optional_actions_To_BranchOutConsider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-51weight" name="Consider_optional_actions_To_BranchOutConsider_optional_actions_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-23" target="Node-13" source="Node-23" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-23guard" name="BranchDo Theoretical Exam_To_Do Practical Exam Ride Motorbikes_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-23weight" name="BranchDo Theoretical Exam_To_Do Practical Exam Ride Motorbikes_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-52" target="Node-51" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-52guard" name="BranchOutConsider_optional_actions_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-52weight" name="BranchOutConsider_optional_actions_To_JoinBranchInComplete_optional_actions_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-24" target="Node-17" source="Node-20" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-24guard" name="SSSTTTAAARRRTTT_To_Apply for License_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-24weight" name="SSSTTTAAARRRTTT_To_Apply for License_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-53" target="Node-38" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-53guard" name="BranchOutConsider_optional_actions_To_Stop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-53weight" name="BranchOutConsider_optional_actions_To_Stop_production_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-25" target="Node-14" source="Node-21" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-25guard" name="Get Result_To_EEENNNDDD_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-25weight" name="Get Result_To_EEENNNDDD_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-54" target="Node-45" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-54guard" name="BranchOutConsider_optional_actions_To_ForkBranchOutConsider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-54weight" name="BranchOutConsider_optional_actions_To_ForkBranchOutConsider_optional_actions_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-26" target="Node-19" source="Node-24" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-26guard" name="BranchDo Theoretical Exam_To_Do Theoretical Exam_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-26weight" name="BranchDo Theoretical Exam_To_Do Theoretical Exam_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-55" target="Node-48" source="Node-45" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-55guard" name="ForkBranchOutConsider_optional_actions_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-55weight" name="ForkBranchOutConsider_optional_actions_To_BranchInPrepare_to_destory_or_modify_weight" />
 </edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-27" target="Node-21" source="Node-25" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-27guard" name="BranchGet Result_To_Get Result_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-27weight" name="BranchGet Result_To_Get Result_weight" />
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-56" target="Node-38" source="Node-45" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-56guard" name="ForkBranchOutConsider_optional_actions_To_Stop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-56weight" name="ForkBranchOutConsider_optional_actions_To_Stop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-57" target="Node-51" source="Node-38" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-57guard" name="Stop_production_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-57weight" name="Stop_production_To_JoinBranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-58" target="Node-46" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-58guard" name="Start_recall_To_ForkStart_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-58weight" name="Start_recall_To_ForkStart_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-59" target="Node-31" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-59guard" name="ForkStart_recall_To_Keep_records_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-59weight" name="ForkStart_recall_To_Keep_records_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-60" target="Node-40" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-60guard" name="ForkStart_recall_To_Arrange_disposal_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-60weight" name="ForkStart_recall_To_Arrange_disposal_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-61" target="Node-36" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-61guard" name="ForkStart_recall_To_Identify_remedies_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-61weight" name="ForkStart_recall_To_Identify_remedies_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-62" target="Node-42" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-62guard" name="ForkStart_recall_To_Stop_distribution_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-62weight" name="ForkStart_recall_To_Stop_distribution_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-63" target="Node-37" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-63guard" name="ForkStart_recall_To_Consider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-63weight" name="ForkStart_recall_To_Consider_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-64" target="Node-35" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-64guard" name="ForkStart_recall_To_Notify_third_parties_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-64weight" name="ForkStart_recall_To_Notify_third_parties_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-65" target="Node-47" source="Node-40" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-65guard" name="Arrange_disposal_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-65weight" name="Arrange_disposal_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-66" target="Node-47" source="Node-41" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-66guard" name="Complete_optional_actions_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-66weight" name="Complete_optional_actions_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-67" target="Node-47" source="Node-42" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-67guard" name="Stop_distribution_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-67weight" name="Stop_distribution_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-68" target="Node-30" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-68guard" name="JoinComplete_recall_To_Complete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-68weight" name="JoinComplete_recall_To_Complete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-69" target="Node-34" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-69guard" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-69weight" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-75" target="Node-41" source="Node-51" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-75guard" name="JoinBranchInComplete_optional_actions_To_Complete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-75weight" name="JoinBranchInComplete_optional_actions_To_Complete_optional_actions_weight" />
 </edge>
 </packagedElement>
 </uml:Model>

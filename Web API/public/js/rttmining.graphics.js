@@ -23,10 +23,10 @@ RTTmining.Graphics.InitialNode = $go(go.Node, "Spot",
     	$go(go.Shape, 
     		"Circle", 
     		{ width: 22, height: 22, fill: "black" }
-        ),
+        )/*,
         $go(go.TextBlock,
           	new go.Binding("text", "key")
-        )
+        )*/
     )
 );
 
@@ -35,10 +35,10 @@ RTTmining.Graphics.FinalNode = $go(go.Node, "Spot",
     	$go(go.Shape,
           	"Circle", 
     		{ width: 16, height: 16, fill: "black" }
-        ),
+        )/*,
         $go(go.TextBlock,
           	new go.Binding("text", "key")
-        )
+        )*/
     )
 );
 

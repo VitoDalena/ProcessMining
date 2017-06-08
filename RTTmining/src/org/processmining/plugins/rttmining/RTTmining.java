@@ -17,6 +17,7 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.models.flexiblemodel.FlexNode;
 import org.processmining.models.flexiblemodel.SetFlex;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 
 public class RTTmining {
 			
@@ -68,8 +69,8 @@ public class RTTmining {
 	 * e non il grafo costruito dalla sua esecuzione
 	 */
 	@Plugin(
-        name = "RTTmining1", 
-        parameterLabels = {}, 
+        name = "RTTminingBPMN version", 
+        parameterLabels = { "Extended CausalNet" }, 
         returnLabels = { "XMI" }, 
         returnTypes = { String.class }, 
         userAccessible = true, 
@@ -80,12 +81,13 @@ public class RTTmining {
         author = "Riccardi, Tagliente, Tota", 
         email = "??"
     )
-	public static String ProcessWithoutDependencies(UIPluginContext context) throws Exception {
+	public static String ProcessWithoutDependencies(UIPluginContext context, Flex causalnet) throws Exception {
 		SettingsView settingsView = new SettingsView(context);
 		// Abilita l'importazione della rete causale da log
-		settingsView.causalnetFromLog();
+		//settingsView.causalnetFromLog();
 		Settings settings = settingsView.show();
 		
+		/*
 		if(settings.causalnetFilename.isEmpty()){
 			return "Error! RTTmining needs an Extended CausalNet to precede!";
 		}
@@ -93,9 +95,18 @@ public class RTTmining {
         Flex causalnet = parser.parse();
         if( causalnet == null ){
         	return "Error found during " + settings.causalnetFilename + " parsing!";
-        }
+        }        
         
         RTTmining mining = new RTTmining(causalnet);
+		RTTgraph graph = mining.process();
+		*/
+		
+		BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
+		if(bpmn == null){
+			return "Cannot convert CausalNet to BPMN";
+		}
+		
+		RTTminingBPMN mining = new RTTminingBPMN(bpmn);
 		RTTgraph graph = mining.process();
         
         saveFile("rttgraph.xmi", graph.toXMI());

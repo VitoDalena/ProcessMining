@@ -6,8 +6,14 @@ import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.models.flexiblemodel.Flex;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNEdge;
+import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
+import org.processmining.models.graphbased.directed.bpmn.elements.Flow;
+import org.processmining.models.graphbased.directed.bpmn.elements.Gateway;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
+import org.processmining.plugins.converters.FlexToBPMNConversionPlugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,13 +21,16 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.StandardOpenOption;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/log.mxml");
+        XLog log = parse("logs/L2.mxml");
 
         //printLog(log);
 
@@ -36,6 +45,54 @@ public class Main {
             Flex cnminningGraph = (Flex)data[0];
             //CNParser parser = new CNParser("ExtendedCausalNet.xml");
             //Flex cnminningGraph = parser.parse();
+
+            BPMNDiagram bpmn = Flex2BPMN.convert(cnminningGraph);
+            for(BPMNNode node : bpmn.getNodes()){
+                System.out.println();
+                System.out.println(node.getLabel());
+                System.out.println();
+                System.out.println("outcoming bindings...");
+                Collection<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> edges = bpmn.getOutEdges(node);
+                Iterator<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> i = edges.iterator();
+                while(i.hasNext()){
+                    BPMNEdge e = i.next();
+                    System.out.println(e.getSource() + " -> " + e.getTarget());
+                }
+                System.out.println();
+                System.out.println("incoming bindings...");
+                edges = bpmn.getInEdges(node);
+                i = edges.iterator();
+                while(i.hasNext()){
+                    BPMNEdge e = i.next();
+                    System.out.println(e.getSource() + " -> " + e.getTarget());
+                }
+                System.out.println();
+                System.out.println("flows...");
+                Collection<Flow> flows = bpmn.getFlows();
+                Iterator<Flow> fi = flows.iterator();
+                while(fi.hasNext()){
+                    Flow f = fi.next();
+                    System.out.println(f.getSource() + " -> " + f.getTarget());
+                }
+                System.out.println();
+                System.out.println("Gateways...");
+                Collection<Gateway> gateways = bpmn.getGateways();
+                Iterator<Gateway> g = gateways.iterator();
+                while(g.hasNext()){
+                    Gateway gateway = g.next();
+                    System.out.println(gateway.getLabel() + gateway.getGatewayType());
+                }
+            }
+
+            RTTminingBPMN m = new RTTminingBPMN(bpmn);
+            RTTgraph g = m.process();
+
+            System.out.println();
+            System.out.println(g.toString());
+            saveFile("rttgraph.js", "var data = [" + g.toJson() + "]");
+
+            if(true)
+                return;
 
             RTTmining mining = new RTTmining(cnminningGraph);
             RTTgraph graph = mining.process();

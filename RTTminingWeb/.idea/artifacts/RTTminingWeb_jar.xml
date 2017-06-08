@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/RTTminingWeb_jar</output-path>
     <root id="archive" name="RTTminingWeb.jar">
       <element id="module-output" name="RTTminingWeb" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/BPMN.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Flex.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/OpenXES.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/Widgets.jar" path-in-jar="/" />
@@ -14,6 +15,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ProM-Plugins.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ProM-Contexts.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/ProM-Framework.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/BPMNConversions.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/HeuristicsCNetMiner.jar" path-in-jar="/" />
     </root>
   </artifact>

@@ -3,6 +3,7 @@ package com.rttmining.web;
 import org.deckfour.xes.in.XMxmlParser;
 import org.deckfour.xes.model.XLog;
 import org.processmining.models.flexiblemodel.Flex;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
 import org.processmining.plugins.rttmining.*;
@@ -101,13 +102,12 @@ public class Main {
 
         try{
             Object[] data = CNMining.startCNMining(null, log, settings, false);
-            Flex cnminningGraph = (Flex)data[0];
+            Flex causalnet = (Flex)data[0];
 
-            //LogInspector logInspector = new LogInspector(log);
-            //FlexInspector flexInspector = new FlexInspector(cnminningGraph);
+            BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
 
-            //RTTmining mining = new RTTmining(logInspector, flexInspector);
-            RTTmining mining = new RTTmining(cnminningGraph);
+            //RTTmining mining = new RTTmining(causalnet);
+            RTTminingBPMN mining = new RTTminingBPMN(bpmn);
             RTTgraph graph = mining.process();
             //System.out.println(graph);
 

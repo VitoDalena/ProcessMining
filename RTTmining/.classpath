@@ -42,5 +42,7 @@
 	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
 	<classpathentry kind="lib" path="lib/Flex.jar"/>
 	<classpathentry kind="lib" path="lib/Widgets.jar"/>
+	<classpathentry kind="lib" path="lib/BPMN.jar"/>
+	<classpathentry kind="lib" path="lib/BPMNConversions.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

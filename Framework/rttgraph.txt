@@ -1,29 +1,51 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: Do Practical Exam Ride Motorbikes, id: Node-13
-FinalNode: EEENNNDDD, id: Node-14
-Node: Do Practical Exam Drive Cars, id: Node-15
-Node: Attend Classes Ride Motorbikes, id: Node-16
-Node: Apply for License, id: Node-17
-Node: Attend Classes Drive Cars, id: Node-18
-Node: Do Theoretical Exam, id: Node-19
-InitialNode: SSSTTTAAARRRTTT, id: Node-20
-Node: Get Result, id: Node-21
-BranchNode: BranchApply for License, id: Node-22
-BranchNode: BranchDo Theoretical Exam, id: Node-23
-BranchNode: BranchGet Result, id: Node-25
+Node: Complete_recall, id: Node-30
+Node: Keep_records, id: Node-31
+FinalNode: EPILOGUE, id: Node-32
+InitialNode: PROLOGUE, id: Node-33
+Node: Prepare_to_destory_or_modify, id: Node-34
+Node: Notify_third_parties, id: Node-35
+Node: Identify_remedies, id: Node-36
+Node: Consider_optional_actions, id: Node-37
+Node: Stop_production, id: Node-38
+Node: Start_recall, id: Node-39
+Node: Arrange_disposal, id: Node-40
+Node: Complete_optional_actions, id: Node-41
+Node: Stop_distribution, id: Node-42
+BranchNode: BranchOutIdentify_remedies, id: Node-43
+BranchNode: BranchOutConsider_optional_actions, id: Node-44
+ForkNode: ForkBranchOutConsider_optional_actions, id: Node-45
+ForkNode: ForkStart_recall, id: Node-46
+JoinNode: JoinComplete_recall, id: Node-47
+BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-48
+JoinNode: JoinBranchInComplete_optional_actions, id: Node-51
 Edges:
-{ Node: Do Practical Exam Ride Motorbikes, id: Node-13 -> BranchNode: BranchGet Result, id: Node-25 }
-{ Node: Do Practical Exam Drive Cars, id: Node-15 -> BranchNode: BranchGet Result, id: Node-25 }
-{ Node: Attend Classes Ride Motorbikes, id: Node-16 -> BranchNode: BranchDo Theoretical Exam, id: Node-24 }
-{ Node: Apply for License, id: Node-17 -> BranchNode: BranchApply for License, id: Node-22 }
-{ BranchNode: BranchApply for License, id: Node-22 -> Node: Attend Classes Drive Cars, id: Node-18 }
-{ BranchNode: BranchApply for License, id: Node-22 -> Node: Attend Classes Ride Motorbikes, id: Node-16 }
-{ Node: Attend Classes Drive Cars, id: Node-18 -> BranchNode: BranchDo Theoretical Exam, id: Node-24 }
-{ Node: Do Theoretical Exam, id: Node-19 -> BranchNode: BranchDo Theoretical Exam, id: Node-23 }
-{ BranchNode: BranchDo Theoretical Exam, id: Node-23 -> Node: Do Practical Exam Drive Cars, id: Node-15 }
-{ BranchNode: BranchDo Theoretical Exam, id: Node-23 -> Node: Do Practical Exam Ride Motorbikes, id: Node-13 }
-{ InitialNode: SSSTTTAAARRRTTT, id: Node-20 -> Node: Apply for License, id: Node-17 }
-{ Node: Get Result, id: Node-21 -> FinalNode: EEENNNDDD, id: Node-14 }
-{ BranchNode: BranchDo Theoretical Exam, id: Node-24 -> Node: Do Theoretical Exam, id: Node-19 }
-{ BranchNode: BranchGet Result, id: Node-25 -> Node: Get Result, id: Node-21 }
+{ Node: Complete_recall, id: Node-30 -> FinalNode: EPILOGUE, id: Node-32 }
+{ Node: Keep_records, id: Node-31 -> JoinNode: JoinComplete_recall, id: Node-47 }
+{ InitialNode: PROLOGUE, id: Node-33 -> Node: Start_recall, id: Node-39 }
+{ Node: Prepare_to_destory_or_modify, id: Node-34 -> JoinNode: JoinBranchInComplete_optional_actions, id: Node-51 }
+{ Node: Notify_third_parties, id: Node-35 -> JoinNode: JoinComplete_recall, id: Node-47 }
+{ Node: Identify_remedies, id: Node-36 -> BranchNode: BranchOutIdentify_remedies, id: Node-43 }
+{ BranchNode: BranchOutIdentify_remedies, id: Node-43 -> JoinNode: JoinBranchInComplete_optional_actions, id: Node-51 }
+{ BranchNode: BranchOutIdentify_remedies, id: Node-43 -> BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-48 }
+{ Node: Consider_optional_actions, id: Node-37 -> BranchNode: BranchOutConsider_optional_actions, id: Node-44 }
+{ BranchNode: BranchOutConsider_optional_actions, id: Node-44 -> JoinNode: JoinBranchInComplete_optional_actions, id: Node-51 }
+{ BranchNode: BranchOutConsider_optional_actions, id: Node-44 -> Node: Stop_production, id: Node-38 }
+{ BranchNode: BranchOutConsider_optional_actions, id: Node-44 -> ForkNode: ForkBranchOutConsider_optional_actions, id: Node-45 }
+{ ForkNode: ForkBranchOutConsider_optional_actions, id: Node-45 -> BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-48 }
+{ ForkNode: ForkBranchOutConsider_optional_actions, id: Node-45 -> Node: Stop_production, id: Node-38 }
+{ Node: Stop_production, id: Node-38 -> JoinNode: JoinBranchInComplete_optional_actions, id: Node-51 }
+{ Node: Start_recall, id: Node-39 -> ForkNode: ForkStart_recall, id: Node-46 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Keep_records, id: Node-31 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Arrange_disposal, id: Node-40 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Identify_remedies, id: Node-36 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Stop_distribution, id: Node-42 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Consider_optional_actions, id: Node-37 }
+{ ForkNode: ForkStart_recall, id: Node-46 -> Node: Notify_third_parties, id: Node-35 }
+{ Node: Arrange_disposal, id: Node-40 -> JoinNode: JoinComplete_recall, id: Node-47 }
+{ Node: Complete_optional_actions, id: Node-41 -> JoinNode: JoinComplete_recall, id: Node-47 }
+{ Node: Stop_distribution, id: Node-42 -> JoinNode: JoinComplete_recall, id: Node-47 }
+{ JoinNode: JoinComplete_recall, id: Node-47 -> Node: Complete_recall, id: Node-30 }
+{ BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-48 -> Node: Prepare_to_destory_or_modify, id: Node-34 }
+{ JoinNode: JoinBranchInComplete_optional_actions, id: Node-51 -> Node: Complete_optional_actions, id: Node-41 }
