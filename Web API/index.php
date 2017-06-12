@@ -37,9 +37,9 @@ $router->post("/log", "UploadController@log");
 $router->post("/constraints", "UploadController@constraints");
 
 // API ajax per l'elaborazione RTTmining
-$router->post('/process/$filename', "RTTminingController@process");
+$router->post('/process/$filename', "Cnet2ADController@process");
 // GET ajax per ottenere i dati di visualizzazione
-$router->get('/visualize/$filename', "RTTminingController@visualize");
+$router->get('/visualize/$filename', "Cnet2ADController@visualize");
 
 if( !$router->dispatch() ){
 	echo "Error 404";

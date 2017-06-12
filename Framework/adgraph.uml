@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="40007120" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="93872134" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-4 Node-5 Node-6 Node-7 Node-8 Node-9 Node-10 Node-11 Node-12 Node-13 Node-14 Node-15 Node-16 Node-17 Node-19 Node-21 ">
+<node xmi:type="uml:InitialNode" xmi:id="Node-0" name="PROLOGUE" outgoing="Edge-0"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="Prepare_to_destory_or_modify" outgoing="Edge-1" incoming="Edge-25"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-2" name="Consider_optional_actions" outgoing="Edge-2" incoming="Edge-21"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-3" name="Keep_records" outgoing="Edge-8" incoming="Edge-20"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-4" name="Stop_production" outgoing="Edge-9" incoming="Edge-3 Edge-6"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-5" name="Stop_distribution" outgoing="Edge-10" incoming="Edge-18"/>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-6" name="EPILOGUE" incoming="Edge-11"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="Complete_recall" outgoing="Edge-11" incoming="Edge-27"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-8" name="Identify_remedies" outgoing="Edge-12" incoming="Edge-23"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-9" name="Notify_third_parties" outgoing="Edge-15" incoming="Edge-19"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-10" name="Complete_optional_actions" outgoing="Edge-16" incoming="Edge-32"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-11" name="Start_recall" outgoing="Edge-17" incoming="Edge-0"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-12" name="Arrange_disposal" outgoing="Edge-24" incoming="Edge-22"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-13" name="BranchOutConsider_optional_actions" outgoing="Edge-3 Edge-4 Edge-5" incoming="Edge-2"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-14" name="ForkBranchOutConsider_optional_actions" outgoing="Edge-6 Edge-7" incoming="Edge-5"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-15" name="BranchOutIdentify_remedies" outgoing="Edge-13 Edge-14" incoming="Edge-12"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-16" name="ForkStart_recall" outgoing="Edge-18 Edge-19 Edge-20 Edge-21 Edge-22 Edge-23" incoming="Edge-17"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-17" name="BranchInPrepare_to_destory_or_modify" outgoing="Edge-25" incoming="Edge-7 Edge-14"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-19" name="JoinComplete_recall" outgoing="Edge-27" incoming="Edge-8 Edge-10 Edge-15 Edge-16 Edge-24">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-19_spec" name="JoinComplete_recall" value="true"/>
+</node>
+<node xmi:type="uml:JoinNode" xmi:id="Node-21" name="JoinBranchInComplete_optional_actions" outgoing="Edge-32" incoming="Edge-1 Edge-4 Edge-9 Edge-13">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-21_spec" name="JoinBranchInComplete_optional_actions" value="true"/>
+</node>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-11" source="Node-0" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="PROLOGUE_To_Start_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="PROLOGUE_To_Start_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-21" source="Node-1" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="Prepare_to_destory_or_modify_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="Prepare_to_destory_or_modify_To_JoinBranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-13" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="Consider_optional_actions_To_BranchOutConsider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="Consider_optional_actions_To_BranchOutConsider_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-4" source="Node-13" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="BranchOutConsider_optional_actions_To_Stop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="BranchOutConsider_optional_actions_To_Stop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-21" source="Node-13" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="BranchOutConsider_optional_actions_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="BranchOutConsider_optional_actions_To_JoinBranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-14" source="Node-13" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="BranchOutConsider_optional_actions_To_ForkBranchOutConsider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="BranchOutConsider_optional_actions_To_ForkBranchOutConsider_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-4" source="Node-14" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="ForkBranchOutConsider_optional_actions_To_Stop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="ForkBranchOutConsider_optional_actions_To_Stop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-17" source="Node-14" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="ForkBranchOutConsider_optional_actions_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="ForkBranchOutConsider_optional_actions_To_BranchInPrepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-19" source="Node-3" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="Keep_records_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="Keep_records_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-21" source="Node-4" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="Stop_production_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="Stop_production_To_JoinBranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-10" target="Node-19" source="Node-5" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-10guard" name="Stop_distribution_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-10weight" name="Stop_distribution_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-11" target="Node-6" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-11guard" name="Complete_recall_To_EPILOGUE_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-11weight" name="Complete_recall_To_EPILOGUE_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-12" target="Node-15" source="Node-8" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-12guard" name="Identify_remedies_To_BranchOutIdentify_remedies_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-12weight" name="Identify_remedies_To_BranchOutIdentify_remedies_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-13" target="Node-21" source="Node-15" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-13guard" name="BranchOutIdentify_remedies_To_JoinBranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-13weight" name="BranchOutIdentify_remedies_To_JoinBranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-14" target="Node-17" source="Node-15" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-14guard" name="BranchOutIdentify_remedies_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-14weight" name="BranchOutIdentify_remedies_To_BranchInPrepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-15" target="Node-19" source="Node-9" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-15guard" name="Notify_third_parties_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-15weight" name="Notify_third_parties_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-16" target="Node-19" source="Node-10" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-16guard" name="Complete_optional_actions_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-16weight" name="Complete_optional_actions_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-17" target="Node-16" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-17guard" name="Start_recall_To_ForkStart_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-17weight" name="Start_recall_To_ForkStart_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-18" target="Node-5" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-18guard" name="ForkStart_recall_To_Stop_distribution_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-18weight" name="ForkStart_recall_To_Stop_distribution_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-9" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="ForkStart_recall_To_Notify_third_parties_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="ForkStart_recall_To_Notify_third_parties_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-20" target="Node-3" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-20guard" name="ForkStart_recall_To_Keep_records_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-20weight" name="ForkStart_recall_To_Keep_records_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-21" target="Node-2" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-21guard" name="ForkStart_recall_To_Consider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-21weight" name="ForkStart_recall_To_Consider_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-12" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="ForkStart_recall_To_Arrange_disposal_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="ForkStart_recall_To_Arrange_disposal_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-23" target="Node-8" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-23guard" name="ForkStart_recall_To_Identify_remedies_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-23weight" name="ForkStart_recall_To_Identify_remedies_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-24" target="Node-19" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-24guard" name="Arrange_disposal_To_JoinComplete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-24weight" name="Arrange_disposal_To_JoinComplete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-25" target="Node-1" source="Node-17" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-25guard" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-25weight" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-27" target="Node-7" source="Node-19" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-27guard" name="JoinComplete_recall_To_Complete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-27weight" name="JoinComplete_recall_To_Complete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-32" target="Node-10" source="Node-21" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-32guard" name="JoinBranchInComplete_optional_actions_To_Complete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-32weight" name="JoinBranchInComplete_optional_actions_To_Complete_optional_actions_weight" />
+</edge>
+</packagedElement>
+</uml:Model>

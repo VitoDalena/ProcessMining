@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="icon" href="public/img/brand.svg">
 
-<title>RTTminingWeb</title>
+<title>Cnet2ADweb</title>
 <link rel="stylesheet" href="public/css/bootstrap.min.css">
 
 <style>
@@ -27,7 +27,7 @@
 <nav class="navbar navbar-light bg-faded" style="background-color: whitesmoke;">
     <a class="navbar-brand" href="#">
         <img src="public/img/brand.svg" width="32" height="32" alt="">
-        RTTminingWeb
+        Cnet2ADweb
     </a>
 </nav>
 
@@ -117,8 +117,8 @@
 <script src='public/js/bootstrap.min.js'></script>
 
 <script src='public/js/go.js'></script>
-<script src='public/js/rttmining.js'></script>
-<script src='public/js/rttmining.graphics.js'></script>
+<script src='public/js/cnet2ad.js'></script>
+<script src='public/js/cnet2ad.graphics.js'></script>
 
 <script>
 
@@ -223,9 +223,9 @@ function process(){
         )
         .done(function( e ) {
 
-            if(e == "RTTminingRESULT:ERROR")
+            if(e == "Cnet2ADRESULT:ERROR")
             {
-                alert("RTTmining fallito!");
+                alert("Cnet2AD fallito!");
                 if( btn_download.className.includes("invisible") == false )
                     btn_download.className += ' invisible';
                 if( btn_visualize.className.includes("invisible") == false )
@@ -242,7 +242,7 @@ function process(){
             xmi = e;
 
             btn_download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent( xmi ));
-            btn_download.setAttribute('download', 'rttmining.xmi');
+            btn_download.setAttribute('download', 'Cnet2AD.xmi');
 
         }
     );
@@ -266,14 +266,14 @@ function visualize(){
 
             var data = eval("[" + e + "]");
 
-            RTTmining.show(data[0], data[1]);
+            Cnet2AD.show(data[0], data[1]);
             $('#diagram').show();
 
         }
     } );
 }
             
-RTTmining.init('diagram');
+Cnet2AD.init('diagram');
 
 </script>
 

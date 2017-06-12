@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="69581523" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="38955859" name="Activity Diagram" node="Node-24 Node-25 Node-26 Node-27 Node-28 Node-29 Node-30 Node-31 Node-32 Node-33 Node-34 Node-35 Node-36 Node-37 Node-38 Node-39 Node-40 Node-41 Node-42 Node-43 Node-44 Node-45 Node-46 Node-47 Node-48 Node-49 Node-50 Node-51 Node-52 Node-53 ">
+<node xmi:type="uml:JoinNode" xmi:id="Node-24" name="Complete_optional_actions_I1" outgoing="Edge-64" incoming="Edge-48 Edge-56">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-24_spec" name="Complete_optional_actions_I1" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-25" name="Consider_optional_actions" outgoing="Edge-35" incoming="Edge-69"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-26" name="Complete_optional_actions_I2" outgoing="Edge-65" incoming="Edge-41 Edge-43 Edge-57">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-26_spec" name="Complete_optional_actions_I2" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-27" name="Stop_distribution" outgoing="Edge-50" incoming="Edge-66"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-28" name="Notify_third_parties" outgoing="Edge-44" incoming="Edge-67"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-29" name="EPILOGUE" outgoing="Edge-34" incoming="Edge-46"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-30" name="Stop_production_Complete_optional_actions" outgoing="Edge-40 Edge-41" incoming="Edge-53"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-31" name="PROLOGUE" outgoing="Edge-51" incoming="Edge-33"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-32" name="Stop_production" outgoing="Edge-53" incoming="Edge-73"/>
+<node xmi:type="uml:InitialNode" xmi:id="Node-33" name="start" outgoing="Edge-33"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-34" name="Complete_optional_actions_I0" outgoing="Edge-63" incoming="Edge-40 Edge-42">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-34_spec" name="Complete_optional_actions_I0" value="true"/>
+</node>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-35" name="end" incoming="Edge-34"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-36" name="Consider_optional_actions_Prepare_to_destory_or_modify" outgoing="Edge-38 Edge-58" incoming="Edge-45"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-37" name="Consider_optional_actions_O2" outgoing="Edge-45 Edge-62" incoming="Edge-36"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-38" name="Arrange_disposal" outgoing="Edge-54" incoming="Edge-70"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-39" name="Prepare_to_destory_or_modify_I2" outgoing="Edge-60" incoming="Edge-38 Edge-55">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-39_spec" name="Prepare_to_destory_or_modify_I2" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-40" name="Complete_optional_actions" outgoing="Edge-47" incoming="Edge-74"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-41" name="Start_recall" outgoing="Edge-72" incoming="Edge-51"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-42" name="Prepare_to_destory_or_modify" outgoing="Edge-52" incoming="Edge-75"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-43" name="Complete_recall" outgoing="Edge-46" incoming="Edge-39"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-44" name="Consider_optional_actions_O" outgoing="Edge-36 Edge-48 Edge-61" incoming="Edge-35"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-45" name="Keep_records" outgoing="Edge-49" incoming="Edge-68"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-46" name="Prepare_to_destory_or_modify_Complete_optional_actions" outgoing="Edge-42 Edge-43" incoming="Edge-52"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-47" name="Complete_recall_I0" outgoing="Edge-39" incoming="Edge-44 Edge-47 Edge-49 Edge-50 Edge-54">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-47_spec" name="Complete_recall_I0" value="true"/>
+</node>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-48" name="Identify_remedies_O" outgoing="Edge-55 Edge-56 Edge-57 Edge-59" incoming="Edge-37"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-49" name="Identify_remedies" outgoing="Edge-37" incoming="Edge-71"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-50" name="ForkStart_recall" outgoing="Edge-66 Edge-67 Edge-68 Edge-69 Edge-70 Edge-71" incoming="Edge-72"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-51" name="BranchInStop_production" outgoing="Edge-73" incoming="Edge-61 Edge-62"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-52" name="BranchInComplete_optional_actions" outgoing="Edge-74" incoming="Edge-63 Edge-64 Edge-65"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-53" name="BranchInPrepare_to_destory_or_modify" outgoing="Edge-75" incoming="Edge-58 Edge-59 Edge-60"/>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-33" target="Node-31" source="Node-33" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-33guard" name="start_To_PROLOGUE_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-33weight" name="start_To_PROLOGUE_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-34" target="Node-35" source="Node-29" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-34guard" name="EPILOGUE_To_end_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-34weight" name="EPILOGUE_To_end_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-35" target="Node-44" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-35guard" name="Consider_optional_actions_To_Consider_optional_actions_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-35weight" name="Consider_optional_actions_To_Consider_optional_actions_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-36" target="Node-37" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-36guard" name="Consider_optional_actions_O_To_Consider_optional_actions_O2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-36weight" name="Consider_optional_actions_O_To_Consider_optional_actions_O2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-37" target="Node-48" source="Node-49" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-37guard" name="Identify_remedies_To_Identify_remedies_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-37weight" name="Identify_remedies_To_Identify_remedies_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-38" target="Node-39" source="Node-36" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-38guard" name="Consider_optional_actions_Prepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_I2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-38weight" name="Consider_optional_actions_Prepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_I2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-39" target="Node-43" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-39guard" name="Complete_recall_I0_To_Complete_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-39weight" name="Complete_recall_I0_To_Complete_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-40" target="Node-34" source="Node-30" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-40guard" name="Stop_production_Complete_optional_actions_To_Complete_optional_actions_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-40weight" name="Stop_production_Complete_optional_actions_To_Complete_optional_actions_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-41" target="Node-26" source="Node-30" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-41guard" name="Stop_production_Complete_optional_actions_To_Complete_optional_actions_I2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-41weight" name="Stop_production_Complete_optional_actions_To_Complete_optional_actions_I2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-42" target="Node-34" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-42guard" name="Prepare_to_destory_or_modify_Complete_optional_actions_To_Complete_optional_actions_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-42weight" name="Prepare_to_destory_or_modify_Complete_optional_actions_To_Complete_optional_actions_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-43" target="Node-26" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-43guard" name="Prepare_to_destory_or_modify_Complete_optional_actions_To_Complete_optional_actions_I2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-43weight" name="Prepare_to_destory_or_modify_Complete_optional_actions_To_Complete_optional_actions_I2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-44" target="Node-47" source="Node-28" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-44guard" name="Notify_third_parties_To_Complete_recall_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-44weight" name="Notify_third_parties_To_Complete_recall_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-45" target="Node-36" source="Node-37" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-45guard" name="Consider_optional_actions_O2_To_Consider_optional_actions_Prepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-45weight" name="Consider_optional_actions_O2_To_Consider_optional_actions_Prepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-46" target="Node-29" source="Node-43" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-46guard" name="Complete_recall_To_EPILOGUE_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-46weight" name="Complete_recall_To_EPILOGUE_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-47" target="Node-47" source="Node-40" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-47guard" name="Complete_optional_actions_To_Complete_recall_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-47weight" name="Complete_optional_actions_To_Complete_recall_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-48" target="Node-24" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-48guard" name="Consider_optional_actions_O_To_Complete_optional_actions_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-48weight" name="Consider_optional_actions_O_To_Complete_optional_actions_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-49" target="Node-47" source="Node-45" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-49guard" name="Keep_records_To_Complete_recall_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-49weight" name="Keep_records_To_Complete_recall_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-50" target="Node-47" source="Node-27" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-50guard" name="Stop_distribution_To_Complete_recall_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-50weight" name="Stop_distribution_To_Complete_recall_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-51" target="Node-41" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-51guard" name="PROLOGUE_To_Start_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-51weight" name="PROLOGUE_To_Start_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-52" target="Node-46" source="Node-42" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-52guard" name="Prepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_Complete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-52weight" name="Prepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_Complete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-53" target="Node-30" source="Node-32" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-53guard" name="Stop_production_To_Stop_production_Complete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-53weight" name="Stop_production_To_Stop_production_Complete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-54" target="Node-47" source="Node-38" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-54guard" name="Arrange_disposal_To_Complete_recall_I0_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-54weight" name="Arrange_disposal_To_Complete_recall_I0_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-55" target="Node-39" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-55guard" name="Identify_remedies_O_To_Prepare_to_destory_or_modify_I2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-55weight" name="Identify_remedies_O_To_Prepare_to_destory_or_modify_I2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-56" target="Node-24" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-56guard" name="Identify_remedies_O_To_Complete_optional_actions_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-56weight" name="Identify_remedies_O_To_Complete_optional_actions_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-57" target="Node-26" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-57guard" name="Identify_remedies_O_To_Complete_optional_actions_I2_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-57weight" name="Identify_remedies_O_To_Complete_optional_actions_I2_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-58" target="Node-53" source="Node-36" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-58guard" name="Consider_optional_actions_Prepare_to_destory_or_modify_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-58weight" name="Consider_optional_actions_Prepare_to_destory_or_modify_To_BranchInPrepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-59" target="Node-53" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-59guard" name="Identify_remedies_O_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-59weight" name="Identify_remedies_O_To_BranchInPrepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-60" target="Node-53" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-60guard" name="Prepare_to_destory_or_modify_I2_To_BranchInPrepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-60weight" name="Prepare_to_destory_or_modify_I2_To_BranchInPrepare_to_destory_or_modify_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-61" target="Node-51" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-61guard" name="Consider_optional_actions_O_To_BranchInStop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-61weight" name="Consider_optional_actions_O_To_BranchInStop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-62" target="Node-51" source="Node-37" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-62guard" name="Consider_optional_actions_O2_To_BranchInStop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-62weight" name="Consider_optional_actions_O2_To_BranchInStop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-63" target="Node-52" source="Node-34" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-63guard" name="Complete_optional_actions_I0_To_BranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-63weight" name="Complete_optional_actions_I0_To_BranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-64" target="Node-52" source="Node-24" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-64guard" name="Complete_optional_actions_I1_To_BranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-64weight" name="Complete_optional_actions_I1_To_BranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-65" target="Node-52" source="Node-26" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-65guard" name="Complete_optional_actions_I2_To_BranchInComplete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-65weight" name="Complete_optional_actions_I2_To_BranchInComplete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-66" target="Node-27" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-66guard" name="ForkStart_recall_To_Stop_distribution_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-66weight" name="ForkStart_recall_To_Stop_distribution_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-67" target="Node-28" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-67guard" name="ForkStart_recall_To_Notify_third_parties_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-67weight" name="ForkStart_recall_To_Notify_third_parties_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-68" target="Node-45" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-68guard" name="ForkStart_recall_To_Keep_records_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-68weight" name="ForkStart_recall_To_Keep_records_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-69" target="Node-25" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-69guard" name="ForkStart_recall_To_Consider_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-69weight" name="ForkStart_recall_To_Consider_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-70" target="Node-38" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-70guard" name="ForkStart_recall_To_Arrange_disposal_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-70weight" name="ForkStart_recall_To_Arrange_disposal_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-71" target="Node-49" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-71guard" name="ForkStart_recall_To_Identify_remedies_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-71weight" name="ForkStart_recall_To_Identify_remedies_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-72" target="Node-50" source="Node-41" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-72guard" name="Start_recall_To_ForkStart_recall_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-72weight" name="Start_recall_To_ForkStart_recall_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-73" target="Node-32" source="Node-51" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-73guard" name="BranchInStop_production_To_Stop_production_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-73weight" name="BranchInStop_production_To_Stop_production_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-74" target="Node-40" source="Node-52" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-74guard" name="BranchInComplete_optional_actions_To_Complete_optional_actions_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-74weight" name="BranchInComplete_optional_actions_To_Complete_optional_actions_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-75" target="Node-42" source="Node-53" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-75guard" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-75weight" name="BranchInPrepare_to_destory_or_modify_To_Prepare_to_destory_or_modify_weight" />
+</edge>
+</packagedElement>
+</uml:Model>
