@@ -36,6 +36,8 @@ public class Main {
         try {
             OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
             ontologyManager.readData();
+            if(true)
+                return;
             Settings settings = new Settings();
             settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
@@ -46,7 +48,7 @@ public class Main {
             //CNParser parser = new CNParser("ExtendedCausalNet.xml");
             //Flex cnminningGraph = parser.parse();
 
-            BPMNDiagram bpmn = Flex2BPMN.convert(cnminningGraph);
+            /*BPMNDiagram bpmn = Flex2BPMN.convert(cnminningGraph);
             for(BPMNNode node : bpmn.getNodes()){
                 System.out.println();
                 System.out.println(node.getLabel());
@@ -104,7 +106,7 @@ public class Main {
             saveFile("rttgraph.uml", graph.toXMI());
             saveFile("rttgraph.txt", graph.toString());
             saveFile("rttgraph.js", "var data = [" + graph.toJson() + "]");
-
+*/
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());
