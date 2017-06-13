@@ -106,7 +106,7 @@ public class Main {
             BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
 
             //RTTmining mining = new RTTmining(causalnet);
-            Cnet2ADWithBPMN mining = new Cnet2ADWithBPMN(bpmn);
+            Cnet2AD mining = new Cnet2AD(bpmn);
             ADgraph graph = mining.process();
             //System.out.println(graph);
 
