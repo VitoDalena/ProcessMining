@@ -10,7 +10,7 @@ public class RTTnode {
     public static final String Node = "Node";
     public static final String InitialNode = "InitialNode";
     public static final String FinalNode = "FinalNode";
-
+    public String ontologyClass;
     public String name;
     public String id;
     private String type;

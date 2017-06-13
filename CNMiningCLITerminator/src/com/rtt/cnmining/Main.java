@@ -30,12 +30,10 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/L2.mxml");
+        XLog log = parse("logs/running-example.mxml");
 
-        //printLog(log);
 
         try {
-
             Settings settings = new Settings();
             settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
@@ -120,6 +118,11 @@ public class Main {
             {
                 String nome_attivita = activity.getAttributes().get("concept:name").toString();
                 System.out.println(nome_attivita);
+                Set<String> a = activity.getAttributes().keySet();
+                for(String b:a)
+                {
+                    System.out.println(b+"-"+activity.getAttributes().get(b).toString());
+                }
             }
             System.out.println(trace);
         }
