@@ -34,6 +34,8 @@ public class Main {
 
 
         try {
+            OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
+            ontologyManager.readData();
             Settings settings = new Settings();
             settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
