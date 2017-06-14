@@ -58,22 +58,22 @@ public class OntologyManager {
                 if(nodo.nome_attivita!=null)
                 {
                     OWLClass attivita=dataFactory.getOWLClass(IRI.create(base_iri+"Activity"));
-                    OWLIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
+                    OWLIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLClassAssertionAxiom classAssertion = dataFactory.getOWLClassAssertionAxiom(attivita,activityIndividual);
                     manager.addAxiom(ontology, classAssertion);
                 }
                 if(nodo.risorsa!=null)
                 {
                     OWLClass resource=dataFactory.getOWLClass(IRI.create(base_iri+"Resource"));
-                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri +"Resource:"+ nodo.risorsa.replace(" ","")));
+                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
                     OWLClassAssertionAxiom classAssertion = dataFactory.getOWLClassAssertionAxiom(resource,resourceIndividual);
                     manager.addAxiom(ontology, classAssertion);
                 }
                 // resource has caseID
                 if(nodo.risorsa!=null&&trace!=null)
                 {
-                    OWLNamedIndividual caseIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri + "Case:"+trace));
-                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri +"Resource:"+ nodo.risorsa.replace(" ","")));
+                    OWLNamedIndividual caseIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri + "Case:"+trace.replace(" ","")));
+                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
                     OWLObjectProperty hasResource = dataFactory.getOWLObjectProperty(IRI.create(base_iri + "hasResource"));
                     OWLObjectPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLObjectPropertyAssertionAxiom(hasResource,caseIndividual, resourceIndividual);
@@ -81,8 +81,8 @@ public class OntologyManager {
                 }
                 //resource has activity
                 if(nodo.nome_attivita!=null&&nodo.risorsa!=null) {
-                    OWLNamedIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
-                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri +"Resource:"+ nodo.risorsa.replace(" ","")));
+                    OWLNamedIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
+                    OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
                     OWLObjectProperty hasActivity = dataFactory.getOWLObjectProperty(IRI.create(base_iri + "hasActivity"));
                     OWLObjectPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLObjectPropertyAssertionAxiom(hasActivity, resourceIndividual, activityIndividual);
@@ -91,8 +91,8 @@ public class OntologyManager {
                 // activity has caseID
                 if(nodo.nome_attivita!=null&&trace!=null)
                 {
-                    OWLNamedIndividual caseIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri + "Case:"+trace));
-                    OWLIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
+                    OWLNamedIndividual caseIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri + "Case:"+trace.replace(" ","")));
+                    OWLIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLObjectProperty hasActivity = dataFactory.getOWLObjectProperty(IRI.create(base_iri + "hasActivity"));
                     OWLObjectPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLObjectPropertyAssertionAxiom(hasActivity,caseIndividual, activityIndividual);
@@ -101,7 +101,7 @@ public class OntologyManager {
                 //activity has cost
                 if(nodo.costi!=null&&nodo.nome_attivita!=null)
                 {
-                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
+                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLDataProperty hasCost = dataFactory.getOWLDataProperty(IRI.create(base_iri+"hasCost"));
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(hasCost,attivita, new Integer(nodo.costi));
@@ -110,7 +110,7 @@ public class OntologyManager {
                 //activity has timestamp
                 if(nodo.timestamp!=null&&nodo.nome_attivita!=null)
                 {
-                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
+                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLDataProperty activityDuration = dataFactory.getOWLDataProperty(IRI.create(base_iri+"activityTime"));
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(activityDuration,attivita, nodo.timestamp);
@@ -119,7 +119,7 @@ public class OntologyManager {
                 //case hasName
                 if(trace!=null)
                 {
-                    OWLNamedIndividual caseID = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Case:"+trace));
+                    OWLNamedIndividual caseID = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Case:"+trace.replace(" ","")));
                     OWLDataProperty hasName = dataFactory.getOWLDataProperty(IRI.create(base_iri+"hasName"));
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(hasName,caseID, "Case: "+trace);
@@ -128,7 +128,7 @@ public class OntologyManager {
                 //activity hasName
                 if(nodo.nome_attivita!=null)
                 {
-                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Activity:"+ nodo.nome_attivita.replace(" ","")));
+                    OWLNamedIndividual attivita = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLDataProperty hasName = dataFactory.getOWLDataProperty(IRI.create(base_iri+"hasName"));
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(hasName,attivita, nodo.nome_attivita);
@@ -137,7 +137,7 @@ public class OntologyManager {
                 //resource hasName
                 if(nodo.risorsa!=null)
                 {
-                    OWLNamedIndividual risorsa = dataFactory.getOWLNamedIndividual(IRI.create(base_iri +"Resource:"+ nodo.risorsa.replace(" ","")));
+                    OWLNamedIndividual risorsa = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
                     OWLDataProperty hasName = dataFactory.getOWLDataProperty(IRI.create(base_iri+"hasName"));
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(hasName,risorsa, nodo.risorsa);
