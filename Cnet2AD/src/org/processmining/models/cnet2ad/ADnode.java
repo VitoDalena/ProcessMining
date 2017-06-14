@@ -1,4 +1,4 @@
-package org.processmining.plugins.cnet2ad;
+package org.processmining.models.cnet2ad;
 
 public class ADnode {
 
