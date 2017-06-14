@@ -54,30 +54,19 @@
     
 
 
-    <!-- topDataProperty -->
-
-    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#topDataProperty">
-        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
-    </rdf:Description>
-    
-
-
     <!-- activityDuration -->
 
     <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#activityDuration">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- caseID -->
+    <!-- activityTime -->
 
-    <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#caseID">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#activityTime"/>
     
 
 
@@ -143,105 +132,19 @@
     
 
 
-    <!-- Ellen -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Ellen">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pay compensation</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Mike -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Mike">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pay compensation</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Pete -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Pete">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Sara -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Sara">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#reinitiaterequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decide</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reinitiate request</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Sean -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Sean">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinethoroughly"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine thoroughly</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Sue -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Sue">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinethoroughly"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine thoroughly</hasName>
-    </owl:NamedIndividual>
-    
-
-
     <!-- checkticket -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#checkticket">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:checkticket">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-gen-2011 14.33.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 11.34.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 12.12.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 16.34.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 15.12.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 12.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.22.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.22.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.43.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-gen-2011 14.33.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 11.34.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 12.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 16.34.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 15.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 12.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.43.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
     </owl:NamedIndividual>
@@ -250,17 +153,17 @@
 
     <!-- decide -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#decide">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:decide">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10-gen-2011 13.28.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19-gen-2011 11.18.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23-gen-2011 13.12.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 11.22.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 11.18.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.18.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.52.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 12.02.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 9.55.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10-gen-2011 13.28.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19-gen-2011 11.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23-gen-2011 13.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 11.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 11.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.52.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 12.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 9.55.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decide</hasName>
     </owl:NamedIndividual>
@@ -269,14 +172,14 @@
 
     <!-- examinecasually -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#examinecasually">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinecasually">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 15.50.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 9.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.16.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 15.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 16.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 10.16.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 15.50.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 9.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.16.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 15.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 16.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 10.16.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
     </owl:NamedIndividual>
@@ -285,11 +188,11 @@
 
     <!-- examinethoroughly -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#examinethoroughly">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinethoroughly">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">31-dic-2010 10.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 13.06.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 14.43.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">31-dic-2010 10.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 13.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 14.43.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine thoroughly</hasName>
     </owl:NamedIndividual>
@@ -298,11 +201,11 @@
 
     <!-- paycompensation -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#paycompensation">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:paycompensation">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-gen-2011 10.45.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 11.47.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 12.05.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-gen-2011 10.45.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 11.47.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 12.05.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pay compensation</hasName>
     </owl:NamedIndividual>
@@ -311,13 +214,13 @@
 
     <!-- registerrequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#registerrequest">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:registerrequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.02.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.32.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.32.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 15.02.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.02.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.32.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.32.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 15.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.02.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
     </owl:NamedIndividual>
@@ -326,11 +229,11 @@
 
     <!-- reinitiaterequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#reinitiaterequest">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:reinitiaterequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-gen-2011 16.18.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20-gen-2011 12.48.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 12.18.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-gen-2011 16.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20-gen-2011 12.48.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 12.18.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reinitiate request</hasName>
     </owl:NamedIndividual>
@@ -339,11 +242,11 @@
 
     <!-- rejectrequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#rejectrequest">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:rejectrequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-gen-2011 15.44.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-gen-2011 14.56.00</activityDuration>
-        <activityDuration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 14.24.00</activityDuration>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-gen-2011 15.44.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-gen-2011 14.56.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 14.24.00</activityTime>
         <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
     </owl:NamedIndividual>
@@ -354,16 +257,16 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:1">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 1</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Pete"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sue"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
@@ -372,16 +275,16 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
@@ -390,19 +293,19 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#reinitiaterequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Pete"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
@@ -411,17 +314,17 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:4">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 4</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Pete"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
@@ -430,18 +333,18 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#reinitiaterequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Pete"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sue"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
@@ -450,15 +353,88 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:6">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 6</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Ellen -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Ellen">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ellen</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Mike -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Mike">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mike</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Pete -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Pete">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pete</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Sara -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sara">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sara</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Sean -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sean">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sean</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Sue -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sue">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sue</hasName>
     </owl:NamedIndividual>
 </rdf:RDF>
 
