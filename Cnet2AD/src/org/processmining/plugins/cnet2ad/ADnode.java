@@ -1,7 +1,5 @@
 package org.processmining.plugins.cnet2ad;
 
-import java.util.ArrayList;
-
 public class ADnode {
 
     public static final String JoinNode = "JoinNode";

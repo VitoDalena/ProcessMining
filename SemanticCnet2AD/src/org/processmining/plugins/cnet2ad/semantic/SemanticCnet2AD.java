@@ -18,6 +18,7 @@ import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.models.flexiblemodel.FlexNode;
 import org.processmining.models.flexiblemodel.SetFlex;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.plugins.cnet2ad.ADgraph;
 
 public class SemanticCnet2AD {
 			
@@ -31,9 +32,9 @@ public class SemanticCnet2AD {
 	
 	@Plugin(
         name = "SemanticCnet2AD", 
-        parameterLabels = { "ADgraph" }, 
-        returnLabels = { "XMI" }, 
-        returnTypes = { String.class }, 
+        parameterLabels = { "Log", "ADgraph" }, 
+        returnLabels = { "XMI", "ADgraph" }, 
+        returnTypes = { String.class, ADgraph.class }, 
         userAccessible = true, 
         help = "Produces XMI"
     )
@@ -46,10 +47,10 @@ public class SemanticCnet2AD {
 	 * Consiste nel Main del plugin stesso, 
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
-    public static String Process(UIPluginContext context, Flex causalnet) throws Exception {
-		
+    public static Object[] Process(UIPluginContext context, XLog log, ADgraph graph) throws Exception {
+				
 
-		return "";
+		return new Object[]{ graph.toXMI(), graph };
 		
 	}
 }

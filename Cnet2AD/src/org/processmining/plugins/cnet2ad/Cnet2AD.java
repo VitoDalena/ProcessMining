@@ -45,12 +45,7 @@ public class Cnet2AD {
         author = "Riccardi, Tagliente, Tota", 
         email = "??"
     )
-	public static Object[] ProcessWithoutDependencies(UIPluginContext context, Flex causalnet) throws Exception {
-		SettingsView settingsView = new SettingsView(context);
-		// Abilita l'importazione della rete causale da log
-		//settingsView.causalnetFromLog();
-		Settings settings = settingsView.show();
-				
+	public static Object[] Process(UIPluginContext context, Flex causalnet) throws Exception {
 		BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
 		if(bpmn == null){
 			return new Object[] { "Cannot convert CausalNet to BPMN", null };
@@ -61,8 +56,7 @@ public class Cnet2AD {
         
         saveFile("adgraph.xmi", graph.toXMI());
         saveFile("adgraph.txt", graph.toString());
-		if(settings.exportJson)
-			saveFile("adgraph.json", graph.toJson());
+		saveFile("adgraph.json", graph.toJson());
 		
 		return new Object[] { graph.toXMI(), graph };
 	}
