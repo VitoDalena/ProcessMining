@@ -61,8 +61,6 @@ public class Cnet2AD {
         saveFile("adgraph.txt", graph.toString());
 		saveFile("adgraph.json", graph.toJson());
 		
-		context.getProvidedObjectManager().createProvidedObject("ADgraph", graph, context);
-		
 		return new Object[] { graph.toXMI(), graph };
 	}
 	

@@ -19,7 +19,7 @@ public class SemanticCnet2AD {
 	@Plugin(
         name = "SemanticCnet2AD", 
         parameterLabels = { "Log", "ADgraph" }, 
-        returnLabels = { "XMI", "ADgraph" }, 
+        returnLabels = { "Semantic XMI", "Semantic ADgraph" }, 
         returnTypes = { String.class, ADgraph.class }, 
         userAccessible = true, 
         help = "Produces XMI"
@@ -34,10 +34,8 @@ public class SemanticCnet2AD {
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
     public static Object[] Process(UIPluginContext context, XLog log, ADgraph graph) throws Exception {
-				
+			
 
-		context.getProvidedObjectManager().createProvidedObject("SemanticADgraph", graph, context);
-		
 		return new Object[]{ graph.toXMI(), graph };
 		
 	}
