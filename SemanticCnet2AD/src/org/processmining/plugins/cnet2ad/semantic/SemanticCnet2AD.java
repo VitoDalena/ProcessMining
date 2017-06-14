@@ -1,24 +1,10 @@
 package org.processmining.plugins.cnet2ad.semantic;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
-
 import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
-import org.processmining.models.flexiblemodel.Flex;
-import org.processmining.models.flexiblemodel.FlexNode;
-import org.processmining.models.flexiblemodel.SetFlex;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
-import org.processmining.plugins.cnet2ad.ADgraph;
+import org.processmining.models.cnet2ad.ADgraph;
 
 public class SemanticCnet2AD {
 			
@@ -50,6 +36,8 @@ public class SemanticCnet2AD {
     public static Object[] Process(UIPluginContext context, XLog log, ADgraph graph) throws Exception {
 				
 
+		context.getProvidedObjectManager().createProvidedObject("SemanticADgraph", graph, context);
+		
 		return new Object[]{ graph.toXMI(), graph };
 		
 	}
