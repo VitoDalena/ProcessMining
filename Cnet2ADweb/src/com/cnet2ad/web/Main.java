@@ -1,6 +1,7 @@
 package com.cnet2ad.web;
 
 import org.deckfour.xes.in.XMxmlParser;
+import org.deckfour.xes.in.XesXmlParser;
 import org.deckfour.xes.model.XLog;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
@@ -155,11 +156,16 @@ public class Main {
 
     static XLog parseLog(String filename){
         try {
-            XMxmlParser parser = new XMxmlParser();
+            XMxmlParser mxmlParser = new XMxmlParser();
+            XesXmlParser xesParser= new XesXmlParser();
+            List<XLog> logs=null;
             File file = new File(filename);
-            System.out.println(file.exists());
-            System.out.println(parser.canParse(file));
-            List<XLog> logs = parser.parse(file);
+            if(mxmlParser.canParse(file))
+                logs = mxmlParser.parse(file);
+            else if(xesParser.canParse(file))
+                logs= xesParser.parse(file);
+            else
+                System.out.println("Error, cannot parse input file.");
             System.out.println(logs.size());
 
             return logs.iterator().next();
