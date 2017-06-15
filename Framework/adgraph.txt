@@ -1,76 +1,463 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: Complete_recall, id: Node-0
-Node: Start_recall, id: Node-1
-Node: Stop_production, id: Node-2
-Node: PROLOGUE, id: Node-3
-BranchNode: Identify_remedies_O, id: Node-4
-JoinNode: Complete_optional_actions_I0, id: Node-5
-Node: Keep_records, id: Node-6
-JoinNode: Complete_optional_actions_I2, id: Node-7
-BranchNode: Consider_optional_actions_Prepare_to_destory_or_modify, id: Node-8
-Node: Complete_optional_actions, id: Node-9
-BranchNode: Stop_production_Complete_optional_actions, id: Node-10
-Node: Prepare_to_destory_or_modify, id: Node-11
-JoinNode: Prepare_to_destory_or_modify_I2, id: Node-12
-Node: Consider_optional_actions, id: Node-13
-BranchNode: Prepare_to_destory_or_modify_Complete_optional_actions, id: Node-14
-Node: EPILOGUE, id: Node-15
-Node: Stop_distribution, id: Node-16
-JoinNode: Complete_recall_I0, id: Node-17
-JoinNode: Complete_optional_actions_I1, id: Node-18
-Node: Identify_remedies, id: Node-19
-Node: Arrange_disposal, id: Node-20
-BranchNode: Consider_optional_actions_O, id: Node-21
-ForkNode: Consider_optional_actions_O2, id: Node-22
-Node: Notify_third_parties, id: Node-23
-InitialNode: start, id: Node-24
-FinalNode: end, id: Node-25
-ForkNode: ForkStart_recall, id: Node-26
-BranchNode: BranchInStop_production, id: Node-27
-BranchNode: BranchInComplete_optional_actions, id: Node-28
-BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-29
+Node: ([Investigate software|15045],[Write report|15099]), id: Node-0
+Node: First line support|3268, id: Node-1
+Node: Rifiuta la richiesta|7513, id: Node-2
+Node: Modifica richiesta attrezzatura|52577, id: Node-3
+Node: Processo Richiesta di Vacanza|15183, id: Node-4
+Node: Review profitability|3775, id: Node-5
+Node: Investigate hardware|3862, id: Node-6
+Node: Investigate software|15045, id: Node-7
+Node: Processo Richiesta di Vacanza|5080, id: Node-8
+Node: ([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110]), id: Node-9
+Node: ([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145]), id: Node-10
+Node: ([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169]), id: Node-11
+Node: Investigate hardware|2551, id: Node-12
+Node: First line support|3083, id: Node-13
+Node: ([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560]), id: Node-14
+Node: Definizione richiesta di attrezzatura|47547, id: Node-15
+Node: Definizione richiesta di attrezzatura|52605, id: Node-16
+Node: Check diponibilità|52630, id: Node-17
+Node: Write report|15115, id: Node-18
+Node: Approvazione richiesta attrezzatura|52560, id: Node-19
+Node: ([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553]), id: Node-20
+Node: First line support|2982, id: Node-21
+Node: ([Provide new sales lead|3245],[Review profitability|3762]), id: Node-22
+Node: Rifiuta la richiesta|5072, id: Node-23
+Node: Rifiuta la richiesta|5161, id: Node-24
+Node: Check diponibilità|52508, id: Node-25
+Node: Approvazione richiesta attrezzatura|47561, id: Node-26
+Node: ([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538]), id: Node-27
+Node: Start, id: Node-28
+Node: ([Investigate software|17514],[Hand over to Level 2 support|20003]), id: Node-29
+Node: ([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630]), id: Node-30
+Node: ([Investigate hardware|3280],[Investigate software|3283]), id: Node-31
+Node: Approvazione richiesta attrezzatura|57509, id: Node-32
+Node: ([Investigate software|42514],[Hand over to Level 2 support|45003]), id: Node-33
+Node: ([Review profitability|3762],[Review customer rating|3765]), id: Node-34
+Node: ([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513]), id: Node-35
+Node: Definizione richiesta di attrezzatura|50080, id: Node-36
+Node: Check diponibilità|52658, id: Node-37
+Node: Check diponibilità|50163, id: Node-38
+Node: Hand over to Level 2 support|20003, id: Node-39
+Node: Modifica richiesta attrezzatura|47542, id: Node-40
+Node: Approvazione richiesta attrezzatura|47534, id: Node-41
+Node: ([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066]), id: Node-42
+Node: Processo Richiesta di Vacanza|10010, id: Node-43
+Node: Review profitability|3762, id: Node-44
+Node: ([Investigate hardware|22511],[Investigate software|22514]), id: Node-45
+Node: ([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577]), id: Node-46
+Node: ([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519]), id: Node-47
+Node: Rifiuta la richiesta|15198, id: Node-48
+Node: ([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119]), id: Node-49
+Node: First line support|3252, id: Node-50
+Node: ([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039]), id: Node-51
+Node: Investigate software|37514, id: Node-52
+Node: Provide new sales lead|3245, id: Node-53
+Node: ([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251]), id: Node-54
+Node: ([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522]), id: Node-55
+Node: Investigate software|55014, id: Node-56
+Node: ([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548]), id: Node-57
+Node: Definizione richiesta di attrezzatura|50134, id: Node-58
+Node: ([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508]), id: Node-59
+Node: Approvazione richiesta attrezzatura|50039, id: Node-60
+Node: Processo Richiesta di Vacanza|15018, id: Node-61
+Node: First line support|2580, id: Node-62
+InitialNode: start, id: Node-63
+Node: Approvazione richiesta attrezzatura|50127, id: Node-64
+Node: ([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534]), id: Node-65
+Node: Processo Richiesta di Vacanza|5209, id: Node-66
+Node: Rifiuta la richiesta|5110, id: Node-67
+Node: Check diponibilità|50031, id: Node-68
+Node: Processo Richiesta di Vacanza|5099, id: Node-69
+Node: Definizione richiesta di attrezzatura|50055, id: Node-70
+Node: ([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219]), id: Node-71
+Node: Rifiuta la richiesta|5243, id: Node-72
+Node: ([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546]), id: Node-73
+Node: ([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198]), id: Node-74
+Node: ([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509]), id: Node-75
+Node: ([Investigate hardware|15058],[Investigate software|15061]), id: Node-76
+Node: ([Investigate software|2554],[Hand over to Level 2 support|29]), id: Node-77
+Node: Processo Richiesta di Vacanza|15226, id: Node-78
+Node: Processo Richiesta|3949, id: Node-79
+Node: Review customer rating|3778, id: Node-80
+Node: Hand over to Level 2 support|29, id: Node-81
+Node: ([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531]), id: Node-82
+Node: ([Investigate hardware|42511],[Investigate software|42514]), id: Node-83
+Node: ([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091]), id: Node-84
+Node: ([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161]), id: Node-85
+Node: Write report|15099, id: Node-86
+Node: ([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271]), id: Node-87
+Node: Investigate software|2554, id: Node-88
+Node: Approvazione richiesta attrezzatura|57519, id: Node-89
+Node: First line support|3291, id: Node-90
+Node: ([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658]), id: Node-91
+Node: First line support|3012, id: Node-92
+Node: ([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226]), id: Node-93
+Node: Investigate software|3865, id: Node-94
+Node: Processo Richiesta|3920, id: Node-95
+Node: Processo Richiesta di Vacanza|5063, id: Node-96
+Node: ([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151]), id: Node-97
+Node: Review customer rating|3765, id: Node-98
+Node: ([Investigate software|22514],[Hand over to Level 2 support|25003]), id: Node-99
+Node: ([Investigate hardware|17511],[Investigate software|17514]), id: Node-100
+Node: Processo Richiesta di Vacanza|5169, id: Node-101
+Node: ([Investigate hardware|37511],[Investigate software|37514]), id: Node-102
+Node: Check diponibilità|52522, id: Node-103
+Node: Hand over to Level 2 support|25003, id: Node-104
+Node: First line support|3035, id: Node-105
+BranchNode: Start_O, id: Node-106
+Node: ([Handle escalated issue|25],[First line support|2580]), id: Node-107
+Node: Rifiuta la richiesta|15219, id: Node-108
+Node: Rifiuta la richiesta|5180, id: Node-109
+Node: Investigate hardware|42511, id: Node-110
+Node: Modifica richiesta attrezzatura|52584, id: Node-111
+Node: ([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605]), id: Node-112
+Node: Approvazione richiesta attrezzatura|52546, id: Node-113
+Node: Investigate software|15061, id: Node-114
+Node: Check diponibilità|50145, id: Node-115
+Node: ([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210]), id: Node-116
+Node: First line support|3005, id: Node-117
+Node: Investigate hardware|15058, id: Node-118
+Node: Definizione richiesta di attrezzatura|52637, id: Node-119
+Node: First line support|3154, id: Node-120
+Node: Definizione richiesta di attrezzatura|50013, id: Node-121
+Node: ([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591]), id: Node-122
+Node: ([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555]), id: Node-123
+Node: Processo Richiesta di Vacanza|5039, id: Node-124
+Node: ([Investigate hardware|3862],[Investigate software|3865]), id: Node-125
+Node: ([Investigate software|55014],[Hand over to Level 2 support|57503]), id: Node-126
+Node: ([Investigate hardware|2551],[Investigate software|2554]), id: Node-127
+Node: First line support|3051, id: Node-128
+Node: Processo Richiesta di Vacanza|15159, id: Node-129
+Node: ([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243]), id: Node-130
+Node: Provide new sales lead|3261, id: Node-131
+Node: Hand over to Level 2 support|45003, id: Node-132
+Node: ([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547]), id: Node-133
+Node: Investigate software|17514, id: Node-134
+Node: Processo Richiesta di Vacanza|5133, id: Node-135
+Node: ([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622]), id: Node-136
+Node: Check diponibilità|52645, id: Node-137
+Node: Processo Richiesta di Vacanza|5251, id: Node-138
+Node: Processo Richiesta di Vacanza|5222, id: Node-139
+Node: Investigate software|3846, id: Node-140
+Node: ([Investigate hardware|15042],[Investigate software|15045]), id: Node-141
+Node: ([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525]), id: Node-142
+Node: Investigate software|22514, id: Node-143
+Node: Rifiuta la richiesta|15151, id: Node-144
+Node: Definizione richiesta di attrezzatura|47515, id: Node-145
+Node: Modifica richiesta attrezzatura|52591, id: Node-146
+Node: Processo Richiesta di Vacanza|5146, id: Node-147
+Node: Check diponibilità|47555, id: Node-148
+Node: First line support|3186, id: Node-149
+Node: Investigate software|3283, id: Node-150
+Node: Definizione richiesta di attrezzatura|52622, id: Node-151
+Node: ([Investigate software|37514],[Hand over to Level 2 support|40003]), id: Node-152
+Node: ([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072]), id: Node-153
+Node: Processo Richiesta di Vacanza|5271, id: Node-154
+Node: ([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542]), id: Node-155
+Node: Definizione richiesta di attrezzatura|50108, id: Node-156
+Node: Approvazione richiesta attrezzatura|57548, id: Node-157
+Node: Investigate hardware|55011, id: Node-158
+Node: ([Investigate hardware|55011],[Investigate software|55014]), id: Node-159
+Node: Check diponibilità|50066, id: Node-160
+Node: ([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584]), id: Node-161
+Node: ([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645]), id: Node-162
+Node: First line support|3115, id: Node-163
+Node: ([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598]), id: Node-164
+Node: Hand over to Level 2 support|40003, id: Node-165
+Node: ([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031]), id: Node-166
+Node: Handle escalated issue|25, id: Node-167
+Node: Definizione richiesta di attrezzatura|50152, id: Node-168
+Node: ([Review profitability|3775],[Review customer rating|3778]), id: Node-169
+Node: Approvazione richiesta attrezzatura|52538, id: Node-170
+Node: First line support|3122, id: Node-171
+Node: Definizione richiesta di attrezzatura|50048, id: Node-172
+Node: ([Provide new sales lead|3261],[Review profitability|3775]), id: Node-173
+Node: Definizione richiesta di attrezzatura|50006, id: Node-174
+Node: ([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637]), id: Node-175
+Node: ([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163]), id: Node-176
+Node: Check diponibilità|47526, id: Node-177
+Node: ([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526]), id: Node-178
+FinalNode: end, id: Node-179
+Node: Processo Richiesta di Vacanza|15082, id: Node-180
+Node: ([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127]), id: Node-181
+Node: Investigate hardware|22511, id: Node-182
+Node: Investigate hardware|3843, id: Node-183
+Node: Check diponibilità|50091, id: Node-184
+Node: ([Investigate software|15061],[Write report|15115]), id: Node-185
+Node: End, id: Node-186
+Node: Investigate software|42514, id: Node-187
+Node: Modifica richiesta attrezzatura|52531, id: Node-188
+Node: Approvazione richiesta attrezzatura|57525, id: Node-189
+Node: ([Investigate hardware|3843],[Investigate software|3846]), id: Node-190
+Node: Check diponibilità|50119, id: Node-191
+Node: Approvazione richiesta attrezzatura|52598, id: Node-192
+Node: Processo Richiesta di Vacanza|15210, id: Node-193
+Node: Investigate hardware|15042, id: Node-194
+Node: Investigate hardware|17511, id: Node-195
+Node: Investigate hardware|37511, id: Node-196
+Node: Approvazione richiesta attrezzatura|52553, id: Node-197
+Node: Investigate hardware|3280, id: Node-198
+Node: ([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180]), id: Node-199
+Node: ([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561]), id: Node-200
+Node: Hand over to Level 2 support|57503, id: Node-201
+Node: ([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080]), id: Node-202
+Node: Processo Richiesta di Vacanza|15141, id: Node-203
+Node: ([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159]), id: Node-204
+BranchNode: BranchInEnd, id: Node-205
 Edges:
-{ InitialNode: start, id: Node-24 -> Node: PROLOGUE, id: Node-3 }
-{ Node: EPILOGUE, id: Node-15 -> FinalNode: end, id: Node-25 }
-{ Node: Consider_optional_actions, id: Node-13 -> BranchNode: Consider_optional_actions_O, id: Node-21 }
-{ BranchNode: Consider_optional_actions_O, id: Node-21 -> ForkNode: Consider_optional_actions_O2, id: Node-22 }
-{ Node: Identify_remedies, id: Node-19 -> BranchNode: Identify_remedies_O, id: Node-4 }
-{ JoinNode: Complete_recall_I0, id: Node-17 -> Node: Complete_recall, id: Node-0 }
-{ BranchNode: Stop_production_Complete_optional_actions, id: Node-10 -> JoinNode: Complete_optional_actions_I1, id: Node-18 }
-{ BranchNode: Stop_production_Complete_optional_actions, id: Node-10 -> JoinNode: Complete_optional_actions_I2, id: Node-7 }
-{ BranchNode: Prepare_to_destory_or_modify_Complete_optional_actions, id: Node-14 -> JoinNode: Complete_optional_actions_I1, id: Node-18 }
-{ BranchNode: Prepare_to_destory_or_modify_Complete_optional_actions, id: Node-14 -> JoinNode: Complete_optional_actions_I2, id: Node-7 }
-{ BranchNode: Consider_optional_actions_Prepare_to_destory_or_modify, id: Node-8 -> JoinNode: Prepare_to_destory_or_modify_I2, id: Node-12 }
-{ Node: Stop_production, id: Node-2 -> BranchNode: Stop_production_Complete_optional_actions, id: Node-10 }
-{ Node: Notify_third_parties, id: Node-23 -> JoinNode: Complete_recall_I0, id: Node-17 }
-{ Node: Keep_records, id: Node-6 -> JoinNode: Complete_recall_I0, id: Node-17 }
-{ Node: Arrange_disposal, id: Node-20 -> JoinNode: Complete_recall_I0, id: Node-17 }
-{ ForkNode: Consider_optional_actions_O2, id: Node-22 -> BranchNode: Consider_optional_actions_Prepare_to_destory_or_modify, id: Node-8 }
-{ Node: Complete_optional_actions, id: Node-9 -> JoinNode: Complete_recall_I0, id: Node-17 }
-{ BranchNode: Consider_optional_actions_O, id: Node-21 -> JoinNode: Complete_optional_actions_I0, id: Node-5 }
-{ Node: Prepare_to_destory_or_modify, id: Node-11 -> BranchNode: Prepare_to_destory_or_modify_Complete_optional_actions, id: Node-14 }
-{ Node: Complete_recall, id: Node-0 -> Node: EPILOGUE, id: Node-15 }
-{ Node: PROLOGUE, id: Node-3 -> Node: Start_recall, id: Node-1 }
-{ Node: Stop_distribution, id: Node-16 -> JoinNode: Complete_recall_I0, id: Node-17 }
-{ BranchNode: Identify_remedies_O, id: Node-4 -> JoinNode: Complete_optional_actions_I2, id: Node-7 }
-{ BranchNode: Identify_remedies_O, id: Node-4 -> JoinNode: Complete_optional_actions_I0, id: Node-5 }
-{ BranchNode: Identify_remedies_O, id: Node-4 -> JoinNode: Prepare_to_destory_or_modify_I2, id: Node-12 }
-{ BranchNode: Consider_optional_actions_O, id: Node-21 -> BranchNode: BranchInStop_production, id: Node-27 }
-{ ForkNode: Consider_optional_actions_O2, id: Node-22 -> BranchNode: BranchInStop_production, id: Node-27 }
-{ JoinNode: Complete_optional_actions_I2, id: Node-7 -> BranchNode: BranchInComplete_optional_actions, id: Node-28 }
-{ JoinNode: Complete_optional_actions_I1, id: Node-18 -> BranchNode: BranchInComplete_optional_actions, id: Node-28 }
-{ JoinNode: Complete_optional_actions_I0, id: Node-5 -> BranchNode: BranchInComplete_optional_actions, id: Node-28 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Keep_records, id: Node-6 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Consider_optional_actions, id: Node-13 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Stop_distribution, id: Node-16 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Notify_third_parties, id: Node-23 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Identify_remedies, id: Node-19 }
-{ ForkNode: ForkStart_recall, id: Node-26 -> Node: Arrange_disposal, id: Node-20 }
-{ BranchNode: Consider_optional_actions_Prepare_to_destory_or_modify, id: Node-8 -> BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-29 }
-{ BranchNode: Identify_remedies_O, id: Node-4 -> BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-29 }
-{ JoinNode: Prepare_to_destory_or_modify_I2, id: Node-12 -> BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-29 }
-{ Node: Start_recall, id: Node-1 -> ForkNode: ForkStart_recall, id: Node-26 }
-{ BranchNode: BranchInStop_production, id: Node-27 -> Node: Stop_production, id: Node-2 }
-{ BranchNode: BranchInComplete_optional_actions, id: Node-28 -> Node: Complete_optional_actions, id: Node-9 }
-{ BranchNode: BranchInPrepare_to_destory_or_modify, id: Node-29 -> Node: Prepare_to_destory_or_modify, id: Node-11 }
+{ Node: End, id: Node-186 -> FinalNode: end, id: Node-179 }
+{ InitialNode: start, id: Node-63 -> Node: Start, id: Node-28 }
+{ Node: Start, id: Node-28 -> BranchNode: Start_O, id: Node-106 }
+{ Node: Rifiuta la richiesta|15198, id: Node-48 -> Node: ([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210]), id: Node-116 }
+{ Node: Investigate hardware|37511, id: Node-196 -> Node: ([Investigate hardware|37511],[Investigate software|37514]), id: Node-102 }
+{ Node: Rifiuta la richiesta|5243, id: Node-72 -> Node: ([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251]), id: Node-54 }
+{ Node: ([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508]), id: Node-59 -> Node: Check diponibilità|52508, id: Node-25 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|3843, id: Node-183 }
+{ Node: Approvazione richiesta attrezzatura|50127, id: Node-64 -> Node: ([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531]), id: Node-82 }
+{ Node: ([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525]), id: Node-142 -> Node: Approvazione richiesta attrezzatura|57525, id: Node-189 }
+{ Node: ([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039]), id: Node-51 -> Node: Approvazione richiesta attrezzatura|50039, id: Node-60 }
+{ Node: Definizione richiesta di attrezzatura|50108, id: Node-156 -> Node: ([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119]), id: Node-49 }
+{ Node: Rifiuta la richiesta|15151, id: Node-144 -> Node: ([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159]), id: Node-204 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Provide new sales lead|3245, id: Node-53 }
+{ Node: Processo Richiesta di Vacanza|15210, id: Node-193 -> Node: ([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219]), id: Node-71 }
+{ Node: ([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561]), id: Node-200 -> Node: Approvazione richiesta attrezzatura|47561, id: Node-26 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3252, id: Node-50 }
+{ Node: Modifica richiesta attrezzatura|52577, id: Node-3 -> Node: ([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637]), id: Node-175 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5099, id: Node-69 }
+{ Node: Check diponibilità|52508, id: Node-25 -> Node: ([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560]), id: Node-14 }
+{ Node: ([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159]), id: Node-204 -> Node: Processo Richiesta di Vacanza|15159, id: Node-129 }
+{ Node: ([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598]), id: Node-164 -> Node: Approvazione richiesta attrezzatura|52598, id: Node-192 }
+{ Node: ([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251]), id: Node-54 -> Node: Processo Richiesta di Vacanza|5251, id: Node-138 }
+{ Node: Check diponibilità|50163, id: Node-38 -> Node: ([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546]), id: Node-73 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|15082, id: Node-180 }
+{ Node: ([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522]), id: Node-55 -> Node: Check diponibilità|52522, id: Node-103 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|47515, id: Node-145 }
+{ Node: ([Investigate hardware|55011],[Investigate software|55014]), id: Node-159 -> Node: Investigate software|55014, id: Node-56 }
+{ Node: Definizione richiesta di attrezzatura|50013, id: Node-121 -> Node: ([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031]), id: Node-166 }
+{ Node: Review profitability|3762, id: Node-44 -> Node: ([Review profitability|3762],[Review customer rating|3765]), id: Node-34 }
+{ Node: Provide new sales lead|3245, id: Node-53 -> Node: ([Provide new sales lead|3245],[Review profitability|3762]), id: Node-22 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|17511, id: Node-195 }
+{ Node: ([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169]), id: Node-11 -> Node: Processo Richiesta di Vacanza|5169, id: Node-101 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50152, id: Node-168 }
+{ Node: Definizione richiesta di attrezzatura|52605, id: Node-16 -> Node: ([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658]), id: Node-91 }
+{ Node: Processo Richiesta di Vacanza|5099, id: Node-69 -> Node: ([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110]), id: Node-9 }
+{ Node: Investigate software|15061, id: Node-114 -> Node: ([Investigate software|15061],[Write report|15115]), id: Node-185 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|15042, id: Node-194 }
+{ Node: ([Investigate hardware|37511],[Investigate software|37514]), id: Node-102 -> Node: Investigate software|37514, id: Node-52 }
+{ Node: Approvazione richiesta attrezzatura|47534, id: Node-41 -> Node: ([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542]), id: Node-155 }
+{ Node: Processo Richiesta di Vacanza|5271, id: Node-154 -> Node: ([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513]), id: Node-35 }
+{ Node: ([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645]), id: Node-162 -> Node: Check diponibilità|52645, id: Node-137 }
+{ Node: Definizione richiesta di attrezzatura|52622, id: Node-151 -> Node: ([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630]), id: Node-30 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5146, id: Node-147 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50006, id: Node-174 }
+{ Node: ([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605]), id: Node-112 -> Node: Definizione richiesta di attrezzatura|52605, id: Node-16 }
+{ Node: ([Investigate hardware|3862],[Investigate software|3865]), id: Node-125 -> Node: Investigate software|3865, id: Node-94 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50013, id: Node-121 }
+{ Node: ([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072]), id: Node-153 -> Node: Rifiuta la richiesta|5072, id: Node-23 }
+{ Node: ([Investigate hardware|3280],[Investigate software|3283]), id: Node-31 -> Node: Investigate software|3283, id: Node-150 }
+{ Node: ([Investigate software|42514],[Hand over to Level 2 support|45003]), id: Node-33 -> Node: Hand over to Level 2 support|45003, id: Node-132 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|10010, id: Node-43 }
+{ Node: Modifica richiesta attrezzatura|52531, id: Node-188 -> Node: ([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605]), id: Node-112 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5063, id: Node-96 }
+{ Node: ([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577]), id: Node-46 -> Node: Modifica richiesta attrezzatura|52577, id: Node-3 }
+{ Node: ([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119]), id: Node-49 -> Node: Check diponibilità|50119, id: Node-191 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|15183, id: Node-4 }
+{ Node: Review profitability|3775, id: Node-5 -> Node: ([Review profitability|3775],[Review customer rating|3778]), id: Node-169 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Provide new sales lead|3261, id: Node-131 }
+{ Node: Check diponibilità|50145, id: Node-115 -> Node: ([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538]), id: Node-27 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50055, id: Node-70 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|15018, id: Node-61 }
+{ Node: Definizione richiesta di attrezzatura|50134, id: Node-58 -> Node: ([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145]), id: Node-10 }
+{ Node: ([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161]), id: Node-85 -> Node: Rifiuta la richiesta|5161, id: Node-24 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta|3949, id: Node-79 }
+{ Node: Definizione richiesta di attrezzatura|50048, id: Node-172 -> Node: ([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066]), id: Node-42 }
+{ Node: ([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031]), id: Node-166 -> Node: Check diponibilità|50031, id: Node-68 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta|3920, id: Node-95 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3115, id: Node-163 }
+{ Node: ([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548]), id: Node-57 -> Node: Approvazione richiesta attrezzatura|57548, id: Node-157 }
+{ Node: ([Handle escalated issue|25],[First line support|2580]), id: Node-107 -> Node: First line support|2580, id: Node-62 }
+{ Node: Investigate hardware|2551, id: Node-12 -> Node: ([Investigate hardware|2551],[Investigate software|2554]), id: Node-127 }
+{ Node: ([Investigate software|15061],[Write report|15115]), id: Node-185 -> Node: Write report|15115, id: Node-18 }
+{ Node: Investigate hardware|15042, id: Node-194 -> Node: ([Investigate hardware|15042],[Investigate software|15045]), id: Node-141 }
+{ Node: ([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560]), id: Node-14 -> Node: Approvazione richiesta attrezzatura|52560, id: Node-19 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3051, id: Node-128 }
+{ Node: ([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526]), id: Node-178 -> Node: Check diponibilità|47526, id: Node-177 }
+{ Node: Processo Richiesta di Vacanza|5063, id: Node-96 -> Node: ([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072]), id: Node-153 }
+{ Node: Modifica richiesta attrezzatura|47542, id: Node-40 -> Node: ([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547]), id: Node-133 }
+{ Node: Rifiuta la richiesta|5072, id: Node-23 -> Node: ([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080]), id: Node-202 }
+{ Node: Definizione richiesta di attrezzatura|47515, id: Node-145 -> Node: ([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526]), id: Node-178 }
+{ Node: ([Investigate hardware|17511],[Investigate software|17514]), id: Node-100 -> Node: Investigate software|17514, id: Node-134 }
+{ Node: Definizione richiesta di attrezzatura|47547, id: Node-15 -> Node: ([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555]), id: Node-123 }
+{ Node: Processo Richiesta di Vacanza|5169, id: Node-101 -> Node: ([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180]), id: Node-199 }
+{ Node: Definizione richiesta di attrezzatura|52637, id: Node-119 -> Node: ([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645]), id: Node-162 }
+{ Node: ([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210]), id: Node-116 -> Node: Processo Richiesta di Vacanza|15210, id: Node-193 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3268, id: Node-1 }
+{ Node: ([Investigate software|15045],[Write report|15099]), id: Node-0 -> Node: Write report|15099, id: Node-86 }
+{ Node: ([Provide new sales lead|3245],[Review profitability|3762]), id: Node-22 -> Node: Review profitability|3762, id: Node-44 }
+{ Node: Rifiuta la richiesta|5161, id: Node-24 -> Node: ([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169]), id: Node-11 }
+{ Node: ([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145]), id: Node-10 -> Node: Check diponibilità|50145, id: Node-115 }
+{ Node: Approvazione richiesta attrezzatura|52553, id: Node-197 -> Node: ([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584]), id: Node-161 }
+{ Node: Modifica richiesta attrezzatura|52591, id: Node-146 -> Node: ([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622]), id: Node-136 }
+{ Node: Investigate hardware|3843, id: Node-183 -> Node: ([Investigate hardware|3843],[Investigate software|3846]), id: Node-190 }
+{ Node: Investigate hardware|42511, id: Node-110 -> Node: ([Investigate hardware|42511],[Investigate software|42514]), id: Node-83 }
+{ Node: Definizione richiesta di attrezzatura|50080, id: Node-36 -> Node: ([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091]), id: Node-84 }
+{ Node: ([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591]), id: Node-122 -> Node: Modifica richiesta attrezzatura|52591, id: Node-146 }
+{ Node: ([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658]), id: Node-91 -> Node: Check diponibilità|52658, id: Node-37 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|2551, id: Node-12 }
+{ Node: Check diponibilità|52630, id: Node-17 -> Node: ([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509]), id: Node-75 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3083, id: Node-13 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3122, id: Node-171 }
+{ Node: ([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163]), id: Node-176 -> Node: Check diponibilità|50163, id: Node-38 }
+{ Node: Investigate software|55014, id: Node-56 -> Node: ([Investigate software|55014],[Hand over to Level 2 support|57503]), id: Node-126 }
+{ Node: ([Investigate hardware|3843],[Investigate software|3846]), id: Node-190 -> Node: Investigate software|3846, id: Node-140 }
+{ Node: ([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584]), id: Node-161 -> Node: Modifica richiesta attrezzatura|52584, id: Node-111 }
+{ Node: Processo Richiesta di Vacanza|5222, id: Node-139 -> Node: ([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243]), id: Node-130 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50048, id: Node-172 }
+{ Node: ([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547]), id: Node-133 -> Node: Definizione richiesta di attrezzatura|47547, id: Node-15 }
+{ Node: ([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513]), id: Node-35 -> Node: Rifiuta la richiesta|7513, id: Node-2 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|15141, id: Node-203 }
+{ Node: Definizione richiesta di attrezzatura|50006, id: Node-174 -> Node: ([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508]), id: Node-59 }
+{ Node: ([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219]), id: Node-71 -> Node: Rifiuta la richiesta|15219, id: Node-108 }
+{ Node: ([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531]), id: Node-82 -> Node: Modifica richiesta attrezzatura|52531, id: Node-188 }
+{ Node: ([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127]), id: Node-181 -> Node: Approvazione richiesta attrezzatura|50127, id: Node-64 }
+{ Node: ([Investigate hardware|22511],[Investigate software|22514]), id: Node-45 -> Node: Investigate software|22514, id: Node-143 }
+{ Node: Definizione richiesta di attrezzatura|50055, id: Node-70 -> Node: ([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522]), id: Node-55 }
+{ Node: ([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226]), id: Node-93 -> Node: Processo Richiesta di Vacanza|15226, id: Node-78 }
+{ Node: Investigate software|22514, id: Node-143 -> Node: ([Investigate software|22514],[Hand over to Level 2 support|25003]), id: Node-99 }
+{ Node: Approvazione richiesta attrezzatura|52546, id: Node-113 -> Node: ([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577]), id: Node-46 }
+{ Node: Investigate hardware|22511, id: Node-182 -> Node: ([Investigate hardware|22511],[Investigate software|22514]), id: Node-45 }
+{ Node: Investigate hardware|3280, id: Node-198 -> Node: ([Investigate hardware|3280],[Investigate software|3283]), id: Node-31 }
+{ Node: ([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553]), id: Node-20 -> Node: Approvazione richiesta attrezzatura|52553, id: Node-197 }
+{ Node: Investigate hardware|15058, id: Node-118 -> Node: ([Investigate hardware|15058],[Investigate software|15061]), id: Node-76 }
+{ Node: ([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110]), id: Node-9 -> Node: Rifiuta la richiesta|5110, id: Node-67 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50108, id: Node-156 }
+{ Node: Processo Richiesta di Vacanza|15141, id: Node-203 -> Node: ([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151]), id: Node-97 }
+{ Node: ([Investigate hardware|42511],[Investigate software|42514]), id: Node-83 -> Node: Investigate software|42514, id: Node-187 }
+{ Node: ([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180]), id: Node-199 -> Node: Rifiuta la richiesta|5180, id: Node-109 }
+{ Node: ([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243]), id: Node-130 -> Node: Rifiuta la richiesta|5243, id: Node-72 }
+{ Node: Check diponibilità|50031, id: Node-68 -> Node: ([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039]), id: Node-51 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50134, id: Node-58 }
+{ Node: ([Investigate software|37514],[Hand over to Level 2 support|40003]), id: Node-152 -> Node: Hand over to Level 2 support|40003, id: Node-165 }
+{ Node: ([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198]), id: Node-74 -> Node: Rifiuta la richiesta|15198, id: Node-48 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3154, id: Node-120 }
+{ Node: Check diponibilità|47526, id: Node-177 -> Node: ([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534]), id: Node-65 }
+{ Node: ([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630]), id: Node-30 -> Node: Check diponibilità|52630, id: Node-17 }
+{ Node: ([Investigate software|22514],[Hand over to Level 2 support|25003]), id: Node-99 -> Node: Hand over to Level 2 support|25003, id: Node-104 }
+{ Node: Investigate hardware|3862, id: Node-6 -> Node: ([Investigate hardware|3862],[Investigate software|3865]), id: Node-125 }
+{ Node: Check diponibilità|50091, id: Node-184 -> Node: ([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598]), id: Node-164 }
+{ Node: Check diponibilità|50119, id: Node-191 -> Node: ([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127]), id: Node-181 }
+{ Node: ([Investigate hardware|15042],[Investigate software|15045]), id: Node-141 -> Node: Investigate software|15045, id: Node-7 }
+{ Node: Check diponibilità|50066, id: Node-160 -> Node: ([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548]), id: Node-57 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5209, id: Node-66 }
+{ Node: Handle escalated issue|25, id: Node-167 -> Node: ([Handle escalated issue|25],[First line support|2580]), id: Node-107 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|3862, id: Node-6 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3035, id: Node-105 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Definizione richiesta di attrezzatura|50080, id: Node-36 }
+{ Node: ([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509]), id: Node-75 -> Node: Approvazione richiesta attrezzatura|57509, id: Node-32 }
+{ Node: Check diponibilità|52522, id: Node-103 -> Node: ([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553]), id: Node-20 }
+{ Node: Investigate software|15045, id: Node-7 -> Node: ([Investigate software|15045],[Write report|15099]), id: Node-0 }
+{ Node: Investigate software|2554, id: Node-88 -> Node: ([Investigate software|2554],[Hand over to Level 2 support|29]), id: Node-77 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|22511, id: Node-182 }
+{ Node: ([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622]), id: Node-136 -> Node: Definizione richiesta di attrezzatura|52622, id: Node-151 }
+{ Node: ([Review profitability|3775],[Review customer rating|3778]), id: Node-169 -> Node: Review customer rating|3778, id: Node-80 }
+{ Node: Check diponibilità|47555, id: Node-148 -> Node: ([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561]), id: Node-200 }
+{ Node: ([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538]), id: Node-27 -> Node: Approvazione richiesta attrezzatura|52538, id: Node-170 }
+{ Node: Check diponibilità|52645, id: Node-137 -> Node: ([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519]), id: Node-47 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|3280, id: Node-198 }
+{ Node: Rifiuta la richiesta|15219, id: Node-108 -> Node: ([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226]), id: Node-93 }
+{ Node: Investigate hardware|55011, id: Node-158 -> Node: ([Investigate hardware|55011],[Investigate software|55014]), id: Node-159 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|2982, id: Node-21 }
+{ Node: ([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091]), id: Node-84 -> Node: Check diponibilità|50091, id: Node-184 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3186, id: Node-149 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5039, id: Node-124 }
+{ Node: ([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546]), id: Node-73 -> Node: Approvazione richiesta attrezzatura|52546, id: Node-113 }
+{ Node: ([Investigate software|55014],[Hand over to Level 2 support|57503]), id: Node-126 -> Node: Hand over to Level 2 support|57503, id: Node-201 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|42511, id: Node-110 }
+{ Node: Processo Richiesta di Vacanza|10010, id: Node-43 -> Node: ([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271]), id: Node-87 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5133, id: Node-135 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Handle escalated issue|25, id: Node-167 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Processo Richiesta di Vacanza|5222, id: Node-139 }
+{ Node: ([Investigate hardware|15058],[Investigate software|15061]), id: Node-76 -> Node: Investigate software|15061, id: Node-114 }
+{ Node: ([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519]), id: Node-47 -> Node: Approvazione richiesta attrezzatura|57519, id: Node-89 }
+{ Node: Check diponibilità|52658, id: Node-37 -> Node: ([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525]), id: Node-142 }
+{ Node: Processo Richiesta di Vacanza|5133, id: Node-135 -> Node: ([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161]), id: Node-85 }
+{ Node: ([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271]), id: Node-87 -> Node: Processo Richiesta di Vacanza|5271, id: Node-154 }
+{ Node: ([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555]), id: Node-123 -> Node: Check diponibilità|47555, id: Node-148 }
+{ Node: ([Investigate hardware|2551],[Investigate software|2554]), id: Node-127 -> Node: Investigate software|2554, id: Node-88 }
+{ Node: Provide new sales lead|3261, id: Node-131 -> Node: ([Provide new sales lead|3261],[Review profitability|3775]), id: Node-173 }
+{ Node: Definizione richiesta di attrezzatura|50152, id: Node-168 -> Node: ([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163]), id: Node-176 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3012, id: Node-92 }
+{ Node: ([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637]), id: Node-175 -> Node: Definizione richiesta di attrezzatura|52637, id: Node-119 }
+{ Node: Investigate software|17514, id: Node-134 -> Node: ([Investigate software|17514],[Hand over to Level 2 support|20003]), id: Node-29 }
+{ Node: ([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151]), id: Node-97 -> Node: Rifiuta la richiesta|15151, id: Node-144 }
+{ Node: Processo Richiesta di Vacanza|15183, id: Node-4 -> Node: ([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198]), id: Node-74 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|37511, id: Node-196 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3291, id: Node-90 }
+{ Node: ([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066]), id: Node-42 -> Node: Check diponibilità|50066, id: Node-160 }
+{ Node: ([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542]), id: Node-155 -> Node: Modifica richiesta attrezzatura|47542, id: Node-40 }
+{ Node: Investigate software|42514, id: Node-187 -> Node: ([Investigate software|42514],[Hand over to Level 2 support|45003]), id: Node-33 }
+{ Node: Investigate software|37514, id: Node-52 -> Node: ([Investigate software|37514],[Hand over to Level 2 support|40003]), id: Node-152 }
+{ Node: ([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534]), id: Node-65 -> Node: Approvazione richiesta attrezzatura|47534, id: Node-41 }
+{ BranchNode: Start_O, id: Node-106 -> Node: First line support|3005, id: Node-117 }
+{ Node: ([Review profitability|3762],[Review customer rating|3765]), id: Node-34 -> Node: Review customer rating|3765, id: Node-98 }
+{ Node: Investigate hardware|17511, id: Node-195 -> Node: ([Investigate hardware|17511],[Investigate software|17514]), id: Node-100 }
+{ Node: ([Investigate software|17514],[Hand over to Level 2 support|20003]), id: Node-29 -> Node: Hand over to Level 2 support|20003, id: Node-39 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|55011, id: Node-158 }
+{ Node: Approvazione richiesta attrezzatura|52560, id: Node-19 -> Node: ([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591]), id: Node-122 }
+{ Node: ([Investigate software|2554],[Hand over to Level 2 support|29]), id: Node-77 -> Node: Hand over to Level 2 support|29, id: Node-81 }
+{ BranchNode: Start_O, id: Node-106 -> Node: Investigate hardware|15058, id: Node-118 }
+{ Node: ([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080]), id: Node-202 -> Node: Processo Richiesta di Vacanza|5080, id: Node-8 }
+{ Node: ([Provide new sales lead|3261],[Review profitability|3775]), id: Node-173 -> Node: Review profitability|3775, id: Node-5 }
+{ Node: Investigate software|3283, id: Node-150 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Investigate software|3865, id: Node-94 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta|3920, id: Node-95 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3268, id: Node-1 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Rifiuta la richiesta|7513, id: Node-2 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Review customer rating|3765, id: Node-98 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|5080, id: Node-8 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|25003, id: Node-104 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|57548, id: Node-157 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3035, id: Node-105 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3083, id: Node-13 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Rifiuta la richiesta|5180, id: Node-109 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3115, id: Node-163 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|50039, id: Node-60 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Write report|15115, id: Node-18 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|40003, id: Node-165 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Modifica richiesta attrezzatura|52584, id: Node-111 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|15018, id: Node-61 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|2580, id: Node-62 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|2982, id: Node-21 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3005, id: Node-117 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|52538, id: Node-170 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|5209, id: Node-66 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Rifiuta la richiesta|5110, id: Node-67 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3154, id: Node-120 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3122, id: Node-171 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|47561, id: Node-26 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|5039, id: Node-124 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|15082, id: Node-180 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3051, id: Node-128 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|57509, id: Node-32 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|15159, id: Node-129 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|45003, id: Node-132 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|15226, id: Node-78 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|20003, id: Node-39 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta|3949, id: Node-79 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Review customer rating|3778, id: Node-80 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|5251, id: Node-138 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|29, id: Node-81 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|57525, id: Node-189 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Investigate software|3846, id: Node-140 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Write report|15099, id: Node-86 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|57519, id: Node-89 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Approvazione richiesta attrezzatura|52598, id: Node-192 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3291, id: Node-90 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3012, id: Node-92 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3252, id: Node-50 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Hand over to Level 2 support|57503, id: Node-201 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: Processo Richiesta di Vacanza|5146, id: Node-147 -> BranchNode: BranchInEnd, id: Node-205 }
+{ Node: First line support|3186, id: Node-149 -> BranchNode: BranchInEnd, id: Node-205 }
+{ BranchNode: BranchInEnd, id: Node-205 -> Node: End, id: Node-186 }
