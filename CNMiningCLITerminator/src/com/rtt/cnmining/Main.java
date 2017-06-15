@@ -2,6 +2,8 @@ package com.rtt.cnmining;
 
 import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.in.XMxmlParser;
+import org.deckfour.xes.in.XParser;
+import org.deckfour.xes.in.XesXmlParser;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
@@ -30,7 +32,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/running-example.mxml");
+        XLog log = parse("logs/ActivityTest.xes");
 
 
         try {
@@ -134,11 +136,16 @@ public class Main {
 
     static XLog parse(String name){
         try {
-            XMxmlParser parser = new XMxmlParser();
+            XMxmlParser mxmlParser = new XMxmlParser();
+            XesXmlParser xesParser= new XesXmlParser();
+            List<XLog> logs=null;
             File file = new File(name);
-            System.out.println(file.exists());
-            System.out.println(parser.canParse(file));
-            List<XLog> logs = parser.parse(file);
+            if(mxmlParser.canParse(file))
+                logs = mxmlParser.parse(file);
+            else if(xesParser.canParse(file))
+                logs= xesParser.parse(file);
+            else
+                System.out.println("Error, cannot parse input file.");
             System.out.println(logs.size());
 
             return logs.iterator().next();

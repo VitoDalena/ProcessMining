@@ -39,13 +39,13 @@ public class OntologyManager {
                 for(String key:keyset)
                 {
                     String value=activity.getAttributes().get(key).toString();
-                    if(key.equals("concept:name"))
+                    if(key.equals("concept:name")||key.equals("NAME_TASK"))
                         nodo.nome_attivita=value;
-                    else if(key.equals("org:resource"))
+                    else if(key.equals("org:resource")||key.equals("START_USER_PROC"))
                         nodo.risorsa=value;
                     else if (key.equals("time:timestamp"))
                         nodo.timestamp=value;
-                    else if(key.toLowerCase().contains("cost")||key.toLowerCase().contains("costs"))
+                    else if(key.toLowerCase().contains("cost")||key.toLowerCase().contains("costs")||key.contains("DURATION_TASK"))
                         nodo.costi=value;
                 }
                 //inizio scrittura degli assiomi nell'ontologia, istanze delle tre classi: case, resource e activity
