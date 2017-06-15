@@ -17,13 +17,26 @@ public class OntologyManager {
     private String base_iri="urn:absolute:Cnet2AD#";
     private XLog log;
     private OWLOntology ontology;
-    public OntologyManager(String path,XLog log) throws Exception
+    private String outputFilename;
+    
+    public OntologyManager(XLog log){
+    	this.log = log;
+    }
+    
+    public boolean init(String path, String output)
     {
-        this.log=log;
-        file=new File(path);
-        manager= OWLManager.createOWLOntologyManager();
-        ontology=manager.loadOntologyFromOntologyDocument(file);
-        dataFactory=manager.getOWLDataFactory();
+    	this.outputFilename = output;
+       try{
+    	   file=new File(path);
+           manager= OWLManager.createOWLOntologyManager();
+           ontology=manager.loadOntologyFromOntologyDocument(file);
+           dataFactory=manager.getOWLDataFactory();
+       }
+       catch(Exception e){
+    	   System.out.println("[OntologyManager:init] " + e.toString());
+    	   return false;
+       }
+       return true;       
     }
     public String readData()
     {
@@ -145,10 +158,11 @@ public class OntologyManager {
             }
         }
         try {
-            File f = new File("owlOntologyOut.owl");
+            File f = new File(this.outputFilename);
             IRI documentIRI2 = IRI.create(f);
             manager.saveOntology(ontology,documentIRI2);
-            ontologyToString=f.toString();
+            
+            ontologyToString=manager.toString();
         }
         catch(Exception e)
         {

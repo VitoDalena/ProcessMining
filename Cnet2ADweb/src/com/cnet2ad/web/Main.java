@@ -4,9 +4,11 @@ import org.deckfour.xes.in.XMxmlParser;
 import org.deckfour.xes.model.XLog;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.plugins.cnet2ad.semantic.OntologyManager;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
 import org.processmining.plugins.cnet2ad.*;
+import org.processmining.models.cnet2ad.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +32,8 @@ import java.util.List;
         -rtb per impostare il relative to best
 
         -constraints per impostare il percorso del contenente i vincoli
+
+        -ontology Per impostare il file di output dell'ontologia
  */
 
 public class Main {
@@ -93,6 +97,12 @@ public class Main {
             settings.constraintsFilename = argManager.param("-constraints");
         }
 
+        String ontologyOutputFilename = "";
+        if(argManager.param("-ontology").isEmpty() == false)
+        {
+            ontologyOutputFilename = argManager.param("-ontology");
+        }
+
         XLog log = parseLog(logFilename);
         if( log == null ){
             System.out.println("Unable to parse the log");
@@ -105,10 +115,8 @@ public class Main {
 
             BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
 
-            //RTTmining mining = new RTTmining(causalnet);
             Cnet2AD mining = new Cnet2AD(bpmn);
             ADgraph graph = mining.process();
-            //System.out.println(graph);
 
             System.out.println("OutputDit = " + outputDir);
             if(exportJson)
@@ -121,6 +129,27 @@ public class Main {
         catch(Exception e){
             System.out.println("Exception " + e.toString());
             System.out.println("Cnet2ADRESULT=ERROR");
+        }
+
+        try {
+            if(ontologyOutputFilename.isEmpty() == false){
+
+                System.out.println("Launching SemanticCnet2AD...");
+
+                OntologyManager ontologyManager = new OntologyManager(log);
+                if(!ontologyManager.init("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename)){
+                    System.out.println("SemanticCnet2ADRESULT=ERROR");
+                }
+                else {
+                    ontologyManager.readData();
+                    System.out.println("SemanticCnet2ADRESULT=SUCCESS");
+                }
+
+            }
+        }
+        catch(Exception e){
+            System.out.println("Exception " + e.toString());
+            System.out.println("SemanticCnet2ADRESULT=ERROR");
         }
     }
 

@@ -100,6 +100,7 @@
             <button id = 'btn_process' class = 'btn btn-success invisible'>Process</button>
             <a id = 'btn_download' class = 'btn btn-danger invisible' href='#'>Download XMI</a>
             <a id = 'btn_ontology' class = 'btn btn-danger invisible' href='#'>Download Ontology</a>
+            <a id = 'btn_webvowl' target = '_blank' class = 'btn btn-danger invisible' href='http://visualdataweb.de/webvowl/'>Visualize Ontology</a>
             <a id = 'btn_visualize' class = 'btn btn-danger invisible' href='#'>Show Graph</a>
         </div>
     </div>
@@ -124,6 +125,7 @@
 
 var btn_process = document.getElementById('btn_process');
 var btn_download = document.getElementById('btn_download');
+var btn_webvowl = document.getElementById('btn_webvowl');
 var btn_visualize = document.getElementById( 'btn_visualize' );
 var btn_ontology = document.getElementById('btn_ontology');
 var btn_settings = document.getElementById('btn_settings');
@@ -153,6 +155,9 @@ document.getElementById('log_upload').onchange = function(e){
         btn_visualize.className += ' invisible';
     if( btn_ontology.className.includes("invisible") == false )
         btn_ontology.className += ' invisible';
+    if( btn_webvowl.className.includes("invisible") == false )
+        btn_webvowl.className += ' invisible';
+
     logFilename = constraintsFilename = null;
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
@@ -232,17 +237,23 @@ function process(){
                     btn_visualize.className += ' invisible';
                 if( btn_ontology.className.includes("invisible") == false )
                     btn_ontology.className += ' invisible';
+                if( btn_webvowl.className.includes("invisible") == false )
+                    btn_webvowl.className += ' invisible';
                 return;
             }
 
             btn_download.className = btn_download.className.replace('invisible', '');
             btn_ontology.className = btn_ontology.className.replace('invisible', '');
             btn_visualize.className = btn_visualize.className.replace('invisible', '');
+            btn_webvowl.className = btn_webvowl.className.replace('invisible', '');
 
             xmi = e;
 
             btn_download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent( xmi ));
             btn_download.setAttribute('download', 'Cnet2AD.xmi');
+
+            btn_ontology.href = "bin/" + logFilename + ".owl";
+            btn_ontology.setAttribute('download', 'SemanticCnet2AD.out.owl');
 
         }
     );
