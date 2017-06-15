@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="lib/BPMN.jar"/>
 	<classpathentry kind="lib" path="lib/BPMNConversions.jar"/>
 	<classpathentry kind="lib" path="lib/Cnet2AD.jar"/>
+	<classpathentry kind="lib" path="lib/owlapi-osgidistribution-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

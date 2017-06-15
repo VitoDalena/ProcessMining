@@ -19,8 +19,8 @@ public class SemanticCnet2AD {
 	@Plugin(
         name = "SemanticCnet2AD", 
         parameterLabels = { "Log", "ADgraph" }, 
-        returnLabels = { "Semantic XMI", "Semantic ADgraph" }, 
-        returnTypes = { String.class, ADgraph.class }, 
+        returnLabels = { "Semantic XMI", "Semantic ADgraph","Semantic Ontology" }, 
+        returnTypes = { String.class, ADgraph.class, String.class }, 
         userAccessible = true, 
         help = "Produces XMI"
     )
@@ -34,9 +34,11 @@ public class SemanticCnet2AD {
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
     public static Object[] Process(UIPluginContext context, XLog log, ADgraph graph) throws Exception {
-			
-
-		return new Object[]{ graph.toXMI(), graph };
+			String ontology=null;
+			OntologyManager ontologyManager=new OntologyManager("ontology.owl",log);
+			ontology=ontologyManager.readData();
+			System.out.println(ontology);
+		return new Object[]{ graph.toXMI(), graph, ontology };
 		
 	}
 }
