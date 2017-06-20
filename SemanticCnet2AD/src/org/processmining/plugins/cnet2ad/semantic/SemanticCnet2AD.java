@@ -1,19 +1,12 @@
 package org.processmining.plugins.cnet2ad.semantic;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.StandardOpenOption;
 
 import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.framework.plugin.annotations.Plugin;
-import org.processmining.models.cnet2ad.ADgraph;
 
 public class SemanticCnet2AD {
 			
@@ -27,11 +20,11 @@ public class SemanticCnet2AD {
 	
 	@Plugin(
         name = "SemanticCnet2AD", 
-        parameterLabels = { "Log", /*"ADgraph"*/ }, 
-        returnLabels = { /*"Semantic XMI", "Semantic ADgraph",*/"Cnet2AD Ontology" }, 
-        returnTypes = { /*String.class, ADgraph.class,*/ String.class }, 
+        parameterLabels = { "Log" }, 
+        returnLabels = { "Cnet2AD Ontology" }, 
+        returnTypes = { String.class }, 
         userAccessible = true, 
-        help = "Produces XMI"
+        help = "Produces Ontology"
     )
     @UITopiaVariant(
         affiliation = "Cnet2AD with Semantic", 
@@ -42,7 +35,7 @@ public class SemanticCnet2AD {
 	 * Consiste nel Main del plugin stesso, 
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
-    public static /*Object[]*/ String Process(UIPluginContext context, XLog log/*, ADgraph graph*/) throws Exception {
+    public static String Process(UIPluginContext context, XLog log) throws Exception {
 		String ontology=null;
 		OntologyManager ontologyManager=new OntologyManager(log);
 		if(!ontologyManager.init("SemanticCnet2AD.ontology.base.owl", "SemanticCnet2AD.out.owl")){
@@ -52,7 +45,6 @@ public class SemanticCnet2AD {
 		ontologyManager.readData();
 
 		ontology = readFile("SemanticCnet2AD.owl");
-		//return new Object[]{ graph.toXMI(), graph, ontology };
 		return ontology;		
 	}
 	
@@ -76,25 +68,4 @@ public class SemanticCnet2AD {
 		}
 	}
 	
-	private static void saveFile(String filename, String content) throws Exception {
-        System.out.println("Exporting File: " + filename + "...");
-        File ec = new File(filename);
-        if (ec.exists()) {
-            ec.delete();
-        }
-        ec.createNewFile();
-        try
-        {
-            Files.write(FileSystems.getDefault().getPath(
-                    ".", new String[] { filename }),
-                    content.getBytes(), new OpenOption[] {
-                            StandardOpenOption.APPEND
-                    }
-            );
-        }
-        catch (IOException ioe)
-        {
-            ioe.printStackTrace();
-        }
-    }
 }

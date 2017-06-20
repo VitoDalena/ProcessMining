@@ -157,7 +157,7 @@ public class OntologyManager {
             }
         }
         try {
-            File f = new File("owlOntologyOut.owl");
+            File f = new File(outputFilename);
             IRI documentIRI2 = IRI.create(f);
             manager.saveOntology(ontology,documentIRI2);
         }

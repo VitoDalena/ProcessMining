@@ -40,11 +40,7 @@
 	<classpathentry kind="lib" path="tests/libs-external/cobertura.jar"/>
 	<classpathentry kind="lib" path="tests/libs-external/junit-4.8.1.jar"/>
 	<classpathentry kind="lib" path="lib/OpenXES.jar"/>
-	<classpathentry kind="lib" path="lib/Flex.jar"/>
 	<classpathentry kind="lib" path="lib/Widgets.jar"/>
-	<classpathentry kind="lib" path="lib/BPMN.jar"/>
-	<classpathentry kind="lib" path="lib/BPMNConversions.jar"/>
-	<classpathentry kind="lib" path="lib/Cnet2AD.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi-osgidistribution-4.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>

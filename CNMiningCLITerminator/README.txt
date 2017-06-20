@@ -1,0 +1,1 @@
+Questo è un progetto di sviluppo e debugging via console
