@@ -23,23 +23,20 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.StandardOpenOption;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/ActivityTest.xes");
+        XLog log = parse("logs/log.mxml");
 
 
         try {
-            OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
-            ontologyManager.readData();
-            if(true)
-                return;
+            //OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
+            //ontologyManager.readData();
+            //if(true)
+            //    return;
             Settings settings = new Settings();
             settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
@@ -50,70 +47,67 @@ public class Main {
             //CNParser parser = new CNParser("ExtendedCausalNet.xml");
             //Flex cnminningGraph = parser.parse();
 
-            /*BPMNDiagram bpmn = Flex2BPMN.convert(cnminningGraph);
-            for(BPMNNode node : bpmn.getNodes()){
-                System.out.println();
-                System.out.println(node.getLabel());
-                System.out.println();
-                System.out.println("outcoming bindings...");
-                Collection<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> edges = bpmn.getOutEdges(node);
-                Iterator<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> i = edges.iterator();
-                while(i.hasNext()){
-                    BPMNEdge e = i.next();
-                    System.out.println(e.getSource() + " -> " + e.getTarget());
-                }
-                System.out.println();
-                System.out.println("incoming bindings...");
-                edges = bpmn.getInEdges(node);
-                i = edges.iterator();
-                while(i.hasNext()){
-                    BPMNEdge e = i.next();
-                    System.out.println(e.getSource() + " -> " + e.getTarget());
-                }
-                System.out.println();
-                System.out.println("flows...");
-                Collection<Flow> flows = bpmn.getFlows();
-                Iterator<Flow> fi = flows.iterator();
-                while(fi.hasNext()){
-                    Flow f = fi.next();
-                    System.out.println(f.getSource() + " -> " + f.getTarget());
-                }
-                System.out.println();
-                System.out.println("Gateways...");
-                Collection<Gateway> gateways = bpmn.getGateways();
-                Iterator<Gateway> g = gateways.iterator();
-                while(g.hasNext()){
-                    Gateway gateway = g.next();
-                    System.out.println(gateway.getLabel() + gateway.getGatewayType());
-                }
-            }
-
+            BPMNDiagram bpmn = Flex2BPMN.convert(cnminningGraph);
             RTTminingBPMN m = new RTTminingBPMN(bpmn);
-            RTTgraph g = m.process();
+            RTTgraph graph = m.process();
 
             System.out.println();
-            System.out.println(g.toString());
-            saveFile("rttgraph.js", "var data = [" + g.toJson() + "]");
+            //System.out.println(graph.toString());
 
-            if(true)
-                return;
+            ArrayList<String> resources = new ArrayList<>();
+            resources.add("pippo");
+            resources.add("pluto");
+            explodeNode(graph, graph.node("Keep_records"), resources);
 
-            RTTmining mining = new RTTmining(cnminningGraph);
-            RTTgraph graph = mining.process();
-            System.out.println();
-            System.out.println(graph);
-
-            System.out.println();
-            saveFile("rttgraph.json", graph.toJson());
-            saveFile("rttgraph.uml", graph.toXMI());
-            saveFile("rttgraph.txt", graph.toString());
             saveFile("rttgraph.js", "var data = [" + graph.toJson() + "]");
-*/
         }
         catch(Exception e){
             System.out.println("Exception " + e.toString());
         }
 
+    }
+
+    static void explodeNode(RTTgraph graph, RTTnode node, ArrayList<String> resources){
+        if(graph.nodes().contains(node) == false)
+            return;
+
+        ArrayList<RTTnode> nodes = new ArrayList<>();
+        for(String res:resources){
+            nodes.add(new RTTnode(node.name + " | " + res));
+        }
+
+        // Rimpiazza il nodo corrente con i nuovi
+        // tenendo presente una cosa
+        // se ci sono piu risorse, bisogna mettere un fork prima e
+        // un join dopo la lista di nodi rimpiazzati
+        if(resources.size() > 1){
+            // add fork
+            RTTnode fork = new RTTnode("ForkResources" + node.name);
+            fork.fork();
+            // add join
+            RTTnode join = new RTTnode("JoinResources" + node.name);
+            join.join();
+
+            graph.add(fork);
+            graph.add(join);
+
+            for(RTTedge edge:graph.edgesEndWith(node))
+                edge.end(fork);
+            for(RTTedge edge:graph.edgesStartWith(node))
+                edge.begin(join);
+
+            // aggiungi i nodi e per ognuno definisci gli archi
+            for(RTTnode n:nodes){
+                graph.add(n);
+
+                graph.add(new RTTedge(fork, n));
+                graph.add(new RTTedge(n, join));
+            }
+
+            // rimuovi il nodo rimpiazzato
+            graph.nodes().remove(node);
+        }
+        else node.name += " | " + resources.get(0);
     }
 
     static void printLog(XLog log){

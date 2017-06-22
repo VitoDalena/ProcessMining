@@ -28,7 +28,7 @@ public class Cnet2AD {
 	 * del plugin, come parametri di input e output
 	 * 
 	 * Da notare che sono associate ad un metodo statico,
-	 * che verr√† richiamato all'esecuzione del plugin
+	 * che verr‡† richiamato all'esecuzione del plugin
 	 */	
 	
 	/*
@@ -36,7 +36,7 @@ public class Cnet2AD {
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
 	@Plugin(
-        name = "Cnet2AD", 
+        name = "Cnet2AD from Flex", 
         parameterLabels = { "Extended CausalNet" }, 
         returnLabels = { "XMI", "ADgraph" }, 
         returnTypes = { String.class, ADgraph.class }, 
@@ -54,6 +54,31 @@ public class Cnet2AD {
 			return new Object[] { "Cannot convert CausalNet to BPMN", null };
 		}
 		
+		Cnet2AD mining = new Cnet2AD(bpmn);
+		ADgraph graph = mining.process();
+        
+        saveFile("adgraph.xmi", graph.toXMI());
+        saveFile("adgraph.txt", graph.toString());
+		saveFile("adgraph.json", graph.toJson());
+		
+		return new Object[] { graph.toXMI(), graph };
+	}
+	
+	@Plugin(
+        name = "Cnet2AD from BPMN", 
+        parameterLabels = { "BPMN Diagram" }, 
+        returnLabels = { "XMI", "ADgraph" }, 
+        returnTypes = { String.class, ADgraph.class }, 
+        userAccessible = true, 
+        help = "Produces XMI"
+    )
+    @UITopiaVariant(
+        affiliation = "Causal net to Activity Diagram", 
+        author = "Riccardi, Tagliente, Tota", 
+        email = "??"
+    )
+	public static Object[] ProcessFromBPMN(UIPluginContext context, BPMNDiagram bpmn) throws Exception {
+				
 		Cnet2AD mining = new Cnet2AD(bpmn);
 		ADgraph graph = mining.process();
         

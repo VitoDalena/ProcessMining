@@ -1,1227 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="99987481" name="Activity Diagram">
-<packagedElement xmi:type="uml:Activity" xmi:id="15077554" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-4 Node-5 Node-6 Node-7 Node-8 Node-9 Node-10 Node-11 Node-12 Node-13 Node-14 Node-15 Node-16 Node-17 Node-18 Node-19 Node-20 Node-21 Node-22 Node-23 Node-24 Node-25 Node-26 Node-27 Node-28 Node-29 Node-30 Node-31 Node-32 Node-33 Node-34 Node-35 Node-36 Node-37 Node-38 Node-39 Node-40 Node-41 Node-42 Node-43 Node-44 Node-45 Node-46 Node-47 Node-48 Node-49 Node-50 Node-51 Node-52 Node-53 Node-54 Node-55 Node-56 Node-57 Node-58 Node-59 Node-60 Node-61 Node-62 Node-63 Node-64 Node-65 Node-66 Node-67 Node-68 Node-69 Node-70 Node-71 Node-72 Node-73 Node-74 Node-75 Node-76 Node-77 Node-78 Node-79 Node-80 Node-81 Node-82 Node-83 Node-84 Node-85 Node-86 Node-87 Node-88 Node-89 Node-90 Node-91 Node-92 Node-93 Node-94 Node-95 Node-96 Node-97 Node-98 Node-99 Node-100 Node-101 Node-102 Node-103 Node-104 Node-105 Node-106 Node-107 Node-108 Node-109 Node-110 Node-111 Node-112 Node-113 Node-114 Node-115 Node-116 Node-117 Node-118 Node-119 Node-120 Node-121 Node-122 Node-123 Node-124 Node-125 Node-126 Node-127 Node-128 Node-129 Node-130 Node-131 Node-132 Node-133 Node-134 Node-135 Node-136 Node-137 Node-138 Node-139 Node-140 Node-141 Node-142 Node-143 Node-144 Node-145 Node-146 Node-147 Node-148 Node-149 Node-150 Node-151 Node-152 Node-153 Node-154 Node-155 Node-156 Node-157 Node-158 Node-159 Node-160 Node-161 Node-162 Node-163 Node-164 Node-165 Node-166 Node-167 Node-168 Node-169 Node-170 Node-171 Node-172 Node-173 Node-174 Node-175 Node-176 Node-177 Node-178 Node-179 Node-180 Node-181 Node-182 Node-183 Node-184 Node-185 Node-186 Node-187 Node-188 Node-189 Node-190 Node-191 Node-192 Node-193 Node-194 Node-195 Node-196 Node-197 Node-198 Node-199 Node-200 Node-201 Node-202 Node-203 Node-204 Node-205 ">
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-0" name="([Investigate software|15045],[Write report|15099])" outgoing="Edge-87" incoming="Edge-150"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="First line support|3268" outgoing="Edge-206" incoming="Edge-86"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-2" name="Rifiuta la richiesta|7513" outgoing="Edge-207" incoming="Edge-109"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-3" name="Modifica richiesta attrezzatura|52577" outgoing="Edge-17" incoming="Edge-54"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-4" name="Processo Richiesta di Vacanza|15183" outgoing="Edge-185" incoming="Edge-56"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-5" name="Review profitability|3775" outgoing="Edge-57" incoming="Edge-202"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-6" name="Investigate hardware|3862" outgoing="Edge-138" incoming="Edge-145"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="Investigate software|15045" outgoing="Edge-150" incoming="Edge-141"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-8" name="Processo Richiesta di Vacanza|5080" outgoing="Edge-209" incoming="Edge-201"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-9" name="([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110])" outgoing="Edge-124" incoming="Edge-35"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-10" name="([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145])" outgoing="Edge-90" incoming="Edge-62"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-11" name="([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169])" outgoing="Edge-32" incoming="Edge-89"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-12" name="Investigate hardware|2551" outgoing="Edge-71" incoming="Edge-98"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-13" name="First line support|3083" outgoing="Edge-213" incoming="Edge-100"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-14" name="([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560])" outgoing="Edge-74" incoming="Edge-19"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-15" name="Definizione richiesta di attrezzatura|47547" outgoing="Edge-82" incoming="Edge-108"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-16" name="Definizione richiesta di attrezzatura|52605" outgoing="Edge-34" incoming="Edge-45"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-17" name="Check diponibilità|52630" outgoing="Edge-99" incoming="Edge-136"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-18" name="Write report|15115" outgoing="Edge-217" incoming="Edge-72"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-19" name="Approvazione richiesta attrezzatura|52560" outgoing="Edge-198" incoming="Edge-74"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-20" name="([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553])" outgoing="Edge-122" incoming="Edge-149"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-21" name="First line support|2982" outgoing="Edge-222" incoming="Edge-161"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-22" name="([Provide new sales lead|3245],[Review profitability|3762])" outgoing="Edge-88" incoming="Edge-30"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-23" name="Rifiuta la richiesta|5072" outgoing="Edge-79" incoming="Edge-48"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-24" name="Rifiuta la richiesta|5161" outgoing="Edge-89" incoming="Edge-63"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-25" name="Check diponibilità|52508" outgoing="Edge-19" incoming="Edge-6"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-26" name="Approvazione richiesta attrezzatura|47561" outgoing="Edge-229" incoming="Edge-15"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-27" name="([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538])" outgoing="Edge-156" incoming="Edge-59"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-28" name="Start" outgoing="Edge-2" incoming="Edge-1"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-29" name="([Investigate software|17514],[Hand over to Level 2 support|20003])" outgoing="Edge-196" incoming="Edge-183"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-30" name="([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630])" outgoing="Edge-136" incoming="Edge-42"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-31" name="([Investigate hardware|3280],[Investigate software|3283])" outgoing="Edge-49" incoming="Edge-121"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-32" name="Approvazione richiesta attrezzatura|57509" outgoing="Edge-233" incoming="Edge-148"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-33" name="([Investigate software|42514],[Hand over to Level 2 support|45003])" outgoing="Edge-50" incoming="Edge-190"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-34" name="([Review profitability|3762],[Review customer rating|3765])" outgoing="Edge-194" incoming="Edge-29"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-35" name="([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513])" outgoing="Edge-109" incoming="Edge-40"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-36" name="Definizione richiesta di attrezzatura|50080" outgoing="Edge-95" incoming="Edge-147"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-37" name="Check diponibilità|52658" outgoing="Edge-174" incoming="Edge-97"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-38" name="Check diponibilità|50163" outgoing="Edge-23" incoming="Edge-102"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-39" name="Hand over to Level 2 support|20003" outgoing="Edge-237" incoming="Edge-196"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-40" name="Modifica richiesta attrezzatura|47542" outgoing="Edge-78" incoming="Edge-189"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-41" name="Approvazione richiesta attrezzatura|47534" outgoing="Edge-39" incoming="Edge-192"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-42" name="([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066])" outgoing="Edge-188" incoming="Edge-65"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-43" name="Processo Richiesta di Vacanza|10010" outgoing="Edge-168" incoming="Edge-51"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-44" name="Review profitability|3762" outgoing="Edge-29" incoming="Edge-88"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-45" name="([Investigate hardware|22511],[Investigate software|22514])" outgoing="Edge-115" incoming="Edge-120"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-46" name="([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577])" outgoing="Edge-54" incoming="Edge-119"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-47" name="([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519])" outgoing="Edge-173" incoming="Edge-157"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-48" name="Rifiuta la richiesta|15198" outgoing="Edge-3" incoming="Edge-133"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-49" name="([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119])" outgoing="Edge-55" incoming="Edge-11"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-50" name="First line support|3252" outgoing="Edge-249" incoming="Edge-16"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-51" name="([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039])" outgoing="Edge-10" incoming="Edge-130"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-52" name="Investigate software|37514" outgoing="Edge-191" incoming="Edge-38"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-53" name="Provide new sales lead|3245" outgoing="Edge-30" incoming="Edge-13"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-54" name="([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251])" outgoing="Edge-22" incoming="Edge-5"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-55" name="([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522])" outgoing="Edge-25" incoming="Edge-116"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-56" name="Investigate software|55014" outgoing="Edge-103" incoming="Edge-27"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-57" name="([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548])" outgoing="Edge-69" incoming="Edge-142"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-58" name="Definizione richiesta di attrezzatura|50134" outgoing="Edge-62" incoming="Edge-131"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-59" name="([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508])" outgoing="Edge-6" incoming="Edge-111"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-60" name="Approvazione richiesta attrezzatura|50039" outgoing="Edge-216" incoming="Edge-10"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-61" name="Processo Richiesta di Vacanza|15018" outgoing="Edge-220" incoming="Edge-61"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-62" name="First line support|2580" outgoing="Edge-221" incoming="Edge-70"/>
-<node xmi:type="uml:InitialNode" xmi:id="Node-63" name="start" outgoing="Edge-1"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-64" name="Approvazione richiesta attrezzatura|50127" outgoing="Edge-8" incoming="Edge-114"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-65" name="([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534])" outgoing="Edge-192" incoming="Edge-135"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-66" name="Processo Richiesta di Vacanza|5209" outgoing="Edge-225" incoming="Edge-143"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-67" name="Rifiuta la richiesta|5110" outgoing="Edge-226" incoming="Edge-124"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-68" name="Check diponibilità|50031" outgoing="Edge-130" incoming="Edge-66"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-69" name="Processo Richiesta di Vacanza|5099" outgoing="Edge-35" incoming="Edge-18"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-70" name="Definizione richiesta di attrezzatura|50055" outgoing="Edge-116" incoming="Edge-60"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-71" name="([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219])" outgoing="Edge-112" incoming="Edge-14"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-72" name="Rifiuta la richiesta|5243" outgoing="Edge-5" incoming="Edge-129"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-73" name="([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546])" outgoing="Edge-165" incoming="Edge-23"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-74" name="([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198])" outgoing="Edge-133" incoming="Edge-185"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-75" name="([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509])" outgoing="Edge-148" incoming="Edge-99"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-76" name="([Investigate hardware|15058],[Investigate software|15061])" outgoing="Edge-172" incoming="Edge-123"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-77" name="([Investigate software|2554],[Hand over to Level 2 support|29])" outgoing="Edge-199" incoming="Edge-151"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-78" name="Processo Richiesta di Vacanza|15226" outgoing="Edge-236" incoming="Edge-117"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-79" name="Processo Richiesta|3949" outgoing="Edge-238" incoming="Edge-64"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-80" name="Review customer rating|3778" outgoing="Edge-239" incoming="Edge-154"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-81" name="Hand over to Level 2 support|29" outgoing="Edge-241" incoming="Edge-199"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-82" name="([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531])" outgoing="Edge-113" incoming="Edge-8"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-83" name="([Investigate hardware|42511],[Investigate software|42514])" outgoing="Edge-127" incoming="Edge-94"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-84" name="([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091])" outgoing="Edge-162" incoming="Edge-95"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-85" name="([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161])" outgoing="Edge-63" incoming="Edge-175"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-86" name="Write report|15099" outgoing="Edge-244" incoming="Edge-87"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-87" name="([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271])" outgoing="Edge-176" incoming="Edge-168"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-88" name="Investigate software|2554" outgoing="Edge-151" incoming="Edge-178"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-89" name="Approvazione richiesta attrezzatura|57519" outgoing="Edge-245" incoming="Edge-173"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-90" name="First line support|3291" outgoing="Edge-247" incoming="Edge-187"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-91" name="([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658])" outgoing="Edge-97" incoming="Edge-34"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-92" name="First line support|3012" outgoing="Edge-248" incoming="Edge-181"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-93" name="([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226])" outgoing="Edge-117" incoming="Edge-159"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-94" name="Investigate software|3865" outgoing="Edge-204" incoming="Edge-46"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-95" name="Processo Richiesta|3920" outgoing="Edge-205" incoming="Edge-67"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-96" name="Processo Richiesta di Vacanza|5063" outgoing="Edge-77" incoming="Edge-53"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-97" name="([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151])" outgoing="Edge-184" incoming="Edge-126"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-98" name="Review customer rating|3765" outgoing="Edge-208" incoming="Edge-194"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-99" name="([Investigate software|22514],[Hand over to Level 2 support|25003])" outgoing="Edge-137" incoming="Edge-118"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-100" name="([Investigate hardware|17511],[Investigate software|17514])" outgoing="Edge-81" incoming="Edge-195"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-101" name="Processo Richiesta di Vacanza|5169" outgoing="Edge-83" incoming="Edge-32"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-102" name="([Investigate hardware|37511],[Investigate software|37514])" outgoing="Edge-38" incoming="Edge-4"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-103" name="Check diponibilità|52522" outgoing="Edge-149" incoming="Edge-25"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-104" name="Hand over to Level 2 support|25003" outgoing="Edge-210" incoming="Edge-137"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-105" name="First line support|3035" outgoing="Edge-212" incoming="Edge-146"/>
-<node xmi:type="uml:DecisionNode" xmi:id="Node-106" name="Start_O" outgoing="Edge-7 Edge-13 Edge-16 Edge-18 Edge-24 Edge-26 Edge-31 Edge-33 Edge-37 Edge-43 Edge-44 Edge-47 Edge-51 Edge-53 Edge-56 Edge-58 Edge-60 Edge-61 Edge-64 Edge-67 Edge-68 Edge-75 Edge-86 Edge-98 Edge-100 Edge-101 Edge-107 Edge-110 Edge-125 Edge-131 Edge-134 Edge-143 Edge-145 Edge-146 Edge-147 Edge-152 Edge-158 Edge-161 Edge-163 Edge-164 Edge-167 Edge-169 Edge-170 Edge-171 Edge-181 Edge-186 Edge-187 Edge-193 Edge-197 Edge-200" incoming="Edge-2"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-107" name="([Handle escalated issue|25],[First line support|2580])" outgoing="Edge-70" incoming="Edge-144"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-108" name="Rifiuta la richiesta|15219" outgoing="Edge-159" incoming="Edge-112"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-109" name="Rifiuta la richiesta|5180" outgoing="Edge-214" incoming="Edge-128"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-110" name="Investigate hardware|42511" outgoing="Edge-94" incoming="Edge-167"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-111" name="Modifica richiesta attrezzatura|52584" outgoing="Edge-219" incoming="Edge-105"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-112" name="([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605])" outgoing="Edge-45" incoming="Edge-52"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-113" name="Approvazione richiesta attrezzatura|52546" outgoing="Edge-119" incoming="Edge-165"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-114" name="Investigate software|15061" outgoing="Edge-36" incoming="Edge-172"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-115" name="Check diponibilità|50145" outgoing="Edge-59" incoming="Edge-90"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-116" name="([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210])" outgoing="Edge-85" incoming="Edge-3"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-117" name="First line support|3005" outgoing="Edge-223" incoming="Edge-193"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-118" name="Investigate hardware|15058" outgoing="Edge-123" incoming="Edge-200"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-119" name="Definizione richiesta di attrezzatura|52637" outgoing="Edge-84" incoming="Edge-182"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-120" name="First line support|3154" outgoing="Edge-227" incoming="Edge-134"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-121" name="Definizione richiesta di attrezzatura|50013" outgoing="Edge-28" incoming="Edge-47"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-122" name="([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591])" outgoing="Edge-96" incoming="Edge-198"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-123" name="([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555])" outgoing="Edge-177" incoming="Edge-82"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-124" name="Processo Richiesta di Vacanza|5039" outgoing="Edge-230" incoming="Edge-164"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-125" name="([Investigate hardware|3862],[Investigate software|3865])" outgoing="Edge-46" incoming="Edge-138"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-126" name="([Investigate software|55014],[Hand over to Level 2 support|57503])" outgoing="Edge-166" incoming="Edge-103"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-127" name="([Investigate hardware|2551],[Investigate software|2554])" outgoing="Edge-178" incoming="Edge-71"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-128" name="First line support|3051" outgoing="Edge-232" incoming="Edge-75"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-129" name="Processo Richiesta di Vacanza|15159" outgoing="Edge-234" incoming="Edge-20"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-130" name="([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243])" outgoing="Edge-129" incoming="Edge-106"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-131" name="Provide new sales lead|3261" outgoing="Edge-179" incoming="Edge-58"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-132" name="Hand over to Level 2 support|45003" outgoing="Edge-235" incoming="Edge-50"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-133" name="([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547])" outgoing="Edge-108" incoming="Edge-78"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-134" name="Investigate software|17514" outgoing="Edge-183" incoming="Edge-81"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-135" name="Processo Richiesta di Vacanza|5133" outgoing="Edge-175" incoming="Edge-169"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-136" name="([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622])" outgoing="Edge-153" incoming="Edge-92"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-137" name="Check diponibilità|52645" outgoing="Edge-157" incoming="Edge-41"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-138" name="Processo Richiesta di Vacanza|5251" outgoing="Edge-240" incoming="Edge-22"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-139" name="Processo Richiesta di Vacanza|5222" outgoing="Edge-106" incoming="Edge-171"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-140" name="Investigate software|3846" outgoing="Edge-243" incoming="Edge-104"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-141" name="([Investigate hardware|15042],[Investigate software|15045])" outgoing="Edge-141" incoming="Edge-73"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-142" name="([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525])" outgoing="Edge-9" incoming="Edge-174"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-143" name="Investigate software|22514" outgoing="Edge-118" incoming="Edge-115"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-144" name="Rifiuta la richiesta|15151" outgoing="Edge-12" incoming="Edge-184"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-145" name="Definizione richiesta di attrezzatura|47515" outgoing="Edge-80" incoming="Edge-26"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-146" name="Modifica richiesta attrezzatura|52591" outgoing="Edge-92" incoming="Edge-96"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-147" name="Processo Richiesta di Vacanza|5146" outgoing="Edge-251" incoming="Edge-43"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-148" name="Check diponibilità|47555" outgoing="Edge-155" incoming="Edge-177"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-149" name="First line support|3186" outgoing="Edge-252" incoming="Edge-163"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-150" name="Investigate software|3283" outgoing="Edge-203" incoming="Edge-49"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-151" name="Definizione richiesta di attrezzatura|52622" outgoing="Edge-42" incoming="Edge-153"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-152" name="([Investigate software|37514],[Hand over to Level 2 support|40003])" outgoing="Edge-132" incoming="Edge-191"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-153" name="([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072])" outgoing="Edge-48" incoming="Edge-77"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-154" name="Processo Richiesta di Vacanza|5271" outgoing="Edge-40" incoming="Edge-176"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-155" name="([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542])" outgoing="Edge-189" incoming="Edge-39"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-156" name="Definizione richiesta di attrezzatura|50108" outgoing="Edge-11" incoming="Edge-125"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-157" name="Approvazione richiesta attrezzatura|57548" outgoing="Edge-211" incoming="Edge-69"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-158" name="Investigate hardware|55011" outgoing="Edge-160" incoming="Edge-197"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-159" name="([Investigate hardware|55011],[Investigate software|55014])" outgoing="Edge-27" incoming="Edge-160"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-160" name="Check diponibilità|50066" outgoing="Edge-142" incoming="Edge-188"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-161" name="([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584])" outgoing="Edge-105" incoming="Edge-91"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-162" name="([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645])" outgoing="Edge-41" incoming="Edge-84"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-163" name="First line support|3115" outgoing="Edge-215" incoming="Edge-68"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-164" name="([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598])" outgoing="Edge-21" incoming="Edge-139"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-165" name="Hand over to Level 2 support|40003" outgoing="Edge-218" incoming="Edge-132"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-166" name="([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031])" outgoing="Edge-66" incoming="Edge-28"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-167" name="Handle escalated issue|25" outgoing="Edge-144" incoming="Edge-170"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-168" name="Definizione richiesta di attrezzatura|50152" outgoing="Edge-180" incoming="Edge-33"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-169" name="([Review profitability|3775],[Review customer rating|3778])" outgoing="Edge-154" incoming="Edge-57"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-170" name="Approvazione richiesta attrezzatura|52538" outgoing="Edge-224" incoming="Edge-156"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-171" name="First line support|3122" outgoing="Edge-228" incoming="Edge-101"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-172" name="Definizione richiesta di attrezzatura|50048" outgoing="Edge-65" incoming="Edge-107"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-173" name="([Provide new sales lead|3261],[Review profitability|3775])" outgoing="Edge-202" incoming="Edge-179"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-174" name="Definizione richiesta di attrezzatura|50006" outgoing="Edge-111" incoming="Edge-44"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-175" name="([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637])" outgoing="Edge-182" incoming="Edge-17"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-176" name="([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163])" outgoing="Edge-102" incoming="Edge-180"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-177" name="Check diponibilità|47526" outgoing="Edge-135" incoming="Edge-76"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-178" name="([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526])" outgoing="Edge-76" incoming="Edge-80"/>
-<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-179" name="end" incoming="Edge-0"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-180" name="Processo Richiesta di Vacanza|15082" outgoing="Edge-231" incoming="Edge-24"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-181" name="([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127])" outgoing="Edge-114" incoming="Edge-140"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-182" name="Investigate hardware|22511" outgoing="Edge-120" incoming="Edge-152"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-183" name="Investigate hardware|3843" outgoing="Edge-93" incoming="Edge-7"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-184" name="Check diponibilità|50091" outgoing="Edge-139" incoming="Edge-162"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-185" name="([Investigate software|15061],[Write report|15115])" outgoing="Edge-72" incoming="Edge-36"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-186" name="End" outgoing="Edge-0" incoming="Edge-253"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-187" name="Investigate software|42514" outgoing="Edge-190" incoming="Edge-127"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-188" name="Modifica richiesta attrezzatura|52531" outgoing="Edge-52" incoming="Edge-113"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-189" name="Approvazione richiesta attrezzatura|57525" outgoing="Edge-242" incoming="Edge-9"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-190" name="([Investigate hardware|3843],[Investigate software|3846])" outgoing="Edge-104" incoming="Edge-93"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-191" name="Check diponibilità|50119" outgoing="Edge-140" incoming="Edge-55"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-192" name="Approvazione richiesta attrezzatura|52598" outgoing="Edge-246" incoming="Edge-21"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-193" name="Processo Richiesta di Vacanza|15210" outgoing="Edge-14" incoming="Edge-85"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-194" name="Investigate hardware|15042" outgoing="Edge-73" incoming="Edge-37"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-195" name="Investigate hardware|17511" outgoing="Edge-195" incoming="Edge-31"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-196" name="Investigate hardware|37511" outgoing="Edge-4" incoming="Edge-186"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-197" name="Approvazione richiesta attrezzatura|52553" outgoing="Edge-91" incoming="Edge-122"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-198" name="Investigate hardware|3280" outgoing="Edge-121" incoming="Edge-158"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-199" name="([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180])" outgoing="Edge-128" incoming="Edge-83"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-200" name="([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561])" outgoing="Edge-15" incoming="Edge-155"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-201" name="Hand over to Level 2 support|57503" outgoing="Edge-250" incoming="Edge-166"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-202" name="([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080])" outgoing="Edge-201" incoming="Edge-79"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-203" name="Processo Richiesta di Vacanza|15141" outgoing="Edge-126" incoming="Edge-110"/>
-<node xmi:type="uml:OpaqueAction" xmi:id="Node-204" name="([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159])" outgoing="Edge-20" incoming="Edge-12"/>
-<node xmi:type="uml:DecisionNode" xmi:id="Node-205" name="BranchInEnd" outgoing="Edge-253" incoming="Edge-203 Edge-204 Edge-205 Edge-206 Edge-207 Edge-208 Edge-209 Edge-210 Edge-211 Edge-212 Edge-213 Edge-214 Edge-215 Edge-216 Edge-217 Edge-218 Edge-219 Edge-220 Edge-221 Edge-222 Edge-223 Edge-224 Edge-225 Edge-226 Edge-227 Edge-228 Edge-229 Edge-230 Edge-231 Edge-232 Edge-233 Edge-234 Edge-235 Edge-236 Edge-237 Edge-238 Edge-239 Edge-240 Edge-241 Edge-242 Edge-243 Edge-244 Edge-245 Edge-246 Edge-247 Edge-248 Edge-249 Edge-250 Edge-251 Edge-252"/>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-179" source="Node-186" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="End_To_end_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="End_To_end_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-28" source="Node-63" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="start_To_Start_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="start_To_Start_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-106" source="Node-28" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="Start_To_Start_O_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="Start_To_Start_O_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-116" source="Node-48" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="Rifiuta la richiesta|15198_To_([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="Rifiuta la richiesta|15198_To_([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-102" source="Node-196" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="Investigate hardware|37511_To_([Investigate hardware|37511],[Investigate software|37514])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="Investigate hardware|37511_To_([Investigate hardware|37511],[Investigate software|37514])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-54" source="Node-72" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="Rifiuta la richiesta|5243_To_([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="Rifiuta la richiesta|5243_To_([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-25" source="Node-59" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508])_To_Check diponibilità|52508_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508])_To_Check diponibilità|52508_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-183" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="Start_O_To_Investigate hardware|3843_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="Start_O_To_Investigate hardware|3843_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-82" source="Node-64" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="Approvazione richiesta attrezzatura|50127_To_([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="Approvazione richiesta attrezzatura|50127_To_([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-189" source="Node-142" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525])_To_Approvazione richiesta attrezzatura|57525_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525])_To_Approvazione richiesta attrezzatura|57525_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-10" target="Node-60" source="Node-51" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-10guard" name="([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039])_To_Approvazione richiesta attrezzatura|50039_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-10weight" name="([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039])_To_Approvazione richiesta attrezzatura|50039_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-11" target="Node-49" source="Node-156" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-11guard" name="Definizione richiesta di attrezzatura|50108_To_([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-11weight" name="Definizione richiesta di attrezzatura|50108_To_([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-12" target="Node-204" source="Node-144" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-12guard" name="Rifiuta la richiesta|15151_To_([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-12weight" name="Rifiuta la richiesta|15151_To_([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-13" target="Node-53" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-13guard" name="Start_O_To_Provide new sales lead|3245_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-13weight" name="Start_O_To_Provide new sales lead|3245_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-14" target="Node-71" source="Node-193" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-14guard" name="Processo Richiesta di Vacanza|15210_To_([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-14weight" name="Processo Richiesta di Vacanza|15210_To_([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-15" target="Node-26" source="Node-200" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-15guard" name="([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561])_To_Approvazione richiesta attrezzatura|47561_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-15weight" name="([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561])_To_Approvazione richiesta attrezzatura|47561_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-16" target="Node-50" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-16guard" name="Start_O_To_First line support|3252_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-16weight" name="Start_O_To_First line support|3252_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-17" target="Node-175" source="Node-3" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-17guard" name="Modifica richiesta attrezzatura|52577_To_([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-17weight" name="Modifica richiesta attrezzatura|52577_To_([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-18" target="Node-69" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-18guard" name="Start_O_To_Processo Richiesta di Vacanza|5099_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-18weight" name="Start_O_To_Processo Richiesta di Vacanza|5099_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-14" source="Node-25" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="Check diponibilità|52508_To_([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="Check diponibilità|52508_To_([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-20" target="Node-129" source="Node-204" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-20guard" name="([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159])_To_Processo Richiesta di Vacanza|15159_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-20weight" name="([Rifiuta la richiesta|15151],[Processo Richiesta di Vacanza|15159])_To_Processo Richiesta di Vacanza|15159_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-21" target="Node-192" source="Node-164" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-21guard" name="([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598])_To_Approvazione richiesta attrezzatura|52598_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-21weight" name="([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598])_To_Approvazione richiesta attrezzatura|52598_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-138" source="Node-54" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251])_To_Processo Richiesta di Vacanza|5251_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="([Rifiuta la richiesta|5243],[Processo Richiesta di Vacanza|5251])_To_Processo Richiesta di Vacanza|5251_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-23" target="Node-73" source="Node-38" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-23guard" name="Check diponibilità|50163_To_([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-23weight" name="Check diponibilità|50163_To_([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-24" target="Node-180" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-24guard" name="Start_O_To_Processo Richiesta di Vacanza|15082_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-24weight" name="Start_O_To_Processo Richiesta di Vacanza|15082_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-25" target="Node-103" source="Node-55" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-25guard" name="([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522])_To_Check diponibilità|52522_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-25weight" name="([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522])_To_Check diponibilità|52522_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-26" target="Node-145" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-26guard" name="Start_O_To_Definizione richiesta di attrezzatura|47515_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-26weight" name="Start_O_To_Definizione richiesta di attrezzatura|47515_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-27" target="Node-56" source="Node-159" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-27guard" name="([Investigate hardware|55011],[Investigate software|55014])_To_Investigate software|55014_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-27weight" name="([Investigate hardware|55011],[Investigate software|55014])_To_Investigate software|55014_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-28" target="Node-166" source="Node-121" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-28guard" name="Definizione richiesta di attrezzatura|50013_To_([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-28weight" name="Definizione richiesta di attrezzatura|50013_To_([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-29" target="Node-34" source="Node-44" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-29guard" name="Review profitability|3762_To_([Review profitability|3762],[Review customer rating|3765])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-29weight" name="Review profitability|3762_To_([Review profitability|3762],[Review customer rating|3765])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-30" target="Node-22" source="Node-53" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-30guard" name="Provide new sales lead|3245_To_([Provide new sales lead|3245],[Review profitability|3762])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-30weight" name="Provide new sales lead|3245_To_([Provide new sales lead|3245],[Review profitability|3762])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-31" target="Node-195" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-31guard" name="Start_O_To_Investigate hardware|17511_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-31weight" name="Start_O_To_Investigate hardware|17511_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-32" target="Node-101" source="Node-11" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-32guard" name="([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169])_To_Processo Richiesta di Vacanza|5169_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-32weight" name="([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169])_To_Processo Richiesta di Vacanza|5169_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-33" target="Node-168" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-33guard" name="Start_O_To_Definizione richiesta di attrezzatura|50152_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-33weight" name="Start_O_To_Definizione richiesta di attrezzatura|50152_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-34" target="Node-91" source="Node-16" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-34guard" name="Definizione richiesta di attrezzatura|52605_To_([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-34weight" name="Definizione richiesta di attrezzatura|52605_To_([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-35" target="Node-9" source="Node-69" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-35guard" name="Processo Richiesta di Vacanza|5099_To_([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-35weight" name="Processo Richiesta di Vacanza|5099_To_([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-36" target="Node-185" source="Node-114" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-36guard" name="Investigate software|15061_To_([Investigate software|15061],[Write report|15115])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-36weight" name="Investigate software|15061_To_([Investigate software|15061],[Write report|15115])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-37" target="Node-194" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-37guard" name="Start_O_To_Investigate hardware|15042_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-37weight" name="Start_O_To_Investigate hardware|15042_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-38" target="Node-52" source="Node-102" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-38guard" name="([Investigate hardware|37511],[Investigate software|37514])_To_Investigate software|37514_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-38weight" name="([Investigate hardware|37511],[Investigate software|37514])_To_Investigate software|37514_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-39" target="Node-155" source="Node-41" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-39guard" name="Approvazione richiesta attrezzatura|47534_To_([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-39weight" name="Approvazione richiesta attrezzatura|47534_To_([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-40" target="Node-35" source="Node-154" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-40guard" name="Processo Richiesta di Vacanza|5271_To_([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-40weight" name="Processo Richiesta di Vacanza|5271_To_([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-41" target="Node-137" source="Node-162" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-41guard" name="([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645])_To_Check diponibilità|52645_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-41weight" name="([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645])_To_Check diponibilità|52645_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-42" target="Node-30" source="Node-151" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-42guard" name="Definizione richiesta di attrezzatura|52622_To_([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-42weight" name="Definizione richiesta di attrezzatura|52622_To_([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-43" target="Node-147" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-43guard" name="Start_O_To_Processo Richiesta di Vacanza|5146_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-43weight" name="Start_O_To_Processo Richiesta di Vacanza|5146_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-44" target="Node-174" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-44guard" name="Start_O_To_Definizione richiesta di attrezzatura|50006_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-44weight" name="Start_O_To_Definizione richiesta di attrezzatura|50006_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-45" target="Node-16" source="Node-112" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-45guard" name="([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605])_To_Definizione richiesta di attrezzatura|52605_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-45weight" name="([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605])_To_Definizione richiesta di attrezzatura|52605_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-46" target="Node-94" source="Node-125" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-46guard" name="([Investigate hardware|3862],[Investigate software|3865])_To_Investigate software|3865_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-46weight" name="([Investigate hardware|3862],[Investigate software|3865])_To_Investigate software|3865_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-47" target="Node-121" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-47guard" name="Start_O_To_Definizione richiesta di attrezzatura|50013_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-47weight" name="Start_O_To_Definizione richiesta di attrezzatura|50013_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-48" target="Node-23" source="Node-153" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-48guard" name="([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072])_To_Rifiuta la richiesta|5072_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-48weight" name="([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072])_To_Rifiuta la richiesta|5072_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-49" target="Node-150" source="Node-31" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-49guard" name="([Investigate hardware|3280],[Investigate software|3283])_To_Investigate software|3283_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-49weight" name="([Investigate hardware|3280],[Investigate software|3283])_To_Investigate software|3283_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-50" target="Node-132" source="Node-33" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-50guard" name="([Investigate software|42514],[Hand over to Level 2 support|45003])_To_Hand over to Level 2 support|45003_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-50weight" name="([Investigate software|42514],[Hand over to Level 2 support|45003])_To_Hand over to Level 2 support|45003_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-51" target="Node-43" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-51guard" name="Start_O_To_Processo Richiesta di Vacanza|10010_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-51weight" name="Start_O_To_Processo Richiesta di Vacanza|10010_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-52" target="Node-112" source="Node-188" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-52guard" name="Modifica richiesta attrezzatura|52531_To_([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-52weight" name="Modifica richiesta attrezzatura|52531_To_([Modifica richiesta attrezzatura|52531],[Definizione richiesta di attrezzatura|52605])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-53" target="Node-96" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-53guard" name="Start_O_To_Processo Richiesta di Vacanza|5063_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-53weight" name="Start_O_To_Processo Richiesta di Vacanza|5063_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-54" target="Node-3" source="Node-46" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-54guard" name="([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577])_To_Modifica richiesta attrezzatura|52577_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-54weight" name="([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577])_To_Modifica richiesta attrezzatura|52577_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-55" target="Node-191" source="Node-49" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-55guard" name="([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119])_To_Check diponibilità|50119_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-55weight" name="([Definizione richiesta di attrezzatura|50108],[Check diponibilità|50119])_To_Check diponibilità|50119_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-56" target="Node-4" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-56guard" name="Start_O_To_Processo Richiesta di Vacanza|15183_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-56weight" name="Start_O_To_Processo Richiesta di Vacanza|15183_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-57" target="Node-169" source="Node-5" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-57guard" name="Review profitability|3775_To_([Review profitability|3775],[Review customer rating|3778])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-57weight" name="Review profitability|3775_To_([Review profitability|3775],[Review customer rating|3778])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-58" target="Node-131" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-58guard" name="Start_O_To_Provide new sales lead|3261_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-58weight" name="Start_O_To_Provide new sales lead|3261_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-59" target="Node-27" source="Node-115" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-59guard" name="Check diponibilità|50145_To_([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-59weight" name="Check diponibilità|50145_To_([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-60" target="Node-70" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-60guard" name="Start_O_To_Definizione richiesta di attrezzatura|50055_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-60weight" name="Start_O_To_Definizione richiesta di attrezzatura|50055_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-61" target="Node-61" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-61guard" name="Start_O_To_Processo Richiesta di Vacanza|15018_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-61weight" name="Start_O_To_Processo Richiesta di Vacanza|15018_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-62" target="Node-10" source="Node-58" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-62guard" name="Definizione richiesta di attrezzatura|50134_To_([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-62weight" name="Definizione richiesta di attrezzatura|50134_To_([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-63" target="Node-24" source="Node-85" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-63guard" name="([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161])_To_Rifiuta la richiesta|5161_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-63weight" name="([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161])_To_Rifiuta la richiesta|5161_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-64" target="Node-79" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-64guard" name="Start_O_To_Processo Richiesta|3949_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-64weight" name="Start_O_To_Processo Richiesta|3949_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-65" target="Node-42" source="Node-172" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-65guard" name="Definizione richiesta di attrezzatura|50048_To_([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-65weight" name="Definizione richiesta di attrezzatura|50048_To_([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-66" target="Node-68" source="Node-166" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-66guard" name="([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031])_To_Check diponibilità|50031_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-66weight" name="([Definizione richiesta di attrezzatura|50013],[Check diponibilità|50031])_To_Check diponibilità|50031_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-67" target="Node-95" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-67guard" name="Start_O_To_Processo Richiesta|3920_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-67weight" name="Start_O_To_Processo Richiesta|3920_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-68" target="Node-163" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-68guard" name="Start_O_To_First line support|3115_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-68weight" name="Start_O_To_First line support|3115_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-69" target="Node-157" source="Node-57" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-69guard" name="([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548])_To_Approvazione richiesta attrezzatura|57548_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-69weight" name="([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548])_To_Approvazione richiesta attrezzatura|57548_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-70" target="Node-62" source="Node-107" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-70guard" name="([Handle escalated issue|25],[First line support|2580])_To_First line support|2580_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-70weight" name="([Handle escalated issue|25],[First line support|2580])_To_First line support|2580_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-71" target="Node-127" source="Node-12" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-71guard" name="Investigate hardware|2551_To_([Investigate hardware|2551],[Investigate software|2554])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-71weight" name="Investigate hardware|2551_To_([Investigate hardware|2551],[Investigate software|2554])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-72" target="Node-18" source="Node-185" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-72guard" name="([Investigate software|15061],[Write report|15115])_To_Write report|15115_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-72weight" name="([Investigate software|15061],[Write report|15115])_To_Write report|15115_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-73" target="Node-141" source="Node-194" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-73guard" name="Investigate hardware|15042_To_([Investigate hardware|15042],[Investigate software|15045])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-73weight" name="Investigate hardware|15042_To_([Investigate hardware|15042],[Investigate software|15045])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-74" target="Node-19" source="Node-14" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-74guard" name="([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560])_To_Approvazione richiesta attrezzatura|52560_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-74weight" name="([Check diponibilità|52508],[Approvazione richiesta attrezzatura|52560])_To_Approvazione richiesta attrezzatura|52560_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-75" target="Node-128" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-75guard" name="Start_O_To_First line support|3051_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-75weight" name="Start_O_To_First line support|3051_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-76" target="Node-177" source="Node-178" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-76guard" name="([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526])_To_Check diponibilità|47526_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-76weight" name="([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526])_To_Check diponibilità|47526_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-77" target="Node-153" source="Node-96" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-77guard" name="Processo Richiesta di Vacanza|5063_To_([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-77weight" name="Processo Richiesta di Vacanza|5063_To_([Processo Richiesta di Vacanza|5063],[Rifiuta la richiesta|5072])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-78" target="Node-133" source="Node-40" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-78guard" name="Modifica richiesta attrezzatura|47542_To_([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-78weight" name="Modifica richiesta attrezzatura|47542_To_([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-79" target="Node-202" source="Node-23" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-79guard" name="Rifiuta la richiesta|5072_To_([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-79weight" name="Rifiuta la richiesta|5072_To_([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-80" target="Node-178" source="Node-145" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-80guard" name="Definizione richiesta di attrezzatura|47515_To_([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-80weight" name="Definizione richiesta di attrezzatura|47515_To_([Definizione richiesta di attrezzatura|47515],[Check diponibilità|47526])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-81" target="Node-134" source="Node-100" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-81guard" name="([Investigate hardware|17511],[Investigate software|17514])_To_Investigate software|17514_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-81weight" name="([Investigate hardware|17511],[Investigate software|17514])_To_Investigate software|17514_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-82" target="Node-123" source="Node-15" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-82guard" name="Definizione richiesta di attrezzatura|47547_To_([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-82weight" name="Definizione richiesta di attrezzatura|47547_To_([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-83" target="Node-199" source="Node-101" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-83guard" name="Processo Richiesta di Vacanza|5169_To_([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-83weight" name="Processo Richiesta di Vacanza|5169_To_([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-84" target="Node-162" source="Node-119" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-84guard" name="Definizione richiesta di attrezzatura|52637_To_([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-84weight" name="Definizione richiesta di attrezzatura|52637_To_([Definizione richiesta di attrezzatura|52637],[Check diponibilità|52645])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-85" target="Node-193" source="Node-116" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-85guard" name="([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210])_To_Processo Richiesta di Vacanza|15210_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-85weight" name="([Rifiuta la richiesta|15198],[Processo Richiesta di Vacanza|15210])_To_Processo Richiesta di Vacanza|15210_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-86" target="Node-1" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-86guard" name="Start_O_To_First line support|3268_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-86weight" name="Start_O_To_First line support|3268_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-87" target="Node-86" source="Node-0" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-87guard" name="([Investigate software|15045],[Write report|15099])_To_Write report|15099_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-87weight" name="([Investigate software|15045],[Write report|15099])_To_Write report|15099_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-88" target="Node-44" source="Node-22" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-88guard" name="([Provide new sales lead|3245],[Review profitability|3762])_To_Review profitability|3762_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-88weight" name="([Provide new sales lead|3245],[Review profitability|3762])_To_Review profitability|3762_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-89" target="Node-11" source="Node-24" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-89guard" name="Rifiuta la richiesta|5161_To_([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-89weight" name="Rifiuta la richiesta|5161_To_([Rifiuta la richiesta|5161],[Processo Richiesta di Vacanza|5169])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-90" target="Node-115" source="Node-10" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-90guard" name="([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145])_To_Check diponibilità|50145_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-90weight" name="([Definizione richiesta di attrezzatura|50134],[Check diponibilità|50145])_To_Check diponibilità|50145_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-91" target="Node-161" source="Node-197" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-91guard" name="Approvazione richiesta attrezzatura|52553_To_([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-91weight" name="Approvazione richiesta attrezzatura|52553_To_([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-92" target="Node-136" source="Node-146" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-92guard" name="Modifica richiesta attrezzatura|52591_To_([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-92weight" name="Modifica richiesta attrezzatura|52591_To_([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-93" target="Node-190" source="Node-183" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-93guard" name="Investigate hardware|3843_To_([Investigate hardware|3843],[Investigate software|3846])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-93weight" name="Investigate hardware|3843_To_([Investigate hardware|3843],[Investigate software|3846])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-94" target="Node-83" source="Node-110" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-94guard" name="Investigate hardware|42511_To_([Investigate hardware|42511],[Investigate software|42514])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-94weight" name="Investigate hardware|42511_To_([Investigate hardware|42511],[Investigate software|42514])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-95" target="Node-84" source="Node-36" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-95guard" name="Definizione richiesta di attrezzatura|50080_To_([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-95weight" name="Definizione richiesta di attrezzatura|50080_To_([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-96" target="Node-146" source="Node-122" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-96guard" name="([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591])_To_Modifica richiesta attrezzatura|52591_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-96weight" name="([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591])_To_Modifica richiesta attrezzatura|52591_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-97" target="Node-37" source="Node-91" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-97guard" name="([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658])_To_Check diponibilità|52658_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-97weight" name="([Definizione richiesta di attrezzatura|52605],[Check diponibilità|52658])_To_Check diponibilità|52658_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-98" target="Node-12" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-98guard" name="Start_O_To_Investigate hardware|2551_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-98weight" name="Start_O_To_Investigate hardware|2551_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-99" target="Node-75" source="Node-17" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-99guard" name="Check diponibilità|52630_To_([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-99weight" name="Check diponibilità|52630_To_([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-100" target="Node-13" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-100guard" name="Start_O_To_First line support|3083_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-100weight" name="Start_O_To_First line support|3083_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-101" target="Node-171" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-101guard" name="Start_O_To_First line support|3122_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-101weight" name="Start_O_To_First line support|3122_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-102" target="Node-38" source="Node-176" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-102guard" name="([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163])_To_Check diponibilità|50163_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-102weight" name="([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163])_To_Check diponibilità|50163_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-103" target="Node-126" source="Node-56" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-103guard" name="Investigate software|55014_To_([Investigate software|55014],[Hand over to Level 2 support|57503])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-103weight" name="Investigate software|55014_To_([Investigate software|55014],[Hand over to Level 2 support|57503])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-104" target="Node-140" source="Node-190" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-104guard" name="([Investigate hardware|3843],[Investigate software|3846])_To_Investigate software|3846_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-104weight" name="([Investigate hardware|3843],[Investigate software|3846])_To_Investigate software|3846_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-105" target="Node-111" source="Node-161" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-105guard" name="([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584])_To_Modifica richiesta attrezzatura|52584_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-105weight" name="([Approvazione richiesta attrezzatura|52553],[Modifica richiesta attrezzatura|52584])_To_Modifica richiesta attrezzatura|52584_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-106" target="Node-130" source="Node-139" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-106guard" name="Processo Richiesta di Vacanza|5222_To_([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-106weight" name="Processo Richiesta di Vacanza|5222_To_([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-107" target="Node-172" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-107guard" name="Start_O_To_Definizione richiesta di attrezzatura|50048_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-107weight" name="Start_O_To_Definizione richiesta di attrezzatura|50048_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-108" target="Node-15" source="Node-133" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-108guard" name="([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547])_To_Definizione richiesta di attrezzatura|47547_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-108weight" name="([Modifica richiesta attrezzatura|47542],[Definizione richiesta di attrezzatura|47547])_To_Definizione richiesta di attrezzatura|47547_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-109" target="Node-2" source="Node-35" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-109guard" name="([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513])_To_Rifiuta la richiesta|7513_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-109weight" name="([Processo Richiesta di Vacanza|5271],[Rifiuta la richiesta|7513])_To_Rifiuta la richiesta|7513_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-110" target="Node-203" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-110guard" name="Start_O_To_Processo Richiesta di Vacanza|15141_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-110weight" name="Start_O_To_Processo Richiesta di Vacanza|15141_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-111" target="Node-59" source="Node-174" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-111guard" name="Definizione richiesta di attrezzatura|50006_To_([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-111weight" name="Definizione richiesta di attrezzatura|50006_To_([Definizione richiesta di attrezzatura|50006],[Check diponibilità|52508])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-112" target="Node-108" source="Node-71" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-112guard" name="([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219])_To_Rifiuta la richiesta|15219_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-112weight" name="([Processo Richiesta di Vacanza|15210],[Rifiuta la richiesta|15219])_To_Rifiuta la richiesta|15219_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-113" target="Node-188" source="Node-82" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-113guard" name="([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531])_To_Modifica richiesta attrezzatura|52531_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-113weight" name="([Approvazione richiesta attrezzatura|50127],[Modifica richiesta attrezzatura|52531])_To_Modifica richiesta attrezzatura|52531_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-114" target="Node-64" source="Node-181" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-114guard" name="([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127])_To_Approvazione richiesta attrezzatura|50127_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-114weight" name="([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127])_To_Approvazione richiesta attrezzatura|50127_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-115" target="Node-143" source="Node-45" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-115guard" name="([Investigate hardware|22511],[Investigate software|22514])_To_Investigate software|22514_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-115weight" name="([Investigate hardware|22511],[Investigate software|22514])_To_Investigate software|22514_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-116" target="Node-55" source="Node-70" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-116guard" name="Definizione richiesta di attrezzatura|50055_To_([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-116weight" name="Definizione richiesta di attrezzatura|50055_To_([Definizione richiesta di attrezzatura|50055],[Check diponibilità|52522])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-117" target="Node-78" source="Node-93" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-117guard" name="([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226])_To_Processo Richiesta di Vacanza|15226_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-117weight" name="([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226])_To_Processo Richiesta di Vacanza|15226_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-118" target="Node-99" source="Node-143" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-118guard" name="Investigate software|22514_To_([Investigate software|22514],[Hand over to Level 2 support|25003])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-118weight" name="Investigate software|22514_To_([Investigate software|22514],[Hand over to Level 2 support|25003])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-119" target="Node-46" source="Node-113" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-119guard" name="Approvazione richiesta attrezzatura|52546_To_([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-119weight" name="Approvazione richiesta attrezzatura|52546_To_([Approvazione richiesta attrezzatura|52546],[Modifica richiesta attrezzatura|52577])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-120" target="Node-45" source="Node-182" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-120guard" name="Investigate hardware|22511_To_([Investigate hardware|22511],[Investigate software|22514])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-120weight" name="Investigate hardware|22511_To_([Investigate hardware|22511],[Investigate software|22514])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-121" target="Node-31" source="Node-198" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-121guard" name="Investigate hardware|3280_To_([Investigate hardware|3280],[Investigate software|3283])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-121weight" name="Investigate hardware|3280_To_([Investigate hardware|3280],[Investigate software|3283])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-122" target="Node-197" source="Node-20" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-122guard" name="([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553])_To_Approvazione richiesta attrezzatura|52553_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-122weight" name="([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553])_To_Approvazione richiesta attrezzatura|52553_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-123" target="Node-76" source="Node-118" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-123guard" name="Investigate hardware|15058_To_([Investigate hardware|15058],[Investigate software|15061])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-123weight" name="Investigate hardware|15058_To_([Investigate hardware|15058],[Investigate software|15061])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-124" target="Node-67" source="Node-9" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-124guard" name="([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110])_To_Rifiuta la richiesta|5110_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-124weight" name="([Processo Richiesta di Vacanza|5099],[Rifiuta la richiesta|5110])_To_Rifiuta la richiesta|5110_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-125" target="Node-156" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-125guard" name="Start_O_To_Definizione richiesta di attrezzatura|50108_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-125weight" name="Start_O_To_Definizione richiesta di attrezzatura|50108_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-126" target="Node-97" source="Node-203" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-126guard" name="Processo Richiesta di Vacanza|15141_To_([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-126weight" name="Processo Richiesta di Vacanza|15141_To_([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-127" target="Node-187" source="Node-83" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-127guard" name="([Investigate hardware|42511],[Investigate software|42514])_To_Investigate software|42514_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-127weight" name="([Investigate hardware|42511],[Investigate software|42514])_To_Investigate software|42514_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-128" target="Node-109" source="Node-199" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-128guard" name="([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180])_To_Rifiuta la richiesta|5180_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-128weight" name="([Processo Richiesta di Vacanza|5169],[Rifiuta la richiesta|5180])_To_Rifiuta la richiesta|5180_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-129" target="Node-72" source="Node-130" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-129guard" name="([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243])_To_Rifiuta la richiesta|5243_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-129weight" name="([Processo Richiesta di Vacanza|5222],[Rifiuta la richiesta|5243])_To_Rifiuta la richiesta|5243_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-130" target="Node-51" source="Node-68" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-130guard" name="Check diponibilità|50031_To_([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-130weight" name="Check diponibilità|50031_To_([Check diponibilità|50031],[Approvazione richiesta attrezzatura|50039])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-131" target="Node-58" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-131guard" name="Start_O_To_Definizione richiesta di attrezzatura|50134_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-131weight" name="Start_O_To_Definizione richiesta di attrezzatura|50134_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-132" target="Node-165" source="Node-152" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-132guard" name="([Investigate software|37514],[Hand over to Level 2 support|40003])_To_Hand over to Level 2 support|40003_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-132weight" name="([Investigate software|37514],[Hand over to Level 2 support|40003])_To_Hand over to Level 2 support|40003_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-133" target="Node-48" source="Node-74" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-133guard" name="([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198])_To_Rifiuta la richiesta|15198_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-133weight" name="([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198])_To_Rifiuta la richiesta|15198_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-134" target="Node-120" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-134guard" name="Start_O_To_First line support|3154_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-134weight" name="Start_O_To_First line support|3154_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-135" target="Node-65" source="Node-177" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-135guard" name="Check diponibilità|47526_To_([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-135weight" name="Check diponibilità|47526_To_([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-136" target="Node-17" source="Node-30" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-136guard" name="([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630])_To_Check diponibilità|52630_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-136weight" name="([Definizione richiesta di attrezzatura|52622],[Check diponibilità|52630])_To_Check diponibilità|52630_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-137" target="Node-104" source="Node-99" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-137guard" name="([Investigate software|22514],[Hand over to Level 2 support|25003])_To_Hand over to Level 2 support|25003_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-137weight" name="([Investigate software|22514],[Hand over to Level 2 support|25003])_To_Hand over to Level 2 support|25003_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-138" target="Node-125" source="Node-6" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-138guard" name="Investigate hardware|3862_To_([Investigate hardware|3862],[Investigate software|3865])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-138weight" name="Investigate hardware|3862_To_([Investigate hardware|3862],[Investigate software|3865])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-139" target="Node-164" source="Node-184" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-139guard" name="Check diponibilità|50091_To_([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-139weight" name="Check diponibilità|50091_To_([Check diponibilità|50091],[Approvazione richiesta attrezzatura|52598])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-140" target="Node-181" source="Node-191" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-140guard" name="Check diponibilità|50119_To_([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-140weight" name="Check diponibilità|50119_To_([Check diponibilità|50119],[Approvazione richiesta attrezzatura|50127])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-141" target="Node-7" source="Node-141" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-141guard" name="([Investigate hardware|15042],[Investigate software|15045])_To_Investigate software|15045_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-141weight" name="([Investigate hardware|15042],[Investigate software|15045])_To_Investigate software|15045_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-142" target="Node-57" source="Node-160" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-142guard" name="Check diponibilità|50066_To_([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-142weight" name="Check diponibilità|50066_To_([Check diponibilità|50066],[Approvazione richiesta attrezzatura|57548])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-143" target="Node-66" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-143guard" name="Start_O_To_Processo Richiesta di Vacanza|5209_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-143weight" name="Start_O_To_Processo Richiesta di Vacanza|5209_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-144" target="Node-107" source="Node-167" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-144guard" name="Handle escalated issue|25_To_([Handle escalated issue|25],[First line support|2580])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-144weight" name="Handle escalated issue|25_To_([Handle escalated issue|25],[First line support|2580])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-145" target="Node-6" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-145guard" name="Start_O_To_Investigate hardware|3862_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-145weight" name="Start_O_To_Investigate hardware|3862_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-146" target="Node-105" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-146guard" name="Start_O_To_First line support|3035_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-146weight" name="Start_O_To_First line support|3035_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-147" target="Node-36" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-147guard" name="Start_O_To_Definizione richiesta di attrezzatura|50080_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-147weight" name="Start_O_To_Definizione richiesta di attrezzatura|50080_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-148" target="Node-32" source="Node-75" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-148guard" name="([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509])_To_Approvazione richiesta attrezzatura|57509_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-148weight" name="([Check diponibilità|52630],[Approvazione richiesta attrezzatura|57509])_To_Approvazione richiesta attrezzatura|57509_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-149" target="Node-20" source="Node-103" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-149guard" name="Check diponibilità|52522_To_([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-149weight" name="Check diponibilità|52522_To_([Check diponibilità|52522],[Approvazione richiesta attrezzatura|52553])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-150" target="Node-0" source="Node-7" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-150guard" name="Investigate software|15045_To_([Investigate software|15045],[Write report|15099])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-150weight" name="Investigate software|15045_To_([Investigate software|15045],[Write report|15099])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-151" target="Node-77" source="Node-88" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-151guard" name="Investigate software|2554_To_([Investigate software|2554],[Hand over to Level 2 support|29])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-151weight" name="Investigate software|2554_To_([Investigate software|2554],[Hand over to Level 2 support|29])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-152" target="Node-182" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-152guard" name="Start_O_To_Investigate hardware|22511_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-152weight" name="Start_O_To_Investigate hardware|22511_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-153" target="Node-151" source="Node-136" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-153guard" name="([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622])_To_Definizione richiesta di attrezzatura|52622_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-153weight" name="([Modifica richiesta attrezzatura|52591],[Definizione richiesta di attrezzatura|52622])_To_Definizione richiesta di attrezzatura|52622_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-154" target="Node-80" source="Node-169" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-154guard" name="([Review profitability|3775],[Review customer rating|3778])_To_Review customer rating|3778_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-154weight" name="([Review profitability|3775],[Review customer rating|3778])_To_Review customer rating|3778_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-155" target="Node-200" source="Node-148" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-155guard" name="Check diponibilità|47555_To_([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-155weight" name="Check diponibilità|47555_To_([Check diponibilità|47555],[Approvazione richiesta attrezzatura|47561])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-156" target="Node-170" source="Node-27" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-156guard" name="([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538])_To_Approvazione richiesta attrezzatura|52538_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-156weight" name="([Check diponibilità|50145],[Approvazione richiesta attrezzatura|52538])_To_Approvazione richiesta attrezzatura|52538_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-157" target="Node-47" source="Node-137" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-157guard" name="Check diponibilità|52645_To_([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-157weight" name="Check diponibilità|52645_To_([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-158" target="Node-198" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-158guard" name="Start_O_To_Investigate hardware|3280_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-158weight" name="Start_O_To_Investigate hardware|3280_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-159" target="Node-93" source="Node-108" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-159guard" name="Rifiuta la richiesta|15219_To_([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-159weight" name="Rifiuta la richiesta|15219_To_([Rifiuta la richiesta|15219],[Processo Richiesta di Vacanza|15226])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-160" target="Node-159" source="Node-158" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-160guard" name="Investigate hardware|55011_To_([Investigate hardware|55011],[Investigate software|55014])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-160weight" name="Investigate hardware|55011_To_([Investigate hardware|55011],[Investigate software|55014])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-161" target="Node-21" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-161guard" name="Start_O_To_First line support|2982_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-161weight" name="Start_O_To_First line support|2982_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-162" target="Node-184" source="Node-84" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-162guard" name="([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091])_To_Check diponibilità|50091_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-162weight" name="([Definizione richiesta di attrezzatura|50080],[Check diponibilità|50091])_To_Check diponibilità|50091_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-163" target="Node-149" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-163guard" name="Start_O_To_First line support|3186_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-163weight" name="Start_O_To_First line support|3186_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-164" target="Node-124" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-164guard" name="Start_O_To_Processo Richiesta di Vacanza|5039_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-164weight" name="Start_O_To_Processo Richiesta di Vacanza|5039_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-165" target="Node-113" source="Node-73" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-165guard" name="([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546])_To_Approvazione richiesta attrezzatura|52546_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-165weight" name="([Check diponibilità|50163],[Approvazione richiesta attrezzatura|52546])_To_Approvazione richiesta attrezzatura|52546_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-166" target="Node-201" source="Node-126" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-166guard" name="([Investigate software|55014],[Hand over to Level 2 support|57503])_To_Hand over to Level 2 support|57503_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-166weight" name="([Investigate software|55014],[Hand over to Level 2 support|57503])_To_Hand over to Level 2 support|57503_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-167" target="Node-110" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-167guard" name="Start_O_To_Investigate hardware|42511_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-167weight" name="Start_O_To_Investigate hardware|42511_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-168" target="Node-87" source="Node-43" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-168guard" name="Processo Richiesta di Vacanza|10010_To_([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-168weight" name="Processo Richiesta di Vacanza|10010_To_([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-169" target="Node-135" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-169guard" name="Start_O_To_Processo Richiesta di Vacanza|5133_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-169weight" name="Start_O_To_Processo Richiesta di Vacanza|5133_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-170" target="Node-167" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-170guard" name="Start_O_To_Handle escalated issue|25_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-170weight" name="Start_O_To_Handle escalated issue|25_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-171" target="Node-139" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-171guard" name="Start_O_To_Processo Richiesta di Vacanza|5222_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-171weight" name="Start_O_To_Processo Richiesta di Vacanza|5222_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-172" target="Node-114" source="Node-76" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-172guard" name="([Investigate hardware|15058],[Investigate software|15061])_To_Investigate software|15061_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-172weight" name="([Investigate hardware|15058],[Investigate software|15061])_To_Investigate software|15061_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-173" target="Node-89" source="Node-47" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-173guard" name="([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519])_To_Approvazione richiesta attrezzatura|57519_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-173weight" name="([Check diponibilità|52645],[Approvazione richiesta attrezzatura|57519])_To_Approvazione richiesta attrezzatura|57519_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-174" target="Node-142" source="Node-37" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-174guard" name="Check diponibilità|52658_To_([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-174weight" name="Check diponibilità|52658_To_([Check diponibilità|52658],[Approvazione richiesta attrezzatura|57525])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-175" target="Node-85" source="Node-135" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-175guard" name="Processo Richiesta di Vacanza|5133_To_([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-175weight" name="Processo Richiesta di Vacanza|5133_To_([Processo Richiesta di Vacanza|5133],[Rifiuta la richiesta|5161])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-176" target="Node-154" source="Node-87" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-176guard" name="([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271])_To_Processo Richiesta di Vacanza|5271_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-176weight" name="([Processo Richiesta di Vacanza|10010],[Processo Richiesta di Vacanza|5271])_To_Processo Richiesta di Vacanza|5271_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-177" target="Node-148" source="Node-123" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-177guard" name="([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555])_To_Check diponibilità|47555_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-177weight" name="([Definizione richiesta di attrezzatura|47547],[Check diponibilità|47555])_To_Check diponibilità|47555_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-178" target="Node-88" source="Node-127" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-178guard" name="([Investigate hardware|2551],[Investigate software|2554])_To_Investigate software|2554_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-178weight" name="([Investigate hardware|2551],[Investigate software|2554])_To_Investigate software|2554_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-179" target="Node-173" source="Node-131" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-179guard" name="Provide new sales lead|3261_To_([Provide new sales lead|3261],[Review profitability|3775])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-179weight" name="Provide new sales lead|3261_To_([Provide new sales lead|3261],[Review profitability|3775])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-180" target="Node-176" source="Node-168" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-180guard" name="Definizione richiesta di attrezzatura|50152_To_([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-180weight" name="Definizione richiesta di attrezzatura|50152_To_([Definizione richiesta di attrezzatura|50152],[Check diponibilità|50163])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-181" target="Node-92" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-181guard" name="Start_O_To_First line support|3012_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-181weight" name="Start_O_To_First line support|3012_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-182" target="Node-119" source="Node-175" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-182guard" name="([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637])_To_Definizione richiesta di attrezzatura|52637_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-182weight" name="([Modifica richiesta attrezzatura|52577],[Definizione richiesta di attrezzatura|52637])_To_Definizione richiesta di attrezzatura|52637_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-183" target="Node-29" source="Node-134" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-183guard" name="Investigate software|17514_To_([Investigate software|17514],[Hand over to Level 2 support|20003])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-183weight" name="Investigate software|17514_To_([Investigate software|17514],[Hand over to Level 2 support|20003])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-184" target="Node-144" source="Node-97" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-184guard" name="([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151])_To_Rifiuta la richiesta|15151_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-184weight" name="([Processo Richiesta di Vacanza|15141],[Rifiuta la richiesta|15151])_To_Rifiuta la richiesta|15151_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-185" target="Node-74" source="Node-4" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-185guard" name="Processo Richiesta di Vacanza|15183_To_([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-185weight" name="Processo Richiesta di Vacanza|15183_To_([Processo Richiesta di Vacanza|15183],[Rifiuta la richiesta|15198])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-186" target="Node-196" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-186guard" name="Start_O_To_Investigate hardware|37511_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-186weight" name="Start_O_To_Investigate hardware|37511_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-187" target="Node-90" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-187guard" name="Start_O_To_First line support|3291_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-187weight" name="Start_O_To_First line support|3291_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-188" target="Node-160" source="Node-42" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-188guard" name="([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066])_To_Check diponibilità|50066_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-188weight" name="([Definizione richiesta di attrezzatura|50048],[Check diponibilità|50066])_To_Check diponibilità|50066_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-189" target="Node-40" source="Node-155" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-189guard" name="([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542])_To_Modifica richiesta attrezzatura|47542_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-189weight" name="([Approvazione richiesta attrezzatura|47534],[Modifica richiesta attrezzatura|47542])_To_Modifica richiesta attrezzatura|47542_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-190" target="Node-33" source="Node-187" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-190guard" name="Investigate software|42514_To_([Investigate software|42514],[Hand over to Level 2 support|45003])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-190weight" name="Investigate software|42514_To_([Investigate software|42514],[Hand over to Level 2 support|45003])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-191" target="Node-152" source="Node-52" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-191guard" name="Investigate software|37514_To_([Investigate software|37514],[Hand over to Level 2 support|40003])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-191weight" name="Investigate software|37514_To_([Investigate software|37514],[Hand over to Level 2 support|40003])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-192" target="Node-41" source="Node-65" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-192guard" name="([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534])_To_Approvazione richiesta attrezzatura|47534_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-192weight" name="([Check diponibilità|47526],[Approvazione richiesta attrezzatura|47534])_To_Approvazione richiesta attrezzatura|47534_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-193" target="Node-117" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-193guard" name="Start_O_To_First line support|3005_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-193weight" name="Start_O_To_First line support|3005_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-194" target="Node-98" source="Node-34" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-194guard" name="([Review profitability|3762],[Review customer rating|3765])_To_Review customer rating|3765_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-194weight" name="([Review profitability|3762],[Review customer rating|3765])_To_Review customer rating|3765_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-195" target="Node-100" source="Node-195" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-195guard" name="Investigate hardware|17511_To_([Investigate hardware|17511],[Investigate software|17514])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-195weight" name="Investigate hardware|17511_To_([Investigate hardware|17511],[Investigate software|17514])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-196" target="Node-39" source="Node-29" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-196guard" name="([Investigate software|17514],[Hand over to Level 2 support|20003])_To_Hand over to Level 2 support|20003_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-196weight" name="([Investigate software|17514],[Hand over to Level 2 support|20003])_To_Hand over to Level 2 support|20003_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-197" target="Node-158" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-197guard" name="Start_O_To_Investigate hardware|55011_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-197weight" name="Start_O_To_Investigate hardware|55011_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-198" target="Node-122" source="Node-19" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-198guard" name="Approvazione richiesta attrezzatura|52560_To_([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591])_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-198weight" name="Approvazione richiesta attrezzatura|52560_To_([Approvazione richiesta attrezzatura|52560],[Modifica richiesta attrezzatura|52591])_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-199" target="Node-81" source="Node-77" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-199guard" name="([Investigate software|2554],[Hand over to Level 2 support|29])_To_Hand over to Level 2 support|29_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-199weight" name="([Investigate software|2554],[Hand over to Level 2 support|29])_To_Hand over to Level 2 support|29_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-200" target="Node-118" source="Node-106" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-200guard" name="Start_O_To_Investigate hardware|15058_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-200weight" name="Start_O_To_Investigate hardware|15058_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-201" target="Node-8" source="Node-202" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-201guard" name="([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080])_To_Processo Richiesta di Vacanza|5080_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-201weight" name="([Rifiuta la richiesta|5072],[Processo Richiesta di Vacanza|5080])_To_Processo Richiesta di Vacanza|5080_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-202" target="Node-5" source="Node-173" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-202guard" name="([Provide new sales lead|3261],[Review profitability|3775])_To_Review profitability|3775_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-202weight" name="([Provide new sales lead|3261],[Review profitability|3775])_To_Review profitability|3775_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-203" target="Node-205" source="Node-150" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-203guard" name="Investigate software|3283_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-203weight" name="Investigate software|3283_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-204" target="Node-205" source="Node-94" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-204guard" name="Investigate software|3865_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-204weight" name="Investigate software|3865_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-205" target="Node-205" source="Node-95" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-205guard" name="Processo Richiesta|3920_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-205weight" name="Processo Richiesta|3920_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-206" target="Node-205" source="Node-1" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-206guard" name="First line support|3268_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-206weight" name="First line support|3268_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-207" target="Node-205" source="Node-2" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-207guard" name="Rifiuta la richiesta|7513_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-207weight" name="Rifiuta la richiesta|7513_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-208" target="Node-205" source="Node-98" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-208guard" name="Review customer rating|3765_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-208weight" name="Review customer rating|3765_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-209" target="Node-205" source="Node-8" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-209guard" name="Processo Richiesta di Vacanza|5080_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-209weight" name="Processo Richiesta di Vacanza|5080_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-210" target="Node-205" source="Node-104" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-210guard" name="Hand over to Level 2 support|25003_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-210weight" name="Hand over to Level 2 support|25003_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-211" target="Node-205" source="Node-157" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-211guard" name="Approvazione richiesta attrezzatura|57548_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-211weight" name="Approvazione richiesta attrezzatura|57548_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-212" target="Node-205" source="Node-105" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-212guard" name="First line support|3035_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-212weight" name="First line support|3035_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-213" target="Node-205" source="Node-13" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-213guard" name="First line support|3083_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-213weight" name="First line support|3083_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-214" target="Node-205" source="Node-109" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-214guard" name="Rifiuta la richiesta|5180_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-214weight" name="Rifiuta la richiesta|5180_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-215" target="Node-205" source="Node-163" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-215guard" name="First line support|3115_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-215weight" name="First line support|3115_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-216" target="Node-205" source="Node-60" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-216guard" name="Approvazione richiesta attrezzatura|50039_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-216weight" name="Approvazione richiesta attrezzatura|50039_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-217" target="Node-205" source="Node-18" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-217guard" name="Write report|15115_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-217weight" name="Write report|15115_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-218" target="Node-205" source="Node-165" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-218guard" name="Hand over to Level 2 support|40003_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-218weight" name="Hand over to Level 2 support|40003_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-219" target="Node-205" source="Node-111" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-219guard" name="Modifica richiesta attrezzatura|52584_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-219weight" name="Modifica richiesta attrezzatura|52584_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-220" target="Node-205" source="Node-61" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-220guard" name="Processo Richiesta di Vacanza|15018_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-220weight" name="Processo Richiesta di Vacanza|15018_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-221" target="Node-205" source="Node-62" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-221guard" name="First line support|2580_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-221weight" name="First line support|2580_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-222" target="Node-205" source="Node-21" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-222guard" name="First line support|2982_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-222weight" name="First line support|2982_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-223" target="Node-205" source="Node-117" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-223guard" name="First line support|3005_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-223weight" name="First line support|3005_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-224" target="Node-205" source="Node-170" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-224guard" name="Approvazione richiesta attrezzatura|52538_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-224weight" name="Approvazione richiesta attrezzatura|52538_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-225" target="Node-205" source="Node-66" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-225guard" name="Processo Richiesta di Vacanza|5209_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-225weight" name="Processo Richiesta di Vacanza|5209_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-226" target="Node-205" source="Node-67" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-226guard" name="Rifiuta la richiesta|5110_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-226weight" name="Rifiuta la richiesta|5110_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-227" target="Node-205" source="Node-120" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-227guard" name="First line support|3154_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-227weight" name="First line support|3154_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-228" target="Node-205" source="Node-171" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-228guard" name="First line support|3122_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-228weight" name="First line support|3122_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-229" target="Node-205" source="Node-26" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-229guard" name="Approvazione richiesta attrezzatura|47561_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-229weight" name="Approvazione richiesta attrezzatura|47561_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-230" target="Node-205" source="Node-124" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-230guard" name="Processo Richiesta di Vacanza|5039_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-230weight" name="Processo Richiesta di Vacanza|5039_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-231" target="Node-205" source="Node-180" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-231guard" name="Processo Richiesta di Vacanza|15082_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-231weight" name="Processo Richiesta di Vacanza|15082_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-232" target="Node-205" source="Node-128" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-232guard" name="First line support|3051_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-232weight" name="First line support|3051_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-233" target="Node-205" source="Node-32" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-233guard" name="Approvazione richiesta attrezzatura|57509_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-233weight" name="Approvazione richiesta attrezzatura|57509_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-234" target="Node-205" source="Node-129" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-234guard" name="Processo Richiesta di Vacanza|15159_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-234weight" name="Processo Richiesta di Vacanza|15159_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-235" target="Node-205" source="Node-132" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-235guard" name="Hand over to Level 2 support|45003_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-235weight" name="Hand over to Level 2 support|45003_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-236" target="Node-205" source="Node-78" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-236guard" name="Processo Richiesta di Vacanza|15226_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-236weight" name="Processo Richiesta di Vacanza|15226_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-237" target="Node-205" source="Node-39" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-237guard" name="Hand over to Level 2 support|20003_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-237weight" name="Hand over to Level 2 support|20003_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-238" target="Node-205" source="Node-79" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-238guard" name="Processo Richiesta|3949_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-238weight" name="Processo Richiesta|3949_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-239" target="Node-205" source="Node-80" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-239guard" name="Review customer rating|3778_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-239weight" name="Review customer rating|3778_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-240" target="Node-205" source="Node-138" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-240guard" name="Processo Richiesta di Vacanza|5251_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-240weight" name="Processo Richiesta di Vacanza|5251_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-241" target="Node-205" source="Node-81" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-241guard" name="Hand over to Level 2 support|29_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-241weight" name="Hand over to Level 2 support|29_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-242" target="Node-205" source="Node-189" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-242guard" name="Approvazione richiesta attrezzatura|57525_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-242weight" name="Approvazione richiesta attrezzatura|57525_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-243" target="Node-205" source="Node-140" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-243guard" name="Investigate software|3846_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-243weight" name="Investigate software|3846_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-244" target="Node-205" source="Node-86" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-244guard" name="Write report|15099_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-244weight" name="Write report|15099_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-245" target="Node-205" source="Node-89" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-245guard" name="Approvazione richiesta attrezzatura|57519_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-245weight" name="Approvazione richiesta attrezzatura|57519_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-246" target="Node-205" source="Node-192" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-246guard" name="Approvazione richiesta attrezzatura|52598_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-246weight" name="Approvazione richiesta attrezzatura|52598_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-247" target="Node-205" source="Node-90" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-247guard" name="First line support|3291_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-247weight" name="First line support|3291_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-248" target="Node-205" source="Node-92" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-248guard" name="First line support|3012_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-248weight" name="First line support|3012_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-249" target="Node-205" source="Node-50" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-249guard" name="First line support|3252_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-249weight" name="First line support|3252_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-250" target="Node-205" source="Node-201" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-250guard" name="Hand over to Level 2 support|57503_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-250weight" name="Hand over to Level 2 support|57503_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-251" target="Node-205" source="Node-147" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-251guard" name="Processo Richiesta di Vacanza|5146_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-251weight" name="Processo Richiesta di Vacanza|5146_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-252" target="Node-205" source="Node-149" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-252guard" name="First line support|3186_To_BranchInEnd_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-252weight" name="First line support|3186_To_BranchInEnd_weight" />
-</edge>
-<edge xmi:type="uml:ControlFlow" xmi:id="Edge-253" target="Node-186" source="Node-205" >
-	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-253guard" name="BranchInEnd_To_End_guard" value="true"/>
-	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-253weight" name="BranchInEnd_To_End_weight" />
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="63201540" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="57706042" name="Activity Diagram" node="Node-0 Node-1 Node-2 Node-3 Node-5 Node-6 Node-7 Node-9 Node-10 Node-11 Node-12 Node-14 Node-16 Node-17 Node-19 Node-20 Node-21 Node-25 Node-26 Node-27 ">
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-0" name="Keep_records+complete" outgoing="Edge-24" incoming="Edge-38"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-1" name="Consider_optional_actions+complete" outgoing="Edge-22" incoming="Edge-34"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-2" name="Parallel gateway" outgoing="Edge-5 Edge-6 Edge-7 Edge-8 Edge-9" incoming="Edge-10 Edge-11 Edge-20 Edge-22 Edge-29 Edge-32">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-2_spec" name="Parallel gateway" value="true"/>
+</node>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-3" name="Exclusive gateway" outgoing="Edge-10" incoming="Edge-2 Edge-3 Edge-24 Edge-26"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-5" name="Complete_recall+complete" outgoing="Edge-1" incoming="Edge-8"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-6" name="PROLOGUE+complete" outgoing="Edge-0" incoming="Edge-19"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-7" name="Start_recall+complete" outgoing="Edge-36" incoming="Edge-0"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-9" name="Prepare_to_destory_or_modify+complete" outgoing="Edge-37" incoming="Edge-5"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-10" name="Identify_remedies+complete" incoming="Edge-7"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-11" name="Complete_optional_actions+complete" outgoing="Edge-2" incoming="Edge-9"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-12" name="Stop_distribution+complete" outgoing="Edge-3" incoming="Edge-30"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-14" name="START EVENT" outgoing="Edge-19"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-16" name="Arrange_disposal+complete" outgoing="Edge-11" incoming="Edge-35"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-17" name="Stop_production+complete" outgoing="Edge-20" incoming="Edge-6"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-19" name="END EVENT" incoming="Edge-4"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-20" name="Notify_third_parties+complete" outgoing="Edge-26" incoming="Edge-31"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-21" name="EPILOGUE+complete" outgoing="Edge-4" incoming="Edge-1"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-25" name="ForkStart_recall+complete" outgoing="Edge-30 Edge-31 Edge-32 Edge-33 Edge-34 Edge-35" incoming="Edge-36"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-26" name="ForkPrepare_to_destory_or_modify+complete" outgoing="Edge-28 Edge-29" incoming="Edge-37"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-27" name="BranchInKeep_records+complete" outgoing="Edge-38" incoming="Edge-28 Edge-33"/>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-7" source="Node-6" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="PROLOGUE+complete_To_Start_recall+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="PROLOGUE+complete_To_Start_recall+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-21" source="Node-5" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="Complete_recall+complete_To_EPILOGUE+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="Complete_recall+complete_To_EPILOGUE+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-3" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="Complete_optional_actions+complete_To_Exclusive gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="Complete_optional_actions+complete_To_Exclusive gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-3" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="Stop_distribution+complete_To_Exclusive gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="Stop_distribution+complete_To_Exclusive gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-19" source="Node-21" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="EPILOGUE+complete_To_END EVENT_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="EPILOGUE+complete_To_END EVENT_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-9" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="Parallel gateway_To_Prepare_to_destory_or_modify+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="Parallel gateway_To_Prepare_to_destory_or_modify+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-17" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="Parallel gateway_To_Stop_production+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="Parallel gateway_To_Stop_production+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-10" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="Parallel gateway_To_Identify_remedies+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="Parallel gateway_To_Identify_remedies+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-5" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="Parallel gateway_To_Complete_recall+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="Parallel gateway_To_Complete_recall+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-11" source="Node-2" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="Parallel gateway_To_Complete_optional_actions+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="Parallel gateway_To_Complete_optional_actions+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-10" target="Node-2" source="Node-3" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-10guard" name="Exclusive gateway_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-10weight" name="Exclusive gateway_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-11" target="Node-2" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-11guard" name="Arrange_disposal+complete_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-11weight" name="Arrange_disposal+complete_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-6" source="Node-14" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="START EVENT_To_PROLOGUE+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="START EVENT_To_PROLOGUE+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-20" target="Node-2" source="Node-17" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-20guard" name="Stop_production+complete_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-20weight" name="Stop_production+complete_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-2" source="Node-1" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="Consider_optional_actions+complete_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="Consider_optional_actions+complete_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-24" target="Node-3" source="Node-0" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-24guard" name="Keep_records+complete_To_Exclusive gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-24weight" name="Keep_records+complete_To_Exclusive gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-26" target="Node-3" source="Node-20" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-26guard" name="Notify_third_parties+complete_To_Exclusive gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-26weight" name="Notify_third_parties+complete_To_Exclusive gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-28" target="Node-27" source="Node-26" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-28guard" name="ForkPrepare_to_destory_or_modify+complete_To_BranchInKeep_records+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-28weight" name="ForkPrepare_to_destory_or_modify+complete_To_BranchInKeep_records+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-29" target="Node-2" source="Node-26" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-29guard" name="ForkPrepare_to_destory_or_modify+complete_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-29weight" name="ForkPrepare_to_destory_or_modify+complete_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-30" target="Node-12" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-30guard" name="ForkStart_recall+complete_To_Stop_distribution+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-30weight" name="ForkStart_recall+complete_To_Stop_distribution+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-31" target="Node-20" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-31guard" name="ForkStart_recall+complete_To_Notify_third_parties+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-31weight" name="ForkStart_recall+complete_To_Notify_third_parties+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-32" target="Node-2" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-32guard" name="ForkStart_recall+complete_To_Parallel gateway_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-32weight" name="ForkStart_recall+complete_To_Parallel gateway_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-33" target="Node-27" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-33guard" name="ForkStart_recall+complete_To_BranchInKeep_records+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-33weight" name="ForkStart_recall+complete_To_BranchInKeep_records+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-34" target="Node-1" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-34guard" name="ForkStart_recall+complete_To_Consider_optional_actions+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-34weight" name="ForkStart_recall+complete_To_Consider_optional_actions+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-35" target="Node-16" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-35guard" name="ForkStart_recall+complete_To_Arrange_disposal+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-35weight" name="ForkStart_recall+complete_To_Arrange_disposal+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-36" target="Node-25" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-36guard" name="Start_recall+complete_To_ForkStart_recall+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-36weight" name="Start_recall+complete_To_ForkStart_recall+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-37" target="Node-26" source="Node-9" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-37guard" name="Prepare_to_destory_or_modify+complete_To_ForkPrepare_to_destory_or_modify+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-37weight" name="Prepare_to_destory_or_modify+complete_To_ForkPrepare_to_destory_or_modify+complete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-38" target="Node-0" source="Node-27" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-38guard" name="BranchInKeep_records+complete_To_Keep_records+complete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-38weight" name="BranchInKeep_records+complete_To_Keep_records+complete_weight" />
 </edge>
 </packagedElement>
 </uml:Model>
