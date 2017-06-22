@@ -84,5 +84,12 @@
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.10.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-nop-1.7.10.jar"/>
 	<classpathentry kind="lib" path="lib/trove4j-3.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/BPMN.jar"/>
+	<classpathentry kind="lib" path="lib/BPMNConversions.jar"/>
+	<classpathentry kind="lib" path="lib/Cnet2AD.jar"/>
+	<classpathentry kind="lib" path="lib/de-derivo-sparqldlapi-2.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/Flex.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jpaul-2.5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -6,17 +6,26 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
+import org.semanticweb.owlapi.reasoner.OWLReasoner;
+import org.semanticweb.owlapi.reasoner.structural.StructuralReasonerFactory;
+
+import de.derivo.sparqldlapi.Query;
+import de.derivo.sparqldlapi.QueryEngine;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Set;
 
 public class OntologyManager {
     private OWLOntologyManager manager;
     private OWLDataFactory dataFactory;
+    private QueryEngine queryEngine;
+    private OWLOntology ontology;
+    private StructuralReasonerFactory reasonerFactory;
+    private OWLReasoner reasoner;
     private File file;
     private String base_iri="urn:absolute:Cnet2AD#";
     private XLog log;
-    private OWLOntology ontology;
     private String outputFilename;
     
     public OntologyManager(XLog log){
@@ -27,10 +36,15 @@ public class OntologyManager {
     {
     	this.outputFilename = output;
        try{
-    	   file=new File(path);
+           file=new File(path);
+           //carico l'ontologia in memoria
            manager= OWLManager.createOWLOntologyManager();
            ontology=manager.loadOntologyFromOntologyDocument(file);
            dataFactory=manager.getOWLDataFactory();
+           //inizializzazione del reasoner per il SPARQL query engine
+           reasonerFactory = new StructuralReasonerFactory();
+           reasoner = reasonerFactory.createReasoner(ontology);
+           queryEngine = QueryEngine.create(manager, reasoner);
        }
        catch(Exception e){
     	   System.out.println("[OntologyManager:init] " + e.toString());
@@ -165,6 +179,32 @@ public class OntologyManager {
         {
             System.out.println(e);
         }
+    }
+    //passato il nome di un'attività ritorna un arrayList di tutte le risorse ad essa correlata
+    public ArrayList<String> resourceQuery(String activity) {
+        ArrayList<String> resources = new ArrayList<String>();
+        String nl="\n";
+        String queryString="PREFIX base: <"+base_iri+">"+nl+
+                "SELECT ?resource"+nl+
+                "WHERE {PropertyValue(base:Activity:"+activity+", base:hasResource, "+"?resource)}";
+        try {
+            Query query = Query.create(queryString.toString());
+            System.out.println("Starting query...");
+            String result = queryEngine.execute(query).toString();
+            int index=0;
+            //extracting value from the query result
+            while((index=result.indexOf("#Resource:"))>0)
+            {
+                int endIndex=result.indexOf(("\n"));
+                resources.add(result.substring(index+10,endIndex));
+                result=result.substring(endIndex+1);
+            }
+            }
+        catch(Exception e)
+        {
+            System.out.println("Query Exception:" + e.toString());
+        }
+        return resources;
     }
     public class ADNodeAttribute
     {

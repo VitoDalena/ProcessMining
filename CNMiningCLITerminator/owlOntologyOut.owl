@@ -126,1102 +126,328 @@
     
 
 
-    <!-- Approvazionerichiestaattrezzatura -->
+    <!-- checkticket -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:checkticket">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.18.47</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.22.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.21</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.49</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.52</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.47.11</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.48.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.50.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.51.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.12.46</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.17.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.19.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.21.55</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.56</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.57</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1104713</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1108489</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1113</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1768</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1810</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1893</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1906</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">193</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">313</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">470</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">797</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">846</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">861</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Approvazione richiesta attrezzatura</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-gen-2011 14.33.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 11.34.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 12.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 16.34.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 15.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 12.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.43.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Definizionerichiestadiattrezzatura -->
+    <!-- decide -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:decide">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.18.47</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.22.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.21</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.49</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.52</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.47.11</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.48.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.50.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.51.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.12.46</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.17.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.19.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.21.55</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.56</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.57</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1109025</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1111109</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2299</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3878</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">394</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">507</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">585</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">600</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">753</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">800</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">930</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">937</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definizione richiesta di attrezzatura</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10-gen-2011 13.28.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19-gen-2011 11.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23-gen-2011 13.12.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 11.22.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 11.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.52.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 12.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 9.55.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decide</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Firstlinesupport -->
+    <!-- examinecasually -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Firstlinesupport">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinecasually">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.55.24</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-feb-2017 21.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-feb-2017 22.12.30</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-feb-2017 22.37.17</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 20.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 20.52.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 20.59.08</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 21.05.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 21.22.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 21.33.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 21.41.28</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25-feb-2017 21.44.45</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26-feb-2017 19.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26-feb-2017 19.49.06</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-mar-2017 11.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-mar-2017 11.44.20</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12117</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18417</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20760094</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20760104</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2094</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25484</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2820022</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35005</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46143</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50276</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5427</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54449</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57741</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8384</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">First line support</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 15.50.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 9.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.16.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 15.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 16.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 10.16.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Handleescalatedissue -->
+    <!-- examinethoroughly -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Handleescalatedissue">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinethoroughly">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-mar-2017 11.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-mar-2017 11.44.20</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57298</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Handle escalated issue</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">31-dic-2010 10.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 13.06.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 14.43.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine thoroughly</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- HandovertoLevel2support -->
+    <!-- paycompensation -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:paycompensation">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-giu-2017 15.06.53</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 14.03.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 15.30.16</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 16.01.28</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.05.06</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.10.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 15.36.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 16.03.39</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 12.17.36</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.25.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-mar-2017 11.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-mar-2017 10.52.50</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1354</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2123</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3480</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5789</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6493</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8201</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hand over to Level 2 support</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-gen-2011 10.45.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 11.47.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 12.05.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pay compensation</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Investigatehardware -->
+    <!-- registerrequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Investigatehardware">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:registerrequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-giu-2017 15.06.53</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 14.03.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 15.30.16</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 16.01.28</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.37</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.40</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.01.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.02.08</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.05.06</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.10.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 15.36.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 16.03.39</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 12.17.36</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.25.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-mar-2017 11.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-mar-2017 10.52.50</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440030</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440031</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440063</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440065</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20734987</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20735070</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20760105</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2820031</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2820066</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3814</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7246</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Investigate hardware</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.32.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.32.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 15.02.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.02.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Investigatesoftware -->
+    <!-- reinitiaterequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Investigatesoftware">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:reinitiaterequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-giu-2017 15.06.53</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 14.03.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 15.30.16</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-giu-2017 16.01.28</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.37</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.40</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.01.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.02.08</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.05.06</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 14.10.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 15.36.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 16.03.39</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 12.17.36</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.25.50</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-mar-2017 11.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-mar-2017 10.52.50</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440031</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440063</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1440065</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20734987</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20735070</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20760104</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2820031</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2820066</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4366</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5651</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Investigate software</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-gen-2011 16.18.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20-gen-2011 12.48.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 12.18.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reinitiate request</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- Modificarichiestaattrezzatura -->
+    <!-- rejectrequest -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:rejectrequest">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.18.47</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.22.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.21</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.52</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.48.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.51.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.21.55</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.56</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.10</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2195</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">291</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3525</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4266</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4443</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modifica richiesta attrezzatura</hasName>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-gen-2011 15.44.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-gen-2011 14.56.00</activityTime>
+        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 14.24.00</activityTime>
+        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- ProcessoRichiesta -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:1&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:ProcessoRichiesta">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processo Richiesta</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- ProcessoRichiestadiVacanza -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.51.02</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.52.24</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.56.18</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.57.32</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.32.24</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.34.07</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 12.04.20</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 12.15.48</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-mar-2017 10.27.14</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-mar-2017 14.05.18</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1144</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1233</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1372</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2087</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212498</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3436</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4188</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">502</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">636</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processo Richiesta di Vacanza</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Providenewsaleslead -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Providenewsaleslead">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42353</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52123</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Provide new sales lead</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Reviewcustomerrating -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Reviewcustomerrating">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11437</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1667</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Review customer rating</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Reviewprofitability -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Reviewprofitability">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 0.47.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22-feb-2017 1.40.48</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11437</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1667</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Review profitability</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Rifiutalarichiesta -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.32.24</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.34.07</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 12.04.20</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 12.15.48</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-mar-2017 10.27.14</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-mar-2017 14.05.18</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2139</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">285</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3762</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">582</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rifiuta la richiesta</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Writereport -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Writereport">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.37</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 10.54.40</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.01.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 11.02.08</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">214</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2191</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Write report</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ &gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ ">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.18.47</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13-giu-2017 18.22.43</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.21</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.41.26</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.49</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.44.52</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.47.11</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.48.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.50.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-giu-2017 16.51.01</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.12.46</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.17.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.19.09</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 11.21.55</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.42</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.26.56</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.10</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-giu-2017 12.27.57</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1103741</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1104665</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1110556</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1182014</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1941</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3621</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">533</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">560</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">581</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63560</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64559</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65152</hasCost>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">822</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Check diponibilitÃ </hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15007&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15007">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:1">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15007</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 1</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15031&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:2&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15031">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Writereport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15031</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15047&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:3&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15047">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Writereport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15047</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15071&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:4&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15071">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:4">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15071</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 4</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15130&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:5&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15130">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15130</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:15172&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:6&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15172">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:6">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15172</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Francesca"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 6</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:17501&gt; -->
+    <!-- Ellen -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:17501">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 17501</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:22501&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:22501">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 22501</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:2540&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2540">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2540</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:2574&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2574">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Handleescalatedissue"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2574</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:2976&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2976">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2976</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:2999&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2999">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2999</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3006&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3006">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3006</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3029&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3029">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3029</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3045&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3045">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3045</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3077&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3077">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3077</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3109&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3109">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3109</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3116&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3116">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3116</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3148&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3148">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3148</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3180&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3180">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3180</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3237&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3237">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Providenewsaleslead"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewcustomerrating"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewprofitability"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3237</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3246&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3246">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3246</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3253&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3253">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Providenewsaleslead"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewcustomerrating"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewprofitability"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3253</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3262&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3262">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3262</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3269&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3269">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3269</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3285&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3285">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3285</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:37501&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:37501">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 37501</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3830&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3830">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3830</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3849&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3849">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3849</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3916&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3916">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3916</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3945&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3945">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3945</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:42501&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:42501">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 42501</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:47510&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:47510">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 47510</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Giuseppe"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50001&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50001">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50001</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ermete"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50008&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50008">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50008</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ermete"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50043&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50043">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50043</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Giuseppe"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50050&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50050">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50050</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Giuseppe"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50075&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50075">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50075</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Alessandro"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50103&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50103">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50103</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Alessandro"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50129&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50129">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50129</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ermete"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:50147&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:50147">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 50147</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Francesca"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5028&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5028">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5028</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5052&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5052">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5052</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5088&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5088">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5088</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5122&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5122">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5122</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5135&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5135">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5135</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5198&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5198">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5198</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5211&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5211">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5211</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Marcello"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5260&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5260">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5260</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:kermit"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:55001&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:55001">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 55001</hasName>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- Alessandro -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Alessandro">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Ellen">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alessandro</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ellen</hasName>
     </owl:NamedIndividual>
     
 
 
-    <!-- Ermete -->
+    <!-- Mike -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Ermete">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Mike">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ermete</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mike</hasName>
     </owl:NamedIndividual>
     
 
 
-    <!-- Francesca -->
+    <!-- Pete -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Francesca">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Pete">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Francesca</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pete</hasName>
     </owl:NamedIndividual>
     
 
 
-    <!-- Giuseppe -->
+    <!-- Sara -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Giuseppe">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sara">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Approvazionerichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Definizionerichiestadiattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Modificarichiestaattrezzatura"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:CheckdiponibilitÃ "/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Giuseppe</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sara</hasName>
     </owl:NamedIndividual>
     
 
 
-    <!-- Marcello -->
+    <!-- Sean -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Marcello">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sean">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiesta"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Writereport"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marcello</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sean</hasName>
     </owl:NamedIndividual>
     
 
 
-    <!-- kermit -->
+    <!-- Sue -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:kermit">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sue">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Firstlinesupport"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Handleescalatedissue"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:HandovertoLevel2support"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatehardware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Investigatesoftware"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:ProcessoRichiestadiVacanza"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Providenewsaleslead"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewcustomerrating"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Reviewprofitability"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Rifiutalarichiesta"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kermit</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sue</hasName>
     </owl:NamedIndividual>
 </rdf:RDF>
 

@@ -29,14 +29,15 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/log.mxml");
+        XLog log = parse("logs/running-example.mxml");
 
 
         try {
-            //OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
-            //ontologyManager.readData();
-            //if(true)
-            //    return;
+            OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
+            ontologyManager.readData();
+            ontologyManager.resourceQuery("checkticket");
+            if(true)
+                return;
             Settings settings = new Settings();
             settings.sigmaLogNoise = 0.05;
             settings.fallFactor = 0.9;
