@@ -6,6 +6,7 @@ import org.deckfour.xes.model.XLog;
 import org.processmining.models.flexiblemodel.Flex;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.plugins.cnet2ad.semantic.OntologyManager;
+import org.processmining.plugins.cnet2ad.semantic.SemanticCnet2AD;
 import org.processmining.plugins.cnmining.CNMining;
 import org.processmining.plugins.cnmining.Settings;
 import org.processmining.plugins.cnet2ad.*;
@@ -35,6 +36,7 @@ import java.util.List;
         -constraints per impostare il percorso del contenente i vincoli
 
         -ontology Per impostare il file di output dell'ontologia
+        -resources Per annotare il layer con le risorse
  */
 
 public class Main {
@@ -110,6 +112,8 @@ public class Main {
             System.out.println("Cnet2ADRESULT=ERROR");
         }
 
+        ADgraph graph = new ADgraph();
+
         try{
             Object[] data = CNMining.startCNMining(null, log, settings, false);
             Flex causalnet = (Flex)data[0];
@@ -117,7 +121,7 @@ public class Main {
             BPMNDiagram bpmn = Flex2BPMN.convert(causalnet);
 
             Cnet2AD mining = new Cnet2AD(bpmn);
-            ADgraph graph = mining.process();
+            graph = mining.process();
 
             System.out.println("OutputDit = " + outputDir);
             if(exportJson)
@@ -137,13 +141,24 @@ public class Main {
 
                 System.out.println("Launching SemanticCnet2AD...");
 
-                OntologyManager ontologyManager = new OntologyManager(log);
-                if(!ontologyManager.init("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename)){
+                SemanticCnet2AD semanticAlgorithm = new SemanticCnet2AD(log);
+                String ontology = semanticAlgorithm.annotate("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename);
+                if(ontology.equals("ERROR")){
                     System.out.println("SemanticCnet2ADRESULT=ERROR");
                 }
                 else {
-                    ontologyManager.readData();
                     System.out.println("SemanticCnet2ADRESULT=SUCCESS");
+                }
+
+                if(argManager.flag("-resources"))
+                {
+                    semanticAlgorithm.annotateResources(graph);
+
+                    System.out.println("OutputDit = " + outputDir);
+                    if(exportJson)
+                        saveFile(outputDir + outputFilename + ".json", graph.toJson());
+                    saveFile(outputDir + outputFilename + ".uml", graph.toXMI());
+                    saveFile(outputDir + outputFilename + ".txt", graph.toString());
                 }
 
             }

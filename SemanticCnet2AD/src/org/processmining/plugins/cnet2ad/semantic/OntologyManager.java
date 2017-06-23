@@ -190,6 +190,7 @@ public class OntologyManager {
         try {
             Query query = Query.create(queryString.toString());
             System.out.println("Starting query...");
+            System.out.println(query);
             String result = queryEngine.execute(query).toString();
             int index=0;
             //extracting value from the query result

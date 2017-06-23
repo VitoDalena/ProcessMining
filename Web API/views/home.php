@@ -48,6 +48,7 @@
 
             </div>
             <a href='#' id='btn_settings' class = 'btn btn-info btn-sm'>Settings</a>
+            <a href='#' id='btn_annotate' class = 'btn btn-info btn-sm'>Layers</a>
 
         </div>
     </div>
@@ -95,6 +96,22 @@
         </div>
     </div>
 
+    <div id = 'annotate' style='display:none'>
+        <div class = 'row justify-content-center pt-3'>
+            <div class = 'col-8 col-sm-8'>
+
+                <form id = 'settings_form' method = 'POST' action = '#' class = 'form'>
+                    <div class="checkbox">
+                        <label>
+                            <input id='annotate_resources' type="checkbox" checked> Annotate Resources
+                        </label>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <div class = 'row justify-content-center pt-3'>
         <div class = 'col-8 col-sm-8'>
             <button id = 'btn_process' class = 'btn btn-success invisible'>Process</button>
@@ -129,6 +146,7 @@ var btn_webvowl = document.getElementById('btn_webvowl');
 var btn_visualize = document.getElementById( 'btn_visualize' );
 var btn_ontology = document.getElementById('btn_ontology');
 var btn_settings = document.getElementById('btn_settings');
+var btn_annotate = document.getElementById('btn_annotate');
 
 var logFilename = null;
 var constraintsFilename = null;
@@ -142,6 +160,11 @@ if( btn_visualize != null )
 if( btn_settings != null )
     btn_settings.onclick = function(){
         $('#settings').toggle('slow');
+    }
+
+if( btn_annotate != null )
+    btn_annotate.onclick = function(){
+        $('#annotate').toggle('slow');
     }
 
 /*
@@ -223,7 +246,8 @@ function process(){
                 sigma: (document.getElementById('sigma').value),
                 ff: (document.getElementById('ff').value),
                 rtb: (document.getElementById('rtb').value),
-                constraints: constraintsFilename 
+                constraints: constraintsFilename,
+                annotate_resources: (document.getElementById('annotate_resources').checked)
             }
         )
         .done(function( e ) {

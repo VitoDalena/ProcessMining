@@ -57,6 +57,7 @@ public class SemanticCnet2AD {
 
 			System.out.println("Annotate Resources = " + settings.annotateResources);
 			if( settings.annotateResources ){
+				
 				algorithm.annotateResources(graph);
 			}
 		}
@@ -116,11 +117,15 @@ public class SemanticCnet2AD {
 	}
 	
 	public void annotateResources(ADgraph graph){
+		System.out.println("Annotate Resources...");
 		for(ADnode node:graph.nodes())
 		{
 			if(node.isType(ADnode.Node))
 			{
+				System.out.println("Activity:" + node.name);
 				ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+				System.out.println("Found Resources:");
+				System.out.println(resources);
 				if(resources.size() > 0)
 					explodeNode(graph,node,resources);
 			}
@@ -139,7 +144,9 @@ public class SemanticCnet2AD {
         // Rimpiazza il nodo corrente con i nuovi
         // tenendo presente una cosa
         // se ci sono piu risorse, bisogna mettere un fork prima e
-        // un join dopo la lista di nodi rimpiazzati
+        // un join dopo la lista di nodi rimpiazzat
+        System.out.println("Exploding Node:" + node);
+        
         if(resources.size() > 1){
             // add fork
             ADnode fork = new ADnode("ForkResources" + node.name);

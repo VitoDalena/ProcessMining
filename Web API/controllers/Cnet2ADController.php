@@ -14,6 +14,8 @@ class Cnet2ADController extends Controller {
         $cmd = "java -jar Cnet2ADweb.jar -json $log -dir bin -o $name";
         $cmd .= " -sigma $_POST[sigma] -ff $_POST[ff] -rtb $_POST[rtb]";
         $cmd .= " -ontology bin/$name.owl";
+        if( $_POST['annotate_resources'] )
+            $cmd .= " -resources";
 
         //$cmd .= " -ontology public/uploads/ontology/$_POST[ontology].owl";
 
