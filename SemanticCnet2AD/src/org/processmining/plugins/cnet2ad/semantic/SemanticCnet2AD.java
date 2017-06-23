@@ -130,11 +130,11 @@ public class SemanticCnet2AD {
 			if(node != null && node.isType(ADnode.Node))
 			{
 				System.out.println("Activity:" + node.name);
-				//ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
-				Activity activity = this.ontologyManager.data().activity(node.name);
+				ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+				/*Activity activity = this.ontologyManager.data().activity(node.name);
 				if( activity == null ) 
 					continue;
-				ArrayList<String> resources = activity.resources();
+				ArrayList<String> resources = activity.resources();*/
 				
 				System.out.println("Found Resources:");
 				System.out.println(resources);

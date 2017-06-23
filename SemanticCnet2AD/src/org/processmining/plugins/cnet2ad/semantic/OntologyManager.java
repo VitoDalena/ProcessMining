@@ -28,12 +28,12 @@ public class OntologyManager {
     private XLog log;
     private String outputFilename;
     
-    private DataManager dataManager;
+   /* private DataManager dataManager;
     
     public DataManager data(){
     	return this.dataManager;
     }
-    
+    */
     public OntologyManager(XLog log){
     	this.log = log;
     }
@@ -60,7 +60,7 @@ public class OntologyManager {
     }
     public void readData()
     {
-    	this.dataManager = new DataManager();
+    	//this.dataManager = new DataManager();
     	
         for (int i = 0; i < log.size(); i++) {
             XTrace xtrace = log.get(i);
@@ -112,15 +112,20 @@ public class OntologyManager {
                             .getOWLObjectPropertyAssertionAxiom(hasResource,caseIndividual, resourceIndividual);
                     manager.addAxiom(ontology, dataPropertyAssertion);
                 }
-                //resource has activity
+              //resource has activity and activity has resource
                 if(nodo.nome_attivita!=null&&nodo.risorsa!=null) {
                     OWLNamedIndividual activityIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
                     OWLIndividual resourceIndividual = dataFactory.getOWLNamedIndividual(IRI.create(base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
                     OWLObjectProperty hasActivity = dataFactory.getOWLObjectProperty(IRI.create(base_iri + "hasActivity"));
+                    OWLObjectProperty hasResource = dataFactory.getOWLObjectProperty(IRI.create(base_iri + "hasResource"));
                     OWLObjectPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLObjectPropertyAssertionAxiom(hasActivity, resourceIndividual, activityIndividual);
                     manager.addAxiom(ontology, dataPropertyAssertion);
+                   dataPropertyAssertion = dataFactory
+                            .getOWLObjectPropertyAssertionAxiom(hasResource, activityIndividual,resourceIndividual);
+                    manager.addAxiom(ontology, dataPropertyAssertion);
                 }
+                //
                 // activity has caseID
                 if(nodo.nome_attivita!=null&&trace!=null)
                 {
@@ -176,7 +181,7 @@ public class OntologyManager {
                             .getOWLDataPropertyAssertionAxiom(hasName,risorsa, nodo.risorsa);
                     manager.addAxiom(ontology, dataPropertyAssertion);
                 }
-                
+               /* 
                 // inserisci tutto nel datamanager
                 if(nodo.nome_attivita.isEmpty() == false){
                 	Activity a = this.dataManager.activity(nodo.nome_attivita);
@@ -187,7 +192,7 @@ public class OntologyManager {
                 	
                 	if(nodo.risorsa.isEmpty() == false)
                 		a.add(nodo.risorsa);
-                }
+                }*/
             }
         }
         try {
