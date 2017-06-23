@@ -1,50 +1,35 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: b, id: Node-0
-ForkNode: f_O1, id: Node-1
-Node: d, id: Node-2
-BranchNode: f_O, id: Node-3
-Node: c, id: Node-4
-BranchNode: c_O, id: Node-5
-BranchNode: b_O, id: Node-6
-FinalNode: end, id: Node-7
-ForkNode: a_O1, id: Node-8
-Node: e, id: Node-9
-JoinNode: e_I1, id: Node-10
-BranchNode: a_O, id: Node-11
-Node: a, id: Node-12
-JoinNode: d_I1, id: Node-13
-InitialNode: start, id: Node-14
-Node: f, id: Node-15
-BranchNode: BranchInb, id: Node-16
-BranchNode: BranchInd, id: Node-17
-BranchNode: BranchInc, id: Node-18
-BranchNode: BranchIne, id: Node-19
+Node: decide | Sara, id: Node-1
+Node: register_request | Pete, id: Node-2
+Node: check_ticket | Mike, id: Node-3
+InitialNode: start, id: Node-4
+FinalNode: end, id: Node-6
+JoinNode: decide_I0, id: Node-7
+ForkNode: Forkregister_request, id: Node-8
+ForkNode: ForkResourcesreject_request, id: Node-11
+JoinNode: JoinResourcesreject_request, id: Node-12
+Node: reject_request | Pete, id: Node-9
+Node: reject_request | Ellen, id: Node-10
+ForkNode: ForkResourcesexamine_thoroughly, id: Node-18
+JoinNode: JoinResourcesexamine_thoroughly, id: Node-19
+Node: examine_thoroughly | Sue, id: Node-16
+Node: examine_thoroughly | Sean, id: Node-17
 Edges:
-{ InitialNode: start, id: Node-14 -> Node: a, id: Node-12 }
-{ Node: d, id: Node-2 -> FinalNode: end, id: Node-7 }
-{ Node: f, id: Node-15 -> BranchNode: f_O, id: Node-3 }
-{ BranchNode: f_O, id: Node-3 -> ForkNode: f_O1, id: Node-1 }
-{ Node: a, id: Node-12 -> BranchNode: a_O, id: Node-11 }
-{ BranchNode: a_O, id: Node-11 -> ForkNode: a_O1, id: Node-8 }
-{ Node: b, id: Node-0 -> BranchNode: b_O, id: Node-6 }
-{ Node: c, id: Node-4 -> BranchNode: c_O, id: Node-5 }
-{ Node: e, id: Node-9 -> Node: f, id: Node-15 }
-{ BranchNode: c_O, id: Node-5 -> JoinNode: e_I1, id: Node-10 }
-{ BranchNode: c_O, id: Node-5 -> JoinNode: d_I1, id: Node-13 }
-{ BranchNode: b_O, id: Node-6 -> JoinNode: d_I1, id: Node-13 }
-{ BranchNode: b_O, id: Node-6 -> JoinNode: e_I1, id: Node-10 }
-{ JoinNode: e_I1, id: Node-10 -> BranchNode: BranchIne, id: Node-19 }
-{ BranchNode: b_O, id: Node-6 -> BranchNode: BranchIne, id: Node-19 }
-{ ForkNode: a_O1, id: Node-8 -> BranchNode: BranchInb, id: Node-16 }
-{ ForkNode: f_O1, id: Node-1 -> BranchNode: BranchInb, id: Node-16 }
-{ JoinNode: d_I1, id: Node-13 -> BranchNode: BranchInd, id: Node-17 }
-{ BranchNode: b_O, id: Node-6 -> BranchNode: BranchInd, id: Node-17 }
-{ ForkNode: a_O1, id: Node-8 -> BranchNode: BranchInc, id: Node-18 }
-{ ForkNode: f_O1, id: Node-1 -> BranchNode: BranchInc, id: Node-18 }
-{ BranchNode: a_O, id: Node-11 -> BranchNode: BranchInc, id: Node-18 }
-{ BranchNode: f_O, id: Node-3 -> BranchNode: BranchInc, id: Node-18 }
-{ BranchNode: BranchInb, id: Node-16 -> Node: b, id: Node-0 }
-{ BranchNode: BranchInd, id: Node-17 -> Node: d, id: Node-2 }
-{ BranchNode: BranchInc, id: Node-18 -> Node: c, id: Node-4 }
-{ BranchNode: BranchIne, id: Node-19 -> Node: e, id: Node-9 }
+{ JoinNode: JoinResourcesreject_request, id: Node-12 -> FinalNode: end, id: Node-6 }
+{ InitialNode: start, id: Node-4 -> Node: register_request | Pete, id: Node-2 }
+{ JoinNode: decide_I0, id: Node-7 -> Node: decide | Sara, id: Node-1 }
+{ Node: decide | Sara, id: Node-1 -> ForkNode: ForkResourcesreject_request, id: Node-11 }
+{ Node: check_ticket | Mike, id: Node-3 -> JoinNode: decide_I0, id: Node-7 }
+{ JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 -> JoinNode: decide_I0, id: Node-7 }
+{ ForkNode: Forkregister_request, id: Node-8 -> Node: check_ticket | Mike, id: Node-3 }
+{ ForkNode: Forkregister_request, id: Node-8 -> ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 }
+{ Node: register_request | Pete, id: Node-2 -> ForkNode: Forkregister_request, id: Node-8 }
+{ ForkNode: ForkResourcesreject_request, id: Node-11 -> Node: reject_request | Pete, id: Node-9 }
+{ Node: reject_request | Pete, id: Node-9 -> JoinNode: JoinResourcesreject_request, id: Node-12 }
+{ ForkNode: ForkResourcesreject_request, id: Node-11 -> Node: reject_request | Ellen, id: Node-10 }
+{ Node: reject_request | Ellen, id: Node-10 -> JoinNode: JoinResourcesreject_request, id: Node-12 }
+{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 -> Node: examine_thoroughly | Sue, id: Node-16 }
+{ Node: examine_thoroughly | Sue, id: Node-16 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 }
+{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 -> Node: examine_thoroughly | Sean, id: Node-17 }
+{ Node: examine_thoroughly | Sean, id: Node-17 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 }

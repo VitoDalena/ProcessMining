@@ -28,6 +28,12 @@ public class OntologyManager {
     private XLog log;
     private String outputFilename;
     
+    private DataManager dataManager;
+    
+    public DataManager data(){
+    	return this.dataManager;
+    }
+    
     public OntologyManager(XLog log){
     	this.log = log;
     }
@@ -54,6 +60,8 @@ public class OntologyManager {
     }
     public void readData()
     {
+    	this.dataManager = new DataManager();
+    	
         for (int i = 0; i < log.size(); i++) {
             XTrace xtrace = log.get(i);
             String trace=XConceptExtension.instance().extractName(xtrace);
@@ -167,6 +175,18 @@ public class OntologyManager {
                     OWLDataPropertyAssertionAxiom dataPropertyAssertion = dataFactory
                             .getOWLDataPropertyAssertionAxiom(hasName,risorsa, nodo.risorsa);
                     manager.addAxiom(ontology, dataPropertyAssertion);
+                }
+                
+                // inserisci tutto nel datamanager
+                if(nodo.nome_attivita.isEmpty() == false){
+                	Activity a = this.dataManager.activity(nodo.nome_attivita);
+                	if(a == null){
+                		a = new Activity(nodo.nome_attivita);
+                		this.dataManager.add(a);
+                	}
+                	
+                	if(nodo.risorsa.isEmpty() == false)
+                		a.add(nodo.risorsa);
                 }
             }
         }

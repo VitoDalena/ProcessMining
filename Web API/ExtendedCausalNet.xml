@@ -1,88 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtendedCausalNet name="L2"
+<ExtendedCausalNet name="Libro"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="ExtendedCausalNetSchema.xsd">
-<Node name="d" id="3">
+<Node name="check_ticket" id="2">
 <ExtendedInputBindings>
-{1, 2, 2, 1, 1, 2, 2, 1, 1, 2, 2, 1}
+{0, 0}
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+{3, 3}
+</ExtendedOutputBindings>
+</Node>
+<Node name="reject_request" id="4">
+<ExtendedInputBindings>
+{3, 3}
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+</ExtendedOutputBindings>
+</Node>
+<Node name="decide" id="3">
+<ExtendedInputBindings>
 {2, 1, 1, 2}
-{1, 2, 2, 1, 1, 2, 2, 1}
 {1, 2, 2, 1}
-{2, 1, 1, 2, 2, 1, 1, 2}
-{2, 1, 2, 1, 1, 2, 1, 2}
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
-</ExtendedOutputBindings>
-</Node>
-<Node name="a" id="0">
-<ExtendedInputBindings>
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{2, 1, 2, 1}
-{1, 2, 2, 1, 1, 2, 1, 2, 2, 1, 1, 2}
-{1, 2, 1, 2}
-{1, 2, 2, 1, 1, 2, 2, 1}
-{2, 1, 2, 1, 2, 1, 2, 1}
-{2, 1, 1, 2, 2, 1, 1, 2}
-</ExtendedOutputBindings>
-</Node>
-<Node name="f" id="5">
-<ExtendedInputBindings>
-{4, 4, 4, 4}
 {4, 4}
+</ExtendedOutputBindings>
+</Node>
+<Node name="examine_thoroughly" id="1">
+<ExtendedInputBindings>
+{0, 0}
+</ExtendedInputBindings>
+<ExtendedOutputBindings>
+{3, 3}
+</ExtendedOutputBindings>
+</Node>
+<Node name="register_request" id="0">
+<ExtendedInputBindings>
 </ExtendedInputBindings>
 <ExtendedOutputBindings>
 {2, 1, 2, 1}
 {1, 2, 1, 2}
-{2, 1, 1, 2, 2, 1, 1, 2}
 </ExtendedOutputBindings>
 </Node>
-<Node name="b" id="2">
-<ExtendedInputBindings>
-{0, 5, 5, 0}
-{0, 0}
-{0, 0}
-{0, 5, 5, 0}
-{0, 5, 5, 5, 5, 0}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{4, 4, 3, 4, 4, 3}
-{3, 3}
-{4, 3, 4, 3}
-</ExtendedOutputBindings>
-</Node>
-<Node name="e" id="4">
-<ExtendedInputBindings>
-{2, 1, 1, 2}
-{1, 2, 2, 1, 1, 2, 2, 1}
-{1, 2, 2, 1}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{5, 5}
-{5, 5, 5, 5}
-</ExtendedOutputBindings>
-</Node>
-<Node name="c" id="1">
-<ExtendedInputBindings>
-{0, 5, 5, 5, 5, 0}
-{0, 0}
-{0, 5, 5, 0}
-</ExtendedInputBindings>
-<ExtendedOutputBindings>
-{4, 3, 4, 3}
-{4, 3, 4, 3}
-{4, 4, 3, 4, 4, 3}
-{3, 3}
-{3, 3}
-</ExtendedOutputBindings>
-</Node>
-<Edge src= "2" dest= "4" /> 
-<Edge src= "2" dest= "3" /> 
-<Edge src= "1" dest= "3" /> 
-<Edge src= "5" dest= "1" /> 
-<Edge src= "5" dest= "2" /> 
-<Edge src= "4" dest= "5" /> 
 <Edge src= "0" dest= "1" /> 
 <Edge src= "0" dest= "2" /> 
-<Edge src= "1" dest= "4" /> 
+<Edge src= "1" dest= "3" /> 
+<Edge src= "2" dest= "3" /> 
+<Edge src= "3" dest= "4" /> 
 </ExtendedCausalNet>

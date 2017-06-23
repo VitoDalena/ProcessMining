@@ -118,12 +118,24 @@ public class SemanticCnet2AD {
 	
 	public void annotateResources(ADgraph graph){
 		System.out.println("Annotate Resources...");
-		for(ADnode node:graph.nodes())
+		ArrayList<String> activities = new ArrayList<String>();
+		for(ADnode node: graph.nodes()){
+			activities.add(node.name);
+		}
+		
+		for(String activity_name:activities)
 		{
-			if(node.isType(ADnode.Node))
+			ADnode node = graph.node(activity_name);
+			
+			if(node != null && node.isType(ADnode.Node))
 			{
 				System.out.println("Activity:" + node.name);
-				ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+				//ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+				Activity activity = this.ontologyManager.data().activity(node.name);
+				if( activity == null ) 
+					continue;
+				ArrayList<String> resources = activity.resources();
+				
 				System.out.println("Found Resources:");
 				System.out.println(resources);
 				if(resources.size() > 0)
