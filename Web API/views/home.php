@@ -41,7 +41,7 @@
                 <form id = 'upload_form' method = 'POST' action = 'log' class = 'form-inline'>
                     <div class = 'content' id = 'section_uploading'>
                         <div class = 'form-group'>
-                            <input name = 'file' type = "file" accept=".mxml" id = 'log_upload' />
+                            <input name = 'file' type = "file" accept=".mxml,.xes" id = 'log_upload' />
                         </div>
                     </div>
                 </form>
