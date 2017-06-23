@@ -1,21 +1,21 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: reject_request, id: Node-0
-Node: decide, id: Node-1
+Node: examine_thoroughly, id: Node-0
+JoinNode: decide_I0, id: Node-1
 Node: register_request, id: Node-2
-Node: check_ticket, id: Node-3
-InitialNode: start, id: Node-4
-Node: examine_thoroughly, id: Node-5
-FinalNode: end, id: Node-6
-JoinNode: decide_I0, id: Node-7
+Node: reject_request, id: Node-3
+Node: check_ticket, id: Node-4
+FinalNode: end, id: Node-5
+Node: decide, id: Node-6
+InitialNode: start, id: Node-7
 ForkNode: Forkregister_request, id: Node-8
 Edges:
-{ Node: reject_request, id: Node-0 -> FinalNode: end, id: Node-6 }
-{ InitialNode: start, id: Node-4 -> Node: register_request, id: Node-2 }
-{ JoinNode: decide_I0, id: Node-7 -> Node: decide, id: Node-1 }
-{ Node: decide, id: Node-1 -> Node: reject_request, id: Node-0 }
-{ Node: check_ticket, id: Node-3 -> JoinNode: decide_I0, id: Node-7 }
-{ Node: examine_thoroughly, id: Node-5 -> JoinNode: decide_I0, id: Node-7 }
-{ ForkNode: Forkregister_request, id: Node-8 -> Node: check_ticket, id: Node-3 }
-{ ForkNode: Forkregister_request, id: Node-8 -> Node: examine_thoroughly, id: Node-5 }
+{ Node: reject_request, id: Node-3 -> FinalNode: end, id: Node-5 }
+{ InitialNode: start, id: Node-7 -> Node: register_request, id: Node-2 }
+{ JoinNode: decide_I0, id: Node-1 -> Node: decide, id: Node-6 }
+{ Node: examine_thoroughly, id: Node-0 -> JoinNode: decide_I0, id: Node-1 }
+{ Node: decide, id: Node-6 -> Node: reject_request, id: Node-3 }
+{ Node: check_ticket, id: Node-4 -> JoinNode: decide_I0, id: Node-1 }
+{ ForkNode: Forkregister_request, id: Node-8 -> Node: examine_thoroughly, id: Node-0 }
+{ ForkNode: Forkregister_request, id: Node-8 -> Node: check_ticket, id: Node-4 }
 { Node: register_request, id: Node-2 -> ForkNode: Forkregister_request, id: Node-8 }

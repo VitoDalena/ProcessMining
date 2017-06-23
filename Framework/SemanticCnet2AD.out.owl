@@ -131,6 +131,7 @@
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:check_ticket">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check_ticket</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
     </owl:NamedIndividual>
     
 
@@ -140,6 +141,7 @@
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:decide">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decide</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
     </owl:NamedIndividual>
     
 
@@ -149,6 +151,8 @@
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examine_thoroughly">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine_thoroughly</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
@@ -158,6 +162,7 @@
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:register_request">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register_request</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
     </owl:NamedIndividual>
     
 
@@ -167,6 +172,8 @@
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:reject_request">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject_request</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
     </owl:NamedIndividual>
     
 

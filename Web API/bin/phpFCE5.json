@@ -1,0 +1,22 @@
+[
+{key: "start", category: "InitialNode", color: "black"},
+{key: "end", category: "FinalNode", color: "black"},
+{key: "examine_thoroughly", category: "Node", color: "orange"},
+{key: "check_ticket", category: "Node", color: "orange"},
+{key: "decide", category: "Node", color: "orange"},
+{key: "register_request", category: "Node", color: "orange"},
+{key: "reject_request", category: "Node", color: "orange"},
+{key: "decide_I0", category: "JoinNode", color: "pink"},
+{key: "Forkregister_request", category: "ForkNode", color: "red"}
+],
+[
+{from: "reject_request", to: "end"},
+{from: "start", to: "register_request"},
+{from: "decide_I0", to: "decide"},
+{from: "decide", to: "reject_request"},
+{from: "examine_thoroughly", to: "decide_I0"},
+{from: "check_ticket", to: "decide_I0"},
+{from: "Forkregister_request", to: "examine_thoroughly"},
+{from: "Forkregister_request", to: "check_ticket"},
+{from: "register_request", to: "Forkregister_request"}
+]

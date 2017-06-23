@@ -1,35 +1,35 @@
 RTTgraph:Activity Diagram
 Nodes:
-Node: decide | Sara, id: Node-1
+JoinNode: decide_I0, id: Node-1
 Node: register_request | Pete, id: Node-2
-Node: check_ticket | Mike, id: Node-3
-InitialNode: start, id: Node-4
-FinalNode: end, id: Node-6
-JoinNode: decide_I0, id: Node-7
+Node: check_ticket | Mike, id: Node-4
+FinalNode: end, id: Node-5
+Node: decide | Sara, id: Node-6
+InitialNode: start, id: Node-7
 ForkNode: Forkregister_request, id: Node-8
-ForkNode: ForkResourcesreject_request, id: Node-11
-JoinNode: JoinResourcesreject_request, id: Node-12
-Node: reject_request | Pete, id: Node-9
-Node: reject_request | Ellen, id: Node-10
-ForkNode: ForkResourcesexamine_thoroughly, id: Node-18
-JoinNode: JoinResourcesexamine_thoroughly, id: Node-19
-Node: examine_thoroughly | Sue, id: Node-16
-Node: examine_thoroughly | Sean, id: Node-17
+ForkNode: ForkResourcesexamine_thoroughly, id: Node-11
+JoinNode: JoinResourcesexamine_thoroughly, id: Node-12
+Node: examine_thoroughly | Sue, id: Node-9
+Node: examine_thoroughly | Sean, id: Node-10
+ForkNode: ForkResourcesreject_request, id: Node-16
+JoinNode: JoinResourcesreject_request, id: Node-17
+Node: reject_request | Pete, id: Node-14
+Node: reject_request | Ellen, id: Node-15
 Edges:
-{ JoinNode: JoinResourcesreject_request, id: Node-12 -> FinalNode: end, id: Node-6 }
-{ InitialNode: start, id: Node-4 -> Node: register_request | Pete, id: Node-2 }
-{ JoinNode: decide_I0, id: Node-7 -> Node: decide | Sara, id: Node-1 }
-{ Node: decide | Sara, id: Node-1 -> ForkNode: ForkResourcesreject_request, id: Node-11 }
-{ Node: check_ticket | Mike, id: Node-3 -> JoinNode: decide_I0, id: Node-7 }
-{ JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 -> JoinNode: decide_I0, id: Node-7 }
-{ ForkNode: Forkregister_request, id: Node-8 -> Node: check_ticket | Mike, id: Node-3 }
-{ ForkNode: Forkregister_request, id: Node-8 -> ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 }
+{ JoinNode: JoinResourcesreject_request, id: Node-17 -> FinalNode: end, id: Node-5 }
+{ InitialNode: start, id: Node-7 -> Node: register_request | Pete, id: Node-2 }
+{ JoinNode: decide_I0, id: Node-1 -> Node: decide | Sara, id: Node-6 }
+{ JoinNode: JoinResourcesexamine_thoroughly, id: Node-12 -> JoinNode: decide_I0, id: Node-1 }
+{ Node: decide | Sara, id: Node-6 -> ForkNode: ForkResourcesreject_request, id: Node-16 }
+{ Node: check_ticket | Mike, id: Node-4 -> JoinNode: decide_I0, id: Node-1 }
+{ ForkNode: Forkregister_request, id: Node-8 -> ForkNode: ForkResourcesexamine_thoroughly, id: Node-11 }
+{ ForkNode: Forkregister_request, id: Node-8 -> Node: check_ticket | Mike, id: Node-4 }
 { Node: register_request | Pete, id: Node-2 -> ForkNode: Forkregister_request, id: Node-8 }
-{ ForkNode: ForkResourcesreject_request, id: Node-11 -> Node: reject_request | Pete, id: Node-9 }
-{ Node: reject_request | Pete, id: Node-9 -> JoinNode: JoinResourcesreject_request, id: Node-12 }
-{ ForkNode: ForkResourcesreject_request, id: Node-11 -> Node: reject_request | Ellen, id: Node-10 }
-{ Node: reject_request | Ellen, id: Node-10 -> JoinNode: JoinResourcesreject_request, id: Node-12 }
-{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 -> Node: examine_thoroughly | Sue, id: Node-16 }
-{ Node: examine_thoroughly | Sue, id: Node-16 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 }
-{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-18 -> Node: examine_thoroughly | Sean, id: Node-17 }
-{ Node: examine_thoroughly | Sean, id: Node-17 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-19 }
+{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-11 -> Node: examine_thoroughly | Sue, id: Node-9 }
+{ Node: examine_thoroughly | Sue, id: Node-9 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-12 }
+{ ForkNode: ForkResourcesexamine_thoroughly, id: Node-11 -> Node: examine_thoroughly | Sean, id: Node-10 }
+{ Node: examine_thoroughly | Sean, id: Node-10 -> JoinNode: JoinResourcesexamine_thoroughly, id: Node-12 }
+{ ForkNode: ForkResourcesreject_request, id: Node-16 -> Node: reject_request | Pete, id: Node-14 }
+{ Node: reject_request | Pete, id: Node-14 -> JoinNode: JoinResourcesreject_request, id: Node-17 }
+{ ForkNode: ForkResourcesreject_request, id: Node-16 -> Node: reject_request | Ellen, id: Node-15 }
+{ Node: reject_request | Ellen, id: Node-15 -> JoinNode: JoinResourcesreject_request, id: Node-17 }
