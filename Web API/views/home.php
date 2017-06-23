@@ -247,7 +247,7 @@ function process(){
                 ff: (document.getElementById('ff').value),
                 rtb: (document.getElementById('rtb').value),
                 constraints: constraintsFilename,
-                annotate_resources: (document.getElementById('annotate_resources').checked)
+                annotate_resources: (document.getElementById('annotate_resources').checked)?'true':'false'
             }
         )
         .done(function( e ) {

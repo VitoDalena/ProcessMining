@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="95368049" name="Activity Diagram">
+<packagedElement xmi:type="uml:Activity" xmi:id="16180865" name="Activity Diagram" node="Node-1 Node-2 Node-3 Node-4 Node-7 Node-11 Node-12 Node-13 Node-14 Node-15 Node-16 Node-17 Node-18 Node-19 Node-24 Node-25 Node-20 Node-21 Node-22 Node-23 Node-31 Node-32 Node-26 Node-27 Node-28 Node-29 Node-30 Node-39 Node-40 Node-33 Node-34 Node-35 Node-36 Node-37 Node-38 Node-47 Node-48 Node-41 Node-42 Node-43 Node-44 Node-45 Node-46 Node-52 Node-53 Node-49 Node-50 Node-51 Node-60 Node-61 Node-54 Node-55 Node-56 Node-57 Node-58 Node-59 ">
+<node xmi:type="uml:JoinNode" xmi:id="Node-1" name="e_I1" outgoing="Edge-19" incoming="Edge-10 Edge-12">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-1_spec" name="e_I1" value="true"/>
+</node>
+<node xmi:type="uml:ActivityFinalNode" xmi:id="Node-2" name="end" incoming="Edge-1"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-3" name="a_O1" outgoing="Edge-13 Edge-21" incoming="Edge-6"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-4" name="a_O" outgoing="Edge-6 Edge-15" incoming="Edge-5"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-7" name="f_O" outgoing="Edge-3 Edge-16" incoming="Edge-2"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-11" name="f_O1" outgoing="Edge-14 Edge-22" incoming="Edge-3"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-12" name="b_O" outgoing="Edge-11 Edge-12 Edge-17 Edge-20" incoming="Edge-7"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-13" name="d_I1" outgoing="Edge-18" incoming="Edge-9 Edge-11">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-13_spec" name="d_I1" value="true"/>
+</node>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-14" name="c_O" outgoing="Edge-9 Edge-10" incoming="Edge-4"/>
+<node xmi:type="uml:InitialNode" xmi:id="Node-15" name="start" outgoing="Edge-0"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-16" name="BranchIne" outgoing="Edge-23" incoming="Edge-19 Edge-20"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-17" name="BranchInd" outgoing="Edge-24" incoming="Edge-17 Edge-18"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-18" name="BranchInb" outgoing="Edge-25" incoming="Edge-21 Edge-22"/>
+<node xmi:type="uml:DecisionNode" xmi:id="Node-19" name="BranchInc" outgoing="Edge-26" incoming="Edge-13 Edge-14 Edge-15 Edge-16"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-24" name="ForkResourcese" outgoing="Edge-27 Edge-29 Edge-31 Edge-33" incoming="Edge-23"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-25" name="JoinResourcese" outgoing="Edge-8" incoming="Edge-28 Edge-30 Edge-32 Edge-34">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-25_spec" name="JoinResourcese" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-20" name="e | Pete" outgoing="Edge-28" incoming="Edge-27"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-21" name="e | Sara" outgoing="Edge-30" incoming="Edge-29"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-22" name="e | Sue" outgoing="Edge-32" incoming="Edge-31"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-23" name="e | Ellen" outgoing="Edge-34" incoming="Edge-33"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-31" name="ForkResourcesd" outgoing="Edge-35 Edge-37 Edge-39 Edge-41 Edge-43" incoming="Edge-24"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-32" name="JoinResourcesd" outgoing="Edge-1" incoming="Edge-36 Edge-38 Edge-40 Edge-42 Edge-44">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-32_spec" name="JoinResourcesd" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-26" name="d | Sue" outgoing="Edge-36" incoming="Edge-35"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-27" name="d | Pete" outgoing="Edge-38" incoming="Edge-37"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-28" name="d | Mike" outgoing="Edge-40" incoming="Edge-39"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-29" name="d | Sean" outgoing="Edge-42" incoming="Edge-41"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-30" name="d | Ellen" outgoing="Edge-44" incoming="Edge-43"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-39" name="ForkResourcesb" outgoing="Edge-45 Edge-47 Edge-49 Edge-51 Edge-53 Edge-55" incoming="Edge-25"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-40" name="JoinResourcesb" outgoing="Edge-7" incoming="Edge-46 Edge-48 Edge-50 Edge-52 Edge-54 Edge-56">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-40_spec" name="JoinResourcesb" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-33" name="b | Sue" outgoing="Edge-46" incoming="Edge-45"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-34" name="b | Mike" outgoing="Edge-48" incoming="Edge-47"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-35" name="b | Sara" outgoing="Edge-50" incoming="Edge-49"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-36" name="b | Ellen" outgoing="Edge-52" incoming="Edge-51"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-37" name="b | Sean" outgoing="Edge-54" incoming="Edge-53"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-38" name="b | Pete" outgoing="Edge-56" incoming="Edge-55"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-47" name="ForkResourcesf" outgoing="Edge-57 Edge-59 Edge-61 Edge-63 Edge-65 Edge-67" incoming="Edge-8"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-48" name="JoinResourcesf" outgoing="Edge-2" incoming="Edge-58 Edge-60 Edge-62 Edge-64 Edge-66 Edge-68">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-48_spec" name="JoinResourcesf" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-41" name="f | Ellen" outgoing="Edge-58" incoming="Edge-57"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-42" name="f | Sean" outgoing="Edge-60" incoming="Edge-59"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-43" name="f | Mike" outgoing="Edge-62" incoming="Edge-61"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-44" name="f | Pete" outgoing="Edge-64" incoming="Edge-63"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-45" name="f | Sara" outgoing="Edge-66" incoming="Edge-65"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-46" name="f | Sue" outgoing="Edge-68" incoming="Edge-67"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-52" name="ForkResourcesa" outgoing="Edge-69 Edge-71 Edge-73" incoming="Edge-0"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-53" name="JoinResourcesa" outgoing="Edge-5" incoming="Edge-70 Edge-72 Edge-74">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-53_spec" name="JoinResourcesa" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-49" name="a | Mike" outgoing="Edge-70" incoming="Edge-69"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-50" name="a | Sara" outgoing="Edge-72" incoming="Edge-71"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-51" name="a | Pete" outgoing="Edge-74" incoming="Edge-73"/>
+<node xmi:type="uml:ForkNode" xmi:id="Node-60" name="ForkResourcesc" outgoing="Edge-75 Edge-77 Edge-79 Edge-81 Edge-83 Edge-85" incoming="Edge-26"/>
+<node xmi:type="uml:JoinNode" xmi:id="Node-61" name="JoinResourcesc" outgoing="Edge-4" incoming="Edge-76 Edge-78 Edge-80 Edge-82 Edge-84 Edge-86">
+<joinSpec xmi:type="uml:LiteralBoolean" xmi:id="Node-61_spec" name="JoinResourcesc" value="true"/>
+</node>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-54" name="c | Pete" outgoing="Edge-76" incoming="Edge-75"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-55" name="c | Ellen" outgoing="Edge-78" incoming="Edge-77"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-56" name="c | Sean" outgoing="Edge-80" incoming="Edge-79"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-57" name="c | Mike" outgoing="Edge-82" incoming="Edge-81"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-58" name="c | Sara" outgoing="Edge-84" incoming="Edge-83"/>
+<node xmi:type="uml:OpaqueAction" xmi:id="Node-59" name="c | Sue" outgoing="Edge-86" incoming="Edge-85"/>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-0" target="Node-52" source="Node-15" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-0guard" name="start_To_ForkResourcesa_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-0weight" name="start_To_ForkResourcesa_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-1" target="Node-2" source="Node-32" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-1guard" name="JoinResourcesd_To_end_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-1weight" name="JoinResourcesd_To_end_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-2" target="Node-7" source="Node-48" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-2guard" name="JoinResourcesf_To_f_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-2weight" name="JoinResourcesf_To_f_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-3" target="Node-11" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-3guard" name="f_O_To_f_O1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-3weight" name="f_O_To_f_O1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-4" target="Node-14" source="Node-61" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-4guard" name="JoinResourcesc_To_c_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-4weight" name="JoinResourcesc_To_c_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-5" target="Node-4" source="Node-53" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-5guard" name="JoinResourcesa_To_a_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-5weight" name="JoinResourcesa_To_a_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-6" target="Node-3" source="Node-4" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-6guard" name="a_O_To_a_O1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-6weight" name="a_O_To_a_O1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-7" target="Node-12" source="Node-40" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-7guard" name="JoinResourcesb_To_b_O_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-7weight" name="JoinResourcesb_To_b_O_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-8" target="Node-47" source="Node-25" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-8guard" name="JoinResourcese_To_ForkResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-8weight" name="JoinResourcese_To_ForkResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-9" target="Node-13" source="Node-14" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-9guard" name="c_O_To_d_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-9weight" name="c_O_To_d_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-10" target="Node-1" source="Node-14" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-10guard" name="c_O_To_e_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-10weight" name="c_O_To_e_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-11" target="Node-13" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-11guard" name="b_O_To_d_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-11weight" name="b_O_To_d_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-12" target="Node-1" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-12guard" name="b_O_To_e_I1_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-12weight" name="b_O_To_e_I1_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-13" target="Node-19" source="Node-3" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-13guard" name="a_O1_To_BranchInc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-13weight" name="a_O1_To_BranchInc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-14" target="Node-19" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-14guard" name="f_O1_To_BranchInc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-14weight" name="f_O1_To_BranchInc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-15" target="Node-19" source="Node-4" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-15guard" name="a_O_To_BranchInc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-15weight" name="a_O_To_BranchInc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-16" target="Node-19" source="Node-7" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-16guard" name="f_O_To_BranchInc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-16weight" name="f_O_To_BranchInc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-17" target="Node-17" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-17guard" name="b_O_To_BranchInd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-17weight" name="b_O_To_BranchInd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-18" target="Node-17" source="Node-13" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-18guard" name="d_I1_To_BranchInd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-18weight" name="d_I1_To_BranchInd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-19" target="Node-16" source="Node-1" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-19guard" name="e_I1_To_BranchIne_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-19weight" name="e_I1_To_BranchIne_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-20" target="Node-16" source="Node-12" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-20guard" name="b_O_To_BranchIne_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-20weight" name="b_O_To_BranchIne_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-21" target="Node-18" source="Node-3" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-21guard" name="a_O1_To_BranchInb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-21weight" name="a_O1_To_BranchInb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-22" target="Node-18" source="Node-11" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-22guard" name="f_O1_To_BranchInb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-22weight" name="f_O1_To_BranchInb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-23" target="Node-24" source="Node-16" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-23guard" name="BranchIne_To_ForkResourcese_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-23weight" name="BranchIne_To_ForkResourcese_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-24" target="Node-31" source="Node-17" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-24guard" name="BranchInd_To_ForkResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-24weight" name="BranchInd_To_ForkResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-25" target="Node-39" source="Node-18" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-25guard" name="BranchInb_To_ForkResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-25weight" name="BranchInb_To_ForkResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-26" target="Node-60" source="Node-19" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-26guard" name="BranchInc_To_ForkResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-26weight" name="BranchInc_To_ForkResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-27" target="Node-20" source="Node-24" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-27guard" name="ForkResourcese_To_e | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-27weight" name="ForkResourcese_To_e | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-28" target="Node-25" source="Node-20" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-28guard" name="e | Pete_To_JoinResourcese_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-28weight" name="e | Pete_To_JoinResourcese_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-29" target="Node-21" source="Node-24" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-29guard" name="ForkResourcese_To_e | Sara_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-29weight" name="ForkResourcese_To_e | Sara_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-30" target="Node-25" source="Node-21" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-30guard" name="e | Sara_To_JoinResourcese_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-30weight" name="e | Sara_To_JoinResourcese_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-31" target="Node-22" source="Node-24" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-31guard" name="ForkResourcese_To_e | Sue_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-31weight" name="ForkResourcese_To_e | Sue_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-32" target="Node-25" source="Node-22" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-32guard" name="e | Sue_To_JoinResourcese_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-32weight" name="e | Sue_To_JoinResourcese_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-33" target="Node-23" source="Node-24" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-33guard" name="ForkResourcese_To_e | Ellen_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-33weight" name="ForkResourcese_To_e | Ellen_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-34" target="Node-25" source="Node-23" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-34guard" name="e | Ellen_To_JoinResourcese_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-34weight" name="e | Ellen_To_JoinResourcese_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-35" target="Node-26" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-35guard" name="ForkResourcesd_To_d | Sue_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-35weight" name="ForkResourcesd_To_d | Sue_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-36" target="Node-32" source="Node-26" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-36guard" name="d | Sue_To_JoinResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-36weight" name="d | Sue_To_JoinResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-37" target="Node-27" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-37guard" name="ForkResourcesd_To_d | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-37weight" name="ForkResourcesd_To_d | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-38" target="Node-32" source="Node-27" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-38guard" name="d | Pete_To_JoinResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-38weight" name="d | Pete_To_JoinResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-39" target="Node-28" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-39guard" name="ForkResourcesd_To_d | Mike_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-39weight" name="ForkResourcesd_To_d | Mike_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-40" target="Node-32" source="Node-28" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-40guard" name="d | Mike_To_JoinResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-40weight" name="d | Mike_To_JoinResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-41" target="Node-29" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-41guard" name="ForkResourcesd_To_d | Sean_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-41weight" name="ForkResourcesd_To_d | Sean_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-42" target="Node-32" source="Node-29" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-42guard" name="d | Sean_To_JoinResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-42weight" name="d | Sean_To_JoinResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-43" target="Node-30" source="Node-31" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-43guard" name="ForkResourcesd_To_d | Ellen_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-43weight" name="ForkResourcesd_To_d | Ellen_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-44" target="Node-32" source="Node-30" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-44guard" name="d | Ellen_To_JoinResourcesd_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-44weight" name="d | Ellen_To_JoinResourcesd_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-45" target="Node-33" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-45guard" name="ForkResourcesb_To_b | Sue_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-45weight" name="ForkResourcesb_To_b | Sue_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-46" target="Node-40" source="Node-33" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-46guard" name="b | Sue_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-46weight" name="b | Sue_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-47" target="Node-34" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-47guard" name="ForkResourcesb_To_b | Mike_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-47weight" name="ForkResourcesb_To_b | Mike_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-48" target="Node-40" source="Node-34" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-48guard" name="b | Mike_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-48weight" name="b | Mike_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-49" target="Node-35" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-49guard" name="ForkResourcesb_To_b | Sara_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-49weight" name="ForkResourcesb_To_b | Sara_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-50" target="Node-40" source="Node-35" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-50guard" name="b | Sara_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-50weight" name="b | Sara_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-51" target="Node-36" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-51guard" name="ForkResourcesb_To_b | Ellen_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-51weight" name="ForkResourcesb_To_b | Ellen_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-52" target="Node-40" source="Node-36" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-52guard" name="b | Ellen_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-52weight" name="b | Ellen_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-53" target="Node-37" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-53guard" name="ForkResourcesb_To_b | Sean_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-53weight" name="ForkResourcesb_To_b | Sean_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-54" target="Node-40" source="Node-37" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-54guard" name="b | Sean_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-54weight" name="b | Sean_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-55" target="Node-38" source="Node-39" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-55guard" name="ForkResourcesb_To_b | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-55weight" name="ForkResourcesb_To_b | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-56" target="Node-40" source="Node-38" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-56guard" name="b | Pete_To_JoinResourcesb_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-56weight" name="b | Pete_To_JoinResourcesb_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-57" target="Node-41" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-57guard" name="ForkResourcesf_To_f | Ellen_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-57weight" name="ForkResourcesf_To_f | Ellen_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-58" target="Node-48" source="Node-41" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-58guard" name="f | Ellen_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-58weight" name="f | Ellen_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-59" target="Node-42" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-59guard" name="ForkResourcesf_To_f | Sean_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-59weight" name="ForkResourcesf_To_f | Sean_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-60" target="Node-48" source="Node-42" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-60guard" name="f | Sean_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-60weight" name="f | Sean_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-61" target="Node-43" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-61guard" name="ForkResourcesf_To_f | Mike_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-61weight" name="ForkResourcesf_To_f | Mike_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-62" target="Node-48" source="Node-43" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-62guard" name="f | Mike_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-62weight" name="f | Mike_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-63" target="Node-44" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-63guard" name="ForkResourcesf_To_f | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-63weight" name="ForkResourcesf_To_f | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-64" target="Node-48" source="Node-44" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-64guard" name="f | Pete_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-64weight" name="f | Pete_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-65" target="Node-45" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-65guard" name="ForkResourcesf_To_f | Sara_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-65weight" name="ForkResourcesf_To_f | Sara_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-66" target="Node-48" source="Node-45" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-66guard" name="f | Sara_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-66weight" name="f | Sara_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-67" target="Node-46" source="Node-47" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-67guard" name="ForkResourcesf_To_f | Sue_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-67weight" name="ForkResourcesf_To_f | Sue_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-68" target="Node-48" source="Node-46" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-68guard" name="f | Sue_To_JoinResourcesf_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-68weight" name="f | Sue_To_JoinResourcesf_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-69" target="Node-49" source="Node-52" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-69guard" name="ForkResourcesa_To_a | Mike_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-69weight" name="ForkResourcesa_To_a | Mike_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-70" target="Node-53" source="Node-49" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-70guard" name="a | Mike_To_JoinResourcesa_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-70weight" name="a | Mike_To_JoinResourcesa_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-71" target="Node-50" source="Node-52" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-71guard" name="ForkResourcesa_To_a | Sara_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-71weight" name="ForkResourcesa_To_a | Sara_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-72" target="Node-53" source="Node-50" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-72guard" name="a | Sara_To_JoinResourcesa_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-72weight" name="a | Sara_To_JoinResourcesa_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-73" target="Node-51" source="Node-52" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-73guard" name="ForkResourcesa_To_a | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-73weight" name="ForkResourcesa_To_a | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-74" target="Node-53" source="Node-51" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-74guard" name="a | Pete_To_JoinResourcesa_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-74weight" name="a | Pete_To_JoinResourcesa_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-75" target="Node-54" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-75guard" name="ForkResourcesc_To_c | Pete_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-75weight" name="ForkResourcesc_To_c | Pete_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-76" target="Node-61" source="Node-54" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-76guard" name="c | Pete_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-76weight" name="c | Pete_To_JoinResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-77" target="Node-55" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-77guard" name="ForkResourcesc_To_c | Ellen_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-77weight" name="ForkResourcesc_To_c | Ellen_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-78" target="Node-61" source="Node-55" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-78guard" name="c | Ellen_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-78weight" name="c | Ellen_To_JoinResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-79" target="Node-56" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-79guard" name="ForkResourcesc_To_c | Sean_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-79weight" name="ForkResourcesc_To_c | Sean_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-80" target="Node-61" source="Node-56" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-80guard" name="c | Sean_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-80weight" name="c | Sean_To_JoinResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-81" target="Node-57" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-81guard" name="ForkResourcesc_To_c | Mike_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-81weight" name="ForkResourcesc_To_c | Mike_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-82" target="Node-61" source="Node-57" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-82guard" name="c | Mike_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-82weight" name="c | Mike_To_JoinResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-83" target="Node-58" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-83guard" name="ForkResourcesc_To_c | Sara_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-83weight" name="ForkResourcesc_To_c | Sara_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-84" target="Node-61" source="Node-58" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-84guard" name="c | Sara_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-84weight" name="c | Sara_To_JoinResourcesc_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-85" target="Node-59" source="Node-60" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-85guard" name="ForkResourcesc_To_c | Sue_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-85weight" name="ForkResourcesc_To_c | Sue_weight" />
+</edge>
+<edge xmi:type="uml:ControlFlow" xmi:id="Edge-86" target="Node-61" source="Node-59" >
+	<guard xmi:type="uml:LiteralBoolean" xmi:id="Edge-86guard" name="c | Sue_To_JoinResourcesc_guard" value="true"/>
+	<weight xmi:type="uml:LiteralInteger" xmi:id="Edge-86weight" name="c | Sue_To_JoinResourcesc_weight" />
+</edge>
+</packagedElement>
+</uml:Model>
