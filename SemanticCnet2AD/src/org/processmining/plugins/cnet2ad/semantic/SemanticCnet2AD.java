@@ -1,7 +1,13 @@
 package org.processmining.plugins.cnet2ad.semantic;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 import org.deckfour.xes.model.XLog;
@@ -24,9 +30,9 @@ public class SemanticCnet2AD {
 	
 	@Plugin(
         name = "SemanticCnet2AD", 
-        parameterLabels = { "Log","ADGraph" }, 
-        returnLabels = { "Cnet2AD Ontology" }, 
-        returnTypes = { String.class,ADgraph.class }, 
+        parameterLabels = { "Log", "ADGraph" }, 
+        returnLabels = { "Cnet2AD Ontology", "Semantic ADgraph" }, 
+        returnTypes = { String.class, ADgraph.class }, 
         userAccessible = true, 
         help = "Produces Ontology"
     )
@@ -39,33 +45,93 @@ public class SemanticCnet2AD {
 	 * Consiste nel Main del plugin stesso, 
 	 * l'esecutore di tutto e il gestore di input ed output
 	 */
-    public static Object[] Process(UIPluginContext context, XLog log,ADgraph graph ) throws Exception {
+    public static Object[] Process(UIPluginContext context, XLog log, ADgraph graph ) throws Exception {
+		
+		SettingsView settingsView = new SettingsView(context);
+		SemanticSettings settings = settingsView.show();
+		
+		SemanticCnet2AD algorithm =  new SemanticCnet2AD(log);
+		String ontology = algorithm.annotate();
+		
+		if(ontology.equals("ERROR") == false ){
+
+			System.out.println("Annotate Resources = " + settings.annotateResources);
+			if( settings.annotateResources ){
+				algorithm.annotateResources(graph);
+			}
+		}
+		
+		saveFile("semanticadgraph.xmi", graph.toXMI());
+        saveFile("semanticadgraph.txt", graph.toString());
+		saveFile("semanticadgraph.json", graph.toJson());
+		
+		return new Object[]{ ontology, graph };		
+	}
+	
+	@Plugin(
+	        name = "SemanticCnet2AD1111", 
+	        parameterLabels = { }, 
+	        returnLabels = { "Cnet2AD Ontology" }, 
+	        returnTypes = { String.class }, 
+	        userAccessible = true, 
+	        help = "Produces Ontology"
+	    )
+	    @UITopiaVariant(
+	        affiliation = "Cnet2AD with Semantic", 
+	        author = "Riccardi, Tagliente, Tota", 
+	        email = "??"
+	    )
+	public static String Foo(){
+		return "Foo";
+	}
+	
+	// Algorithm
+	private OntologyManager ontologyManager;
+	private String ontologyBase;
+	private String ontologyOut;
+	private XLog log;
+	
+	public SemanticCnet2AD(XLog log){
+		this.log = log;
+	}
+	
+	public String annotate(){
+		return this.annotate("SemanticCnet2AD.ontology.base.owl", "SemanticCnet2AD.out.owl");
+	}
+
+	public String annotate(String ontologyBase, String ontologyOut){
+		this.ontologyBase = ontologyBase;
+		this.ontologyOut = ontologyOut;
+		
 		String ontology=null;
-		OntologyManager ontologyManager=new OntologyManager(log);
-		if(!ontologyManager.init("SemanticCnet2AD.ontology.base.owl", "SemanticCnet2AD.out.owl")){
+		this.ontologyManager=new OntologyManager(this.log);
+		if(!this.ontologyManager.init(this.ontologyBase, this.ontologyOut)){
 			System.out.println("Cannot read ontology");
-			return new Object[]{"Ontology error",graph};
+			return "ERROR";
 		}
 		ontologyManager.readData();
+		
+		ontology = readFile(this.ontologyOut);
+		return ontology;
+	}
+	
+	public void annotateResources(ADgraph graph){
 		for(ADnode node:graph.nodes())
 		{
 			if(node.isType(ADnode.Node))
 			{
 				ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
-				if(resources.size()>0)
+				if(resources.size() > 0)
 					explodeNode(graph,node,resources);
 			}
 		}
-		
-		
-		ontology = readFile("SemanticCnet2AD.owl");
-		return new Object[]{ontology,graph};		
 	}
-	static void explodeNode(ADgraph graph, ADnode node, ArrayList<String> resources){
+	
+	private void explodeNode(ADgraph graph, ADnode node, ArrayList<String> resources){
         if(graph.nodes().contains(node) == false)
             return;
 
-        ArrayList<ADnode> nodes = new ArrayList<>();
+        ArrayList<ADnode> nodes = new ArrayList<ADnode>();
         for(String res:resources){
             nodes.add(new ADnode(node.name + " | " + res));
         }
@@ -103,6 +169,7 @@ public class SemanticCnet2AD {
         }
         else node.name += " | " + resources.get(0);
     }
+	
 	private static String readFile(String filename) {
 		try {
 			BufferedReader rd = new BufferedReader(new FileReader(filename));
@@ -122,5 +189,27 @@ public class SemanticCnet2AD {
 			return "";
 		}
 	}
+	
+	private static void saveFile(String filename, String content) throws Exception {
+        System.out.println("Exporting File: " + filename + "...");
+        File ec = new File(filename);
+        if (ec.exists()) {
+            ec.delete();
+        }
+        ec.createNewFile();
+        try
+        {
+            Files.write(FileSystems.getDefault().getPath(
+                    ".", new String[] { filename }),
+                    content.getBytes(), new OpenOption[] {
+                            StandardOpenOption.APPEND
+                    }
+            );
+        }
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
+    }
 	
 }
