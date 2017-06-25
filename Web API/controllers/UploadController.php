@@ -42,8 +42,6 @@ class UploadController extends Controller {
             return;
         }        
 
-        $name = basename($_FILES["file"]["tmp_name"], '.tmp');
-
         $filename = "public/uploads/constraints/$name.xml";
 
         if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )

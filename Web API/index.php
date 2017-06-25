@@ -34,7 +34,7 @@ $router->get("/reset", function(){
 
 // POST ajax per l'upload dei file
 $router->post("/log", "UploadController@log");
-$router->post("/constraints", "UploadController@constraints");
+$router->post('/constraints/$name', "UploadController@constraints");
 
 // API ajax per l'elaborazione RTTmining
 $router->post('/process/$filename', "Cnet2ADController@process");

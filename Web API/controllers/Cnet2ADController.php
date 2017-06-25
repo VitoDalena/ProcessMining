@@ -17,10 +17,6 @@ class Cnet2ADController extends Controller {
         if( $_POST['annotate_resources'] == 'true' )
             $cmd .= " -resources";
 
-        var_dump($cmd);
-
-        //$cmd .= " -ontology public/uploads/ontology/$_POST[ontology].owl";
-
         if( empty($_POST['constraints']) == false )
             $cmd .= " -constraints public/uploads/constraints/$_POST[constraints].xml";
 

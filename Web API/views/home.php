@@ -219,7 +219,7 @@ document.getElementById('constraints_upload').onchange = function(e){
         var data = new FormData();
         data.append( 'file', file, file.name );
         $.ajax( {
-            url: 'constraints',
+            url: 'constraints' + '/' + logFilename,
             type: 'POST',
             data: data,
             processData: false,
@@ -240,6 +240,16 @@ document.getElementById('constraints_upload').onchange = function(e){
 }
 
 function process(){
+
+     // Resetta tutto
+    if( btn_download.className.includes("invisible") == false )
+        btn_download.className += ' invisible';
+    if( btn_visualize.className.includes("invisible") == false )
+        btn_visualize.className += ' invisible';
+    if( btn_ontology.className.includes("invisible") == false )
+        btn_ontology.className += ' invisible';
+    if( btn_webvowl.className.includes("invisible") == false )
+        btn_webvowl.className += ' invisible';
 
     $.post( 'process/' + logFilename,
             { 
