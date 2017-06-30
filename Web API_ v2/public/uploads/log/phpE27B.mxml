@@ -1,0 +1,1537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkflowLog>
+<Source program="CSP_PM" > </Source>
+<Process id="all_10_0  " description="" >
+<ProcessInstance id="1" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="2" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="3" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="4" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="5" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="6" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="7" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="8" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="9" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="10" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="11" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="12" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="13" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="14" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="15" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="16" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="17" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="18" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="19" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="20" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="21" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="22" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+<ProcessInstance id="23" description="" >
+<AuditTrailEntry>
+<WorkflowModelElement> PROLOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Start_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sara</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Consider_optional_actions </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Arrange_disposal </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Keep_records </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Notify_third_parties </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Mike</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_distribution </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Prepare_to_destory_or_modify </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sue</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Stop_production </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Sean</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Identify_remedies </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> Complete_recall </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Pete</Originator>
+</AuditTrailEntry>
+<AuditTrailEntry>
+<WorkflowModelElement> EPILOGUE </WorkflowModelElement>
+<EventType>complete</EventType>
+<Originator>Ellen</Originator>
+</AuditTrailEntry>
+</ProcessInstance>
+</Process>
+</WorkflowLog>

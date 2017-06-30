@@ -116,31 +116,72 @@ public class SemanticCnet2AD {
 		return ontology;
 	}
 	
+	//Chiamata all'interno di ProM
 	public void annotateResources(ADgraph graph){
-		System.out.println("Annotate Resources...");
-		ArrayList<String> activities = new ArrayList<String>();
-		for(ADnode node: graph.nodes()){
-			activities.add(node.name);
-		}
-		
-		for(String activity_name:activities)
-		{
-			ADnode node = graph.node(activity_name);
-			
-			if(node != null && node.isType(ADnode.Node))
-			{
-				System.out.println("Activity:" + node.name);
-				ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
-				/*Activity activity = this.ontologyManager.data().activity(node.name);
-				if( activity == null ) 
-					continue;
-				ArrayList<String> resources = activity.resources();*/
-				
-				System.out.println("Found Resources:");
-				System.out.println(resources);
-				if(resources.size() > 0)
-					explodeNode(graph,node,resources);
+			System.out.println("Annotate Resources...");
+			ArrayList<String> activities = new ArrayList<String>();
+			for(ADnode node: graph.nodes()){
+				activities.add(node.name);
 			}
+			
+			for(String activity_name:activities)
+			{
+				ADnode node = graph.node(activity_name);
+				
+				if(node != null && node.isType(ADnode.Node))
+				{
+					System.out.println("Activity:" + node.name);
+					ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+					/*Activity activity = this.ontologyManager.data().activity(node.name);
+					if( activity == null ) 
+						continue;
+					ArrayList<String> resources = activity.resources();*/
+					
+					System.out.println("Found Resources:");
+					System.out.println(resources);
+					if(resources.size() > 0)
+						explodeNode(graph,node,resources);
+				}
+			}
+
+	}
+	
+	public void annotateResources(ADgraph graph, String level){
+		if(level.equals("2"))
+		{
+			System.out.println("Annotate Resources...");
+			ArrayList<String> activities = new ArrayList<String>();
+			for(ADnode node: graph.nodes()){
+				activities.add(node.name);
+			}
+			
+			for(String activity_name:activities)
+			{
+				ADnode node = graph.node(activity_name);
+				
+				if(node != null && node.isType(ADnode.Node))
+				{
+					System.out.println("Activity:" + node.name);
+					ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
+					/*Activity activity = this.ontologyManager.data().activity(node.name);
+					if( activity == null ) 
+						continue;
+					ArrayList<String> resources = activity.resources();*/
+					
+					System.out.println("Found Resources:");
+					System.out.println(resources);
+					if(resources.size() > 0)
+						explodeNode(graph,node,resources);
+				}
+			}
+		}else if (level.equals("3"))
+		{
+			System.out.println("NOT IMPLEMENTED YET - LEVEL 3");
+			//TODO: Implement
+		}else if (level.equals("4"))
+		{
+			System.out.println("NOT IMPLEMENTED YET -  LEVEL 4");
+			//TODO: Implement
 		}
 	}
 	

@@ -152,8 +152,15 @@ public class Main {
 
                 if(argManager.flag("-resources"))
                 {
-                    semanticAlgorithm.annotateResources(graph);
-
+                    if( argManager.param("-resources").equals("2"))
+                        //TODO: implement semanticAlgorithm.annotateResources(graph,2);
+                        semanticAlgorithm.annotateResources(graph);
+                    /*
+                    else if( argManager.param("-resources").equals("3"))
+                        TODO: implement semanticAlgorithm.annotateResources(graph,3);
+                    else if( argManager.param("-resources").equals("4"))
+                        TODO:  implement semanticAlgorithm.annotateResources(graph,4);
+                     */
                     System.out.println("OutputDit = " + outputDir);
                     if(exportJson)
                         saveFile(outputDir + outputFilename + ".json", graph.toJson());
