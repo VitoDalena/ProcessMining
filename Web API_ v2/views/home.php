@@ -47,6 +47,8 @@
     color: #000000;
 }
 
+
+
 </style>
 
 </head>
@@ -139,15 +141,15 @@
                 </div>
                 <div class="funkyradio-primary">
                     <input type="radio" name="radio" id="radio2" value="2" />
-                    <label for="radio2">Level 2 - Activity + Resources</label>
+                    <label for="radio2">Level 2 - Activity | Resource</label>
                 </div>
                 <div class="funkyradio-primary">
                     <input type="radio" name="radio" id="radio3" value="3" />
-                    <label for="radio3">Level 3</label>
+                    <label for="radio3">Level 3 - Activity(Role , Resource)</label>
                 </div>
                 <div class="funkyradio-primary">
                     <input type="radio" name="radio" id="radio4" value="4" />
-                    <label for="radio4">Level 4</label>
+                    <label for="radio4">Level 4 - Not implemented</label>
                 </div>
             </div>
 </div>
@@ -260,9 +262,11 @@ document.getElementById('log_upload').onchange = function(e){
     var upload = new Upload(file);
 
     // maby check size or type here with upload.getSize() and upload.getType()
-
-    // execute upload
-    upload.doUpload(e);
+    if (upload.getSize()>2000000)
+        alert("Dimensione massima consentita 2MB")
+    else
+        // execute upload
+        upload.doUpload(e);
 
 }
 

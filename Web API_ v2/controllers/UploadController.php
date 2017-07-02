@@ -19,8 +19,10 @@ class UploadController extends Controller {
         }        
 
         $name = basename($_FILES["file"]["tmp_name"], '.tmp');
-
-        $filename = "public/uploads/log/$name.mxml";
+        $FileType = pathinfo($_FILES["file"]["name"],PATHINFO_EXTENSION);
+        
+        $filename = "public/uploads/log/$name.$FileType";
+        
 
         if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
         	echo $name;

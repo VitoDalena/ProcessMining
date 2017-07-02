@@ -8,8 +8,13 @@ class Cnet2ADController extends Controller {
 
     	// pulisci la cartella di output
     	self::clear();
-
-    	$log = "public/uploads/log/$name.mxml";
+        
+    	$logMxml = "public/uploads/log/$name.mxml";
+        $logXES= "public/uploads/log/$name.xes";
+        if (file_exists($logMxml))
+            $log=$logMxml;
+        else
+            $log=$logXES;
         
         $cmd = "java -jar Cnet2ADweb.jar -json $log -dir bin -o $name";
         $cmd .= " -sigma $_POST[sigma] -ff $_POST[ff] -rtb $_POST[rtb]";

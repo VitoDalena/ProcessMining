@@ -36,10 +36,12 @@ import java.util.List;
         -constraints per impostare il percorso del contenente i vincoli
 
         -ontology Per impostare il file di output dell'ontologia
-        -resources Per annotare il layer con le risorse
+        -resources Per annotare il layer con le risorse secondo un livello da 1 a 4
  */
 
 public class Main {
+
+
 
     public static void main(String[] args) {
 
@@ -155,7 +157,6 @@ public class Main {
                     if( argManager.param("-resources").equals("2"))
                         semanticAlgorithm.annotateResources(graph,"2");
                     else if( argManager.param("-resources").equals("3"))
-                        //TODO: implement in SemanticCNet2AD.java
                         semanticAlgorithm.annotateResources(graph,"3");
                     else if( argManager.param("-resources").equals("4"))
                         //TODO: implement in SemanticCNet2AD.java

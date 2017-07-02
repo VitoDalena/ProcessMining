@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Web%20API/SemanticCnet2AD.ontology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Web%20API/bin/php5CFD.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Framework/SemanticCnet2AD.ontology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Framework/SemanticCnet2AD.out.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Web%20API_%20v2/SemanticCnet2AD.ontology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Web%20API_%20v2/bin/php49E8.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Web%20API_%20v2/bin/phpE27B.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:Cnet2AD" uri="Ontologia%20di%20base/SemanticCnet2AD.ontology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:cnet2ADbusiness" uri="CNMiningCLITerminator/SemanticCnet2AD.BusinessOntology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:cnet2ADbusiness" uri="Web%20API/SemanticCnet2AD.BusinessOntology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="shadowed:urn:absolute:cnet2ADbusiness" uri="Web%20API_%20v2/SemanticCnet2AD.BusinessOntology.base.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="duplicate:urn:absolute:Cnet2AD" uri="CNMiningCLITerminator/ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="duplicate:urn:absolute:Cnet2AD" uri="CNMiningCLITerminator/owlOntologyOut.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1499014016270" name="urn:absolute:cnet2ADbusiness" uri="SemanticCnet2AD.BusinessOntology.base.owl"/>
+    </group>
+</catalog>

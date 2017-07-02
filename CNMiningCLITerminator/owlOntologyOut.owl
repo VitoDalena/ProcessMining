@@ -126,142 +126,142 @@
     
 
 
-    <!-- checkticket -->
+    <!-- Arrange_disposal -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:checkticket">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Arrange_disposal">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14-gen-2011 14.33.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 11.34.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 12.12.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 16.34.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 15.12.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 12.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.22.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.22.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 11.43.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">check ticket</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Arrange_disposal</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- decide -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:decide">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10-gen-2011 13.28.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19-gen-2011 11.18.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23-gen-2011 13.12.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5-gen-2011 11.22.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 11.18.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.18.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 16.52.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 12.02.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9-gen-2011 9.55.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decide</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- examinecasually -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinecasually">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 15.50.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21-gen-2011 9.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.16.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 15.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 16.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 10.16.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine casually</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- examinethoroughly -->
+    <!-- Complete_recall -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:examinethoroughly">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Complete_recall">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">31-dic-2010 10.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 13.06.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 14.43.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">examine thoroughly</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- paycompensation -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:paycompensation">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15-gen-2011 10.45.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16-gen-2011 11.47.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8-gen-2011 12.05.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pay compensation</hasName>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete_recall</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- registerrequest -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:registerrequest">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.02.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 11.32.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30-dic-2010 14.32.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 15.02.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 9.02.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">register request</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- reinitiaterequest -->
+    <!-- Consider_optional_actions -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:reinitiaterequest">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Consider_optional_actions">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11-gen-2011 16.18.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20-gen-2011 12.48.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6-gen-2011 12.18.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reinitiate request</hasName>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Consider_optional_actions</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- EPILOGUE -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:EPILOGUE">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EPILOGUE</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- rejectrequest -->
+    <!-- Identify_remedies -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:rejectrequest">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Identify_remedies">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12-gen-2011 15.44.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">24-gen-2011 14.56.00</activityTime>
-        <activityTime rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7-gen-2011 14.24.00</activityTime>
-        <hasCost rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasCost>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reject request</hasName>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Identify_remedies</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Keep_records -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Keep_records">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Keep_records</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Notify_third_parties -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Notify_third_parties">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notify_third_parties</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- PROLOGUE -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:PROLOGUE">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PROLOGUE</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Prepare_to_destory_or_modify -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prepare_to_destory_or_modify</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Start_recall -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Start_recall">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start_recall</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Stop_distribution -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Stop_distribution">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stop_distribution</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Stop_production -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:Stop_production">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stop_production</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
     </owl:NamedIndividual>
     
 
@@ -270,15 +270,288 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:1">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 1</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:10&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:10">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 10</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:11&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:11">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 11</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:12&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:12">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 12</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:13&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:13">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 13</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:14&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:14">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 14</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:15&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:15">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 15</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:16&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:16">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 16</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:17&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:17">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 17</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:18&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:18">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 18</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:19&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:19">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 19</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
@@ -288,71 +561,73 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:3&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:20&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:20">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 20</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- &lt;urn:absolute:Cnet2AD#Case:4&gt; -->
+    <!-- &lt;urn:absolute:Cnet2AD#Case:21&gt; -->
 
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:4">
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:21">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 4</hasName>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
-        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- &lt;urn:absolute:Cnet2AD#Case:5&gt; -->
-
-    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5">
-        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
-        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5</hasName>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 21</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
@@ -362,19 +637,241 @@
     
 
 
+    <!-- &lt;urn:absolute:Cnet2AD#Case:22&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:22">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 22</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:23&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:23">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 23</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:3&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:4&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:4">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 4</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:5&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- &lt;urn:absolute:Cnet2AD#Case:6&gt; -->
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:6">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 6</hasName>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
         <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:7&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:7">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 7</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:8&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:8">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 8</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:9&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:9">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 9</hasName>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Ellen"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Mike"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Pete"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sara"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sean"/>
+        <hasResource rdf:resource="urn:absolute:Cnet2AD#Resource:Sue"/>
     </owl:NamedIndividual>
     
 
@@ -383,11 +880,14 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Ellen">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ellen</hasName>
     </owl:NamedIndividual>
     
@@ -397,11 +897,14 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Mike">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:paycompensation"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mike</hasName>
     </owl:NamedIndividual>
     
@@ -411,9 +914,10 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Pete">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:checkticket"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:registerrequest"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:rejectrequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Notify_third_parties"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:PROLOGUE"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pete</hasName>
     </owl:NamedIndividual>
     
@@ -423,8 +927,10 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sara">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:decide"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:reinitiaterequest"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EPILOGUE"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Keep_records"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sara</hasName>
     </owl:NamedIndividual>
     
@@ -434,8 +940,10 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sean">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Complete_recall"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Consider_optional_actions"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_distribution"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Stop_production"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sean</hasName>
     </owl:NamedIndividual>
     
@@ -445,8 +953,10 @@
 
     <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Resource:Sue">
         <rdf:type rdf:resource="urn:absolute:Cnet2AD#Resource"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinecasually"/>
-        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:examinethoroughly"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Arrange_disposal"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Identify_remedies"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Prepare_to_destory_or_modify"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:Start_recall"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sue</hasName>
     </owl:NamedIndividual>
 </rdf:RDF>

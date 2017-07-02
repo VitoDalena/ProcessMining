@@ -29,13 +29,22 @@ public class Main {
 
     public static void main(String[] args){
 
-        XLog log = parse("logs/running-example.mxml");
+        XLog log = parse("logs/all_10_0_CON_RISORSE.mxml");
 
 
         try {
             OntologyManager ontologyManager=new OntologyManager("ontology.owl", log);
             ontologyManager.readData();
-            ontologyManager.resourceQuery("checkticket");
+            ArrayList<String> cacca=ontologyManager.resourceQuery("checkticket");
+            ArrayList<String> cacca2=ontologyManager.roleQuery("Sara");
+            ArrayList<String> cacca3=ontologyManager.roleQuery("Ellen");
+            int provaDioMerda=0;
+            for(String role:cacca3){
+
+                if(ontologyManager.subClassQuery(role)==null)
+                    provaDioMerda=69;
+            }
+
             if(true)
                 return;
             Settings settings = new Settings();

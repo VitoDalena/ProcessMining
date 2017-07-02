@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="urn:absolute:cnet2ADbusiness#"
+     xml:base="urn:absolute:cnet2ADbusiness"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="urn:absolute:cnet2ADbusiness"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#perform -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#perform">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="urn:absolute:cnet2ADbusiness#performed"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performAdministrator -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performAdministrator">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#perform"/>
+        <owl:inverseOf rdf:resource="urn:absolute:cnet2ADbusiness#performedAdministrator"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#adminstator_activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performTypeA -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performTypeA">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#perform"/>
+        <owl:inverseOf rdf:resource="urn:absolute:cnet2ADbusiness#performedTypeA"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeA"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#typeA_activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performTypeB -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performTypeB">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#perform"/>
+        <owl:inverseOf rdf:resource="urn:absolute:cnet2ADbusiness#performedTypeB"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeB"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#typeB_activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performTypeC -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performTypeC">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#perform"/>
+        <owl:inverseOf rdf:resource="urn:absolute:cnet2ADbusiness#performedTypeC"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeC"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performed -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performed">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performedAdministrator -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performedAdministrator">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#performed"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#adminstator_activity"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performedTypeA -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performedTypeA">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#performed"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#typeA_activity"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performedTypeB -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performedTypeB">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#performed"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#typeB_activity"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeB"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#performedTypeC -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:cnet2ADbusiness#performedTypeC">
+        <rdfs:subPropertyOf rdf:resource="urn:absolute:cnet2ADbusiness#performed"/>
+        <rdfs:domain rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+        <rdfs:range rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeC"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#Activity"/>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#Resource"/>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#administrator -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#administrator">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#adminstator_activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#adminstator_activity">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#employee -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#employee">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#employee_activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#employee_activity">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#employee_typeA -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#employee_typeA">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#employee_typeB -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#employee_typeB">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#employee_typeC -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#employee_typeC">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#typeA_activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#typeA_activity">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#typeB_activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#typeB_activity">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#typeC_activity -->
+
+    <owl:Class rdf:about="urn:absolute:cnet2ADbusiness#typeC_activity">
+        <rdfs:subClassOf rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Arrange_disposal -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Arrange_disposal">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeB_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Complete_recall -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Complete_recall">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Consider_optional_actions -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Consider_optional_actions">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:EPILOGUE -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:EPILOGUE">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#adminstator_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Ellen -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Ellen">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Identify_remedies -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Identify_remedies">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Keep_records -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Keep_records">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Mike -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Mike">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Notify_third_parties -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Notify_third_parties">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeA_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:PROLOGUE -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:PROLOGUE">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#adminstator_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Pete -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Pete">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#administrator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Prepare_to_destory_or_modify -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Prepare_to_destory_or_modify">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeA_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Sara -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Sara">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Sean -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Sean">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Start_recall -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Start_recall">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeC_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Stop_distribution -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Stop_distribution">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeB_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Activity:Stop_production -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Activity:Stop_production">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_activity"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#typeA_activity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:absolute:cnet2ADbusiness#Resource:Sue -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:cnet2ADbusiness#Resource:Sue">
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#Resource"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee"/>
+        <rdf:type rdf:resource="urn:absolute:cnet2ADbusiness#employee_typeA"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

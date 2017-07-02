@@ -147,39 +147,39 @@ public class SemanticCnet2AD {
 	}
 	
 	public void annotateResources(ADgraph graph, String level){
+		
+		annotateResources(graph);
 		if(level.equals("2"))
 		{
-			System.out.println("Annotate Resources...");
-			ArrayList<String> activities = new ArrayList<String>();
-			for(ADnode node: graph.nodes()){
-				activities.add(node.name);
-			}
+			//Grafo di lvl 2 ottenuto
 			
-			for(String activity_name:activities)
-			{
-				ADnode node = graph.node(activity_name);
-				
-				if(node != null && node.isType(ADnode.Node))
-				{
-					System.out.println("Activity:" + node.name);
-					ArrayList<String> resources=ontologyManager.resourceQuery(node.name);
-					/*Activity activity = this.ontologyManager.data().activity(node.name);
-					if( activity == null ) 
-						continue;
-					ArrayList<String> resources = activity.resources();*/
-					
-					System.out.println("Found Resources:");
-					System.out.println(resources);
-					if(resources.size() > 0)
-						explodeNode(graph,node,resources);
-				}
-			}
 		}else if (level.equals("3"))
 		{
-			System.out.println("NOT IMPLEMENTED YET - LEVEL 3");
-			//TODO: Implement
+			ArrayList<ADnode> nodes=graph.nodes();
+			
+			for(ADnode node:nodes)
+			{
+				if(node.isType(ADnode.Node))
+				{
+					String name, res,role="";
+					name= node.name.substring(0, node.name.lastIndexOf("|")-1);
+					res= node.name.substring(node.name.lastIndexOf("|")+2);
+					//System.out.println("Il nome è:*"+name+"*");
+					//System.out.println("Il res è:*"+res+"*");
+					ArrayList<String> roles=ontologyManager.roleQuery(res);
+					System.out.println("I ruoli sono: " + roles);
+					for(String rol:roles)
+					{
+						if(ontologyManager.subClassQuery(rol)==null)
+							{System.out.println("Il ruolo della risorsa è: "+rol);
+							role=rol;
+							}
+					}
+					node.name=name+"("+role+","+res+")";
+				}
+			}
 		}else if (level.equals("4"))
-		{
+		{		
 			System.out.println("NOT IMPLEMENTED YET -  LEVEL 4");
 			//TODO: Implement
 		}
@@ -230,7 +230,7 @@ public class SemanticCnet2AD {
         else node.name += " | " + resources.get(0);
     }
 	
-	private static String readFile(String filename) {
+	public static String readFile(String filename) {
 		try {
 			BufferedReader rd = new BufferedReader(new FileReader(filename));
 			String line = null;
