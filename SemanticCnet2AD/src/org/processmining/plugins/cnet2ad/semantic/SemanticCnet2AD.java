@@ -90,6 +90,7 @@ public class SemanticCnet2AD {
 	private OntologyManager ontologyManager;
 	private String ontologyBase;
 	private String ontologyOut;
+	private String businessOntology;
 	private XLog log;
 	
 	public SemanticCnet2AD(XLog log){
@@ -97,15 +98,18 @@ public class SemanticCnet2AD {
 	}
 	
 	public String annotate(){
-		return this.annotate("SemanticCnet2AD.ontology.base.owl", "SemanticCnet2AD.out.owl");
+		return this.annotate("SemanticCnet2AD.ontology.base.owl", "SemanticCnet2AD.out.owl","");
 	}
 
-	public String annotate(String ontologyBase, String ontologyOut){
+
+	public String annotate(String ontologyBase, String ontologyOut, String businessOntology){
 		this.ontologyBase = ontologyBase;
 		this.ontologyOut = ontologyOut;
+		this.businessOntology=businessOntology;
 		
 		String ontology=null;
 		this.ontologyManager=new OntologyManager(this.log);
+		this.ontologyManager.setBusinessOntology(this.businessOntology);
 		if(!this.ontologyManager.init(this.ontologyBase, this.ontologyOut)){
 			System.out.println("Cannot read ontology");
 			return "ERROR";

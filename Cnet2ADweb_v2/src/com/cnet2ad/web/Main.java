@@ -144,7 +144,13 @@ public class Main {
                 System.out.println("Launching SemanticCnet2AD...");
 
                 SemanticCnet2AD semanticAlgorithm = new SemanticCnet2AD(log);
-                String ontology = semanticAlgorithm.annotate("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename);
+                String ontology="";
+                if (Integer.parseInt(argManager.param("-resources"))>2) {
+                    String businessOntology= argManager.param("-o");
+                    System.out.println("ECCO IL FILE DELL'Ontologia di contesto: " + "public/uploads/ontology/" + businessOntology + ".business.owl");
+                    ontology = semanticAlgorithm.annotate("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename, "public/uploads/ontology/" + businessOntology + ".business.owl");
+                }else
+                    ontology = semanticAlgorithm.annotate("SemanticCnet2AD.ontology.base.owl", ontologyOutputFilename,"");
                 if(ontology.equals("ERROR")){
                     System.out.println("SemanticCnet2ADRESULT=ERROR");
                 }

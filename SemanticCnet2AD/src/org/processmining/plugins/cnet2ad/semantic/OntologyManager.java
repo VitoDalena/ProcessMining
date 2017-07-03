@@ -23,7 +23,7 @@ public class OntologyManager {
     private File file;
     private String base_iri="urn:absolute:Cnet2AD#";
     private String business_base_iri="urn:absolute:cnet2ADbusiness#";
-    private String businessOntologyFileName= "SemanticCnet2AD.BusinessOntology.base.owl";
+    private String businessOntologyFileName="";// "SemanticCnet2AD.BusinessOntology.base.owl";
     private QueryEngine queryEngine;
     private OWLOntology baseOntology,businessOntology;
     private StructuralReasonerFactory reasonerFactory;
@@ -48,18 +48,23 @@ public class OntologyManager {
        try{
            file=new File(path);
            //carico l'ontologia in memoria
-           baseOntologyManager = OWLManager.createOWLOntologyManager();
-           businessOntologyManager= OWLManager.createOWLOntologyManager();
-           baseOntology = baseOntologyManager.loadOntologyFromOntologyDocument(file);
-           path=businessOntologyFileName;
-           file=new File(path);
-           businessOntology= businessOntologyManager.loadOntologyFromOntologyDocument(file);
+           baseOntologyManager = OWLManager.createOWLOntologyManager();           
+           baseOntology = baseOntologyManager.loadOntologyFromOntologyDocument(file);       
            baseOntologyDataFactory = baseOntologyManager.getOWLDataFactory();
-           businessOntologyDataFactory= businessOntologyManager.getOWLDataFactory();
            //inizializzazione dei reasonoer per le SPARQL query engine
            reasonerFactory = new StructuralReasonerFactory();
            baseOntologyReasoner = reasonerFactory.createReasoner(baseOntology);
-           businessOntologyReasoner= reasonerFactory.createReasoner(businessOntology);
+           
+           if (!(businessOntologyFileName.equals("")))
+           {
+        	   //for level 3 and above
+        	   businessOntologyManager= OWLManager.createOWLOntologyManager();
+        	   path=businessOntologyFileName;
+        	   file=new File(path);
+               businessOntology= businessOntologyManager.loadOntologyFromOntologyDocument(file);
+               businessOntologyDataFactory= businessOntologyManager.getOWLDataFactory();
+               businessOntologyReasoner= reasonerFactory.createReasoner(businessOntology);
+           }
        }
        catch(Exception e){
     	   System.out.println("[OntologyManager:init] " + e.toString());
@@ -135,16 +140,19 @@ public class OntologyManager {
                             .getOWLObjectPropertyAssertionAxiom(hasResource, activityIndividual,resourceIndividual);
                     baseOntologyManager.addAxiom(baseOntology, dataPropertyAssertion);
                     //businessOntology
-                    activityIndividual = businessOntologyDataFactory.getOWLNamedIndividual(IRI.create(business_base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
-                    resourceIndividual = businessOntologyDataFactory.getOWLNamedIndividual(IRI.create(business_base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
-                    OWLObjectProperty perform = businessOntologyDataFactory.getOWLObjectProperty(IRI.create(business_base_iri + "perform"));
-                    OWLObjectProperty performed = businessOntologyDataFactory.getOWLObjectProperty(IRI.create(business_base_iri + "performed"));
-                    dataPropertyAssertion = businessOntologyDataFactory
-                            .getOWLObjectPropertyAssertionAxiom(perform, resourceIndividual, activityIndividual);
-                    businessOntologyManager.addAxiom(businessOntology, dataPropertyAssertion);
-                    dataPropertyAssertion = businessOntologyDataFactory
-                            .getOWLObjectPropertyAssertionAxiom(performed, activityIndividual,resourceIndividual);
-                    businessOntologyManager.addAxiom(businessOntology, dataPropertyAssertion);
+                    if (!(businessOntologyFileName.equals("")))
+                    {
+	                    activityIndividual = businessOntologyDataFactory.getOWLNamedIndividual(IRI.create(business_base_iri+ "Activity:"+nodo.nome_attivita.replace(" ","")));
+	                    resourceIndividual = businessOntologyDataFactory.getOWLNamedIndividual(IRI.create(business_base_iri+"Resource:"+nodo.risorsa.replace(" ","")));
+	                    OWLObjectProperty perform = businessOntologyDataFactory.getOWLObjectProperty(IRI.create(business_base_iri + "perform"));
+	                    OWLObjectProperty performed = businessOntologyDataFactory.getOWLObjectProperty(IRI.create(business_base_iri + "performed"));
+	                    dataPropertyAssertion = businessOntologyDataFactory
+	                            .getOWLObjectPropertyAssertionAxiom(perform, resourceIndividual, activityIndividual);
+	                    businessOntologyManager.addAxiom(businessOntology, dataPropertyAssertion);
+	                    dataPropertyAssertion = businessOntologyDataFactory
+	                            .getOWLObjectPropertyAssertionAxiom(performed, activityIndividual,resourceIndividual);
+	                    businessOntologyManager.addAxiom(businessOntology, dataPropertyAssertion);
+                    }
                 }
                 // activity has caseID
                 if(nodo.nome_attivita!=null&&trace!=null)
@@ -318,4 +326,8 @@ public class OntologyManager {
     {
         public String nome_attivita=null,risorsa=null,costi=null,timestamp=null;
     }
+	public void setBusinessOntology(String businessOntology) {
+		// TODO Auto-generated method stub
+		this.businessOntologyFileName=businessOntology;
+	}
 }
