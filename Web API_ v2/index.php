@@ -16,6 +16,8 @@ if( file_exists(__DIR__ . '/public/uploads/log') == false )
 	mkdir(__DIR__ . '/public/uploads/log');
 if( file_exists(__DIR__ . '/public/uploads/constraints') == false )
 	mkdir(__DIR__ . '/public/uploads/constraints');
+if( file_exists(__DIR__ . '/public/uploads/ontology') == false )
+	mkdir(__DIR__ . '/public/uploads/ontology');
 
 // Definizione delle rotte
 
@@ -35,7 +37,7 @@ $router->get("/reset", function(){
 // POST ajax per l'upload dei file
 $router->post('/log', "UploadController@log");
 $router->post('/constraints/$name', "UploadController@constraints");
-
+$router->post('/ontology/$name', "UploadController@ontology");
 // API ajax per l'elaborazione RTTmining
 $router->post('/process/$filename', "Cnet2ADController@process");
 // GET ajax per ottenere i dati di visualizzazione

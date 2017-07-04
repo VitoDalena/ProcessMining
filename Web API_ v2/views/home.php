@@ -81,8 +81,8 @@
                 </form>
 
             </div>
-            <a href='#' id='btn_settings' class = 'btn btn-info btn-sm'>Settings</a>
-            <a href='#' id='btn_annotate' class = 'btn btn-info btn-sm'>Layers</a>
+            <a href='#' id='btn_settings' class = 'btn btn-info btn-sm invisible'>Settings</a>
+            <a href='#' id='btn_annotate' class = 'btn btn-info btn-sm invisible'>Layers</a>
 
         </div>
     </div>
@@ -114,12 +114,27 @@
             <div class = 'col-8 col-sm-8'>
 
                 <div class = 'alert alert-warning'>
-                    </form>
                     <label>Constraints</label>
                     <form id = 'constraints_form' method = 'POST' action = 'constraints' class = 'form-inline'>
                         <div class = 'content' id = 'section_uploading'>
                             <div class = 'form-group'>
                                 <input name='file' type="file" accept=".xml" id='constraints_upload' />
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    <div class = 'row justify-content-center'>
+            <div class = 'col-8 col-sm-8'>
+                <div class = 'alert alert-warning'>
+                 <label>Context Ontology - Mandatory for Abstraction Level 3 and above</label>
+                    <form id = 'ontology_form' method = 'POST' action = 'ontology' class = 'form-inline'>
+                        <div class = 'content' id = 'section_uploading'>
+                            <div class = 'form-group'>
+                                <input name='file' type="file" accept=".owl" id='ontology_upload' />
                             </div>
                         </div>
                     </form>
@@ -195,7 +210,7 @@ var btn_settings = document.getElementById('btn_settings');
 var btn_annotate = document.getElementById('btn_annotate');
 
 var logFilename = null;
-var constraintsFilename = null;
+var constraintsFilename = null, businessOntology=null;
 
 if( btn_process != null )
     btn_process.onclick = process;
@@ -226,6 +241,10 @@ document.getElementById('log_upload').onchange = function(e){
         btn_ontology.className += ' invisible';
     if( btn_webvowl.className.includes("invisible") == false )
         btn_webvowl.className += ' invisible';
+    if( btn_annotate.className.includes("invisible") == false )
+        btn_annotate.className += ' invisible';
+    if( btn_settings.className.includes("invisible") == false )
+        btn_settings.className += ' invisible';
 
     logFilename = constraintsFilename = null;
     $('#diagram').hide();
@@ -275,7 +294,7 @@ document.getElementById('constraints_upload').onchange = function(e){
     var file = e.target.files[0];
     if (file) {
         var data = new FormData();
-        data.append( 'file', file, file.name );
+        data.append( 'constraints', file, file.name );
         $.ajax( {
             url: 'constraints' + '/' + logFilename,
             type: 'POST',
@@ -284,13 +303,39 @@ document.getElementById('constraints_upload').onchange = function(e){
             contentType: false,
             'success': function(e){
 
-                if( e == "UPLOAD:ERROR" ){
-                    alert("Upload fallito!");
+                if( e.indexOf("UPLOAD:ERROR")!=-1 ){
+                    alert("Upload del file di vincoli fallito!");
                     return;
                 }
 
-                console.log( "Upload riuscito!");
+                console.log( "Upload del file di vincoli riuscito!");
                 constraintsFilename = e;
+
+            }
+        } );
+    }
+}
+document.getElementById('ontology_upload').onchange = function(e){
+    //Retrieve the first (and only!) File from the FileList object
+    var file = e.target.files[0];
+    if (file) {
+        var data = new FormData();
+        data.append( 'ontology', file, file.name );
+        $.ajax( {
+            url: 'ontology' + '/' + logFilename,
+            type: 'POST',
+            data: data,
+            processData: false,
+            contentType: false,
+            'success': function(e){
+
+                if( e.indexOf("UPLOAD:ERROR")!=-1 ){
+                    alert("Upload dell'ontologia fallito!");
+                    return;
+                }
+
+                console.log( "Upload dell'ontologia riuscito!");
+                businessOntology = e;
 
             }
         } );
@@ -315,7 +360,11 @@ function process(){
                 constraints: constraintsFilename,
                 level: $('input[name="radio"]:checked').val()
             };
-
+    var intLevel=Number(cont.level);
+    var equals=businessOntology !=logFilename+".business";
+    if (Number(cont.level)>2 && businessOntology !=logFilename+".business")
+        return  alert(" You selected abstraction Level " + cont.level + ". Context ontology needed.");
+    
     $.post( 'process/' + logFilename, cont)
         .done(function( e ) {
 

@@ -42,6 +42,8 @@ Upload.prototype.doUpload = function (e) {
                 //UPLOAD ANDATO A BUON FINE
                 console.log( "Upload riuscito!");
                 btn_process.className = btn_process.className.replace('invisible', '');
+                btn_settings.className= btn_settings.className.replace('invisible', '');
+                btn_annotate.className= btn_annotate.className.replace('invisible', '');
                 logFilename = e; //NOME DEL FILE CARICATO SUL SERVER
         },
         async: true, //RICHIESTA ASINCRONA

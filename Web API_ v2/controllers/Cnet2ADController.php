@@ -8,7 +8,7 @@ class Cnet2ADController extends Controller {
 
     	// pulisci la cartella di output
     	self::clear();
-        
+        $ontology= "public/uploads/ontology/$name.business.owl";
     	$logMxml = "public/uploads/log/$name.mxml";
         $logXES= "public/uploads/log/$name.xes";
         if (file_exists($logMxml))
@@ -19,7 +19,20 @@ class Cnet2ADController extends Controller {
         $cmd = "java -jar Cnet2ADweb.jar -json $log -dir bin -o $name";
         $cmd .= " -sigma $_POST[sigma] -ff $_POST[ff] -rtb $_POST[rtb]";
         $cmd .= " -ontology bin/$name.owl";
-        $cmd .= " -resources $_POST[level]";
+        if (((int)$_POST['level']>2))
+        {   
+            if (file_exists($ontology))
+                $cmd .= " -resources $_POST[level]";
+            else
+            {
+                echo "Cnet2ADRESULT:ERROR";
+                return;
+            }
+        }else
+        {      // si ha livello 2 o 1
+            $cmd .= " -resources $_POST[level]";
+        }
+         //var_dump($cmd);       
 
         if( empty($_POST['constraints']) == false )
             $cmd .= " -constraints public/uploads/constraints/$_POST[constraints].xml";

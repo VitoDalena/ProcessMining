@@ -46,8 +46,25 @@ class UploadController extends Controller {
 
         $filename = "public/uploads/constraints/$name.xml";
 
-        if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
+        if( move_uploaded_file($_FILES["constraints"]["tmp_name"], $filename) )
             echo $name;
+        else 
+            echo "UPLOAD:ERROR";
+    }
+    function ontology($name){
+
+        // pulisce la cartella di uploads
+        self::clear("ontology");
+        
+        if( empty($_FILES) == true){
+            echo "UPLOAD:ERROR";
+            return;
+        }        
+
+        $filename = "public/uploads/ontology/$name.business.owl";
+
+        if( move_uploaded_file($_FILES["ontology"]["tmp_name"], $filename) )
+            echo "$name.business";
         else 
             echo "UPLOAD:ERROR";
     }
