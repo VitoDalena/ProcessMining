@@ -28,10 +28,46 @@ class UploadController extends Controller {
         	echo "UPLOAD:ERROR";
     }
 
-    /*
-        Se l'upload avviene correttamente ritorna il nome del file,
-        altrimenti ritorna la stringa UPLOAD:ERROR
-    */
+    function mod(){
+
+        // pulisce la cartella di uploads
+        self::clear("mod");
+        
+        if( empty($_FILES) == true){
+        	echo "UPLOAD:ERROR";
+        	return;
+        }        
+
+        $name = basename($_FILES["file"]["tmp_name"], '.tmp');
+
+        $filename = "public/uploads/mod/$name.xmi";
+
+        if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
+        	echo $name;
+    	else 
+        	echo "UPLOAD:ERROR";
+    }
+
+    function ont(){
+
+        // pulisce la cartella di uploads
+        self::clear("ont");
+        
+        if( empty($_FILES) == true){
+        	echo "UPLOAD:ERROR";
+        	return;
+        }        
+
+        $name = basename($_FILES["file"]["tmp_name"], '.tmp');
+
+        $filename = "public/uploads/ont/$name.owl";
+
+        if( move_uploaded_file($_FILES["file"]["tmp_name"], $filename) )
+        	echo $name;
+    	else 
+        	echo "UPLOAD:ERROR";
+    }
+
     function constraints($name){
 
         // pulisce la cartella di uploads

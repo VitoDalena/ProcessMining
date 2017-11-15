@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="urn:absolute:Cnet2AD#"
+     xml:base="urn:absolute:Cnet2AD"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="urn:absolute:Cnet2AD"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- hasActivity -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:Cnet2AD#hasActivity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <rdfs:range rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- hasResource -->
+
+    <owl:ObjectProperty rdf:about="urn:absolute:Cnet2AD#hasResource">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <rdfs:range rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- activityTime -->
+
+    <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#activityTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- hasCost -->
+
+    <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#hasCost">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- hasName -->
+
+    <owl:DatatypeProperty rdf:about="urn:absolute:Cnet2AD#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <rdfs:domain rdf:resource="urn:absolute:Cnet2AD#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- Activity -->
+
+    <owl:Class rdf:about="urn:absolute:Cnet2AD#Activity"/>
+    
+
+
+    <!-- Case -->
+
+    <owl:Class rdf:about="urn:absolute:Cnet2AD#Case"/>
+    
+
+
+    <!-- Resource -->
+
+    <owl:Class rdf:about="urn:absolute:Cnet2AD#Resource"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- A -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:A">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- B -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:B">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">B</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- C -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:C">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- D -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:D">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- E -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:E">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">E</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- EEENNNDDD -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:EEENNNDDD">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EEENNNDDD</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- F -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:F">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- G -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:G">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">G</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- SSSTTTAAARRRTTT -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Activity"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SSSTTTAAARRRTTT</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:0&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:0">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 0</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:1&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:1">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 1</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:10&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:10">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 10</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:11&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:11">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 11</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:12&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:12">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 12</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:13&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:13">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 13</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:2&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:2">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 2</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:3&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:3">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 3</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:4&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:4">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 4</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:5&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:5">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:F"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 5</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:6&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:6">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:E"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 6</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:7&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:7">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:E"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 7</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:8&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:8">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 8</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- &lt;urn:absolute:Cnet2AD#Case:9&gt; -->
+
+    <owl:NamedIndividual rdf:about="urn:absolute:Cnet2AD#Case:9">
+        <rdf:type rdf:resource="urn:absolute:Cnet2AD#Case"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:A"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:B"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:C"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:D"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:EEENNNDDD"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:G"/>
+        <hasActivity rdf:resource="urn:absolute:Cnet2AD#Activity:SSSTTTAAARRRTTT"/>
+        <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Case: 9</hasName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.0.2) http://owlapi.sourceforge.net -->
+

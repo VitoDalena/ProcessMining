@@ -22,6 +22,8 @@ if( file_exists(__DIR__ . '/public/uploads/constraints') == false )
 $router = new Pure\Router();
 
 $router->get("/", "HomeController@index");
+$router->get("/modgen", "HomeController@modgen");
+$router->get("/modver", "HomeController@modver");
 // Pulizia forzata
 $router->get("/reset", function(){
 	array_map('unlink', glob(__DIR__."/bin/*.*"));
@@ -34,10 +36,13 @@ $router->get("/reset", function(){
 
 // POST ajax per l'upload dei file
 $router->post("/log", "UploadController@log");
+$router->post("/mod", "UploadController@mod");
+$router->post("/ont", "UploadController@ont");
 $router->post('/constraints/$name', "UploadController@constraints");
 
 // API ajax per l'elaborazione RTTmining
 $router->post('/process/$filename', "Cnet2ADController@process");
+$router->post('/verify', "Cnet2ADController@verify"); //To be implemented
 // GET ajax per ottenere i dati di visualizzazione
 $router->get('/visualize/$filename', "Cnet2ADController@visualize");
 

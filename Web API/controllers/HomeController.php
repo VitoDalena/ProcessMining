@@ -10,6 +10,18 @@ class HomeController extends Controller {
     
     }
 
+    function modgen(){
+        
+    	include __DIR__ . '/../views/model_generation.php';
+    
+    }
+
+    function modver(){
+        
+    	include __DIR__ . '/../views/model_verification.php';
+    
+    }
+
 }
 
 ?>
