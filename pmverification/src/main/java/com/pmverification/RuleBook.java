@@ -141,7 +141,7 @@ public class RuleBook {
         for(ArrayList<String> k : directNexts.keySet()){
             if(k == null || candidateMemory.containsAll(k)){
                 for (final String a : directNexts.get(k)) {
-                    outOfSequence.notNext("2").where(new SimpleCondition<AuditTrailEntry>() {
+                    outOfSequence.notNext(a).where(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
                             return event.workflowModelElement.equals(a);

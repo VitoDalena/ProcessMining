@@ -152,19 +152,23 @@ public class StreamingJob {
         }
         Pattern<Ontology_alert,?> ontologyRule_global = Pattern.<Ontology_alert>begin("fault").times(totalEvents/3);
         Pattern<Ontology_alert,?> ontologyRule_local = Pattern.<Ontology_alert>begin("fault").next("fault2");
-        DataStream<String> fault;
+        PatternStream<Ontology_alert> oag;
+        PatternStream<Ontology_alert> oal = CEP.pattern(ontology_alert,ontologyRule_local);
+        DataStream<String> ogfault;
+        DataStream<String> olfault;
+        DataStream<String> oosgfault;
+        DataStream<String> ooslfault;
         if(ontology_alert != null){
-            PatternStream<Ontology_alert> oa = CEP.pattern(ontology_alert,ontologyRule_global);
-            fault = oa.select(new PatternSelectFunction<Ontology_alert, String>() {
+            oag = CEP.pattern(ontology_alert,ontologyRule_global);
+            ogfault = oag.select(new PatternSelectFunction<Ontology_alert, String>() {
                 @Override
                 public String select(Map<String, List<Ontology_alert>> map){
                     return "Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty";
                 }
             });
-            fault.print();
+            ogfault.print();
 
-            oa = CEP.pattern(ontology_alert,ontologyRule_local);
-            fault = oa.select(new PatternSelectFunction<Ontology_alert, String>() {
+            olfault = oal.select(new PatternSelectFunction<Ontology_alert, String>() {
                 @Override
                 public String select(Map<String, List<Ontology_alert>> map){
                     Ontology_alert fault = map.get("fault").get(0);
@@ -175,28 +179,28 @@ public class StreamingJob {
                     return "";
                 }
             });
-            fault.print();
+            olfault.print();
         }
 
         Pattern<OutOfSequence_alert,?> sequenceRule_global = Pattern.<OutOfSequence_alert>begin("sfault").times(totalEvents/3);
         Pattern<OutOfSequence_alert,?> sequenceRule_local = Pattern.begin("sfault");
-        PatternStream<OutOfSequence_alert> oosa = CEP.pattern(outOfSequence_alert,sequenceRule_global);
-        fault = oosa.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
+        PatternStream<OutOfSequence_alert> oosag = CEP.pattern(outOfSequence_alert,sequenceRule_global);
+        PatternStream<OutOfSequence_alert> oosal = CEP.pattern(outOfSequence_alert,sequenceRule_local);
+        oosgfault = oosag.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
                 return "More than 30% of the log does not follow the rules from the model. Is the model obsolete?";
             }
         });
-        fault.print();
-        oosa = CEP.pattern(outOfSequence_alert,sequenceRule_local);
-        fault = oosa.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
+        oosgfault.print();
+        ooslfault = oosal.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
                 OutOfSequence_alert sfault = map.get("sfault").get(0);
                 return "Model sequence broke after " + sfault.name1;
             }
         });
-        fault.print();
+        ooslfault.print();
 
         // execute program
         env.execute("Flink Streaming Java API Skeleton");
