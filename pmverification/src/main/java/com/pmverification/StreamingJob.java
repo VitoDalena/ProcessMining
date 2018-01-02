@@ -163,7 +163,8 @@ public class StreamingJob {
             ogfault = oag.select(new PatternSelectFunction<Ontology_alert, String>() {
                 @Override
                 public String select(Map<String, List<Ontology_alert>> map){
-                    return "Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty";
+                    //Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty
+                    return "OAG:REPORT";
                 }
             });
             ogfault.print();
@@ -174,7 +175,7 @@ public class StreamingJob {
                     Ontology_alert fault = map.get("fault").get(0);
                     Ontology_alert fault2 = map.get("fault2").get(0);
                     if(fault.name1.equals(fault2.name1) && fault.type.equals(fault2.type)) {
-                        return fault.type + "fault found after " + fault.name1;
+                        return fault.type + ":OAL:" + fault.name1 + ":REPORT";
                     }
                     return "";
                 }
@@ -189,7 +190,8 @@ public class StreamingJob {
         oosgfault = oosag.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
-                return "More than 30% of the log does not follow the rules from the model. Is the model obsolete?";
+                //More than 30% of the log does not follow the rules from the model. Is the model obsolete?
+                return "OOSAG:REPORT";
             }
         });
         oosgfault.print();
@@ -197,7 +199,8 @@ public class StreamingJob {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
                 OutOfSequence_alert sfault = map.get("sfault").get(0);
-                return "Model sequence broke after " + sfault.name1;
+                //Local out of sequence report
+                return "OOSAL:" + sfault.name1 + ":REPORT";
             }
         });
         ooslfault.print();
