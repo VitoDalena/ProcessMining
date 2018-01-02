@@ -118,11 +118,7 @@
 
     <div class = 'row justify-content-center pt-3'>
         <div class = 'col-8 col-sm-8'>
-            <button id = 'btn_process' class = 'btn btn-success invisible'>Process</button>
-            <a id = 'btn_download' class = 'btn btn-danger invisible' href='#'>Download XMI</a>
-            <a id = 'btn_ontology' class = 'btn btn-danger invisible' href='#'>Download Ontology</a>
-            <a id = 'btn_webvowl' target = '_blank' class = 'btn btn-danger invisible' href='http://visualdataweb.de/webvowl/'>Visualize Ontology</a>
-            <a id = 'btn_visualize' class = 'btn btn-danger invisible' href='#'>Show Graph</a>
+            <button id = 'btn_process' class = 'btn btn-success invisible'>Verify</button>
         </div>
     </div>
 
@@ -145,10 +141,6 @@
 <script>
 
 var btn_process = document.getElementById('btn_process');
-var btn_download = document.getElementById('btn_download');
-var btn_webvowl = document.getElementById('btn_webvowl');
-var btn_visualize = document.getElementById( 'btn_visualize' );
-var btn_ontology = document.getElementById('btn_ontology');
 var btn_settings = document.getElementById('btn_settings');
 var btn_annotate = document.getElementById('btn_annotate');
 
@@ -159,9 +151,6 @@ var constraintsFilename = null;
 
 if( btn_process != null )
     btn_process.onclick = process;
-
-if( btn_visualize != null )
-    btn_visualize.onclick = visualize;
 
 if( btn_settings != null )
     btn_settings.onclick = function(){
@@ -177,16 +166,6 @@ if( btn_annotate != null )
     Esegui l'upload dei file
 */
 document.getElementById('log_upload').onchange = function(e){
-    // Resetta tutto
-    if( btn_download.className.includes("invisible") == false )
-        btn_download.className += ' invisible';
-    if( btn_visualize.className.includes("invisible") == false )
-        btn_visualize.className += ' invisible';
-    if( btn_ontology.className.includes("invisible") == false )
-        btn_ontology.className += ' invisible';
-    if( btn_webvowl.className.includes("invisible") == false )
-        btn_webvowl.className += ' invisible';
-
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -202,7 +181,7 @@ document.getElementById('log_upload').onchange = function(e){
             'success': function(e){
 
                 if( e == "UPLOAD:ERROR" ){
-                    alert("Upload fallito!");
+                    alert("Upload failed!");
                     if( btn_process.className.includes("invisible") == false )
                         btn_process.className += ' invisible';
                     return;
@@ -217,16 +196,6 @@ document.getElementById('log_upload').onchange = function(e){
 }
 
 document.getElementById('model_upload').onchange = function(e){
-    // Resetta tutto
-    if( btn_download.className.includes("invisible") == false )
-        btn_download.className += ' invisible';
-    if( btn_visualize.className.includes("invisible") == false )
-        btn_visualize.className += ' invisible';
-    if( btn_ontology.className.includes("invisible") == false )
-        btn_ontology.className += ' invisible';
-    if( btn_webvowl.className.includes("invisible") == false )
-        btn_webvowl.className += ' invisible';
-
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -242,7 +211,7 @@ document.getElementById('model_upload').onchange = function(e){
             'success': function(e){
 
                 if( e == "UPLOAD:ERROR" ){
-                    alert("Upload fallito!");
+                    alert("Upload failed!");
                     if( btn_process.className.includes("invisible") == false )
                         btn_process.className += ' invisible';
                     return;
@@ -258,16 +227,6 @@ document.getElementById('model_upload').onchange = function(e){
 }
 
 document.getElementById('ontology_upload').onchange = function(e){
-    // Resetta tutto
-    if( btn_download.className.includes("invisible") == false )
-        btn_download.className += ' invisible';
-    if( btn_visualize.className.includes("invisible") == false )
-        btn_visualize.className += ' invisible';
-    if( btn_ontology.className.includes("invisible") == false )
-        btn_ontology.className += ' invisible';
-    if( btn_webvowl.className.includes("invisible") == false )
-        btn_webvowl.className += ' invisible';
-
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -283,7 +242,7 @@ document.getElementById('ontology_upload').onchange = function(e){
             'success': function(e){
 
                 if( e == "UPLOAD:ERROR" ){
-                    alert("Upload fallito!");
+                    alert("Upload failed!");
                     if( btn_process.className.includes("invisible") == false )
                         btn_process.className += ' invisible';
                     return;
@@ -297,45 +256,7 @@ document.getElementById('ontology_upload').onchange = function(e){
     }
 }
 
-document.getElementById('constraints_upload').onchange = function(e){
-    //Retrieve the first (and only!) File from the FileList object
-    var file = e.target.files[0];
-    if (file) {
-        var data = new FormData();
-        data.append( 'file', file, file.name );
-        $.ajax( {
-            url: 'constraints' + '/' + logFilename,
-            type: 'POST',
-            data: data,
-            processData: false,
-            contentType: false,
-            'success': function(e){
-
-                if( e == "UPLOAD:ERROR" ){
-                    alert("Upload fallito!");
-                    return;
-                }
-
-                console.log( "Upload riuscito!");
-                constraintsFilename = e;
-
-            }
-        } );
-    }
-}
-
 function process(){
-
-     // Resetta tutto
-    if( btn_download.className.includes("invisible") == false )
-        btn_download.className += ' invisible';
-    if( btn_visualize.className.includes("invisible") == false )
-        btn_visualize.className += ' invisible';
-    if( btn_ontology.className.includes("invisible") == false )
-        btn_ontology.className += ' invisible';
-    if( btn_webvowl.className.includes("invisible") == false )
-        btn_webvowl.className += ' invisible';
-
     $.post( 'verify',
             { 
                 sigma: (document.getElementById('sigma').value),
@@ -358,30 +279,6 @@ function process(){
         }
     );
 
-}
-
-function visualize(){
-    $.ajax( {
-        url: 'visualize/' + logFilename,
-        type: 'GET',
-        data: null,
-        processData: false,
-        contentType: false,
-        'success': function(e){
-
-            if(e == "Visualize:ERROR")
-            {
-                alert("Cannot visualize the graph!");
-                return;
-            }
-
-            var data = eval("[" + e + "]");
-
-            Cnet2AD.show(data[0], data[1]);
-            $('#diagram').show();
-
-        }
-    } );
 }
             
 Cnet2AD.init('diagram');

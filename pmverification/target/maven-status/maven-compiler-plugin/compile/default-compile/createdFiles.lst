@@ -1,0 +1,6 @@
+com\pmverification\SocketTextStreamWordCount.class
+com\pmverification\SocketTextStreamWordCount$LineSplitter.class
+com\pmverification\StreamingJob.class
+com\pmverification\BatchJob.class
+com\pmverification\WordCount.class
+com\pmverification\WordCount$LineSplitter.class
