@@ -1,10 +1,10 @@
 package com.pmverification;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class AuditTrailEntry {
     String workflowModelElement;
     String eventType;
     String originator;
-    Date timestamp;
+    GregorianCalendar timestamp;
 }
