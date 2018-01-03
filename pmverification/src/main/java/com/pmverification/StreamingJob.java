@@ -65,13 +65,13 @@ public class StreamingJob {
              sanityCheck = f.delete();
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        //args[0] model;
-        //args[1] log;
-        //args[2] ontology;
+        String modelPath = args[0];
+        String logPath = args[1];
+        String ontologyPath = args[2];
 
-        UMLGraph graph = Utilities.createTestGraph();
+        UMLGraph graph = new UMLGraph(Edge.class,modelPath,ontologyPath);
         RuleBook ruleBook = new RuleBook(graph);
-        List<ProcessInstance> log = Utilities.createTestList();
+        List<ProcessInstance> log = Utilities.parseLog(logPath);
         final Map<String, Node> mapOfNodes = new HashMap<>();
         for (Node n : graph.vertexSet()) {
             mapOfNodes.put(n.name,n);

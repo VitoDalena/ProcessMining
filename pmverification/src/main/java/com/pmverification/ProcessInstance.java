@@ -7,7 +7,7 @@ public class ProcessInstance {
     String id;
     String description;
     List<AuditTrailEntry> entryList;
-    int numeSimilarInstances;
+    int numSimilarInstances;
     int groupedIdentifiers;
     
     public ProcessInstance(){
@@ -24,7 +24,7 @@ public class ProcessInstance {
         this.entryList.add(e);
     }
     public void setNumSimInst(int n){
-        this.numeSimilarInstances = n;
+        this.numSimilarInstances = n;
     }
     public void setGroupedId(int n){
         this.groupedIdentifiers = n;
