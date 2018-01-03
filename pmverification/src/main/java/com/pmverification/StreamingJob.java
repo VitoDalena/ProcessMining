@@ -14,10 +14,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Skeleton for a Flink Streaming Job.
@@ -75,6 +72,10 @@ public class StreamingJob {
         UMLGraph graph = Utilities.createTestGraph();
         RuleBook ruleBook = new RuleBook(graph);
         List<ProcessInstance> log = Utilities.createTestList();
+        final Map<String, Node> mapOfNodes = new HashMap<>();
+        for (Node n : graph.vertexSet()) {
+            mapOfNodes.put(n.name,n);
+        }
 
         int totalEvents = 0;
         DataStream<AuditTrailEntry> stream;
@@ -82,19 +83,21 @@ public class StreamingJob {
         ArrayList<DataStream<OutOfSequence_alert>> outOfSequence_alerts = new ArrayList<>();
         ArrayList<DataStream<Ontology_alert>> sequence_alerts = new ArrayList<>();
         ArrayList<DataStream<Ontology_alert>> resourceOccupied_alerts = new ArrayList<>();
+        ArrayList<DataStream<Ontology_alert>> wrongResource_alerts = new ArrayList<>();
         PatternStream<AuditTrailEntry> patternStream_outofsequence;
         PatternStream<AuditTrailEntry> patternStream_sequence;
         PatternStream<AuditTrailEntry> patternStream_resourceoccupied;
+        PatternStream<AuditTrailEntry> patternStream_wrongresource;
         Pattern<AuditTrailEntry,?> rule;
         int i = 0;
         for (ProcessInstance processInstance : log) {
             totalEvents += processInstance.numSimilarInstances;
             stream = env.fromCollection(processInstance.entryList);
             rules = ruleBook.getRules(processInstance.entryList);
+            final String id = processInstance.id;
+            final int magnitude = processInstance.numSimilarInstances;
             for (Map<String, Pattern<AuditTrailEntry,?>> r : rules) {
                 rule = r.get("OutOfSequence");
-                final String id = processInstance.id;
-                final int magnitude = processInstance.numSimilarInstances;
                 patternStream_outofsequence = CEP.pattern(stream,rule);
                 outOfSequence_alerts.add(i, patternStream_outofsequence.select(new PatternSelectFunction<AuditTrailEntry, OutOfSequence_alert>() {
                     @Override
@@ -112,7 +115,9 @@ public class StreamingJob {
                     public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
                         AuditTrailEntry _2 = map.get("2").get(0);
-                        if(_1.timestamp.after(_2.timestamp))
+                        GregorianCalendar time = (GregorianCalendar) _1.timestamp.clone();
+                        time.add(GregorianCalendar.SECOND, Integer.parseInt(mapOfNodes.get(_1.workflowModelElement).activityTime));
+                        if(_2.timestamp.before(time))
                             return new Ontology_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude, "SequenceOutOfTime");
                         else
                             return new Ontology_alert("","","", 0,"FakeAlarm");
@@ -133,6 +138,18 @@ public class StreamingJob {
                     }
                 }));
             }
+            rule = Pattern.begin("1");
+            patternStream_wrongresource = CEP.pattern(stream,rule);
+            wrongResource_alerts.add(i, patternStream_wrongresource.select(new PatternSelectFunction<AuditTrailEntry, Ontology_alert>() {
+                @Override
+                public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
+                    AuditTrailEntry _1 = map.get("1").get(0);
+                    if(!mapOfNodes.get(_1.workflowModelElement).hasResource.contains(_1.originator))
+                        return new Ontology_alert(_1.workflowModelElement, "", id, magnitude, "WrongResource");
+                    else
+                        return new Ontology_alert("","","", 0,"FakeAlarm");
+                }
+            }));
             i++;
         }
 
@@ -150,6 +167,9 @@ public class StreamingJob {
         for (DataStream<Ontology_alert> resourceOccupied_alert : resourceOccupied_alerts) {
             result2 = result2.union(resourceOccupied_alert.flatMap(new MultiplicationFunction2()));
         }
+        for (DataStream<Ontology_alert> wrongResource_alert : wrongResource_alerts) {
+            result2 = result2.union(wrongResource_alert.flatMap(new MultiplicationFunction2()));
+        }
 
         //Second level
         Pattern<Ontology_alert,?> ontologyRule_global = Pattern.<Ontology_alert>begin("fault").times(totalEvents/3);
@@ -165,7 +185,12 @@ public class StreamingJob {
             @Override
             public String select(Map<String, List<Ontology_alert>> map){
                 //Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty
-                return "OAG:REPORT";
+                if(!Ontology_alert.oagReported){
+                    Ontology_alert.oagReported = true;
+                    return "OAG:REPORT";
+                }
+                else
+                    return "";
             }
         });
         olfault = oal.select(new PatternSelectFunction<Ontology_alert, String>() {
@@ -186,7 +211,12 @@ public class StreamingJob {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
                 //More than 30% of the log does not follow the rules from the model. Is the model obsolete?
-                return "OOSAG:REPORT";
+                if(!OutOfSequence_alert.oosagReported){
+                    OutOfSequence_alert.oosagReported = true;
+                    return "OOSAG:REPORT";
+                }
+                else
+                    return "";
             }
         });
         ooslfault = oosal.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
@@ -197,6 +227,7 @@ public class StreamingJob {
                 return sfault.toString();
             }
         });
+
         if(sanityCheck) {
             ogfault.union(ogfault).union(olfault).union(oosgfault).union(ooslfault).addSink(new SinkFunction<String>() {
                 @Override
@@ -206,7 +237,10 @@ public class StreamingJob {
                         w.println(string);
                         w.close();
                     }else{
-                        if(string.equals("OOSAG:REPORT") || string.equals("OAG:REPORT")){
+                        if(string.equals("OOSAG:REPORT")){
+                            System.out.println(string);
+                        }
+                        if(string.equals("OAG:REPORT")){
                             System.out.println(string);
                         }
                     }
@@ -257,6 +291,8 @@ class Alert{
     }
 }
 class OutOfSequence_alert extends Alert{
+    static boolean oosagReported = false;
+
     OutOfSequence_alert(String n1, String n2, String pi, int m){
         super(n1,n2,pi,m);
     }
@@ -278,6 +314,7 @@ class OutOfSequence_alert extends Alert{
 }
 class Ontology_alert extends Alert{
     private String type;
+    static boolean oagReported = false;
 
     Ontology_alert(String n1, String n2, String pi, int m, String t){
         super(n1,n2,pi,m);
@@ -302,6 +339,8 @@ class Ontology_alert extends Alert{
                     return "Sequence out of time [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
                 case "ResourceOccupied":
                     return "Parallel processes use same resource [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
+                case "WrongResource":
+                    return "Unexpected resource originated " + name1 + " in " + processId + " for " + magnitude + " times";
                 case "FakeAlarm":
                     return "";
                 default:
