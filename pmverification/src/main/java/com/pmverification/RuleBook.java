@@ -106,7 +106,7 @@ public class RuleBook {
         }
         rules.put("Sequence",sequence);
         //Esecuzione con risorsa occupata, da selezionare nel CEP
-        Pattern<AuditTrailEntry,?> resourceOccupied = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
+        Pattern resourceOccupied = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
             public boolean filter(AuditTrailEntry event) {
                 return event.workflowModelElement.equals(initialNode);
@@ -120,7 +120,7 @@ public class RuleBook {
         for(ArrayList<String> k : advParallelNexts.keySet()) {
             if (k == null || candidateMemory.containsAll(k)) {
                 for (final String a : advParallelNexts.get(k)) {
-                    sequence.or(new SimpleCondition<AuditTrailEntry>() {
+                    resourceOccupied.or(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
                             return event.workflowModelElement.equals(a);
@@ -132,19 +132,19 @@ public class RuleBook {
         rules.put("ResourceOccupied",resourceOccupied);
         //Rottura di sequenza
         Utilities.merge(directNexts,advParallelNexts);
-        Pattern<AuditTrailEntry,?> outOfSequence = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
+        Pattern outOfSequence = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
             public boolean filter(AuditTrailEntry event) {
                 return event.workflowModelElement.equals(initialNode);
             }
-        });
+        }).next("2");
         for(ArrayList<String> k : directNexts.keySet()){
             if(k == null || candidateMemory.containsAll(k)){
                 for (final String a : directNexts.get(k)) {
-                    outOfSequence.notNext("2").where(new SimpleCondition<AuditTrailEntry>() {
+                    outOfSequence.where(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
-                            return event.workflowModelElement.equals(a);
+                            return !event.workflowModelElement.equals(a);
                         }
                     });
                 }

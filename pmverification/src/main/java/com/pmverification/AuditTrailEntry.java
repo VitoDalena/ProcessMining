@@ -1,5 +1,6 @@
 package com.pmverification;
 
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +11,7 @@ public class AuditTrailEntry {
     String eventType;
     String originator;
     GregorianCalendar timestamp;
+
     
     
     public void setWorkflow(String w){
@@ -30,5 +32,7 @@ public class AuditTrailEntry {
             e.printStackTrace();
         }
     }
+
+
 }
 

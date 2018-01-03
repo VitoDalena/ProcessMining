@@ -119,6 +119,7 @@
     <div class = 'row justify-content-center pt-3'>
         <div class = 'col-8 col-sm-8'>
             <button id = 'btn_process' class = 'btn btn-success invisible'>Verify</button>
+            <a id = 'btn_download' class = 'btn btn-danger invisible' href='#'>Download Report</a>
         </div>
     </div>
 
@@ -141,6 +142,7 @@
 <script>
 
 var btn_process = document.getElementById('btn_process');
+var btn_download = document.getElementById('btn_download');
 var btn_settings = document.getElementById('btn_settings');
 var btn_annotate = document.getElementById('btn_annotate');
 
@@ -166,6 +168,8 @@ if( btn_annotate != null )
     Esegui l'upload dei file
 */
 document.getElementById('log_upload').onchange = function(e){
+    if( btn_download.className.includes("invisible") == false )
+        btn_download.className += ' invisible';
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -196,6 +200,8 @@ document.getElementById('log_upload').onchange = function(e){
 }
 
 document.getElementById('model_upload').onchange = function(e){
+    if( btn_download.className.includes("invisible") == false )
+        btn_download.className += ' invisible';
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -227,6 +233,8 @@ document.getElementById('model_upload').onchange = function(e){
 }
 
 document.getElementById('ontology_upload').onchange = function(e){
+    if( btn_download.className.includes("invisible") == false )
+        btn_download.className += ' invisible';
     $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
@@ -257,24 +265,32 @@ document.getElementById('ontology_upload').onchange = function(e){
 }
 
 function process(){
+    if( btn_download.className.includes("invisible") == false )
+        btn_download.className += ' invisible';
     $.post( 'verify',
             { 
-                sigma: (document.getElementById('sigma').value),
-                ff: (document.getElementById('ff').value),
-                rtb: (document.getElementById('rtb').value),
-		log_file: logFilename,
-		mod_file: modFilename,
-		ont_file: ontFilename,
-                constraints: constraintsFilename,
-                annotate_resources: (document.getElementById('annotate_resources').checked)?'true':'false'
+                log_file: logFilename,
+                mod_file: modFilename,
+                ont_file: ontFilename,
             }
         )
         .done(function( e ) {
-
             if(e == "TBI")
             {
                 alert("Funzione non ancora implementata!");
                 return;
+            }else{
+                if(strpos(e, 'OOSAG:REPORT') !== false){
+                    alert("More than 30% of the log does not follow the rules from the model. Is the model obsolete?")
+                }else{
+                if(strpos(e, 'OAG:REPORT') !== false){
+                    alert("Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty")
+                }
+                }
+                report = e;
+                btn_download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent( report ));
+                btn_download.setAttribute('download', 'report.txt');
+                btn_download.className = btn_download.className.replace('invisible', '');
             }
         }
     );

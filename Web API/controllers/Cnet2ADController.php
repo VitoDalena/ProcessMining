@@ -37,21 +37,19 @@ class Cnet2ADController extends Controller {
         $name_log = $_POST['log_file'];
     	$log = "public/uploads/log/$name_log.mxml";
         $name_mod = $_POST['mod_file'];
-    	$log = "public/uploads/mod/$name_mod.xmi";
+    	$mod = "public/uploads/mod/$name_mod.xmi";
         $name_ont = $_POST['ont_file'];
-    	$log = "public/uploads/ont/$name_ont.owl";
+    	$ont = "public/uploads/ont/$name_ont.owl";
         
-        //$cmd = "java -jar Cnet2ADweb.jar -json $log -dir bin -o $name";
-        //$cmd .= " -sigma $_POST[sigma] -ff $_POST[ff] -rtb $_POST[rtb]";
-        //$cmd .= " -ontology bin/$name.owl";
+        //$cmd = "flink-1.4.0/bin/flink run -c com.pmverification.StreamingJob pmverification-0.9.jar --input \"$mod $log $ont\"";
         //$output = shell_exec($cmd);
-	//	if (strpos($output, 'Cnet2ADRESULT=ERROR') !== false) {
-	//		echo "Cnet2ADRESULT:ERROR";
-	//		return;
-	//	}		
-	//	echo file_get_contents("bin/$name.uml");
+        //	if (strpos($output, 'ERROR') !== false) {
+        //		echo "pmverification:ERROR";
+        //		return;
+        //	}		
+        //	echo $output;
 
-	echo "TBI";
+        echo "TBI";
 
     }
 

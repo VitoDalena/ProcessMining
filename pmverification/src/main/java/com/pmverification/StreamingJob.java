@@ -1,13 +1,20 @@
 package com.pmverification;
 
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.cep.CEP;
 import org.apache.flink.cep.PatternSelectFunction;
 import org.apache.flink.cep.PatternStream;
 import org.apache.flink.cep.pattern.Pattern;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.sink.SinkFunction;
+import org.apache.flink.util.Collector;
 
-import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,6 +62,10 @@ public class StreamingJob {
 
     public static void main(String[] args) throws Exception {
         // set up the streaming execution environment
+        File f = new File("report.txt");
+        boolean sanityCheck = true;
+        if(f.exists())
+             sanityCheck = f.delete();
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         //args[0] model;
@@ -66,179 +77,236 @@ public class StreamingJob {
         List<ProcessInstance> log = Utilities.createTestList();
 
         int totalEvents = 0;
-        DataStream<OutOfSequence_alert> outOfSequence_alert = null;
-        DataStream<Ontology_alert> sequence_alert = null;
-        DataStream<Ontology_alert> resourceOccupied_alert = null;
+        DataStream<AuditTrailEntry> stream;
+        Set<Map<String, Pattern<AuditTrailEntry,?>>> rules;
+        ArrayList<DataStream<OutOfSequence_alert>> outOfSequence_alerts = new ArrayList<>();
+        ArrayList<DataStream<Ontology_alert>> sequence_alerts = new ArrayList<>();
+        ArrayList<DataStream<Ontology_alert>> resourceOccupied_alerts = new ArrayList<>();
+        PatternStream<AuditTrailEntry> patternStream_outofsequence;
+        PatternStream<AuditTrailEntry> patternStream_sequence;
+        PatternStream<AuditTrailEntry> patternStream_resourceoccupied;
+        Pattern<AuditTrailEntry,?> rule;
+        int i = 0;
         for (ProcessInstance processInstance : log) {
             totalEvents += processInstance.numSimilarInstances;
-
-            DataStream<AuditTrailEntry> stream = env.fromCollection(processInstance.entryList);
-            Set<Map<String, Pattern<AuditTrailEntry,?>>> rules = ruleBook.getRules(processInstance.entryList);
-            Pattern<AuditTrailEntry,?> rule;
-            PatternStream<AuditTrailEntry> patternStream_outofsequence;
-            PatternStream<AuditTrailEntry> patternStream_sequence;
-            PatternStream<AuditTrailEntry> patternStream_resourceoccupied;
-            DataStream<OutOfSequence_alert> outOfSequence_temp;
-            DataStream<Ontology_alert> sequence_temp;
-            DataStream<Ontology_alert> resourceOccupied_temp;
+            stream = env.fromCollection(processInstance.entryList);
+            rules = ruleBook.getRules(processInstance.entryList);
             for (Map<String, Pattern<AuditTrailEntry,?>> r : rules) {
                 rule = r.get("OutOfSequence");
+                final String id = processInstance.id;
+                final int magnitude = processInstance.numSimilarInstances;
                 patternStream_outofsequence = CEP.pattern(stream,rule);
-                outOfSequence_temp = patternStream_outofsequence.select(new PatternSelectFunction<AuditTrailEntry, OutOfSequence_alert>() {
+                outOfSequence_alerts.add(i, patternStream_outofsequence.select(new PatternSelectFunction<AuditTrailEntry, OutOfSequence_alert>() {
                     @Override
                     public OutOfSequence_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
-                        //AuditTrailEntry _2 = map.get("2").get(0);
-                        return new OutOfSequence_alert(_1.workflowModelElement, "");
+                        AuditTrailEntry _2 = map.get("2").get(0);
+                        return new OutOfSequence_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude);
                     }
-                });
-                if(outOfSequence_alert == null)
-                    outOfSequence_alert =outOfSequence_temp;
-                else
-                    outOfSequence_alert.union(outOfSequence_temp);
-                for(int i = 0;i<processInstance.numSimilarInstances-1;i++)
-                    outOfSequence_alert.union(outOfSequence_temp);
+                }));
 
                 rule = r.get("Sequence");
                 patternStream_sequence = CEP.pattern(stream,rule);
-                sequence_temp = patternStream_sequence.select(new PatternSelectFunction<AuditTrailEntry, Ontology_alert>() {
+                sequence_alerts.add(i, patternStream_sequence.select(new PatternSelectFunction<AuditTrailEntry, Ontology_alert>() {
                     @Override
                     public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
-                        //AuditTrailEntry _2 = map.get("2").get(0);
-                        if(_1.timestamp.before(new Date()))
-                            return new Ontology_alert(_1.workflowModelElement, "", "SequenceOutOfTime");
+                        AuditTrailEntry _2 = map.get("2").get(0);
+                        if(_1.timestamp.after(_2.timestamp))
+                            return new Ontology_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude, "SequenceOutOfTime");
                         else
-                            return null;
+                            return new Ontology_alert("","","", 0,"FakeAlarm");
                     }
-                });
-                if(sequence_alert == null)
-                    sequence_alert = sequence_temp;
-                else
-                    sequence_alert.union(sequence_temp);
-                for(int i = 0;i<processInstance.numSimilarInstances-1;i++)
-                    sequence_alert.union(sequence_temp);
+                }));
 
                 rule = r.get("ResourceOccupied");
                 patternStream_resourceoccupied = CEP.pattern(stream,rule);
-                resourceOccupied_temp = patternStream_resourceoccupied.select(new PatternSelectFunction<AuditTrailEntry, Ontology_alert>() {
+                resourceOccupied_alerts.add(i, patternStream_resourceoccupied.select(new PatternSelectFunction<AuditTrailEntry, Ontology_alert>() {
                     @Override
                     public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
-                        //AuditTrailEntry _2 = map.get("2").get(0);
-                        if(_1.originator.equals(""))
-                            return new Ontology_alert(_1.workflowModelElement, "", "ResourceOccupied");
+                        AuditTrailEntry _2 = map.get("2").get(0);
+                        if(_1.originator.equals(_2.originator))
+                            return new Ontology_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude, "ResourceOccupied");
                         else
-                            return null;
+                            return new Ontology_alert("","","", 0,"FakeAlarm");
                     }
-                });
-                if(resourceOccupied_alert == null)
-                    resourceOccupied_alert = resourceOccupied_temp;
-                else
-                    resourceOccupied_alert.union(resourceOccupied_temp);
-                for(int i = 0;i<processInstance.numSimilarInstances-1;i++)
-                    resourceOccupied_alert.union(resourceOccupied_temp);
+                }));
             }
+            i++;
+        }
+
+        //Group results and multiply them for their occurrences
+        DataStream<OutOfSequence_alert> result1;
+        DataStream<Ontology_alert> result2;
+        result1 = outOfSequence_alerts.get(0).flatMap(new MultiplicationFunction1());
+        result2 = sequence_alerts.get(0).flatMap(new MultiplicationFunction2());
+        for (int k = 1;k<outOfSequence_alerts.size();k++) {
+            result1 = result1.union(outOfSequence_alerts.get(k).flatMap(new MultiplicationFunction1()));
+        }
+        for (int k = 1;k<sequence_alerts.size();k++) {
+            result2 = result2.union(sequence_alerts.get(k).flatMap(new MultiplicationFunction2()));
+        }
+        for (DataStream<Ontology_alert> resourceOccupied_alert : resourceOccupied_alerts) {
+            result2 = result2.union(resourceOccupied_alert.flatMap(new MultiplicationFunction2()));
         }
 
         //Second level
-        DataStream<Ontology_alert> ontology_alert = null;
-        if (sequence_alert != null) {
-            ontology_alert = sequence_alert.union(resourceOccupied_alert);
-        }else{
-            if(resourceOccupied_alert != null){
-                ontology_alert = resourceOccupied_alert;
-            }
-        }
         Pattern<Ontology_alert,?> ontologyRule_global = Pattern.<Ontology_alert>begin("fault").times(totalEvents/3);
-        Pattern<Ontology_alert,?> ontologyRule_local = Pattern.<Ontology_alert>begin("fault").next("fault2");
-        DataStream<String> fault;
-        if(ontology_alert != null){
-            PatternStream<Ontology_alert> oa = CEP.pattern(ontology_alert,ontologyRule_global);
-            fault = oa.select(new PatternSelectFunction<Ontology_alert, String>() {
-                @Override
-                public String select(Map<String, List<Ontology_alert>> map){
-                    return "Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty";
-                }
-            });
-            fault.print();
-
-            oa = CEP.pattern(ontology_alert,ontologyRule_local);
-            fault = oa.select(new PatternSelectFunction<Ontology_alert, String>() {
-                @Override
-                public String select(Map<String, List<Ontology_alert>> map){
-                    Ontology_alert fault = map.get("fault").get(0);
-                    Ontology_alert fault2 = map.get("fault2").get(0);
-                    if(fault.name1.equals(fault2.name1) && fault.type.equals(fault2.type)) {
-                        return fault.type + "fault found after " + fault.name1;
-                    }
-                    return "";
-                }
-            });
-            fault.print();
-        }
-
-        Pattern<OutOfSequence_alert,?> sequenceRule_global = Pattern.<OutOfSequence_alert>begin("sfault").times(totalEvents/3);
-        Pattern<OutOfSequence_alert,?> sequenceRule_local = Pattern.begin("sfault");
-        PatternStream<OutOfSequence_alert> oosa = CEP.pattern(outOfSequence_alert,sequenceRule_global);
-        fault = oosa.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
+        Pattern<Ontology_alert,?> ontologyRule_local = Pattern.begin("fault");
+        PatternStream<Ontology_alert> oag;
+        PatternStream<Ontology_alert> oal = CEP.pattern(result2,ontologyRule_local);
+        DataStream<String> ogfault;
+        DataStream<String> olfault;
+        DataStream<String> oosgfault;
+        DataStream<String> ooslfault;
+        oag = CEP.pattern(result2,ontologyRule_global);
+        ogfault = oag.select(new PatternSelectFunction<Ontology_alert, String>() {
             @Override
-            public String select(Map<String, List<OutOfSequence_alert>> map){
-                return "More than 30% of the log does not follow the rules from the model. Is the model obsolete?";
+            public String select(Map<String, List<Ontology_alert>> map){
+                //Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty
+                return "OAG:REPORT";
             }
         });
-        fault.print();
-        oosa = CEP.pattern(outOfSequence_alert,sequenceRule_local);
-        fault = oosa.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
+        olfault = oal.select(new PatternSelectFunction<Ontology_alert, String>() {
+            @Override
+            public String select(Map<String, List<Ontology_alert>> map){
+                StringBuilder sb = new StringBuilder();
+                for (Ontology_alert a : map.get("fault")) {
+                    sb.append(a.toString());
+                }
+                return sb.toString();
+            }
+        });
+        Pattern<OutOfSequence_alert,?> sequenceRule_global = Pattern.<OutOfSequence_alert>begin("sfault").times(totalEvents/3);
+        Pattern<OutOfSequence_alert,?> sequenceRule_local = Pattern.begin("sfault");
+        PatternStream<OutOfSequence_alert> oosag = CEP.pattern(result1,sequenceRule_global);
+        PatternStream<OutOfSequence_alert> oosal = CEP.pattern(result1,sequenceRule_local);
+        oosgfault = oosag.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
+            @Override
+            public String select(Map<String, List<OutOfSequence_alert>> map){
+                //More than 30% of the log does not follow the rules from the model. Is the model obsolete?
+                return "OOSAG:REPORT";
+            }
+        });
+        ooslfault = oosal.select(new PatternSelectFunction<OutOfSequence_alert, String>() {
             @Override
             public String select(Map<String, List<OutOfSequence_alert>> map){
                 OutOfSequence_alert sfault = map.get("sfault").get(0);
-                return "Model sequence broke after " + sfault.name1;
+                //Local out of sequence report
+                return sfault.toString();
             }
         });
-        fault.print();
-
+        if(sanityCheck) {
+            ogfault.union(ogfault).union(olfault).union(oosgfault).union(ooslfault).addSink(new SinkFunction<String>() {
+                @Override
+                public void invoke(String string) throws Exception {
+                    if (!string.equals("") && !string.equals("OOSAG:REPORT") && !string.equals("OAG:REPORT")) {
+                        PrintWriter w = new PrintWriter(new BufferedWriter(new FileWriter("report.txt", true)));
+                        w.println(string);
+                        w.close();
+                    }else{
+                        if(string.equals("OOSAG:REPORT") || string.equals("OAG:REPORT")){
+                            System.out.println(string);
+                        }
+                    }
+                }
+            });
+        }
         // execute program
-        env.execute("Flink Streaming Java API Skeleton");
+        env.execute("Flink Process Mining Verification");
+    }
+}
+
+class MultiplicationFunction1 implements FlatMapFunction<OutOfSequence_alert, OutOfSequence_alert>{
+    @Override
+    public void flatMap(OutOfSequence_alert outOfSequence_alert, Collector<OutOfSequence_alert> collector){
+        collector.collect(outOfSequence_alert);
+        OutOfSequence_alert oosa = new OutOfSequence_alert(outOfSequence_alert);
+        oosa.silenced = true;
+        for(int i = 1;i<outOfSequence_alert.magnitude;i++)
+            collector.collect(oosa);
+        }
+}
+class MultiplicationFunction2 implements FlatMapFunction<Ontology_alert, Ontology_alert>{
+    @Override
+    public void flatMap(Ontology_alert ontology_alert, Collector<Ontology_alert> collector){
+        collector.collect(ontology_alert);
+        Ontology_alert oa = new Ontology_alert(ontology_alert);
+        oa.silenced = true;
+        for(int i = 1;i<ontology_alert.magnitude;i++)
+            collector.collect(oa);
     }
 }
 
 class Alert{
     String name1;
     String name2;
+    String processId;
+    int magnitude;
+    public boolean silenced;
 
-    Alert(String n1, String n2){
+    Alert(String n1, String n2, String pi, int m){
         name1 = n1;
         name2 = n2;
+        processId = pi;
+        magnitude = m;
+        silenced = false;
+    }
+    Alert(){
     }
 }
 class OutOfSequence_alert extends Alert{
-    OutOfSequence_alert(String n1, String n2){
-        super(n1,n2);
+    OutOfSequence_alert(String n1, String n2, String pi, int m){
+        super(n1,n2,pi,m);
+    }
+    OutOfSequence_alert(OutOfSequence_alert oosa){
+        this.silenced = oosa.silenced;
+        this.processId = oosa.processId;
+        this.name1 = oosa.name1;
+        this.name2 = oosa.name2;
+        this.magnitude = oosa.magnitude;
     }
 
     @Override
     public String toString(){
-        return "Pattern out of sequence: [" + name1 + "; " + name2 + "]";
+        if(silenced)
+            return "";
+        else
+            return "Pattern out of sequence [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
     }
 }
 class Ontology_alert extends Alert{
-    String type;
+    private String type;
 
-    Ontology_alert(String n1, String n2, String t){
-        super(n1,n2);
+    Ontology_alert(String n1, String n2, String pi, int m, String t){
+        super(n1,n2,pi,m);
         type = t;
+    }
+    Ontology_alert(Ontology_alert oosa){
+        this.type = oosa.type;
+        this.silenced = oosa.silenced;
+        this.processId = oosa.processId;
+        this.name1 = oosa.name1;
+        this.name2 = oosa.name2;
+        this.magnitude = oosa.magnitude;
     }
 
     @Override
     public String toString(){
-        switch (type) {
-            case "SequenceOutOfTime":
-                return "Sequence out of time: [" + name1 + "; " + name2 + "]";
-            case "ResourceOccupied":
-                return "Parallel processes use same resource: [" + name1 + "; " + name2 + "]";
-            default:
-                return "Unknown exception";
+        if(silenced)
+            return "";
+        else{
+            switch (type) {
+                case "SequenceOutOfTime":
+                    return "Sequence out of time [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
+                case "ResourceOccupied":
+                    return "Parallel processes use same resource [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
+                case "FakeAlarm":
+                    return "";
+                default:
+                    return "Unknown exception";
+            }
         }
     }
 }
