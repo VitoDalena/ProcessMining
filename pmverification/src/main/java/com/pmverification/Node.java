@@ -1,6 +1,8 @@
 package com.pmverification;
 
-public class Node {
+import java.io.Serializable;
+
+public class Node implements Serializable {
     String type;
     int id;
     String name;
