@@ -1,6 +1,2 @@
-Pattern out of sequence [D -> F] in 4 for 10 times
-Pattern out of sequence [C -> B] in 2 for 10 times
-Pattern out of sequence [D -> C] in 5 for 10 times
-Parallel processes use same resource [E -> D] in 6 for 10 times
-Sequence out of time [A -> B] in 7 for 10 times
-Unexpected resource originated E in 6 for 10 times
+Pattern out of sequence [SSSTTTAAARRRTTT -> X] in 0 for 5 times
+The node X in process 0 does not exist in the original model

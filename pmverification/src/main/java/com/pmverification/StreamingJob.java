@@ -63,19 +63,20 @@ public class StreamingJob {
         boolean sanityCheck = true;
         if(f.exists())
              sanityCheck = f.delete();
-        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        String modelPath = args[0];
-        String logPath = args[1];
-        String ontologyPath = args[2];
+        String modelPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/Cnet2AD(1).xmi";
+        String logPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/a7.mxml";
+        String ontologyPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/SemanticCnet2AD.out(1).owl";
 
         UMLGraph graph = new UMLGraph(Edge.class,modelPath,ontologyPath);
         RuleBook ruleBook = new RuleBook(graph);
         List<ProcessInstance> log = Utilities.parseLog(logPath);
         final Map<String, Node> mapOfNodes = new HashMap<>();
         for (Node n : graph.vertexSet()) {
-            mapOfNodes.put(n.name,n);
+            mapOfNodes.put(n.getName(),n);
         }
+
+        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         int totalEvents = 0;
         DataStream<AuditTrailEntry> stream;
@@ -91,11 +92,11 @@ public class StreamingJob {
         Pattern<AuditTrailEntry,?> rule;
         int i = 0;
         for (ProcessInstance processInstance : log) {
-            totalEvents += processInstance.numSimilarInstances;
-            stream = env.fromCollection(processInstance.entryList);
-            rules = ruleBook.getRules(processInstance.entryList);
-            final String id = processInstance.id;
-            final int magnitude = processInstance.numSimilarInstances;
+            totalEvents += processInstance.getNumSimilarInstances();
+            stream = env.fromCollection(processInstance.getEntryList());
+            rules = ruleBook.getRules(processInstance.getEntryList());
+            final String id = processInstance.getId();
+            final int magnitude = processInstance.getNumSimilarInstances();
             for (Map<String, Pattern<AuditTrailEntry,?>> r : rules) {
                 rule = r.get("OutOfSequence");
                 patternStream_outofsequence = CEP.pattern(stream,rule);
@@ -104,7 +105,7 @@ public class StreamingJob {
                     public OutOfSequence_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
                         AuditTrailEntry _2 = map.get("2").get(0);
-                        return new OutOfSequence_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude);
+                        return new OutOfSequence_alert(_1.getWorkflowModelElement(), _2.getWorkflowModelElement(), id, magnitude);
                     }
                 }));
 
@@ -115,10 +116,10 @@ public class StreamingJob {
                     public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
                         AuditTrailEntry _2 = map.get("2").get(0);
-                        GregorianCalendar time = (GregorianCalendar) _1.timestamp.clone();
-                        time.add(GregorianCalendar.SECOND, Integer.parseInt(mapOfNodes.get(_1.workflowModelElement).activityTime));
-                        if(_2.timestamp.before(time))
-                            return new Ontology_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude, "SequenceOutOfTime");
+                        GregorianCalendar time = (GregorianCalendar) _1.getTimestamp().clone();
+                        time.add(GregorianCalendar.SECOND, Integer.parseInt(mapOfNodes.get(_1.getWorkflowModelElement()).getActivityTime()));
+                        if(_2.getTimestamp().before(time))
+                            return new Ontology_alert(_1.getWorkflowModelElement(), _2.getWorkflowModelElement(), id, magnitude, "SequenceOutOfTime");
                         else
                             return new Ontology_alert("","","", 0,"FakeAlarm");
                     }
@@ -131,8 +132,8 @@ public class StreamingJob {
                     public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                         AuditTrailEntry _1 = map.get("1").get(0);
                         AuditTrailEntry _2 = map.get("2").get(0);
-                        if(_1.originator.equals(_2.originator))
-                            return new Ontology_alert(_1.workflowModelElement, _2.workflowModelElement, id, magnitude, "ResourceOccupied");
+                        if(_1.getOriginator().equals(_2.getOriginator()) && !_1.getOriginator().equals(""))
+                            return new Ontology_alert(_1.getWorkflowModelElement(), _2.getWorkflowModelElement(), id, magnitude, "ResourceOccupied");
                         else
                             return new Ontology_alert("","","", 0,"FakeAlarm");
                     }
@@ -144,8 +145,10 @@ public class StreamingJob {
                 @Override
                 public Ontology_alert select(Map<String, List<AuditTrailEntry>> map){
                     AuditTrailEntry _1 = map.get("1").get(0);
-                    if(!mapOfNodes.get(_1.workflowModelElement).hasResource.contains(_1.originator))
-                        return new Ontology_alert(_1.workflowModelElement, "", id, magnitude, "WrongResource");
+                    if(mapOfNodes.get(_1.getWorkflowModelElement()) == null)
+                        return new Ontology_alert(_1.getWorkflowModelElement(), "", id, magnitude, "NodeNotExists");
+                    if(!mapOfNodes.get(_1.getWorkflowModelElement()).getHasResource().contains(_1.getOriginator()))
+                        return new Ontology_alert(_1.getWorkflowModelElement(), "", id, magnitude, "WrongResource");
                     else
                         return new Ontology_alert("","","", 0,"FakeAlarm");
                 }
@@ -341,6 +344,8 @@ class Ontology_alert extends Alert{
                     return "Parallel processes use same resource [" + name1 + " -> " + name2 + "] in " + processId + " for " + magnitude + " times";
                 case "WrongResource":
                     return "Unexpected resource originated " + name1 + " in " + processId + " for " + magnitude + " times";
+                case "NodeNotExists":
+                    return "The node " + name1 + " in process " + processId + " does not exist in the original model";
                 case "FakeAlarm":
                     return "";
                 default:

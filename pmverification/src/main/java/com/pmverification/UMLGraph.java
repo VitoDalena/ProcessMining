@@ -26,8 +26,8 @@ public class UMLGraph extends DirectedAcyclicGraph<com.pmverification.Node,Edge>
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(f);
             //Output lists
-            this.nodelist = new ArrayList<com.pmverification.Node>(); 
-            this.edgelist = new ArrayList<Edge>(); 
+            this.nodelist = new ArrayList<>();
+            this.edgelist = new ArrayList<>();
             
             
             //Read all nodes
@@ -104,4 +104,8 @@ public class UMLGraph extends DirectedAcyclicGraph<com.pmverification.Node,Edge>
         
         
     }
+
+    public List<Edge> getEdgelist() { return edgelist; }
+
+    public List<com.pmverification.Node> getNodelist() { return nodelist; }
 }

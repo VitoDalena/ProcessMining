@@ -28,19 +28,19 @@ public class Explorer {
         Set<Edge> out = graph.outgoingEdgesOf(node);
         for (Edge temp : out) {
             Node t = graph.getEdgeTarget(temp);
-            if(t.type.equals("uml:OpaqueAction")){
+            if(t.getType().equals("uml:OpaqueAction")){
                 for (ArrayList<String> key : k) {
                     ArrayList<String> refreshed = nexts.get(key);
-                    refreshed.add(t.name);
+                    refreshed.add(t.getName());
                     nexts.put(key,refreshed);
                 }
             }else{
-                if(t.type.equals("uml:JoinNode")){
+                if(t.getType().equals("uml:JoinNode")){
                     Set<ArrayList<String>> keys = findJoinKeys(node,t);
                     Map<ArrayList<String>,ArrayList<String>> succ = getNexts(keys,t);
                     Utilities.merge(nexts,succ);
                 }else{
-                    if(!t.type.equals("uml:ActivityFinalNode")) {
+                    if(!t.getType().equals("uml:ActivityFinalNode")) {
                         Map<ArrayList<String>, ArrayList<String>> succ = getNexts(k, t);
                         Utilities.merge(nexts, succ);
                     }
@@ -58,13 +58,13 @@ public class Explorer {
         for (Edge edge : edges) {
             Node src = graph.getEdgeSource(edge);
             //In case of opaqueAction, we can store the condition
-            if(src.type.equals("uml:OpaqueAction") && src.id != start.id){
+            if(src.getType().equals("uml:OpaqueAction") && src.getId() != start.getId()){
                 for (ArrayList<String> el : keys) {
-                    el.add(src.name);
+                    el.add(src.getName());
                 }
             }
             //In case of joinNode, we must consider all joined routes as further conditions
-            if(src.type.equals("uml:JoinNode")){
+            if(src.getType().equals("uml:JoinNode")){
                 Set<ArrayList<String>> joinable = findJoinKeys(start,src);
                 Set<ArrayList<String>> joined = new HashSet<>(keys);
                 for(int i = 0;i<joinable.size()-1;i++)
@@ -79,7 +79,7 @@ public class Explorer {
             }
             //In case of forkNode, the branch is empty and we can proceed further
             //In case of a decision node, only one path at a time is a condition
-            if(src.type.equals("uml:DecisionNode")){
+            if(src.getType().equals("uml:DecisionNode")){
                 Set<ArrayList<String>> orKeys = findDecisionKeys(start, src);
                 Set<ArrayList<String>> joined = new HashSet<>(keys);
                 for(int i = 0;i<orKeys.size()-1;i++)
@@ -101,20 +101,20 @@ public class Explorer {
         Set<Edge> edges = graph.incomingEdgesOf(dec);
         for (Edge edge : edges) {
             Node src = graph.getEdgeSource(edge);
-            while(src.type.equals("uml:ForkNode")){
+            while(src.getType().equals("uml:ForkNode")){
                 Set<Edge> backstep = graph.incomingEdgesOf(src);
                 src = graph.getEdgeSource(backstep.iterator().next());
             }
-            if(src.type.equals("uml:OpaqueAction") && src.id != start.id){
+            if(src.getType().equals("uml:OpaqueAction") && src.getId() != start.getId()){
                 ArrayList<String> el = new ArrayList<>();
-                el.add(src.name);
+                el.add(src.getName());
                 keys.add(el);
             }
-            if(src.type.equals("uml:JoinNode")){
+            if(src.getType().equals("uml:JoinNode")){
                 Set<ArrayList<String>> orable = findJoinKeys(start,src);
                 keys.addAll(orable);
             }
-            if(src.type.equals("uml:DecisionNode")){
+            if(src.getType().equals("uml:DecisionNode")){
                 Set<ArrayList<String>> orKeys = findDecisionKeys(start, src);
                 keys.addAll(orKeys);
             }
@@ -127,20 +127,6 @@ public class Explorer {
         Set<Edge> edges = graph.incomingEdgesOf(n);
         for (Edge e : edges) {
             res.add(graph.getEdgeSource(e));
-        }
-        return res;
-    }
-
-    public HashSet<Node> exploreBackward(Node n, String type){
-        HashSet<Node> res = new HashSet<>();
-        Node temp;
-        Set<Edge> edges = graph.incomingEdgesOf(n);
-        for (Edge e : edges) {
-            temp = graph.getEdgeSource(e);
-            if(temp.type.equals(type))
-                res.add(graph.getEdgeSource(e));
-            else
-                edges.addAll(graph.incomingEdgesOf(temp));
         }
         return res;
     }

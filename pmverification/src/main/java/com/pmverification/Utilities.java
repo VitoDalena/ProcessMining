@@ -284,7 +284,7 @@ public class Utilities {
         //Log parsing
         //System.out.println("LOG PARSING");
         File log = new File(logfile);
-        List<ProcessInstance> processlist= new ArrayList<ProcessInstance>();
+        List<ProcessInstance> processlist= new ArrayList<>();
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         try{
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -320,20 +320,27 @@ public class Utilities {
                         if (entrychild.getNodeType() == Node.ELEMENT_NODE){
                             String nodename = entrychild.getNodeName();
                             System.out.println(nodename);
-                            if(nodename.equals("WorkflowModelElement")){
-                                entry.setWorkflow(entrychild.getTextContent());
-                                System.out.println(entrychild.getTextContent());
+                            switch (nodename) {
+                                case "WorkflowModelElement":
+                                    entry.setWorkflow(entrychild.getTextContent());
+                                    System.out.println(entrychild.getTextContent());
+                                    break;
+                                case "EventType":
+                                    entry.setEvent(entrychild.getTextContent());
+                                    break;
+                                case "Originator":
+                                    entry.setOriginator(entrychild.getTextContent());
+                                    break;
+                                case "Timestamp":
+                                    entry.setTimestamp(entrychild.getTextContent());
+                                    break;
+                                default:
+                                    System.out.println("ERROR:" + nodename + " not implemented!");//Should not happen
+                                    break;
                             }
-                            else if(nodename.equals("EventType"))
-                                entry.setEvent(entrychild.getTextContent());
-                            else if(nodename.equals("Originator"))
-                                entry.setOriginator(entrychild.getTextContent());
-                            else if(nodename.equals("Timestamp"))
-                                entry.setTimestamp(entrychild.getTextContent());
-                            else System.out.println("ERROR:"+nodename+" not implemented!");//Should not happen
                         }
-                    process.addEntry(entry);
                     }
+                    process.addEntry(entry);
                 }
                 processlist.add(process);
             }

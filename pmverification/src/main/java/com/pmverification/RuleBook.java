@@ -16,7 +16,7 @@ public class RuleBook {
     public Set<Map<String, Pattern<AuditTrailEntry,?>>> getRules(List<AuditTrailEntry> log){
         Set<Map<String, Pattern<AuditTrailEntry,?>>> rules = new HashSet<>();
         for (AuditTrailEntry l : log) {
-            Node modelEntry = getModelEntry(l.workflowModelElement);
+            Node modelEntry = getModelEntry(l.getWorkflowModelElement());
             rules.add(getRule(modelEntry,log,log.indexOf(l)));
         }
         return rules;
@@ -29,16 +29,16 @@ public class RuleBook {
         Node n = new Node();
         while(!found && depthFirstIterator.hasNext()){
             n = depthFirstIterator.next();
-            if(n.name.equals(l))
+            if(n.getName().equals(l))
                 found = true;
         }
         if(!found)
-            n.type = "Error_NotFound";
+            n.setType("Error_NotFound");
         return n;
     }
 
     private Map<String, Pattern<AuditTrailEntry,?>> getRule(Node start, List<AuditTrailEntry> log, int index){
-        final String initialNode = start.name;
+        final String initialNode = start.getName();
         HashMap<String, Pattern<AuditTrailEntry,?>> rules = new HashMap<>();
         //Trova i nexts diretti
         HashSet<ArrayList<String>> hs = new HashSet<>();
@@ -53,18 +53,18 @@ public class RuleBook {
         Map<ArrayList<String>, ArrayList<String>> temp;
         Map<ArrayList<String>, ArrayList<String>> advParallelNexts = new HashMap<>();
         for(int i = 0;i<index;i++) {
-            candidate = getModelEntry(log.get(i).workflowModelElement);
-            candidateMemory.add(candidate.name);
+            candidate = getModelEntry(log.get(i).getWorkflowModelElement());
+            candidateMemory.add(candidate.getName());
             if (isParallel(start, candidate)) {
                 parallelMemory.add(candidate);
                 keys = new HashSet<>();
                 key = new ArrayList<>();
-                key.add(candidate.name);
+                key.add(candidate.getName());
                 keys.add(key);
                 temp = explorer.getNexts(keys,candidate);
                 Set<ArrayList<String>> tkey = new HashSet<>(temp.keySet());
                 for (ArrayList<String> k : tkey) {
-                    if(k.contains(start.name) || temp.get(k).isEmpty()){
+                    if(k.contains(start.getName()) || temp.get(k).isEmpty()){
                         temp.remove(k);
                         parallelMemory.remove(candidate);
                     }
@@ -84,7 +84,7 @@ public class RuleBook {
         Pattern sequence = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
             public boolean filter(AuditTrailEntry event) {
-                return event.workflowModelElement.equals(initialNode);
+                return event.getWorkflowModelElement().equals(initialNode);
             }
         }).next("2").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
@@ -98,7 +98,7 @@ public class RuleBook {
                     sequence.or(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
-                            return event.workflowModelElement.equals(a);
+                            return event.getWorkflowModelElement().equals(a);
                         }
                     });
                 }
@@ -109,7 +109,7 @@ public class RuleBook {
         Pattern resourceOccupied = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
             public boolean filter(AuditTrailEntry event) {
-                return event.workflowModelElement.equals(initialNode);
+                return event.getWorkflowModelElement().equals(initialNode);
             }
         }).next("2").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
@@ -123,7 +123,7 @@ public class RuleBook {
                     resourceOccupied.or(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
-                            return event.workflowModelElement.equals(a);
+                            return event.getWorkflowModelElement().equals(a);
                         }
                     });
                 }
@@ -135,7 +135,7 @@ public class RuleBook {
         Pattern outOfSequence = Pattern.<AuditTrailEntry>begin("1").where(new SimpleCondition<AuditTrailEntry>() {
             @Override
             public boolean filter(AuditTrailEntry event) {
-                return event.workflowModelElement.equals(initialNode);
+                return event.getWorkflowModelElement().equals(initialNode);
             }
         }).next("2");
         for(ArrayList<String> k : directNexts.keySet()){
@@ -144,7 +144,7 @@ public class RuleBook {
                     outOfSequence.where(new SimpleCondition<AuditTrailEntry>() {
                         @Override
                         public boolean filter(AuditTrailEntry event) {
-                            return !event.workflowModelElement.equals(a);
+                            return !event.getWorkflowModelElement().equals(a);
                         }
                     });
                 }
@@ -160,17 +160,17 @@ public class RuleBook {
         HashSet<ArrayList<String>> hs = new HashSet<>();
         hs.add(null);
         nexts = explorer.getNexts(hs,n);
-        if(nexts.get(null).contains(start.name)){
-            nexts.get(null).remove(start.name);
+        if(nexts.get(null).contains(start.getName())){
+            nexts.get(null).remove(start.getName());
         }
         for (Node p : parallelMemory) {
-            if(nexts.get(null).contains(p.name)){
-                nexts.get(null).remove(p.name);
+            if(nexts.get(null).contains(p.getName())){
+                nexts.get(null).remove(p.getName());
             }
         }
         for (Node f : forkingNodes) {
-            if(nexts.get(null).contains(f.name)){
-                nexts.get(null).remove(f.name);
+            if(nexts.get(null).contains(f.getName())){
+                nexts.get(null).remove(f.getName());
             }
         }
         for(int i = 0;i<nexts.get(null).size();i++) {
@@ -186,17 +186,17 @@ public class RuleBook {
         HashSet<ArrayList<String>> hs = new HashSet<>();
         hs.add(null);
         Map<ArrayList<String>,ArrayList<String>> nexts = explorer.getNexts(hs,n);
-        if(nexts.get(null).contains(start.name)){
-            nexts.get(null).remove(start.name);
+        if(nexts.get(null).contains(start.getName())){
+            nexts.get(null).remove(start.getName());
         }
         for (Node p : parallelMemory) {
-            if(nexts.get(null).contains(p.name)){
-                nexts.get(null).remove(p.name);
+            if(nexts.get(null).contains(p.getName())){
+                nexts.get(null).remove(p.getName());
             }
         }
         for (Node f : forkingNodes) {
-            if(nexts.get(null).contains(f.name)){
-                nexts.get(null).remove(f.name);
+            if(nexts.get(null).contains(f.getName())){
+                nexts.get(null).remove(f.getName());
             }
         }
         if(!nexts.keySet().equals(hs) && nexts.get(null).isEmpty())
@@ -219,8 +219,8 @@ public class RuleBook {
         //Controlla se un nodo nel passato è un fork
         HashSet<Node> res = new HashSet<>();
         HashSet<Node> backs = explorer.exploreBackward(n);
-        if(n.type.equals("uml:DecisionNode") || n.type.equals("uml:JoinNode")) {
-            if(n.type.equals("uml:JoinNode"))
+        if(n.getType().equals("uml:DecisionNode") || n.getType().equals("uml:JoinNode")) {
+            if(n.getType().equals("uml:JoinNode"))
                 explorer.ignoreForkCount++;
             for (Node b : backs) {
                 HashSet<Node> temp = isForked(b);
@@ -229,14 +229,14 @@ public class RuleBook {
                 }
             }
         }
-        if(n.type.equals("uml:OpaqueAction")){
+        if(n.getType().equals("uml:OpaqueAction")){
             HashSet<Node> temp = isForked(backs.iterator().next());
             if (!temp.equals(new HashSet<>())) {
                 res.addAll(temp);
             }
         }
         //Se sì, ritorna tutti gli opaque subito prima
-        if (n.type.equals("uml:ForkNode")) {
+        if (n.getType().equals("uml:ForkNode")) {
             if (explorer.ignoreForkCount > 0) {
                 explorer.ignoreForkCount--;
                 explorer.ignoredForkTimes++;
