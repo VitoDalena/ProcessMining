@@ -300,7 +300,7 @@ public class Utilities {
                 NodeList children = curelem.getElementsByTagName("Attribute");
                 for(int y = 0;y<children.getLength();y++){
                     Element child = (Element) children.item(y);
-                    System.out.println(child.getNodeName());
+                    //System.out.println(child.getNodeName());
                     if(child.getAttribute("name").equals("numSimilarInstances")){
                         process.setNumSimInst(Integer.parseInt(child.getTextContent()));
                         
@@ -319,11 +319,11 @@ public class Utilities {
                         Node entrychild  = entrychildren.item(x);
                         if (entrychild.getNodeType() == Node.ELEMENT_NODE){
                             String nodename = entrychild.getNodeName();
-                            System.out.println(nodename);
+                            //System.out.println(nodename);
                             switch (nodename) {
                                 case "WorkflowModelElement":
                                     entry.setWorkflow(entrychild.getTextContent());
-                                    System.out.println(entrychild.getTextContent());
+                                    //System.out.println(entrychild.getTextContent());
                                     break;
                                 case "EventType":
                                     entry.setEvent(entrychild.getTextContent());
@@ -335,7 +335,7 @@ public class Utilities {
                                     entry.setTimestamp(entrychild.getTextContent());
                                     break;
                                 default:
-                                    System.out.println("ERROR:" + nodename + " not implemented!");//Should not happen
+                                    //System.out.println("ERROR:" + nodename + " not implemented!");//Should not happen
                                     break;
                             }
                         }

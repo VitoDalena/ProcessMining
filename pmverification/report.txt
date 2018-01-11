@@ -1,2 +1,0 @@
-Pattern out of sequence [SSSTTTAAARRRTTT -> X] in 0 for 5 times
-The node X in process 0 does not exist in the original model

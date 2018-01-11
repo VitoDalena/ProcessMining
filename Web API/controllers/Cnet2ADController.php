@@ -41,7 +41,7 @@ class Cnet2ADController extends Controller {
         $name_ont = $_POST['ont_file'];
     	$ont = "public/uploads/ont/$name_ont.owl";
         
-        //$cmd = "flink-1.4.0/bin/flink run -c com.pmverification.StreamingJob pmverification-0.9.jar --input \"$mod $log $ont\"";
+        $cmd = "flink-1.3.2/bin/flink run -c com.pmverification.StreamingJob pmverification-0.9.jar \"$mod\" \"$log\" \"$ont\"";
         //$output = shell_exec($cmd);
         //	if (strpos($output, 'ERROR') !== false) {
         //		echo "pmverification:ERROR";

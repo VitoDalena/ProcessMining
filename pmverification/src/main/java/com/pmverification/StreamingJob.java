@@ -29,8 +29,8 @@ import java.util.*;
  * in the projects root directory.
  * You will find the jar in
  * 		target/ProcessMiningVerification-pmverification.jar
- * From the CLI you can then run
- * 		./bin/flink run -c pmverification.StreamingJob target/ProcessMiningVerification-pmverification.jar
+ * From the CLI, navigate to pmverification; you can then run
+ * 		flink-1.3.2/bin/flink run -c com.pmverification.StreamingJob target/pmverification-0.9.jar --input "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/Cnet2AD(1).xmi C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/a7.mxml C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/SemanticCnet2AD.out(1).owl" --output "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Web API/bin/report.txt"
  *
  * For more information on the CLI see:
  *
@@ -64,9 +64,9 @@ public class StreamingJob {
         if(f.exists())
              sanityCheck = f.delete();
 
-        String modelPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/Cnet2AD(1).xmi";
-        String logPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/a7.mxml";
-        String ontologyPath = "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/SemanticCnet2AD.out(1).owl";
+        String modelPath = args[0];
+        String logPath = args[1];
+        String ontologyPath = args[2];
 
         UMLGraph graph = new UMLGraph(Edge.class,modelPath,ontologyPath);
         RuleBook ruleBook = new RuleBook(graph);
