@@ -1,2 +1,2 @@
-The node X in process 0 does not exist in the original model
-Pattern out of sequence [SSSTTTAAARRRTTT -> X] in 0 for 5 times
+Pattern out of sequence [SSSTTTAAARRRTTT -> Y] in 0 for 5 times
+The node Y in process 0 does not exist in the original model

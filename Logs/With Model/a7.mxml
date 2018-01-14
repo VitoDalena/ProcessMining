@@ -30,7 +30,7 @@
 				<EventType>complete</EventType>
 			</AuditTrailEntry>
 			<AuditTrailEntry>
-				<WorkflowModelElement>X</WorkflowModelElement>
+				<WorkflowModelElement>Y</WorkflowModelElement>
 				<EventType>complete</EventType>
 			</AuditTrailEntry>
 			<AuditTrailEntry>

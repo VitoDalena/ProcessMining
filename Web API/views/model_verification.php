@@ -265,6 +265,7 @@ document.getElementById('ontology_upload').onchange = function(e){
 }
 
 function process(){
+    console.log( "Parto");
     if( btn_download.className.includes("invisible") == false )
         btn_download.className += ' invisible';
     $.post( 'verify',
@@ -275,6 +276,7 @@ function process(){
             }
         )
         .done(function( e ) {
+            console.log("Fatto");
             if(e == "TBI")
             {
                 alert("Funzione non ancora implementata!");
@@ -285,11 +287,13 @@ function process(){
                 }else{
                 if(strpos(e, 'OAG:REPORT') !== false){
                     alert("Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty")
+                }else{
+                    alert(e);
                 }
                 }
                 report = e;
                 btn_download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent( report ));
-                btn_download.setAttribute('download', 'report.txt');
+                btn_download.setAttribute('download', 'flink-1.3.2\log\report.txt');
                 btn_download.className = btn_download.className.replace('invisible', '');
             }
         }
