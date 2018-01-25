@@ -235,17 +235,10 @@ public class StreamingJob {
             ogfault.union(ogfault).union(olfault).union(oosgfault).union(ooslfault).addSink(new SinkFunction<String>() {
                 @Override
                 public void invoke(String string) throws Exception {
-                    if (!string.equals("") && !string.equals("OOSAG:REPORT") && !string.equals("OAG:REPORT")) {
+                    if (!string.equals("")) {
                         PrintWriter w = new PrintWriter(new BufferedWriter(new FileWriter("report.txt", true)));
                         w.println(string);
                         w.close();
-                    }else{
-                        if(string.equals("OOSAG:REPORT")){
-                            System.out.println(string);
-                        }
-                        if(string.equals("OAG:REPORT")){
-                            System.out.println(string);
-                        }
                     }
                 }
             });

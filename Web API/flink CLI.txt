@@ -1,4 +1,0 @@
-flink-1.3.2\bin\flink run -c com.pmverification.StreamingJob pmverification-0.9.jar "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/Cnet2AD(1).xmi" "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/a7.mxml" "C:/Users/kazen/Documents/Ingegneria Informatica/Advanced Software Engineering/tema d'anno/ProcessMining/Logs/With Model/SemanticCnet2AD.out(1).owl"
-
-
-flink-1.3.2\bin\flink run -c org.apache.flink.examples.java.wordcount.WordCount flink-1.3.2/examples/batch/WordCount.jar --input "C:\Users\kazen\Documents\Ingegneria Informatica\Advanced Software Engineering\tema d'anno\ProcessMining\Web API\flink-1.3.2\README.txt"

@@ -32,86 +32,18 @@
 </nav>
 
 <div class = 'container'>
-
     <div class = 'row justify-content-center'>
         <div class = 'col-8 col-sm-8'>
-
             <div class = 'alert alert-info mt-4'>
-
                 <form id = 'upload_form'>
                     <div class = 'content' id = 'section_uploading'>
                         <div class = 'form-group'>
-                            <input name = 'log' type = "file" accept=".mxml,.xes" id = 'log_upload'>Log File</input>
-			    <br>
-                            <input name = 'model' type = "file" accept=".xmi" id = 'model_upload'>Model File</input>
-			    <br>
+                            <input name = 'log' type = "file" accept=".mxml,.xes" id = 'log_upload'>Log File</input><br>
+                            <input name = 'model' type = "file" accept=".xmi" id = 'model_upload'>Model File</input><br>
                             <input name = 'ontology' type = "file" accept=".owl" id = 'ontology_upload'>Ontology File</input>
                         </div>
                     </div>
                 </form>
-
-            </div>
-            <a href='#' id='btn_settings' class = 'btn btn-info btn-sm'>Settings</a>
-            <a href='#' id='btn_annotate' class = 'btn btn-info btn-sm'>Layers</a>
-
-        </div>
-    </div>
-
-    <div id = 'settings' style='display:none'>
-        <div class = 'row justify-content-center pt-3'>
-            <div class = 'col-8 col-sm-8'>
-
-                <form id = 'settings_form' method = 'POST' action = '#' class = 'form'>
-                    <div class="form-group">
-                        <label>Sigma Log Noise</label>
-                        <input id='sigma' type="number" class="form-control" name='sigma' step="0.1" min="0" max="1" value='0.05'>
-                    </div>
-                    <div class="form-group">
-                        <label>Fall Factor</label>
-                        <input id='ff' type="number" class="form-control" name='ff' step="0.1" min="0" max="1" value='0.9'>
-                    </div>
-                    <div class="form-group">
-                        <label>Relative to best</label>
-                        <input id='rtb' type="number" class="form-control" name='rtb' step="0.1" min="0" max="1" value='0.75'>
-
-                    </div>
-                </form>
-
-            </div>
-        </div>
-
-        <div class = 'row justify-content-center'>
-            <div class = 'col-8 col-sm-8'>
-
-                <div class = 'alert alert-warning'>
-                    </form>
-                    <label>Constraints</label>
-                    <form id = 'constraints_form' method = 'POST' action = 'constraints' class = 'form-inline'>
-                        <div class = 'content' id = 'section_uploading'>
-                            <div class = 'form-group'>
-                                <input name='file' type="file" accept=".xml" id='constraints_upload' />
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div id = 'annotate' style='display:none'>
-        <div class = 'row justify-content-center pt-3'>
-            <div class = 'col-8 col-sm-8'>
-
-                <form id = 'settings_form' method = 'POST' action = '#' class = 'form'>
-                    <div class="checkbox">
-                        <label>
-                            <input id='annotate_resources' type="checkbox" checked> Annotate Resources
-                        </label>
-                    </div>
-                </form>
-
             </div>
         </div>
     </div>
@@ -122,29 +54,16 @@
             <a id = 'btn_download' class = 'btn btn-danger invisible' href='#'>Download Report</a>
         </div>
     </div>
-
-    <div class = 'row justify-content-center pt-3'>
-        <div class = 'col-12 col-sm-12'>
-            <div id = 'diagram' style = 'display:none'></div>
-        </div>
-    </div>
-
 </div>
 
 <script src='public/js/jquery-3.2.1.min.js'></script>
 <script src='public/js/tether.min.js'></script>
 <script src='public/js/bootstrap.min.js'></script>
 
-<script src='public/js/go.js'></script>
-<script src='public/js/cnet2ad.js'></script>
-<script src='public/js/cnet2ad.graphics.js'></script>
-
 <script>
 
 var btn_process = document.getElementById('btn_process');
 var btn_download = document.getElementById('btn_download');
-var btn_settings = document.getElementById('btn_settings');
-var btn_annotate = document.getElementById('btn_annotate');
 
 var logFilename = null;
 var modFilename = null;
@@ -153,24 +72,13 @@ var constraintsFilename = null;
 
 if( btn_process != null )
     btn_process.onclick = process;
-
-if( btn_settings != null )
-    btn_settings.onclick = function(){
-        $('#settings').toggle('slow');
-    }
-
-if( btn_annotate != null )
-    btn_annotate.onclick = function(){
-        $('#annotate').toggle('slow');
-    }
-
+    
 /*
     Esegui l'upload dei file
 */
 document.getElementById('log_upload').onchange = function(e){
     if( btn_download.className.includes("invisible") == false )
         btn_download.className += ' invisible';
-    $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
     if (file) {
@@ -202,7 +110,6 @@ document.getElementById('log_upload').onchange = function(e){
 document.getElementById('model_upload').onchange = function(e){
     if( btn_download.className.includes("invisible") == false )
         btn_download.className += ' invisible';
-    $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
     if (file) {
@@ -235,7 +142,6 @@ document.getElementById('model_upload').onchange = function(e){
 document.getElementById('ontology_upload').onchange = function(e){
     if( btn_download.className.includes("invisible") == false )
         btn_download.className += ' invisible';
-    $('#diagram').hide();
     //Retrieve the first (and only!) File from the FileList object
     var file = e.target.files[0];
     if (file) {
@@ -265,7 +171,7 @@ document.getElementById('ontology_upload').onchange = function(e){
 }
 
 function process(){
-    console.log( "Parto");
+    console.log( "Initializing");
     if( btn_download.className.includes("invisible") == false )
         btn_download.className += ' invisible';
     $.post( 'verify',
@@ -276,32 +182,35 @@ function process(){
             }
         )
         .done(function( e ) {
-            console.log("Fatto");
+            console.log("Done");
             if(e == "TBI")
             {
                 alert("Funzione non ancora implementata!");
                 return;
             }else{
-                if(strpos(e, 'OOSAG:REPORT') !== false){
+                var countOOSAG = (e.match(/OOSAG:REPORT/g) || []).length;
+                if(countOOSAG !== 0){
                     alert("More than 30% of the log does not follow the rules from the model. Is the model obsolete?")
                 }else{
-                if(strpos(e, 'OAG:REPORT') !== false){
+                var countOAG = (e.match(/OAG:REPORT/g) || []).length;
+                if(countOAG !== 0){
                     alert("Many resources overlaps or activities are executed out of time-sequence. Please check the system, as it may have become faulty")
                 }else{
-                    alert(e);
+                if(e == "ERROR"){
+                    alert("An error as occurred, please contact the system's administrator");
+                }
                 }
                 }
                 report = e;
+                report = report.replace(/OOSAG:REPORT\r/g,"");
+                report = report.replace(/OAG:REPORT\r/g,"");
                 btn_download.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent( report ));
-                btn_download.setAttribute('download', 'flink-1.3.2\log\report.txt');
+                btn_download.setAttribute('download', 'report.txt');
                 btn_download.className = btn_download.className.replace('invisible', '');
             }
         }
     );
-
 }
-            
-Cnet2AD.init('diagram');
 
 </script>
 

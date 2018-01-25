@@ -62,7 +62,7 @@ taskmanager.memory.preallocate: false
 
 parallelism.default: 8
 
-akka.framesize: 20485760 b
+akka.framesize: 72000000 b
 
 akka.ask.timeout: 60 s
 

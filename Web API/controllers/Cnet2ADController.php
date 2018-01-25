@@ -33,6 +33,7 @@ class Cnet2ADController extends Controller {
 
     	// pulisci la cartella di output
     	self::clear();
+        unlink("flink-1.3.2/log/report.txt");
 
         $name_log = $_POST['log_file'];
     	$log = "public/uploads/log/$name_log.mxml";
@@ -41,16 +42,11 @@ class Cnet2ADController extends Controller {
         $name_ont = $_POST['ont_file'];
     	$ont = "public/uploads/ont/$name_ont.owl";
         
-        $cmd = "flink-1.3.2/bin/flink run -c com.pmverification.StreamingJob pmverification-0.9.jar \"$mod\" \"$log\" \"$ont\"";
-        //$output = shell_exec($cmd);
-        //	if (strpos($output, 'ERROR') !== false) {
-        //		echo "pmverification:ERROR";
-        //		return;
-        //	}		
-        //	echo $output;
-
-        echo "TBI";
-
+        $cmd = "flink-1.3.2\\bin\\flink run -c com.pmverification.StreamingJob pmverification-0.9.jar \"$mod\" \"$log\" \"$ont\"";
+        $output = shell_exec($cmd);
+        $myfile = fopen("flink-1.3.2/log/report.txt", "r") or die("ERROR");	
+        echo fread($myfile,filesize("flink-1.3.2/log/report.txt"));
+        fclose($myfile);
     }
 
     function visualize($name){
